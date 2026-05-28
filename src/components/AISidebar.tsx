@@ -23,8 +23,16 @@ export default function AISidebar() {
   const [messages, setMessages] = useState<Message[]>([]);
   const [input, setInput] = useState('');
   const [loading, setLoading] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
   const bottomRef = useRef<HTMLDivElement>(null);
   const topic = getTopicContext(pathname);
+
+  useEffect(() => {
+    const check = () => setIsMobile(window.innerWidth < 768);
+    check();
+    window.addEventListener('resize', check);
+    return () => window.removeEventListener('resize', check);
+  }, []);
 
   useEffect(() => {
     bottomRef.current?.scrollIntoView({ behavior: 'smooth' });
@@ -80,25 +88,56 @@ export default function AISidebar() {
     }
   }
 
+  const panelStyle: React.CSSProperties = isMobile
+    ? {
+        position: 'fixed', top: 0, right: 0, zIndex: 100,
+        width: 'min(20rem, 100vw)', height: '100%',
+        display: 'flex', flexDirection: 'column',
+        borderLeft: '1px solid var(--border)', background: 'var(--surface)',
+        fontFamily: 'system-ui, -apple-system, sans-serif',
+        transform: open ? 'translateX(0)' : 'translateX(100%)',
+        transition: 'transform 220ms ease',
+      }
+    : {
+        width: '18rem', flexShrink: 0, height: '100%',
+        display: 'flex', flexDirection: 'column',
+        borderLeft: '1px solid var(--border)', background: 'var(--surface)',
+        fontFamily: 'system-ui, -apple-system, sans-serif',
+      };
+
   return (
     <>
+      {/* Toggle button */}
       <button
         onClick={() => setOpen((v) => !v)}
         title="AI Tutor"
         style={{
-          position: 'fixed', bottom: '1.25rem', right: '1.25rem', zIndex: 50,
+          position: 'fixed',
+          bottom: '1.25rem',
+          right: open && !isMobile ? 'calc(18rem + 1.25rem)' : '1.25rem',
+          zIndex: 110,
           width: '2.25rem', height: '2.25rem', borderRadius: '50%',
           display: 'flex', alignItems: 'center', justifyContent: 'center',
           fontSize: '0.75rem', fontFamily: 'system-ui, sans-serif', fontWeight: 700,
           background: 'var(--surface2)', border: '1px solid var(--border2)', color: 'var(--muted)',
           cursor: 'pointer', letterSpacing: '0.04em',
+          transition: 'right 220ms ease',
         }}
       >
         {open ? '✕' : 'AI'}
       </button>
 
-      {open && (
-        <div style={{ width: '18rem', flexShrink: 0, height: '100%', display: 'flex', flexDirection: 'column', borderLeft: '1px solid var(--border)', background: 'var(--surface)', fontFamily: 'system-ui, -apple-system, sans-serif' }}>
+      {/* Mobile backdrop */}
+      {isMobile && open && (
+        <div
+          onClick={() => setOpen(false)}
+          style={{ position: 'fixed', inset: 0, zIndex: 90, background: 'rgba(0,0,0,0.6)' }}
+        />
+      )}
+
+      {/* Panel — always rendered on desktop so flex layout is stable; animated on mobile */}
+      {(!isMobile ? open : true) && (
+        <div style={panelStyle}>
           <div style={{ padding: '0.75rem 1rem', borderBottom: '1px solid var(--border)' }}>
             <div style={{ fontSize: '0.78rem', fontWeight: 700, letterSpacing: '0.08em', textTransform: 'uppercase', color: 'var(--muted)' }}>AI Tutor</div>
             <div style={{ fontSize: '0.72rem', color: 'var(--muted)', marginTop: '0.2rem', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>{topic}</div>

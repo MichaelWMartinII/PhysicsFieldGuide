@@ -2,22 +2,41 @@
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { curriculum } from '@/lib/curriculum';
 
 export default function CurriculumNav() {
   const pathname = usePathname();
   const [collapsed, setCollapsed] = useState<Record<string, boolean>>({});
+  const [mobileOpen, setMobileOpen] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const check = () => setIsMobile(window.innerWidth < 768);
+    check();
+    window.addEventListener('resize', check);
+    return () => window.removeEventListener('resize', check);
+  }, []);
+
+  // Close drawer when navigating on mobile
+  useEffect(() => { setMobileOpen(false); }, [pathname]);
 
   function toggle(id: string) {
     setCollapsed((prev) => ({ ...prev, [id]: !prev[id] }));
   }
 
-  return (
-    <nav style={{ width: '13.5rem', flexShrink: 0, height: '100%', overflowY: 'auto', display: 'flex', flexDirection: 'column', borderRight: '1px solid var(--border)', background: 'var(--surface)', fontFamily: 'system-ui, -apple-system, sans-serif', paddingTop: '1rem', paddingBottom: '1rem' }}>
+  const navContent = (
+    <>
       <Link href="/" style={{ padding: '0 1rem 1rem', borderBottom: '1px solid var(--border)', marginBottom: '0.75rem', display: 'block', textDecoration: 'none' }}>
-        <div style={{ fontSize: '0.9rem', fontWeight: 700, color: 'var(--text-heading)', letterSpacing: '-0.01em' }}>Physics: A Field Guide</div>
-        <div style={{ fontSize: '0.68rem', color: 'var(--muted)', marginTop: '0.15rem', letterSpacing: '0.04em' }}>Interactive Textbook</div>
+        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+          <div>
+            <div style={{ fontSize: '0.9rem', fontWeight: 700, color: 'var(--text-heading)', letterSpacing: '-0.01em' }}>Physics: A Field Guide</div>
+            <div style={{ fontSize: '0.68rem', color: 'var(--muted)', marginTop: '0.15rem', letterSpacing: '0.04em' }}>Interactive Textbook</div>
+          </div>
+          {isMobile && (
+            <button onClick={() => setMobileOpen(false)} style={{ background: 'none', border: 'none', cursor: 'pointer', color: 'var(--muted)', fontSize: '1.1rem', padding: '0 0 0 0.5rem', lineHeight: 1 }}>✕</button>
+          )}
+        </div>
       </Link>
 
       <div style={{ padding: '0 0.5rem', marginBottom: '0.5rem' }}>
@@ -86,6 +105,56 @@ export default function CurriculumNav() {
           );
         })}
       </div>
+    </>
+  );
+
+  if (isMobile) {
+    return (
+      <>
+        {/* Hamburger button — always visible on mobile */}
+        <button
+          onClick={() => setMobileOpen(true)}
+          aria-label="Open navigation"
+          style={{
+            position: 'fixed', top: '0.75rem', left: '0.75rem', zIndex: 110,
+            width: '2.25rem', height: '2.25rem', borderRadius: '6px',
+            display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', gap: '4px',
+            background: 'var(--surface2)', border: '1px solid var(--border2)', cursor: 'pointer',
+          }}
+        >
+          <span style={{ display: 'block', width: '14px', height: '1.5px', background: 'var(--muted)' }} />
+          <span style={{ display: 'block', width: '14px', height: '1.5px', background: 'var(--muted)' }} />
+          <span style={{ display: 'block', width: '14px', height: '1.5px', background: 'var(--muted)' }} />
+        </button>
+
+        {/* Backdrop */}
+        {mobileOpen && (
+          <div
+            onClick={() => setMobileOpen(false)}
+            style={{ position: 'fixed', inset: 0, zIndex: 90, background: 'rgba(0,0,0,0.6)' }}
+          />
+        )}
+
+        {/* Slide-in drawer */}
+        <nav style={{
+          position: 'fixed', top: 0, left: 0, zIndex: 100,
+          width: '13.5rem', height: '100%', overflowY: 'auto',
+          display: 'flex', flexDirection: 'column',
+          borderRight: '1px solid var(--border)', background: 'var(--surface)',
+          fontFamily: 'system-ui, -apple-system, sans-serif',
+          paddingTop: '1rem', paddingBottom: '1rem',
+          transform: mobileOpen ? 'translateX(0)' : 'translateX(-100%)',
+          transition: 'transform 220ms ease',
+        }}>
+          {navContent}
+        </nav>
+      </>
+    );
+  }
+
+  return (
+    <nav style={{ width: '13.5rem', flexShrink: 0, height: '100%', overflowY: 'auto', display: 'flex', flexDirection: 'column', borderRight: '1px solid var(--border)', background: 'var(--surface)', fontFamily: 'system-ui, -apple-system, sans-serif', paddingTop: '1rem', paddingBottom: '1rem' }}>
+      {navContent}
     </nav>
   );
 }

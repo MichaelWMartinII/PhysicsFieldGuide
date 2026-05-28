@@ -489,3 +489,43 @@ input[type='range']::-webkit-slider-thumb {
   border: 2px solid var(--surface);
 }
 input[type='range']::-webkit-slider-thumb:hover { background: #7a9bbf; }
+
+/* ─── Mobile ─── */
+@media (max-width: 767px) {
+  .chapter {
+    padding: 4rem 1.1rem 4rem;
+  }
+
+  .chapter h1 {
+    font-size: 1.6rem;
+  }
+
+  .eq {
+    margin: 1.25rem 0;
+    padding: 0.75rem 0.75rem;
+  }
+
+  .eq-numbered {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.25rem;
+  }
+
+  .eq-number {
+    align-self: flex-end;
+  }
+
+  .chapter-field-note {
+    padding: 0 1.1rem;
+    margin-top: -2rem;
+  }
+
+  .tb-problem {
+    padding: 0.85rem 1rem 0.85rem 1.1rem;
+  }
+
+  .prereq {
+    flex-direction: column;
+    gap: 0.4rem;
+  }
+}
