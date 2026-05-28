@@ -70,36 +70,35 @@ export function InteractiveProblem({
     setChatMessages((p) => [...p, assistantMsg]);
 
     try {
-      const res = await fetch('/api/problem-hint', {
+      const res = await fetch('https://elwinransom.michaelwmartinjr.com/api/demo/physics-hint', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           problem: problemText,
           attempt: input || null,
           unit,
-          correct: answer,
           messages: [...chatMessages, userMsg],
         }),
       });
       if (!res.body) throw new Error();
       const reader = res.body.getReader();
       const decoder = new TextDecoder();
-      while (true) {
+      outer: while (true) {
         const { done, value } = await reader.read();
         if (done) break;
         for (const line of decoder.decode(value, { stream: true }).split('\n')) {
           if (!line.startsWith('data: ')) continue;
-          const data = line.slice(6).trim();
-          if (data === '[DONE]') break;
           try {
-            const delta = JSON.parse(data).message?.content ?? '';
-            if (delta) {
+            const msg = JSON.parse(line.slice(6).trim());
+            if (msg.type === 'done') break outer;
+            if (msg.type === 'token' && msg.content) {
               setChatMessages((prev) => {
                 const next = [...prev];
-                next[next.length - 1] = { ...next[next.length - 1], content: next[next.length - 1].content + delta };
+                next[next.length - 1] = { ...next[next.length - 1], content: next[next.length - 1].content + msg.content };
                 return next;
               });
             }
+            if (msg.type === 'error') throw new Error(msg.content);
           } catch {}
         }
       }
