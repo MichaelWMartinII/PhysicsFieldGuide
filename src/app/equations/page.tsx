@@ -57,7 +57,7 @@ export default function EquationsPage() {
   return (
     <div style={{ minHeight: '100vh', background: 'var(--bg)' }}>
       {/* Header */}
-      <div style={{ padding: '2rem 2rem 1.25rem', borderBottom: '1px solid var(--border)' }}>
+      <div className="page-header" style={{ borderBottom: '1px solid var(--border)' }}>
         <div style={{ fontFamily: 'system-ui, sans-serif', fontSize: '0.68rem', fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase', color: 'var(--muted)', marginBottom: '0.3rem' }}>
           Reference
         </div>
@@ -104,7 +104,7 @@ export default function EquationsPage() {
       </div>
 
       {/* Equation list */}
-      <div style={{ padding: '1.5rem 2rem 3rem' }}>
+      <div className="page-body">
         {grouped.length === 0 && (
           <p style={{ fontFamily: 'Georgia, serif', color: 'var(--muted)', fontStyle: 'italic', marginTop: '2rem' }}>
             No equations match your search.
@@ -125,7 +125,7 @@ export default function EquationsPage() {
             }}>
               {SECTION_LABELS[id]}
             </h2>
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(340px, 1fr))', gap: '0.65rem' }}>
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(min(100%, 340px), 1fr))', gap: '0.65rem' }}>
               {eqs.map(eq => <EquationCard key={eq.id} eq={eq} />)}
             </div>
           </section>

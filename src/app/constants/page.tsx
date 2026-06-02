@@ -17,7 +17,7 @@ export default function ConstantsPage() {
   return (
     <div style={{ minHeight: '100vh', background: 'var(--bg)' }}>
       {/* Header */}
-      <div style={{ padding: '2rem 2rem 1.25rem', borderBottom: '1px solid var(--border)' }}>
+      <div className="page-header" style={{ borderBottom: '1px solid var(--border)' }}>
         <div style={{ fontFamily: 'system-ui, sans-serif', fontSize: '0.68rem', fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase', color: 'var(--muted)', marginBottom: '0.3rem' }}>
           Reference
         </div>
@@ -44,7 +44,7 @@ export default function ConstantsPage() {
       </div>
 
       {/* Grid */}
-      <div style={{ padding: '1.5rem 1.75rem 3rem', display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(320px, 1fr))', gap: '1rem' }}>
+      <div className="page-body" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(min(100%, 320px), 1fr))', gap: '1rem' }}>
         {visible.map(c => (
           <ConstantCard key={c.symbol} constant={c} />
         ))}

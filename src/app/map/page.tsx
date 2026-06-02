@@ -189,7 +189,7 @@ export default function MapPage() {
 
   return (
     <div style={{ background: 'var(--bg)', minHeight: '100vh', display: 'flex', flexDirection: 'column' }}>
-      <div style={{ padding: '1.5rem 2rem 0.75rem', borderBottom: '1px solid var(--border)' }}>
+      <div className="page-header" style={{ borderBottom: '1px solid var(--border)', paddingBottom: '0.75rem' }}>
         <div style={{ fontFamily: 'system-ui, sans-serif', fontSize: '0.68rem', fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase', color: 'var(--muted)', marginBottom: '0.3rem' }}>
           PhysicsLab
         </div>
@@ -198,6 +198,9 @@ export default function MapPage() {
         </h1>
         <p style={{ margin: '0.3rem 0 0', fontSize: '0.82rem', color: 'var(--muted)', fontFamily: 'system-ui, sans-serif' }}>
           Hover a node to see prerequisites <span style={{ color: '#b86f4b' }}>●</span> and dependents <span style={{ color: '#3d7a6b' }}>●</span> &nbsp;·&nbsp; Click to open chapter &nbsp;·&nbsp; Dimmed nodes are planned but not yet built
+        </p>
+        <p className="map-mobile-hint" style={{ margin: '0.4rem 0 0', fontSize: '0.78rem', color: 'var(--muted)', fontFamily: 'system-ui, sans-serif', display: 'none' }}>
+          Best viewed on a larger screen — use landscape mode or open on desktop.
         </p>
       </div>
 

@@ -94,7 +94,7 @@ export default function SearchPage() {
   return (
     <div style={{ minHeight: '100vh', background: 'var(--bg)', display: 'flex', flexDirection: 'column' }}>
       {/* Header / search box */}
-      <div style={{ padding: '2rem 2rem 1.25rem', borderBottom: '1px solid var(--border)' }}>
+      <div className="page-header" style={{ borderBottom: '1px solid var(--border)' }}>
         <div style={{ fontFamily: 'system-ui, sans-serif', fontSize: '0.68rem', fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase', color: 'var(--muted)', marginBottom: '0.5rem' }}>
           Search
         </div>
@@ -144,7 +144,7 @@ export default function SearchPage() {
       </div>
 
       {/* Results */}
-      <div style={{ flex: 1, padding: '1.25rem 2rem 3rem' }}>
+      <div className="page-body" style={{ flex: 1 }}>
         {query.length >= 2 && results.length === 0 && (
           <p style={{ fontFamily: 'Georgia, serif', color: 'var(--muted)', fontStyle: 'italic', marginTop: '1rem' }}>
             No results for &ldquo;{query}&rdquo;.
