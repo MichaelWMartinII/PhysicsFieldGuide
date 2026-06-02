@@ -199,12 +199,35 @@ export default function MapPage() {
         <p style={{ margin: '0.3rem 0 0', fontSize: '0.82rem', color: 'var(--muted)', fontFamily: 'system-ui, sans-serif' }}>
           Hover a node to see prerequisites <span style={{ color: '#b86f4b' }}>●</span> and dependents <span style={{ color: '#3d7a6b' }}>●</span> &nbsp;·&nbsp; Click to open chapter &nbsp;·&nbsp; Dimmed nodes are planned but not yet built
         </p>
-        <p className="map-mobile-hint" style={{ margin: '0.4rem 0 0', fontSize: '0.78rem', color: 'var(--muted)', fontFamily: 'system-ui, sans-serif', display: 'none' }}>
-          Best viewed on a larger screen — use landscape mode or open on desktop.
-        </p>
       </div>
 
-      <div style={{ flex: 1, position: 'relative', overflow: 'hidden' }}>
+      {/* Mobile fallback — shown instead of SVG on small screens */}
+      <div className="map-mobile-fallback" style={{ display: 'none', padding: '2rem 1.25rem', fontFamily: 'system-ui, sans-serif' }}>
+        <p style={{ fontSize: '0.9rem', color: 'var(--muted)', lineHeight: 1.7, marginBottom: '1.25rem' }}>
+          The concept map is an interactive force-directed graph designed for desktop. It shows how every topic in the curriculum connects to its prerequisites.
+        </p>
+        <p style={{ fontSize: '0.9rem', color: 'var(--muted)', lineHeight: 1.7, marginBottom: '1.5rem' }}>
+          On mobile, the <a href="/roadmap" style={{ color: 'var(--def-accent)', textDecoration: 'underline', textUnderlineOffset: '3px' }}>curriculum roadmap</a> gives you the same overview in a format that works here.
+        </p>
+        <a
+          href="/roadmap"
+          style={{
+            display: 'inline-block',
+            padding: '0.6rem 1.25rem',
+            borderRadius: '6px',
+            border: '1px solid var(--def-accent)',
+            color: 'var(--def-accent)',
+            textDecoration: 'none',
+            fontSize: '0.85rem',
+            fontWeight: 600,
+          }}
+        >
+          View curriculum roadmap →
+        </a>
+      </div>
+
+      {/* Desktop SVG map */}
+      <div className="map-desktop-only" style={{ flex: 1, position: 'relative', overflow: 'hidden' }}>
         <svg
           viewBox="0 0 1300 900"
           style={{ width: '100%', height: 'calc(100vh - 90px)', display: 'block' }}
