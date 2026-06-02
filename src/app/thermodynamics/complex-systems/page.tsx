@@ -15,7 +15,7 @@ export default function ComplexSystemsPage() {
         and scaling laws that transcend microscopic details.
       </p>
 
-      <Prerequisites items={['Statistical mechanics (Ch. SM)', 'Renormalization group (Ch. RG)', 'Probability & statistics (Ch. Prob)', 'Nonlinear dynamics (Ch. Chaos)']} />
+      <Prerequisites items={['Statistical mechanics (Ch. S)', 'Renormalization group (Ch. RG)', 'Probability and statistics (Ch. PR)', 'Nonlinear dynamics (Ch. C)']} />
 
       <LearningGoals items={[
         'Identify power-law distributions on a log-log plot and explain why they have no characteristic scale, dominating statistics with rare extreme events.',

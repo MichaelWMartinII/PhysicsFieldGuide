@@ -14,7 +14,7 @@ export function ChapterFieldNote() {
 
   return (
     <div className="chapter-field-note">
-      <HistoryNote title={note.title} year={note.year}>
+      <HistoryNote title={note.title} year={note.year} source={note.source} sourceUrl={note.sourceUrl}>
         {note.body}
       </HistoryNote>
     </div>

@@ -14,7 +14,7 @@ export default function ProbabilityPage() {
         uses — from analyzing data to formulating quantum mechanics.
       </p>
 
-      <Prerequisites items={['Calculus (Ch. 22)', 'Basic probability concepts']} />
+      <Prerequisites items={['Calculus (Ch. 25)', 'Basic probability concepts']} />
 
       <LearningGoals items={[
         'Identify the Gaussian, Poisson, Maxwell-Boltzmann, and Lorentzian distributions and their physical applications.',
@@ -159,7 +159,7 @@ export default function ProbabilityPage() {
         </InteractiveProblem>
 
         <Problem n={3} difficulty="easy"
-          solution={<>Maxwell-Boltzmann speed distribution: f(v) = 4πn(m/2πk_BT)^(3/2) v² e^(−mv²/2k_BT). Mean speed: ⟨v⟩ = √(8k_BT/πm) = √(8×1.38×10⁻²³×300/π×4.65×10⁻²⁶) = √(2.26×10⁴) = 476 m/s (for N₂, m=28u). RMS: v_rms = √(3k_BT/m) = √(3×1.38×10⁻²³×300/4.65×10⁻²⁶) = √(2.67×10⁴) = 517 m/s. Most probable: v_mp = √(2k_BT/m) = 422 m/s. Ratio v_mp : ⟨v⟩ : v_rms = √2 : √(8/π) : √3 = 1 : 1.128 : 1.225. Sound speed in N₂: c_s = √(γk_BT/m) = √(1.4×k_BT/m) = 353 m/s ≈ 0.83 v_rms. The distribution tail (high-v) matters for escaping Earth&apos;s atmosphere — hydrogen escapes, N₂ does not.</>}>
+          solution={<>Maxwell-Boltzmann speed distribution: f(v) = 4πn(m/2πk_BT)^(3/2) v² e^(−mv²/2k_BT). Mean speed: ⟨v⟩ = √(8k_BT/πm) = √(8×1.38×10⁻²³×300/π×4.65×10⁻²⁶) = √(2.26×10⁴) = 476 m/s (for N₂, m=28u). RMS: v_rms = √(3k_BT/m) = √(3×1.38×10⁻²³×300/4.65×10⁻²⁶) = √(2.67×10⁴) = 517 m/s. Most probable: v_mp = √(2k_BT/m) = 422 m/s. Ratio v_mp : ⟨v⟩ : v_rms = √2 : √(8/π) : √3 = 1 : 1.128 : 1.225. Sound speed in N₂: c_s = √(γk_BT/m) = √(1.4×k_BT/m) = 353 m/s ≈ 0.683 v_rms (= √(γ/3) × v_rms = √(1.4/3)). The distribution tail (high-v) matters for escaping Earth&apos;s atmosphere — hydrogen escapes, N₂ does not.</>}>
           For nitrogen molecules (M = 28 g/mol) at T = 300 K, find the mean, rms, and most probable speeds. Compare to the speed of sound.
         </Problem>
 
@@ -169,7 +169,7 @@ export default function ProbabilityPage() {
         </Problem>
 
         <Problem n={5} difficulty="medium"
-          solution={<>Gaussian error propagation for g = 2L/T² (pendulum measurement): σ_g² = (∂g/∂L)² σ_L² + (∂g/∂T)² σ_T². ∂g/∂L = 2/T² = g/L. ∂g/∂T = −4L/T³ = −2g/T. (σ_g/g)² = (σ_L/L)² + (2σ_T/T)². For L=1.000 m (σ_L=1mm), T=2.007 s (σ_T=2ms): (σ_g/g)² = (10⁻³)² + (2×10⁻³/2.007)² = 10⁻⁶ + 9.96×10⁻⁷ ≈ 2×10⁻⁶. σ_g/g ≈ 0.14%. g = 2×1.000/2.007² = 0.9930 m/s² (expected: 9.80 m/s² — formula needs g_acc = 4π²L/T² not 2L/T²). Correct: g = 4π²L/T² = 4π²×1/2.007² = 9.807 m/s² ✓. Systematic errors (arc angle, air resistance) need separate analysis.</>}>
+          solution={<>Gaussian error propagation for g = 4π²L/T²: σ_g² = (∂g/∂L)² σ_L² + (∂g/∂T)² σ_T². Since ∂g/∂L = g/L and ∂g/∂T = −2g/T, (σ_g/g)² = (σ_L/L)² + (2σ_T/T)². For L=1.000 m, T=2.007 s: g = 4π²×1.000/2.007² = 9.807 m/s². Relative uncertainty = √[(0.001/1.000)² + (2×0.002/2.007)²] = 0.00223, so σ_g = 0.0219 m/s². Final: g = 9.807 ± 0.022 m/s², before systematic corrections such as finite amplitude and air resistance.</>}>
           Propagate errors for the pendulum measurement g = 4π²L/T²: length L = 1.000 ± 0.001 m, period T = 2.007 ± 0.002 s. What is σ_g?
         </Problem>
 

@@ -14,7 +14,7 @@ export default function PerturbationPage() {
         perturbation theory gives transition rates for interactions with radiation.
       </p>
 
-      <Prerequisites items={['Quantum mechanics (Ch. 20)', 'Spin & angular momentum (Ch. SP)', 'Linear algebra']} />
+      <Prerequisites items={['Quantum mechanics (Ch. 22)', 'Spin & angular momentum (Ch. SP)', 'Linear algebra']} />
 
       <LearningGoals items={[
         'Compute first- and second-order energy corrections using time-independent perturbation theory.',

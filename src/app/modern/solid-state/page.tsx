@@ -14,7 +14,7 @@ export default function SolidStatePage() {
         semiconductors, and superconductors — unreachable in any single-particle picture.
       </p>
 
-      <Prerequisites items={['Quantum mechanics (Ch. 20)', 'Statistical mechanics (Ch. S)', 'Fourier analysis (Ch. F)']} />
+      <Prerequisites items={['Quantum mechanics (Ch. 22)', 'Statistical mechanics (Ch. S)', 'Fourier analysis (Ch. F)']} />
 
       <LearningGoals items={[
         'Apply Bloch\'s theorem to describe electron states in a periodic potential using crystal momentum and band index.',

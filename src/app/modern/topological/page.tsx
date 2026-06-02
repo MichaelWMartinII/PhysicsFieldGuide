@@ -15,7 +15,7 @@ export default function TopologicalPage() {
         be removed by any smooth perturbation.
       </p>
 
-      <Prerequisites items={['Solid-state physics (Ch. SS)', 'Quantum mechanics (Ch. 20)', 'Group theory (Ch. GT)', 'Linear algebra (Ch. LA)']} />
+      <Prerequisites items={['Solid-state physics (Ch. SS)', 'Quantum mechanics (Ch. 22)', 'Group theory (Ch. GT)', 'Linear algebra (Ch. LA)']} />
 
       <LearningGoals items={[
         'Define the Berry phase and Berry curvature and compute them for a spin-1/2 in a rotating magnetic field.',

@@ -14,7 +14,7 @@ export default function MagnetismPage() {
         materials display a rich variety of quantum phases driven by exchange interactions.
       </p>
 
-      <Prerequisites items={['Solid-state physics (Ch. SS)', 'Statistical mechanics (Ch. S)', 'Quantum mechanics (Ch. 20)', 'Group theory (Ch. GT)']} />
+      <Prerequisites items={['Solid-state physics (Ch. SS)', 'Statistical mechanics (Ch. S)', 'Quantum mechanics (Ch. 22)', 'Group theory (Ch. GT)']} />
 
       <LearningGoals items={[
         'Derive the Brillouin function and Curie law for a paramagnet and identify when saturation occurs.',

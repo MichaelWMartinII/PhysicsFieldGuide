@@ -14,7 +14,7 @@ export default function WaveEquationPage() {
         and dispersive packets — appear across all of physics.
       </p>
 
-      <Prerequisites items={['Wave properties (Ch. 8)', 'Fourier analysis (Ch. F)', 'Partial derivatives']} />
+      <Prerequisites items={['Wave properties (Ch. 9)', 'Fourier analysis', 'Partial derivatives']} />
 
       <LearningGoals items={[
         'Derive the 1D wave equation from Newton\'s second law applied to a vibrating string.',

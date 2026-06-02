@@ -14,7 +14,7 @@ export default function NonequilibriumPage() {
         Boltzmann to characterize driven, dissipative, and fluctuating systems.
       </p>
 
-      <Prerequisites items={['Statistical mechanics (Ch. S)', 'Irreversible processes (Ch. IR)', 'Probability (Ch. PR)', 'Differential equations (Ch. DE)']} />
+      <Prerequisites items={['Statistical mechanics (Ch. S)', 'Irreversible processes (Ch. IR)', 'Probability (Ch. PR)', 'Differential equations (Ch. 26)']} />
 
       <LearningGoals items={[
         'Write the Boltzmann transport equation and explain the H-theorem as a derivation of the second law from molecular dynamics.',

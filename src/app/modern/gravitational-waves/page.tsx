@@ -14,7 +14,7 @@ export default function GravitationalWavesPage() {
         a new observational window on black holes, neutron stars, and the Big Bang.
       </p>
 
-      <Prerequisites items={['General relativity (Ch. GR)', 'Tensor calculus (Ch. TC)', 'Electromagnetic waves (Ch. EM-waves)', 'Special relativity (Ch. SR)']} />
+      <Prerequisites items={['General relativity (Ch. GR)', 'Tensor calculus (Ch. TC)', 'Electromagnetic waves (Ch. W)', 'Special relativity (Ch. 21)']} />
 
       <LearningGoals items={[
         'Derive the linearized Einstein equations in Lorenz gauge and identify the two GW polarizations.',

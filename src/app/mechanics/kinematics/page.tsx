@@ -2,7 +2,8 @@ import ProjectileMotion from '@/components/sims/ProjectileMotion';
 import Projectile3DClient from '@/components/sims/Projectile3DClient';
 import {
   Definition, Theorem, WorkedExample, Step,
-  PracticeProblems, Problem, InteractiveProblem, EqNumbered, Figure, Prerequisites, Takeaways, LearningGoals
+  PracticeProblems, Problem, InteractiveProblem, EqNumbered, Figure, Prerequisites, Takeaways, LearningGoals, HistoryNote,
+  Misconception, ApplicationNote
 } from '@/components/textbook';
 
 export default function KinematicsPage() {
@@ -24,10 +25,36 @@ export default function KinematicsPage() {
 
       <h2>2.1 Motion in One Dimension</h2>
 
+      <Misconception wrong="Velocity and acceleration always point in the same direction.">
+        They can point in any direction relative to each other. A ball thrown upward has upward velocity and downward acceleration
+        simultaneously. A car braking has forward velocity and backward acceleration. The angle between them determines whether
+        the object is speeding up (same direction), slowing down (opposite), or changing direction (perpendicular). Confusing
+        velocity with acceleration is one of the most common sources of sign errors in mechanics problems.
+      </Misconception>
+
+      <ApplicationNote title="GPS satellites and projectile tracking">
+        Every GPS satellite's position is predicted using kinematic equations modified for general relativity — the satellites
+        run fast enough and high enough that relativistic corrections matter at the meter level. Artillery trajectories still
+        use the same equations Galileo derived, corrected for Earth's rotation via the Coriolis acceleration. Sports analytics
+        companies track every batted ball in real time: radar measures the initial velocity, and the rest is kinematic computation.
+      </ApplicationNote>
+
       <p>
         Kinematics is the branch of mechanics that describes motion in terms of position, velocity, and acceleration
         — without reference to the forces that cause that motion. Before Newton can tell us <em>why</em> something
-        accelerates, kinematics gives us the language to describe <em>how</em> it moves.
+        accelerates, kinematics gives us the language to describe <em>how</em> it moves. That separation is why
+        <HistoryNote
+          trigger="Galileo's inclined planes"
+          year="1638"
+          title="Slowing motion down"
+          source="Galileo Galilei, Dialogues Concerning Two New Sciences."
+          furtherReading={[{ label: "Galileo Galilei", url: "https://en.wikipedia.org/wiki/Galileo_Galilei" }]}
+        >
+          Free fall in Galileo's day lasted a fraction of a second — too fast for the water clocks of the era. Galileo understood that tilting a ramp would slow the ball without
+          changing the underlying mathematics of accelerated motion. He polished his ramps, timed them with water flowing into a bucket, and weighed the water to measure intervals.
+          His results showed that distance grows as the square of time. He was sixty-nine years old and under house arrest when he published the Discourses — the book where kinematics
+          first appears in something like its modern form.
+        </HistoryNote> matter so much: they made motion measurable before force was understood.
       </p>
 
       <Definition number="2.1" title="Average and Instantaneous Velocity">
@@ -89,7 +116,8 @@ export default function KinematicsPage() {
       <EqNumbered number="2.5" latex="y = x\tan\theta - \frac{gx^2}{2v_0^2\cos^2\theta}" />
 
       <p>
-        This is a downward-opening parabola — the trajectory is parabolic. We can also derive closed-form
+        This is a downward-opening parabola — the trajectory is parabolic. This result helped overturn the older
+        Aristotelian picture that horizontal motion and falling motion belonged to different categories. We can also derive closed-form
         expressions for range R, maximum height H, and time of flight T:
       </p>
 

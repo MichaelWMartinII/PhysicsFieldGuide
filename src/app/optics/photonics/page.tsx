@@ -15,7 +15,7 @@ export default function PhotonicsPage() {
         photonics bridges classical electrodynamics and quantum optics.
       </p>
 
-      <Prerequisites items={['EM wave propagation (Ch. EM-waves)', 'Wave optics (Ch. WO)', 'Lasers (Ch. Las)', 'Solid-state physics (Ch. SS)']} />
+      <Prerequisites items={['Electromagnetic wave propagation (Ch. W)', 'Wave optics (Ch. 20)', 'Lasers (Ch. LZ)', 'Solid-state physics (Ch. SS)']} />
 
       <LearningGoals items={[
         'Calculate the numerical aperture, V-number, and single-mode condition for a step-index optical fibre, and relate GVD β₂ to pulse broadening.',
@@ -83,7 +83,7 @@ export default function PhotonicsPage() {
         </p>
         <Step label="Quarter-wave condition:">d_GaAs = λ/(4n_GaAs) = 850nm/(4×3.6) = 59.0 nm. d_AlAs = λ/(4n_AlAs) = 850nm/(4×3.0) = 70.8 nm. Total period: Λ = d_GaAs + d_AlAs = 129.8 nm.</Step>
         <Step label="Reflectivity of N pairs (n₁/n₂ = AlAs/GaAs):">For N pairs with n_s = GaAs substrate: R_N = [(1 − (n₁/n₂)^(2N)(n_s/n_0)) / (1 + (n₁/n₂)^(2N)(n_s/n_0))]². Stop-band center: high reflectivity region. (n₁/n₂)^(2N) = (3.0/3.6)^(2N) = 0.833^(2N).</Step>
-        <Step label="Number of pairs for R = 99%:">R &gt; 0.99 requires (n₁/n₂)^(2N) × (n_s/n_0) ≫ 1. For n_s = 3.6, n_0 = 1 (air): (3.0/3.6)^(2N) × 3.6 &gt; threshold. Try N = 20: (0.833)^40 × 3.6 = 2.8×10⁻⁴ × 3.6 ≈ 10⁻³. R = (1−10⁻³)²/(1+10⁻³)² ≈ 99.6%. N = 15 gives ~98%; N = 20 gives ~99.6%. A VCSEL (vertical-cavity surface-emitting laser) uses two 20-pair DBRs with a half-wavelength GaAs active cavity — threshold current ~1 mA, used in fiber optic transceivers and LiDAR (iPhone).</Step>
+        <Step label="Number of pairs for R = 99%:">R &gt; 0.99 requires (n₁/n₂)^(2N) × (n_s/n_0) ≫ 1. For n_s = 3.6, n_0 = 1 (air): (3.0/3.6)^(2N) × 3.6 &gt; threshold. Try N = 20: (0.833)^40 × 3.6 = 6.8×10⁻⁴ × 3.6 ≈ 2.4×10⁻³. R ≈ (1 − 2×2.4×10⁻³) ≈ 99.1%. N = 15 gives ~98%; N = 20 gives ~99.6%. A VCSEL (vertical-cavity surface-emitting laser) uses two 20-pair DBRs with a half-wavelength GaAs active cavity — threshold current ~1 mA, used in fiber optic transceivers and LiDAR (iPhone).</Step>
         <Step label="Stopband width:">Δλ/λ = (4/π)arcsin((n₁−n₂)/(n₁+n₂)) ≈ (4/π)(n₁−n₂)/(n₁+n₂) = (4/π)(0.6/6.6) ≈ 0.115. Δλ ≈ 98 nm — very wide stopband useful for broadband reflectors.</Step>
       </WorkedExample>
 

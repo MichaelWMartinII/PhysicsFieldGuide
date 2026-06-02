@@ -1,12 +1,12 @@
 import {
   Definition, Theorem, WorkedExample, Step,
-  PracticeProblems, Problem, InteractiveProblem, EqNumbered, Takeaways, LearningGoals
+  PracticeProblems, Problem, InteractiveProblem, EqNumbered, Takeaways, LearningGoals, HistoryNote
 } from '@/components/textbook';
 
 export default function VectorsPage() {
   return (
     <div className="chapter">
-      <div className="chapter-label" style={{ color: '#06b6d4' }}>Mathematics for Physics · Chapter 20</div>
+      <div className="chapter-label" style={{ color: '#06b6d4' }}>Mathematics for Physics · Chapter 24</div>
       <h1>Vectors and Scalars</h1>
       <p className="subtitle">
         Physics quantities fall into two categories: scalars, which are fully described by a
@@ -22,7 +22,7 @@ export default function VectorsPage() {
         'Recognize vector fields and compute the gradient of a scalar field.',
       ]} />
 
-      <h2>20.1 Scalars and Vectors</h2>
+      <h2>24.1 Scalars and Vectors</h2>
 
       <p>
         A <strong>scalar</strong> is a quantity with magnitude but no direction: mass, temperature,
@@ -32,10 +32,22 @@ export default function VectorsPage() {
       <p>
         A <strong>vector</strong> is a quantity with both magnitude and direction: displacement,
         velocity, acceleration, force, momentum, electric field. We write vectors in bold (
-        <strong>v</strong>) or with an arrow (v⃗). The magnitude of <strong>v</strong> is |v| or v.
+        <strong>v</strong>) or with an arrow (v⃗).
+        <HistoryNote
+          trigger="Modern vector notation"
+          year="1901"
+          title="Gibbs and Wilson simplify physics notation"
+          source="J. Willard Gibbs and Edwin Bidwell Wilson, Vector Analysis."
+          sourceUrl="https://openlibrary.org/books/OL20512974M/Vector_Analysis_A_Text-book_for_the_Use_of_Students_of_Mathematics_Physics_Founded_Upon_the_..."
+          furtherReading={[{ label: "History of vector calculus", url: "https://en.wikipedia.org/wiki/History_of_quaternions#Vector_analysis" }, { label: "Josiah Willard Gibbs", url: "https://en.wikipedia.org/wiki/Josiah_Willard_Gibbs" }]}
+        >
+          Before Gibbs, physicists who needed three-dimensional quantities often used quaternions — Hamilton's four-dimensional algebra. It worked but was clumsy, and the quaternion
+          community guarded it fiercely. Gibbs quietly developed a cleaner vector analysis and circulated his notes informally for years before Edwin Wilson turned them into a textbook
+          in 1901. The dot product, cross product, gradient, divergence, and curl — the notation physics still uses — all come from that book. The quaternionists never quite forgave him.
+        </HistoryNote> The magnitude of <strong>v</strong> is |v| or v.
       </p>
 
-      <Definition number="20.1" title="Vector Components">
+      <Definition number="24.1" title="Vector Components">
         In 3D Cartesian coordinates, a vector <strong>A</strong> is written in terms of unit
         vectors î, ĵ, k̂ along the x, y, z axes:
         <span style={{ display: 'block', textAlign: 'center', marginTop: '0.5rem', fontStyle: 'italic' }}>
@@ -52,7 +64,7 @@ export default function VectorsPage() {
         of the second vector before adding.
       </p>
 
-      <WorkedExample number="20.1" title="Resultant Force from Two Applied Forces">
+      <WorkedExample number="24.1" title="Resultant Force from Two Applied Forces">
         <p>
           Force <strong>F₁</strong> = 30 N at 40° above the +x axis. Force <strong>F₂</strong> = 50 N
           at 120° above the +x axis. Find the resultant.
@@ -64,14 +76,14 @@ export default function VectorsPage() {
         <Step label="Direction:">θ = arctan(62.58/−2.02) = 180° − 88.1° = 91.8° above +x axis</Step>
       </WorkedExample>
 
-      <h2>20.2 The Dot Product</h2>
+      <h2>24.2 The Dot Product</h2>
 
       <p>
         The <strong>dot product</strong> (scalar product) of two vectors gives a scalar measuring
         how much one vector projects onto another:
       </p>
 
-      <EqNumbered number="20.1">A · B = |A||B| cos θ = A_x B_x + A_y B_y + A_z B_z</EqNumbered>
+      <EqNumbered number="24.1">A · B = |A||B| cos θ = A_x B_x + A_y B_y + A_z B_z</EqNumbered>
 
       <p>
         Key properties: the dot product is zero when the vectors are perpendicular (cos 90° = 0),
@@ -85,7 +97,7 @@ export default function VectorsPage() {
         magnetic flux Φ_B = <strong>B</strong>·<strong>A</strong>.
       </p>
 
-      <Definition number="20.2" title="Finding the Angle Between Vectors">
+      <Definition number="24.2" title="Finding the Angle Between Vectors">
         From the dot product formula, the angle θ between two vectors:
         <span style={{ display: 'block', textAlign: 'center', marginTop: '0.5rem', fontStyle: 'italic' }}>
           cos θ = (A · B) / (|A| |B|)
@@ -93,7 +105,7 @@ export default function VectorsPage() {
         If the dot product is positive: θ {'<'} 90°. Zero: perpendicular. Negative: θ {'>'} 90°.
       </Definition>
 
-      <WorkedExample number="20.2" title="Work Done by a Force">
+      <WorkedExample number="24.2" title="Work Done by a Force">
         <p>
           A force <strong>F</strong> = (3î + 4ĵ) N acts on an object displaced by
           Δ<strong>r</strong> = (5î − 2ĵ) m. Find the work done.
@@ -102,14 +114,14 @@ export default function VectorsPage() {
         <Step label="Alternatively:">|F| = 5 N, |Δr| = √29 m. cos θ = 7/(5√29) → θ = 74.9°. W = FΔr cos θ = 5√29 × 7/(5√29) = 7 J ✓</Step>
       </WorkedExample>
 
-      <h2>20.3 The Cross Product</h2>
+      <h2>24.3 The Cross Product</h2>
 
       <p>
         The <strong>cross product</strong> (vector product) produces a vector perpendicular to both
         input vectors, with magnitude equal to the area of the parallelogram they span:
       </p>
 
-      <EqNumbered number="20.2">|A × B| = |A||B| sin θ</EqNumbered>
+      <EqNumbered number="24.2">|A × B| = |A||B| sin θ</EqNumbered>
 
       <p>
         Direction: right-hand rule — curl the fingers from <strong>A</strong> toward <strong>B</strong>,
@@ -117,7 +129,7 @@ export default function VectorsPage() {
         Important: the cross product is <em>anti-commutative</em>: B × A = −(A × B).
       </p>
 
-      <Theorem number="20.1" title="Cross Product in Component Form">
+      <Theorem number="24.1" title="Cross Product in Component Form">
         <span style={{ display: 'block', fontStyle: 'italic', textAlign: 'center', marginTop: '0.3rem', marginBottom: '0.3rem' }}>
           A × B = (A_y B_z − A_z B_y)î − (A_x B_z − A_z B_x)ĵ + (A_x B_y − A_y B_x)k̂
         </span>
@@ -132,7 +144,7 @@ export default function VectorsPage() {
         magnetic field from a current element d<strong>B</strong> = (μ₀I/4π)(d<strong>l</strong> × r̂/r²).
       </p>
 
-      <WorkedExample number="20.3" title="Torque as a Cross Product">
+      <WorkedExample number="24.3" title="Torque as a Cross Product">
         <p>
           A force <strong>F</strong> = (2î + 3ĵ − k̂) N is applied at position
           <strong>r</strong> = (î − 2ĵ + 3k̂) m from the pivot. Find the torque.
@@ -144,7 +156,7 @@ export default function VectorsPage() {
         <Step label="Result:"><strong>τ</strong> = (−7î + 7ĵ + 7k̂) N·m &nbsp; |τ| = 7√3 ≈ 12.1 N·m</Step>
       </WorkedExample>
 
-      <h2>20.4 Fields as Vector Functions</h2>
+      <h2>24.4 Fields as Vector Functions</h2>
 
       <p>
         In physics, a <strong>vector field</strong> assigns a vector to every point in space.
@@ -160,7 +172,7 @@ export default function VectorsPage() {
         The electric field is the negative gradient of the potential: <strong>E</strong> = −∇V.
       </p>
 
-      <Definition number="20.3" title="Common Traps">
+      <Definition number="24.3" title="Common Traps">
         <ul style={{ marginTop: '0.4rem' }}>
           <li><strong>Vectors are not just magnitudes:</strong> direction and components matter.</li>
           <li><strong>Dot products produce scalars:</strong> cross products produce vectors perpendicular to both inputs.</li>
@@ -169,7 +181,7 @@ export default function VectorsPage() {
         </ul>
       </Definition>
 
-      <PracticeProblems section="20.1–20.4 Vectors">
+      <PracticeProblems section="24.1–24.4 Vectors">
         <InteractiveProblem n={1} difficulty="easy"
           answer={62.5} unit="N" tolerance={0.02}
           hints={['Break into components, add components, find magnitude.']}

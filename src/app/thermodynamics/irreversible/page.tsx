@@ -14,7 +14,7 @@ export default function IrreversiblePage() {
         heat conduction, diffusion, and viscosity — the transport coefficients.
       </p>
 
-      <Prerequisites items={['Laws of thermodynamics (Ch. 12)', 'Statistical mechanics (Ch. S)', 'Partial derivatives']} />
+      <Prerequisites items={['Laws of thermodynamics (Ch. 14)', 'Statistical mechanics (Ch. S)', 'Partial derivatives']} />
 
       <LearningGoals items={[
         'Express entropy production rate as a sum of flux-force products and state why it is non-negative.',

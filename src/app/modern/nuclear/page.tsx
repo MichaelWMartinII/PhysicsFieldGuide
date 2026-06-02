@@ -14,7 +14,7 @@ export default function NuclearPage() {
         applied to the strong and weak nuclear forces.
       </p>
 
-      <Prerequisites items={['Quantum mechanics (Ch. 20)', 'Atomic structure (Ch. 21)', 'Special relativity (Ch. 19)']} />
+      <Prerequisites items={['Quantum mechanics (Ch. 22)', 'Atomic structure (Ch. 23)', 'Special relativity (Ch. 21)']} />
 
       <LearningGoals items={[
         'Calculate nuclear binding energies using the semi-empirical Bethe-Weizsäcker mass formula and identify the five contributing terms.',
@@ -145,10 +145,10 @@ export default function NuclearPage() {
 
       <PracticeProblems section="N.1–N.3 Nuclear Physics">
         <InteractiveProblem n={1} difficulty="easy"
-          answer={8.55} unit="MeV/nucleon" tolerance={0.02}
-          hints={['B = (Z m_p + N m_n − M)c² with Z=26, N=30; use m_p=938.272 MeV/c², m_n=939.565 MeV/c², M(⁵⁶Fe)=55.934939 u', 'Convert M(⁵⁶Fe) to MeV/c²: multiply by 931.494 MeV/u; then B/A = B/56']}
-          problemText="Calculate the binding energy per nucleon (in MeV/nucleon) for ⁵⁶Fe using M(⁵⁶Fe) = 55.934939 u, m_p = 938.272 MeV/c², m_n = 939.565 MeV/c², and 1 u = 931.494 MeV/c²."
-          solution={<>Binding energy of ⁵⁶Fe: Z=26, N=30, A=56. m_p = 938.272 MeV/c², m_n = 939.565 MeV/c², M(Fe-56) = 55.934939 u × 931.494 MeV/u = 52103.1 MeV/c². B = (26×938.272 + 30×939.565 − 55.934939×931.494) = (24395.1 + 28186.9 − 52103.2) = 478.8 MeV. B/A = 478.8/56 = 8.55 MeV/nucleon. This is near the maximum of the binding energy per nucleon curve. Semi-empirical: a_V×56 − a_S×56^(2/3) − a_C×26×25/56^(1/3) − a_A×4/56 ≈ 885 − 300 − 101 − 1.7 ≈ 482 MeV (close to 479 MeV). Iron is the endpoint of stellar nucleosynthesis — energy cannot be extracted from iron by fusion or fission.</>}>
+          answer={8.79} unit="MeV/nucleon" tolerance={0.02}
+          hints={['B = (Z m(¹H) + N m_n − M)c² with Z=26, N=30; use m(¹H)=938.783 MeV/c² (hydrogen atom mass), m_n=939.565 MeV/c², M(⁵⁶Fe)=55.934939 u', 'Convert M(⁵⁶Fe) to MeV/c²: multiply by 931.494 MeV/u; then B/A = B/56']}
+          problemText="Calculate the binding energy per nucleon (in MeV/nucleon) for ⁵⁶Fe using M(⁵⁶Fe) = 55.934939 u, m(¹H) = 938.783 MeV/c² (hydrogen atomic mass), m_n = 939.565 MeV/c², and 1 u = 931.494 MeV/c²."
+          solution={<>Binding energy of ⁵⁶Fe: Z=26, N=30, A=56. Use hydrogen atomic mass m(¹H) = 938.783 MeV/c² (since M(Fe-56) is an atomic mass, both sides must use the same electron accounting). m_n = 939.565 MeV/c², M(Fe-56) = 55.934939 u × 931.494 MeV/u = 52103.1 MeV/c². B = (26×938.783 + 30×939.565 − 55.934939×931.494) = (24408.4 + 28186.9 − 52103.1) = 492.2 MeV. B/A = 492.2/56 = 8.79 MeV/nucleon. This is near the maximum of the binding energy per nucleon curve. Semi-empirical: a_V×56 − a_S×56^(2/3) − a_C×26×25/56^(1/3) − a_A×4/56 ≈ 885 − 300 − 101 − 1.7 ≈ 482 MeV (close to 479 MeV). Iron is the endpoint of stellar nucleosynthesis — energy cannot be extracted from iron by fusion or fission.</>}>
           Calculate the total binding energy and binding energy per nucleon for ⁵⁶Fe. Why is iron the endpoint of stellar nucleosynthesis?
         </InteractiveProblem>
 

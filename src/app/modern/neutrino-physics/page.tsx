@@ -15,7 +15,7 @@ export default function NeutrinoPhysicsPage() {
         Neutrino physics touches on nuclear reactions, cosmology, CP violation, and Majorana fermions.
       </p>
 
-      <Prerequisites items={['Particle physics (Ch. PP)', 'Quantum mechanics (Ch. QM)', 'Nuclear physics (Ch. Nuc)', 'Special relativity (Ch. SR)']} />
+      <Prerequisites items={['Particle physics (Ch. PP)', 'Quantum mechanics (Ch. 22)', 'Nuclear physics (Ch. N)', 'Special relativity (Ch. 21)']} />
 
       <LearningGoals items={[
         'Apply the two-flavor oscillation formula P(ν_α→ν_β) = sin²(2θ)sin²(Δm²L/4E) to solar and atmospheric data.',

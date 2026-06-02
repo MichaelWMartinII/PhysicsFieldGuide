@@ -1,20 +1,20 @@
 import HydrogenSpectrumClient from '@/components/sims/HydrogenSpectrumClient';
 import {
   Definition, WorkedExample, Step,
-  PracticeProblems, Problem, InteractiveProblem, EqNumbered, Figure, Prerequisites, Takeaways, LearningGoals
+  PracticeProblems, Problem, InteractiveProblem, EqNumbered, Figure, Prerequisites, Takeaways, LearningGoals, HistoryNote
 } from '@/components/textbook';
 
 export default function AtomicPage() {
   return (
     <div className="chapter">
-      <div className="chapter-label" style={{ color: '#ec4899' }}>Modern Physics · Chapter 21</div>
+      <div className="chapter-label" style={{ color: '#ec4899' }}>Modern Physics · Chapter 23</div>
       <h1>Atomic Structure</h1>
       <p className="subtitle">
         The hydrogen atom is exactly solvable by quantum mechanics, yielding energy levels,
         orbitals, and selection rules that explain every spectral line ever observed.
       </p>
 
-      <Prerequisites items={['Quantum mechanics (Ch. 20)', 'Electrostatics — Coulomb potential (Ch. 13)']} />
+      <Prerequisites items={['Quantum mechanics (Ch. 22)', 'Electrostatics — Coulomb potential (Ch. 15)']} />
 
       <LearningGoals items={[
         'Calculate hydrogen energy levels and orbital radii using the Bohr model.',
@@ -24,18 +24,30 @@ export default function AtomicPage() {
         'Explain how the Stern-Gerlach experiment reveals quantized spin and the two spin states.',
       ]} />
 
-      <h2>21.1 The Bohr Model</h2>
+      <h2>23.1 The Bohr Model</h2>
 
       <p>
-        Niels Bohr proposed in 1913 that the electron in hydrogen orbits the proton only at
+        <HistoryNote
+          trigger="Niels Bohr proposed in 1913"
+          year="1913"
+          title="A useful wrong model"
+          source="Niels Bohr, On the Constitution of Atoms and Molecules."
+          sourceUrl="https://zenodo.org/record/1430922"
+          furtherReading={[{ label: "Niels Bohr", url: "https://en.wikipedia.org/wiki/Niels_Bohr" }]}
+        >
+          Niels Bohr arrived in England in 1911 expecting to work with J. J. Thomson, who showed little interest in him. He moved to Manchester and found what he needed in Rutherford:
+          a nuclear model of the atom and a mentor who trusted him. The quantum jumps in Bohr's 1913 model were entirely ad hoc — he had no deeper reason for the rules he imposed.
+          But the hydrogen spectrum came out exactly right. Rutherford wrote to him that it was remarkable the model worked at all, given how internally contradictory its premises were.
+          Bohr agreed, and spent the rest of his career trying to understand what the model was actually telling him. That effort eventually produced quantum mechanics.
+        </HistoryNote> that the electron in hydrogen orbits the proton only at
         specific radii where the angular momentum is quantized: L = nℏ (n = 1, 2, 3, …).
         Setting the Coulomb attraction equal to centripetal force and imposing this condition
         yields discrete radii and energies:
       </p>
 
-      <EqNumbered number="21.1">r_n = n² a₀ &nbsp;&nbsp;&nbsp; (a₀ = 0.0529 nm = Bohr radius)</EqNumbered>
+      <EqNumbered number="23.1">r_n = n² a₀ &nbsp;&nbsp;&nbsp; (a₀ = 0.0529 nm = Bohr radius)</EqNumbered>
 
-      <EqNumbered number="21.2">E_n = −13.6 eV / n²</EqNumbered>
+      <EqNumbered number="23.2">E_n = −13.6 eV / n²</EqNumbered>
 
       <p>
         The ground state (n = 1) has E₁ = −13.6 eV. The minus sign means the electron is
@@ -45,7 +57,7 @@ export default function AtomicPage() {
         equation — but its energy levels are exactly right for hydrogen.
       </p>
 
-      <WorkedExample number="21.1" title="Hydrogen Spectral Lines — the Balmer Series">
+      <WorkedExample number="23.1" title="Hydrogen Spectral Lines — the Balmer Series">
         <p>
           Find the wavelength of the photon emitted when hydrogen transitions from n=3 to n=2.
           This is the H-α line, the prominent red line of hydrogen.
@@ -55,25 +67,25 @@ export default function AtomicPage() {
         <Step label="Wavelength:">λ = hc/ΔE = (4.136×10⁻¹⁵ eV·s × 3×10⁸ m/s) / 1.889 eV = <strong>657 nm</strong> (red ✓)</Step>
       </WorkedExample>
 
-      <Figure number="21.1" caption="Hydrogen spectral series. The left panel shows the energy level diagram with transition arrows; the right panel shows the resulting spectral lines at their actual wavelengths. Toggle between the Lyman (UV), Balmer (visible), and Paschen (IR) series. Click a transition label to highlight it.">
+      <Figure number="23.1" caption="Hydrogen spectral series. The left panel shows the energy level diagram with transition arrows; the right panel shows the resulting spectral lines at their actual wavelengths. Toggle between the Lyman (UV), Balmer (visible), and Paschen (IR) series. Click a transition label to highlight it.">
         <HydrogenSpectrumClient />
       </Figure>
 
-      <Definition number="21.1" title="Spectral Series of Hydrogen">
+      <Definition number="23.1" title="Spectral Series of Hydrogen">
         <span style={{ display: 'block', marginBottom: '0.3rem' }}>Lyman series: transitions to n=1 (ultraviolet, 91–122 nm)</span>
         <span style={{ display: 'block', marginBottom: '0.3rem' }}>Balmer series: transitions to n=2 (visible, 365–656 nm) — the series visible to the naked eye</span>
         <span style={{ display: 'block', marginBottom: '0.3rem' }}>Paschen series: transitions to n=3 (near infrared)</span>
         <span style={{ display: 'block' }}>General: 1/λ = R_H (1/n_f² − 1/n_i²), R_H = 1.097×10⁷ m⁻¹ (Rydberg constant)</span>
       </Definition>
 
-      <h2>21.2 Quantum Numbers and Orbitals</h2>
+      <h2>23.2 Quantum Numbers and Orbitals</h2>
 
       <p>
         Solving the Schrödinger equation in 3D with the Coulomb potential gives four quantum numbers
         that completely characterize each electron state:
       </p>
 
-      <Definition number="21.2" title="The Four Quantum Numbers">
+      <Definition number="23.2" title="The Four Quantum Numbers">
         <span style={{ display: 'block', marginBottom: '0.3rem' }}>
           <strong>n</strong> (principal): n = 1, 2, 3, … &nbsp; Determines energy: E_n = −13.6/n² eV. Shell.
         </span>
@@ -95,9 +107,9 @@ export default function AtomicPage() {
         orbit but a cloud.
       </p>
 
-      <h2>21.3 The Pauli Exclusion Principle and the Periodic Table</h2>
+      <h2>23.3 The Pauli Exclusion Principle and the Periodic Table</h2>
 
-      <Definition number="21.3" title="Pauli Exclusion Principle (1925)">
+      <Definition number="23.3" title="Pauli Exclusion Principle (1925)">
         No two electrons in an atom can have the same set of four quantum numbers (n, ℓ, m_ℓ, m_s).
         Each quantum state can hold at most one electron.
       </Definition>
@@ -120,7 +132,7 @@ export default function AtomicPage() {
         and their quantum numbers. Quantum mechanics reduces chemistry to physics.
       </p>
 
-      <h2>21.4 Electron Spin and the Stern-Gerlach Experiment</h2>
+      <h2>23.4 Electron Spin and the Stern-Gerlach Experiment</h2>
 
       <p>
         In 1922, Stern and Gerlach sent silver atoms through an inhomogeneous magnetic field
@@ -131,7 +143,7 @@ export default function AtomicPage() {
         |S| = ℏ√(s(s+1)) = ℏ(√3)/2 for spin-½ particles.
       </p>
 
-      <WorkedExample number="21.2" title="Electron Configuration of Iron">
+      <WorkedExample number="23.2" title="Electron Configuration of Iron">
         <p>
           Write the ground-state electron configuration of iron (Z = 26) and identify the number
           of unpaired electrons responsible for its magnetic properties.
@@ -141,7 +153,7 @@ export default function AtomicPage() {
         <Step label="Magnetic moment:">4 unpaired electrons → 4 Bohr magnetons of magnetic moment → iron is ferromagnetic</Step>
       </WorkedExample>
 
-      <Definition number="21.4" title="Common Traps">
+      <Definition number="23.4" title="Common Traps">
         <ul style={{ marginTop: '0.4rem' }}>
           <li><strong>Orbitals are not planet-like orbits:</strong> they are probability amplitudes with quantized angular structure.</li>
           <li><strong>Quantum numbers have allowed ranges:</strong> l and m are constrained by n.</li>
@@ -150,7 +162,7 @@ export default function AtomicPage() {
         </ul>
       </Definition>
 
-      <PracticeProblems section="21.1–21.4 Atomic Structure">
+      <PracticeProblems section="23.1–23.4 Atomic Structure">
         <InteractiveProblem n={1} difficulty="easy"
           answer={-1.51} unit="eV" tolerance={0.02}
           hints={['E_n = −13.6/n² eV']}

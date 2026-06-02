@@ -1,7 +1,7 @@
 import PhasePlotClient from '@/components/sims/PhasePlotClient';
 import {
   Definition, Theorem, WorkedExample, Step,
-  PracticeProblems, Problem, InteractiveProblem, EqNumbered, Figure, Prerequisites, Takeaways, LearningGoals
+  PracticeProblems, Problem, InteractiveProblem, EqNumbered, Figure, Prerequisites, Takeaways, LearningGoals, HistoryNote
 } from '@/components/textbook';
 
 export default function HamiltonianPage() {
@@ -36,7 +36,20 @@ export default function HamiltonianPage() {
 
       <p>
         The <strong>Hamiltonian</strong> is obtained by a Legendre transform that eliminates q̇
-        in favor of p:
+        in favor of p.
+        <HistoryNote
+          trigger="Hamilton's move"
+          year="1834-1835"
+          title="Mechanics becomes geometry"
+          source="William Rowan Hamilton, On a General Method in Dynamics."
+          sourceUrl="https://commons.wikimedia.org/wiki/File:On_a_General_Method_in_Dynamics;_By_Which_the_Study_of_the_Motions_of_All_Free_Systems_of_Attracting_or_Repelling_Points_is_Reduced_to_the_Search_and_Differentiation_of_One_Central_Relation_(IA_jstor-108066).pdf"
+          furtherReading={[{ label: "William Rowan Hamilton", url: "https://en.wikipedia.org/wiki/William_Rowan_Hamilton" }]}
+        >
+          William Rowan Hamilton published his reformulation of mechanics while managing a difficult personal life — he had loved someone he could not marry and carried that loss for
+          decades, alongside persistent struggles. None of that is visible in the mathematics. The Hamiltonian formalism is a thing of severe elegance: mechanics as geometry in phase space,
+          with trajectories as curves on a surface shaped by energy. A century later, Heisenberg and Schrödinger found that quantum mechanics slips naturally into that language.
+          Hamilton built the bridge without ever knowing where it led.
+        </HistoryNote>
       </p>
 
       <EqNumbered number="H.2" latex="H(q,p,t) = \sum_i p_i\dot q_i - L(q,\dot q,t)" />

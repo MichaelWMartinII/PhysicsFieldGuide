@@ -15,7 +15,7 @@ export default function VariationalPage() {
         express physics as the search for an extremal path.
       </p>
 
-      <Prerequisites items={['Lagrangian mechanics (Ch. LA-Mech)', 'Differential equations (Ch. DE)', 'Calculus (Ch. 22)', 'Linear algebra (Ch. LA)']} />
+      <Prerequisites items={['Lagrangian mechanics (Ch. L)', 'Differential equations (Ch. 26)', 'Calculus (Ch. 25)', 'Linear algebra (Ch. LA)']} />
 
       <LearningGoals items={[
         'Derive the Euler-Lagrange equation from the stationary-action condition δJ = 0 and apply it to standard physical functionals.',

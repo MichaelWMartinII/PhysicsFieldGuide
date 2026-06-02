@@ -14,7 +14,7 @@ export default function SpinPage() {
         statistical behavior of identical particles.
       </p>
 
-      <Prerequisites items={['Quantum mechanics (Ch. 20)', 'Atomic structure (Ch. 21)', 'Linear algebra basics', 'Complex numbers']} />
+      <Prerequisites items={['Quantum mechanics (Ch. 22)', 'Atomic structure (Ch. 23)', 'Linear algebra basics', 'Complex numbers']} />
 
       <LearningGoals items={[
         'Use the angular momentum commutation relations to derive the spectrum of L̂² and L̂z eigenvalues.',
@@ -152,7 +152,7 @@ export default function SpinPage() {
         </InteractiveProblem>
 
         <InteractiveProblem n={2} difficulty="easy"
-          answer={4} unit="" tolerance={0.01}
+          answer={6} unit="" tolerance={0.01}
           hints={['Decompose ℓ=1, s=1/2. j = |ℓ−s|,...,ℓ+s. Total states = (2ℓ+1)(2s+1).']}
           problemText="Hydrogen 2p electron (ℓ=1, s=1/2). How many distinct |j, m_j⟩ states exist?"
           solution={<>j = 1/2 (2 states) + j = 3/2 (4 states) = <strong>4+2 = 6 states</strong>. Also (2ℓ+1)(2s+1) = 3×2 = 6 ✓</>}>

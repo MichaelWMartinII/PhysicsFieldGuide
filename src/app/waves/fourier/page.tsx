@@ -1,7 +1,8 @@
 import FourierSimClient from '@/components/sims/FourierSimClient';
 import {
   Definition, Theorem, WorkedExample, Step,
-  PracticeProblems, Problem, InteractiveProblem, EqNumbered, Figure, Prerequisites, Takeaways, LearningGoals
+  PracticeProblems, Problem, InteractiveProblem, EqNumbered, Figure, Prerequisites, Takeaways, LearningGoals, HistoryNote,
+  ApplicationNote
 } from '@/components/textbook';
 
 export default function FourierPage() {
@@ -14,7 +15,7 @@ export default function FourierPage() {
         This single idea underlies signal processing, quantum mechanics, optics, and partial differential equations.
       </p>
 
-      <Prerequisites items={['Wave properties (Ch. 8)', 'Calculus (Ch. 22)', 'Linear algebra helps but is not required']} />
+      <Prerequisites items={['Wave properties (Ch. 9)', 'Calculus', 'Linear algebra helps but is not required']} />
 
       <LearningGoals items={[
         'Compute Fourier series coefficients using orthogonality integrals.',
@@ -28,7 +29,20 @@ export default function FourierPage() {
 
       <p>
         Let f(x) be a periodic function with period 2L. The <strong>Fourier series</strong> of f is
-        the decomposition into harmonics:
+        the decomposition into harmonics.
+        <HistoryNote
+          trigger="Fourier introduced this"
+          year="1822"
+          title="Heat flow invents a universal language"
+          source="Joseph Fourier, Theorie analytique de la chaleur."
+          sourceUrl="https://commons.wikimedia.org/wiki/File:Fourier_-_Th%C3%A9orie_analytique_de_la_chaleur,_1822.djvu"
+          furtherReading={[{ label: "Joseph Fourier", url: "https://en.wikipedia.org/wiki/Joseph_Fourier" }]}
+        >
+          Joseph Fourier submitted his heat-flow paper to the French Academy of Sciences in 1807. The judges — Lagrange, Laplace, and Legendre among them — rejected it. The mathematics
+          was not rigorous enough, they said, and the claim that any function could be written as a sum of sines seemed almost certainly wrong. Fourier spent fifteen years refining the
+          work before it appeared as a book in 1822. The Fourier transform is now the most widely used mathematical tool in applied science — signal processing, quantum mechanics, image
+          compression, medical imaging — all descended from a rejected paper about how iron rods cool.
+        </HistoryNote>
       </p>
 
       <EqNumbered number="F.1" latex="f(x)=\frac{a_0}{2}+\sum_{n=1}^{\infty}\left[a_n\cos\left(\frac{n\pi x}{L}\right)+b_n\sin\left(\frac{n\pi x}{L}\right)\right]" />
@@ -120,6 +134,15 @@ export default function FourierPage() {
         by the Fast Fourier Transform (FFT) algorithm (Cooley–Tukey, 1965), underlies MP3 audio
         compression, JPEG image compression, radar, MRI, and Wi-Fi (OFDM).
       </p>
+
+      <ApplicationNote title="MP3, JPEG, and MRI all run on Fourier transforms">
+        A JPEG encoder computes a discrete cosine transform (Fourier's close cousin) of each 8×8 pixel block and discards the
+        high-frequency components your eye barely detects. MP3 does the same for audio: it removes frequency components below
+        the psychoacoustic masking threshold. MRI goes further — the scanner directly measures the Fourier transform of proton
+        spin density inside your body (called k-space) and reconstructs the image by inverting it. Wi-Fi and 4G/5G cellular
+        use OFDM (Orthogonal Frequency Division Multiplexing), which is just a fast Fourier transform run on the signal at
+        both ends of the link. Fourier's rejected 1807 paper is now running inside every phone, hospital, and streaming service on Earth.
+      </ApplicationNote>
 
       <Definition number="F.2" title="Common Traps">
         <ul style={{ marginTop: '0.4rem' }}>

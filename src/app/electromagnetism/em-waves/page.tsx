@@ -15,7 +15,7 @@ export default function EMWavesPage() {
         pressure, and the behavior at boundaries between media.
       </p>
 
-      <Prerequisites items={['Maxwell\'s equations (Ch. M)', 'Wave properties (Ch. 8)', 'Vectors and calculus']} />
+      <Prerequisites items={['Maxwell\'s equations (Ch. M)', 'Wave properties (Ch. 9)', 'Vectors and calculus']} />
 
       <LearningGoals items={[
         'Describe the structure of a plane electromagnetic wave and state the relationships between E, B, and k̂.',

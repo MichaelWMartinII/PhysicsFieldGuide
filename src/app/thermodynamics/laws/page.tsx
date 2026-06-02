@@ -1,20 +1,21 @@
 import PVDiagramClient from '@/components/sims/PVDiagramClient';
 import {
   Definition, Theorem, WorkedExample, Step,
-  PracticeProblems, Problem, InteractiveProblem, EqNumbered, Figure, Prerequisites, Takeaways, LearningGoals
+  PracticeProblems, Problem, InteractiveProblem, EqNumbered, Figure, Prerequisites, Takeaways, LearningGoals, HistoryNote,
+  Misconception, ApplicationNote
 } from '@/components/textbook';
 
 export default function LawsPage() {
   return (
     <div className="chapter">
-      <div className="chapter-label" style={{ color: 'var(--thm-accent)' }}>Thermodynamics · Chapter 12</div>
+      <div className="chapter-label" style={{ color: 'var(--thm-accent)' }}>Thermodynamics · Chapter 14</div>
       <h1>The Laws of Thermodynamics</h1>
       <p className="subtitle">
         Thermodynamics governs the direction of natural processes and the ultimate limits of
         heat engines — including every engine ever built or conceivable.
       </p>
 
-      <Prerequisites items={['Heat & Temperature (Ch. 10)', 'Ideal Gas Law (Ch. 11)', 'Familiarity with calculus notation helps for entropy; no integrals required beyond recognition']} />
+      <Prerequisites items={['Heat & Temperature (Ch. 12)', 'Ideal Gas Law (Ch. 13)', 'Familiarity with calculus notation helps for entropy; no integrals required beyond recognition']} />
 
       <LearningGoals items={[
         'State all four laws of thermodynamics and explain the physical principle each encodes.',
@@ -24,7 +25,7 @@ export default function LawsPage() {
         'Analyze refrigerator and heat pump performance using coefficients of performance.',
       ]} />
 
-      <h2>12.1 The Zeroth and First Laws</h2>
+      <h2>14.1 The Zeroth and First Laws</h2>
 
       <p>
         The laws of thermodynamics are numbered oddly because the first two were well established
@@ -32,7 +33,7 @@ export default function LawsPage() {
         being assumed without statement. The zeroth law defines temperature itself.
       </p>
 
-      <Definition number="12.1" title="Zeroth Law of Thermodynamics">
+      <Definition number="14.1" title="Zeroth Law of Thermodynamics">
         If system A is in thermal equilibrium with system C, and system B is also in thermal
         equilibrium with system C, then A and B are in thermal equilibrium with each other.
         This law is what makes temperature a well-defined, transitive quantity — it licenses the
@@ -44,12 +45,12 @@ export default function LawsPage() {
         formalizes the equivalence of heat and work established experimentally by Joule in 1843.
       </p>
 
-      <Definition number="12.2" title="First Law of Thermodynamics">
+      <Definition number="14.2" title="First Law of Thermodynamics">
         The change in internal energy ΔU of a system equals the heat Q added to the system
         minus the work W done by the system:
       </Definition>
 
-      <EqNumbered number="12.1" latex="\Delta U=Q-W" />
+      <EqNumbered number="14.1" latex="\Delta U=Q-W" />
 
       <p>
         The sign convention matters: Q {'>'} 0 means heat flows <em>into</em> the system; W {'>'} 0
@@ -64,7 +65,7 @@ export default function LawsPage() {
         converted to work.
       </p>
 
-      <h2>12.2 The Second Law and Entropy</h2>
+      <h2>14.2 The Second Law and Entropy</h2>
 
       <p>
         The first law says energy is conserved, but it says nothing about <em>direction</em>.
@@ -73,12 +74,12 @@ export default function LawsPage() {
         captures this directional asymmetry.
       </p>
 
-      <Definition number="12.3" title="Second Law of Thermodynamics (Clausius Statement)">
+      <Definition number="14.3" title="Second Law of Thermodynamics (Clausius Statement)">
         Heat never flows spontaneously from a cold body to a hot body. Equivalently: no process
         is possible whose sole result is the transfer of heat from a cooler body to a warmer one.
       </Definition>
 
-      <Definition number="12.4" title="Second Law (Kelvin–Planck Statement)">
+      <Definition number="14.4" title="Second Law (Kelvin–Planck Statement)">
         No heat engine operating in a cycle can convert heat entirely into work. There must always
         be some heat rejected to a cold reservoir.
       </Definition>
@@ -88,9 +89,9 @@ export default function LawsPage() {
         introduced by Clausius in 1865. For a reversible process:
       </p>
 
-      <EqNumbered number="12.2" latex="dS=\frac{dQ_\mathrm{rev}}{T}" />
+      <EqNumbered number="14.2" latex="dS=\frac{dQ_\mathrm{rev}}{T}" />
 
-      <Theorem number="12.1" title="Entropy and the Second Law">
+      <Theorem number="14.1" title="Entropy and the Second Law">
         For any process in an isolated system, the total entropy either increases or remains
         constant — it never decreases:
         <span style={{ display: 'block', textAlign: 'center', marginTop: '0.5rem', fontStyle: 'italic' }}>
@@ -107,7 +108,15 @@ export default function LawsPage() {
         microstates — not because of a mysterious force, but because probability demands it.
       </p>
 
-      <h2>12.3 Heat Engines and the Carnot Cycle</h2>
+      <Misconception wrong="Entropy always increases everywhere — local order is impossible.">
+        Entropy increases only in <em>isolated</em> systems. Local entropy can and does decrease: organisms grow, crystals
+        form, ice cubes freeze in refrigerators. None of this violates the second law — the key is that these systems are
+        not isolated. The surroundings (or the refrigerator's motor) gain more entropy than the local system loses.
+        The total entropy of the universe still increases. Life is not a counterexample to thermodynamics; it is an extremely
+        efficient entropy pump.
+      </Misconception>
+
+      <h2>14.3 Heat Engines and the Carnot Cycle</h2>
 
       <p>
         A <strong>heat engine</strong> is any device that converts heat into work by operating in a
@@ -121,21 +130,46 @@ export default function LawsPage() {
         to heat absorbed:
       </p>
 
-      <EqNumbered number="12.3" latex="\eta=\frac{W_\mathrm{net}}{Q_h}=1-\frac{Q_c}{Q_h}" />
+      <EqNumbered number="14.3" latex="\eta=\frac{W_\mathrm{net}}{Q_h}=1-\frac{Q_c}{Q_h}" />
 
       <p>
-        The question of how efficient an engine can theoretically be was answered by Sadi Carnot
-        in 1824 — decades before the first and second laws were formally stated. The <strong>Carnot
+        The question of how efficient an engine can theoretically be was answered by
+        <HistoryNote
+          trigger="Sadi Carnot"
+          year="1824"
+          title="The engine limit before entropy"
+          source="Sadi Carnot, Reflections on the Motive Power of Fire."
+          sourceUrl="https://www.gutenberg.org/ebooks/12725"
+          furtherReading={[{ label: "Sadi Carnot", url: "https://en.wikipedia.org/wiki/Nicolas_L%C3%A9onard_Sadi_Carnot" }, { label: "Carnot cycle", url: "https://en.wikipedia.org/wiki/Carnot_cycle" }]}
+        >
+          Sadi Carnot published his Reflections on the Motive Power of Fire in 1824 and sold almost no copies. He died of cholera at thirty-six, and most of his papers were burned as a
+          disease precaution. A few survived, and they show he was already questioning whether heat was conserved — pushing toward what would later become the first law. Clapeyron
+          rediscovered his work; Kelvin and Clausius gave it full theoretical grounding in the 1850s. Carnot's efficiency limit — the ceiling no engine can exceed — was established
+          before the theoretical tools to properly explain it even existed.
+        </HistoryNote>
+        in 1824 — decades before the first and second laws were formally stated.
+
+      <ApplicationNote title="Why efficiency limits matter for power plants, EVs, and phone batteries">
+        The Carnot efficiency η = 1 − T_c/T_h is the design ceiling for every heat engine ever built. A coal plant operating
+        between 600°C (873 K) and 30°C (303 K) ambient has a Carnot limit of 65%; real plants achieve 40–45% because of
+        irreversibilities. Your phone battery heats up because lithium-ion cells are not Carnot-efficient — the irreversibility
+        dissipates as heat. EV charging is limited similarly: fast charging heats the battery because pushing current through
+        internal resistance is an irreversible process. Refrigerators and heat pumps run the Carnot cycle in reverse — their
+        coefficient of performance is bounded by the same temperature ratio. Every cooling system design is a negotiation
+        with thermodynamics.
+      </ApplicationNote>
+
+      The <strong>Carnot
         cycle</strong> is the most efficient possible cycle operating between two temperature
         reservoirs. It consists of four reversible steps: isothermal expansion, adiabatic expansion,
         isothermal compression, and adiabatic compression.
       </p>
 
-      <Figure number="12.1" caption="The Carnot cycle on a P–V diagram. The shaded area equals the net work output per cycle. Adjust the reservoir temperatures to see how efficiency η = 1 − Tc/Th changes. The dot traces the cycle in real time.">
+      <Figure number="14.1" caption="The Carnot cycle on a P–V diagram. The shaded area equals the net work output per cycle. Adjust the reservoir temperatures to see how efficiency η = 1 − Tc/Th changes. The dot traces the cycle in real time.">
         <PVDiagramClient />
       </Figure>
 
-      <Theorem number="12.2" title="Carnot Efficiency">
+      <Theorem number="14.2" title="Carnot Efficiency">
         The maximum possible efficiency of any heat engine operating between reservoirs at
         temperatures T_h and T_c (in kelvin) is the Carnot efficiency:
         <span style={{ display: 'block', textAlign: 'center', marginTop: '0.5rem', fontStyle: 'italic' }}>
@@ -152,7 +186,7 @@ export default function LawsPage() {
         η = 1 − 300/800 = 62.5%, no matter how well engineered.
       </p>
 
-      <WorkedExample number="12.1" title="Carnot Engine Efficiency">
+      <WorkedExample number="14.1" title="Carnot Engine Efficiency">
         <p>
           A coal-fired power plant operates with steam at 580°C and rejects heat to a river at
           20°C. What is the maximum possible thermal efficiency?
@@ -165,7 +199,7 @@ export default function LawsPage() {
         </Step>
       </WorkedExample>
 
-      <h2>12.4 Refrigerators and Heat Pumps</h2>
+      <h2>14.4 Refrigerators and Heat Pumps</h2>
 
       <p>
         A <strong>refrigerator</strong> runs a heat engine in reverse: it uses work input to move
@@ -174,14 +208,14 @@ export default function LawsPage() {
         of performance</strong> (COP) of a refrigerator is:
       </p>
 
-      <EqNumbered number="12.4" latex="\mathrm{COP}_\mathrm{ref}=\frac{Q_c}{W}=\frac{Q_c}{Q_h-Q_c}" />
+      <EqNumbered number="14.4" latex="\mathrm{COP}_\mathrm{ref}=\frac{Q_c}{W}=\frac{Q_c}{Q_h-Q_c}" />
 
       <p>
         A <strong>heat pump</strong> also moves heat from cold to hot, but the desired output is
         Q_h delivered to the hot space (e.g., heating a building). Its COP is:
       </p>
 
-      <EqNumbered number="12.5" latex="\mathrm{COP}_\mathrm{hp}=\frac{Q_h}{W}=1+\mathrm{COP}_\mathrm{ref}" />
+      <EqNumbered number="14.5" latex="\mathrm{COP}_\mathrm{hp}=\frac{Q_h}{W}=1+\mathrm{COP}_\mathrm{ref}" />
 
       <p>
         The Carnot COP sets the upper bound:
@@ -191,9 +225,9 @@ export default function LawsPage() {
         ground-source heat pumps often deliver 3–5 units of heat per unit of electrical energy.
       </p>
 
-      <h2>12.5 The Third Law</h2>
+      <h2>14.5 The Third Law</h2>
 
-      <Definition number="12.5" title="Third Law of Thermodynamics (Nernst's Theorem)">
+      <Definition number="14.5" title="Third Law of Thermodynamics (Nernst's Theorem)">
         As the temperature of a system approaches absolute zero (T → 0 K), its entropy approaches
         a minimum value — typically zero for a perfect crystal in its ground state:
         <span style={{ display: 'block', textAlign: 'center', marginTop: '0.5rem', fontStyle: 'italic' }}>
@@ -208,7 +242,7 @@ export default function LawsPage() {
         you approach 0 K — each stage of cooling is less effective than the last.
       </p>
 
-      <WorkedExample number="12.2" title="Entropy Change in Heat Transfer">
+      <WorkedExample number="14.2" title="Entropy Change in Heat Transfer">
         <p>
           100 J of heat flows from a reservoir at 400 K to a reservoir at 200 K. What is the
           total entropy change of the universe?
@@ -222,7 +256,7 @@ export default function LawsPage() {
         </Step>
       </WorkedExample>
 
-      <Definition number="12.6" title="Common Traps">
+      <Definition number="14.6" title="Common Traps">
         <ul style={{ marginTop: '0.4rem' }}>
           <li><strong>Sign convention matters:</strong> here W is work done by the system, so expansion work reduces internal energy if Q = 0.</li>
           <li><strong>Carnot temperatures must be kelvin:</strong> Celsius ratios give physically meaningless efficiencies.</li>
@@ -231,7 +265,7 @@ export default function LawsPage() {
         </ul>
       </Definition>
 
-      <PracticeProblems section="12.1–12.5 Laws of Thermodynamics">
+      <PracticeProblems section="14.1–14.5 Laws of Thermodynamics">
         <InteractiveProblem n={1} difficulty="easy"
           answer={65.6} unit="%" tolerance={0.02}
           hints={['η = 1 − Tc/Th. Convert to kelvin first.']}

@@ -1,6 +1,6 @@
 import {
   Definition, Theorem, WorkedExample, Step,
-  PracticeProblems, Problem, InteractiveProblem, EqNumbered, Prerequisites, Takeaways, LearningGoals
+  PracticeProblems, Problem, InteractiveProblem, EqNumbered, Prerequisites, Takeaways, LearningGoals, HistoryNote
 } from '@/components/textbook';
 
 export default function MaxwellPage() {
@@ -13,7 +13,7 @@ export default function MaxwellPage() {
         magnetism, the photoelectric effect — follows from them.
       </p>
 
-      <Prerequisites items={['Electric fields (Ch. 13)', 'Magnetic fields (Ch. 15)', 'Induction (Ch. 16)', 'Vectors and calculus (Ch. 21–22)']} />
+      <Prerequisites items={['Electric fields (Ch. 15)', 'Magnetic fields (Ch. 17)', 'Induction (Ch. 18)', 'Vectors and calculus (Ch. 24–25)']} />
 
       <LearningGoals items={[
         'State Maxwell\'s four equations in both integral and differential form and identify what each encodes.',
@@ -30,6 +30,19 @@ export default function MaxwellPage() {
         Faraday&apos;s law, Ampère&apos;s law — into one consistent system, with one crucial addition:
         the <strong>displacement current</strong>.
       </p>
+
+      <HistoryNote
+        year="1865"
+        title="Maxwell recognizes light"
+        source="James Clerk Maxwell, A Dynamical Theory of the Electromagnetic Field, Philosophical Transactions of the Royal Society."
+        sourceUrl="https://library.si.edu/digital-library/book/dynamicaltheoryo00maxw"
+        furtherReading={[{ label: "James Clerk Maxwell", url: "https://en.wikipedia.org/wiki/James_Clerk_Maxwell" }]}
+      >
+        James Clerk Maxwell was thirty-four years old when he finished his 1865 paper. He had spent years developing the field equations, and when he finally calculated the speed of the waves
+        his equations predicted, he wrote that the agreement with the measured speed of light was "so exact" that it was "scarcely possible to avoid the inference" that light itself was an
+        electromagnetic wave. The understatement is characteristic — Maxwell was not given to dramatic announcements. He had just unified electricity, magnetism, and optics into a single theory.
+        It would take another generation before physicists fully grasped what he had done.
+      </HistoryNote>
 
       <Theorem number="M.1" title="Maxwell's Equations (Integral Form, in vacuum)">
         <div style={{ fontFamily: 'Georgia, serif', fontSize: '0.95rem', lineHeight: 2 }}>

@@ -15,7 +15,7 @@ export default function HighEnergyAstrophysicsPage() {
         nuclear physics, plasma physics, and particle physics simultaneously.
       </p>
 
-      <Prerequisites items={['General relativity (Ch. GR)', 'Nuclear physics (Ch. Nuc)', 'Astrophysics (Ch. Astro)', 'Statistical mechanics (Ch. SM)']} />
+      <Prerequisites items={['General relativity (Ch. GR)', 'Nuclear physics (Ch. N)', 'Astrophysics (Ch. AS)', 'Statistical mechanics (Ch. S)']} />
 
       <LearningGoals items={[
         'Apply the TOV equation to neutron stars and explain how the nuclear equation of state determines M_max.',
@@ -84,7 +84,7 @@ export default function HighEnergyAstrophysicsPage() {
           The Crab pulsar (PSR B0531+21): P = 33.1 ms, Ṗ = 4.22×10⁻¹³ s/s.
           Calculate B_surface, age, and spindown luminosity. Compare to the Crab Nebula luminosity.
         </p>
-        <Step label="Magnetic field:">B = 3.2×10¹⁹ √(PṖ) G = 3.2×10¹⁹ √(33.1×10⁻³ × 4.22×10⁻¹³) G = 3.2×10¹⁹ √(1.40×10⁻¹³) G = 3.2×10¹⁹ × 1.18×10⁻⁷ G ≈ 3.8×10¹² G. Magnetar range: B ~ 10¹⁴–10¹⁵ G (1000× stronger). The Crab is a normal young pulsar.</Step>
+        <Step label="Magnetic field:">B = 3.2×10¹⁹ √(PṖ) G = 3.2×10¹⁹ √(33.1×10⁻³ × 4.22×10⁻¹³) G = 3.2×10¹⁹ √(1.40×10⁻¹⁴) G = 3.2×10¹⁹ × 1.18×10⁻⁷ G ≈ 3.8×10¹² G. Magnetar range: B ~ 10¹⁴–10¹⁵ G (1000× stronger). The Crab is a normal young pulsar.</Step>
         <Step label="Characteristic age:">τ_c = P/(2Ṗ) = 33.1×10⁻³/(2 × 4.22×10⁻¹³) s = 3.92×10¹⁰ s ≈ 1240 yr. Actual age: SN1054 → age = 971 yr (as of 2025). Good agreement (characteristic age overestimates slightly if initial spin was much faster).</Step>
         <Step label="Spindown luminosity:">L_sd = 4π²I Ṗ/P³ = 4π² × 10⁴⁵ g cm² × 4.22×10⁻¹³ / (33.1×10⁻³)³ = 4π² × 4.22×10³² / 3.63×10⁻⁵ erg/s ≈ 4.5×10³⁸ erg/s = 1.2×10⁵ L_☉. This is the rotational kinetic energy being radiated.</Step>
         <Step label="Nebula luminosity:">Crab Nebula: L_Neb ≈ 1.3×10³⁸ erg/s (synchrotron + optical + X-ray). L_sd/L_Neb ≈ 3.5 — the pulsar wind carries about 3× the radiated nebula luminosity (rest goes into accelerating the remnant). The Crab pulsar is the engine of the Crab Nebula — confirmed by the pulsar-powered nebula (PWN) model. Discovery (1968): first identified pulsar inside a supernova remnant, establishing NS as SN remnants.</Step>

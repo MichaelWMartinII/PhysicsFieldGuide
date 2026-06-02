@@ -1,12 +1,12 @@
 import {
   Definition, Theorem, WorkedExample, Step,
-  PracticeProblems, Problem, InteractiveProblem, EqNumbered, Prerequisites, Takeaways, LearningGoals
+  PracticeProblems, Problem, InteractiveProblem, EqNumbered, Prerequisites, Takeaways, LearningGoals, HistoryNote
 } from '@/components/textbook';
 
 export default function CalculusPage() {
   return (
     <div className="chapter">
-      <div className="chapter-label" style={{ color: '#06b6d4' }}>Mathematics for Physics · Chapter 22</div>
+      <div className="chapter-label" style={{ color: '#06b6d4' }}>Mathematics for Physics · Chapter 25</div>
       <h1>Calculus Essentials</h1>
       <p className="subtitle">
         Calculus is the mathematics of change and accumulation. Every equation of motion,
@@ -23,15 +23,27 @@ export default function CalculusPage() {
         'Read partial derivative notation and explain what variables are held fixed.',
       ]} />
 
-      <h2>22.1 The Derivative</h2>
+      <h2>25.1 The Derivative</h2>
 
       <p>
         The <strong>derivative</strong> of a function f(x) at a point x measures the instantaneous
         rate of change — the slope of the tangent line. It is defined as the limit of the
-        difference quotient:
+        difference quotient.
+        <HistoryNote
+          trigger="Newton and Leibniz built this language"
+          year="1660s-1680s"
+          title="Two independent routes to calculus"
+          source="Isaac Newton, Method of Fluxions; G. W. Leibniz, Nova Methodus pro Maximis et Minimis."
+          sourceUrl="https://archive.org/details/methodoffluxions00newt"
+          furtherReading={[{ label: "Leibniz–Newton calculus controversy", url: "https://en.wikipedia.org/wiki/Leibniz%E2%80%93Newton_calculus_controversy" }]}
+        >
+          Newton developed his calculus around 1666, during plague years when Cambridge was closed and he retreated to his family farm at Woolsthorpe. He kept most of it private for decades.
+          Leibniz arrived at the same ideas independently in the 1670s and published first, in 1684. The priority dispute that followed was bitter, international, and lasted until Leibniz died.
+          British mathematicians loyally clung to Newton's notation and fell behind continental Europe for a century as a result. The notation you use every day — dy/dx, ∫ — is Leibniz's.
+        </HistoryNote>
       </p>
 
-      <EqNumbered number="22.1">f&apos;(x) = df/dx = lim_(h→0) [f(x+h) − f(x)] / h</EqNumbered>
+      <EqNumbered number="25.1">f&apos;(x) = df/dx = lim_(h→0) [f(x+h) − f(x)] / h</EqNumbered>
 
       <p>
         In physics, the most common derivative is with respect to time. If x(t) is position,
@@ -39,7 +51,7 @@ export default function CalculusPage() {
         F = ma is F = m d²x/dt² — a differential equation.
       </p>
 
-      <Theorem number="22.1" title="Standard Derivatives">
+      <Theorem number="25.1" title="Standard Derivatives">
         <div style={{ fontFamily: 'system-ui, sans-serif', fontSize: '0.9rem', display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '0.3rem 2rem', marginTop: '0.4rem' }}>
           {[
             ['d/dx [xⁿ]', 'nxⁿ⁻¹'],
@@ -59,7 +71,7 @@ export default function CalculusPage() {
         </div>
       </Theorem>
 
-      <WorkedExample number="22.1" title="Velocity and Acceleration from Position">
+      <WorkedExample number="25.1" title="Velocity and Acceleration from Position">
         <p>
           A particle&apos;s position is x(t) = 3t³ − 12t² + 9t + 2. Find its velocity and acceleration,
           and determine when it is momentarily at rest.
@@ -70,7 +82,7 @@ export default function CalculusPage() {
         <Step label="Solve:">t = [8/3 ± √(28/9)]/2 = (8 ± √28)/(6) → t ≈ 0.45 s and t ≈ 2.22 s</Step>
       </WorkedExample>
 
-      <h2>22.2 The Integral</h2>
+      <h2>25.2 The Integral</h2>
 
       <p>
         The <strong>integral</strong> is the inverse of the derivative and measures accumulation.
@@ -78,7 +90,7 @@ export default function CalculusPage() {
         <strong>Fundamental Theorem of Calculus</strong>:
       </p>
 
-      <EqNumbered number="22.2">∫_a^b f(x) dx = F(b) − F(a) &nbsp;&nbsp;&nbsp; where F&apos;(x) = f(x)</EqNumbered>
+      <EqNumbered number="25.2">∫_a^b f(x) dx = F(b) − F(a) &nbsp;&nbsp;&nbsp; where F&apos;(x) = f(x)</EqNumbered>
 
       <p>
         F is the <strong>antiderivative</strong>. The indefinite integral ∫f(x)dx = F(x) + C
@@ -86,7 +98,7 @@ export default function CalculusPage() {
         x = ∫v dt; integrating force gives work: W = ∫F·dx; integrating power gives energy.
       </p>
 
-      <Theorem number="22.2" title="Standard Antiderivatives">
+      <Theorem number="25.2" title="Standard Antiderivatives">
         <div style={{ fontFamily: 'system-ui, sans-serif', fontSize: '0.9rem', display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '0.3rem 2rem', marginTop: '0.4rem' }}>
           {[
             ['∫ xⁿ dx (n≠−1)', 'xⁿ⁺¹/(n+1) + C'],
@@ -106,7 +118,7 @@ export default function CalculusPage() {
         </div>
       </Theorem>
 
-      <WorkedExample number="22.2" title="Work Done by a Variable Force">
+      <WorkedExample number="25.2" title="Work Done by a Variable Force">
         <p>
           A spring exerts force F(x) = −kx (Hooke&apos;s law). Find the work done compressing it
           from x = 0 to x = A (amplitude).
@@ -116,13 +128,13 @@ export default function CalculusPage() {
         <Step label="Result:">W = ½kA² — this is exactly the elastic potential energy stored in the spring. ✓</Step>
       </WorkedExample>
 
-      <h2>22.3 Techniques of Integration</h2>
+      <h2>25.3 Techniques of Integration</h2>
 
       <p>
         Three techniques cover most physics integrals:
       </p>
 
-      <Definition number="22.1" title="Substitution (u-substitution)">
+      <Definition number="25.1" title="Substitution (u-substitution)">
         If the integrand contains f(g(x))·g&apos;(x), let u = g(x), du = g&apos;(x)dx:
         <span style={{ display: 'block', textAlign: 'center', marginTop: '0.4rem', fontStyle: 'italic' }}>
           ∫ f(g(x)) g&apos;(x) dx = ∫ f(u) du
@@ -130,7 +142,7 @@ export default function CalculusPage() {
         Example: ∫ 2x·sin(x²) dx → let u = x², du = 2x dx → ∫ sin u du = −cos(x²) + C
       </Definition>
 
-      <Definition number="22.2" title="Integration by Parts">
+      <Definition number="25.2" title="Integration by Parts">
         Derived from the product rule: d(uv) = u dv + v du → ∫u dv = uv − ∫v du.
         <span style={{ display: 'block', textAlign: 'center', marginTop: '0.4rem', fontStyle: 'italic' }}>
           ∫ u dv = uv − ∫ v du
@@ -139,7 +151,7 @@ export default function CalculusPage() {
         Example: ∫ t·eᵃᵗ dt — let u = t, dv = eᵃᵗ dt → te^(at)/a − ∫ eᵃᵗ/a dt = (t/a − 1/a²)eᵃᵗ + C
       </Definition>
 
-      <WorkedExample number="22.3" title="Moment of Inertia by Integration">
+      <WorkedExample number="25.3" title="Moment of Inertia by Integration">
         <p>
           Find the moment of inertia of a uniform thin rod of mass M and length L about its center.
         </p>
@@ -149,7 +161,7 @@ export default function CalculusPage() {
         <Step label="Evaluate:">I = (M/L) × (1/3)[(L/2)³ − (−L/2)³] = (M/L)(1/3)(L³/4) = <strong>ML²/12</strong></Step>
       </WorkedExample>
 
-      <h2>22.4 Partial Derivatives and Gradients</h2>
+      <h2>25.4 Partial Derivatives and Gradients</h2>
 
       <p>
         When a function depends on multiple variables, the <strong>partial derivative</strong>
@@ -157,7 +169,7 @@ export default function CalculusPage() {
         collects all partial derivatives and points in the direction of steepest increase:
       </p>
 
-      <EqNumbered number="22.3">∇f = (∂f/∂x) î + (∂f/∂y) ĵ + (∂f/∂z) k̂</EqNumbered>
+      <EqNumbered number="25.3">∇f = (∂f/∂x) î + (∂f/∂y) ĵ + (∂f/∂z) k̂</EqNumbered>
 
       <p>
         In physics: electric field <strong>E</strong> = −∇V (gradient of potential); force from
@@ -165,7 +177,7 @@ export default function CalculusPage() {
         ∇×<strong>B</strong> appear in Maxwell&apos;s equations, connecting all of electromagnetism.
       </p>
 
-      <Definition number="22.3" title="Common Traps">
+      <Definition number="25.3" title="Common Traps">
         <ul style={{ marginTop: '0.4rem' }}>
           <li><strong>A derivative is local rate of change:</strong> it is not always a constant slope.</li>
           <li><strong>Definite integrals accumulate signed area:</strong> negative regions subtract.</li>
@@ -174,9 +186,9 @@ export default function CalculusPage() {
         </ul>
       </Definition>
 
-      <PracticeProblems section="22.1–22.4 Calculus">
+      <PracticeProblems section="25.1–25.4 Calculus">
         <InteractiveProblem n={1} difficulty="easy"
-          answer={9} unit="" tolerance={0.01}
+          answer={-6} unit="" tolerance={0.01}
           hints={['Power rule: d/dx[xⁿ] = nxⁿ⁻¹. Evaluate at x=1.']}
           problemText="Find f'(1) where f(x) = 3x³ − 12x² + 9x + 2."
           solution={<>f&apos;(x) = 9x²−24x+9. f&apos;(1) = 9(1)²−24(1)+9 = <strong>−6</strong>.</>}>

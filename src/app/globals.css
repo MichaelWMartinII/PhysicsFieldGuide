@@ -20,6 +20,8 @@
   --eq-accent:   #5b7fa8;
   --sol-accent:  #3d7d5c;
   --history-accent: #b86f4b;
+  --misconception-accent: #a05050;
+  --app-accent: #3d7a6b;
 }
 
 html, body {
@@ -92,6 +94,7 @@ html, body {
   color: var(--text);
   margin: 0 0 1.1rem;
   font-size: 0.97rem;
+  overflow-wrap: break-word;
 }
 
 .chapter ul, .chapter ol {
@@ -99,11 +102,80 @@ html, body {
   padding-left: 1.75rem;
   margin: 0.5rem 0 1.1rem;
   font-size: 0.97rem;
+  overflow-wrap: break-word;
 }
 
 .chapter ul li, .chapter ol li { margin: 0.4rem 0; line-height: 1.8; }
 .chapter strong { color: var(--text-strong); font-weight: 600; }
 .chapter em { color: var(--text); }
+
+/* ─── Book home ─── */
+.home-page {
+  max-width: var(--page-max);
+  margin: 0 auto;
+  padding: 3rem 2.5rem 5rem;
+  font-family: Georgia, 'Times New Roman', serif;
+  line-height: 1.85;
+}
+
+.book-title-page {
+  border: 1px solid var(--border);
+  border-top: 4px solid var(--history-accent);
+  border-radius: 2px;
+  padding: 2.5rem 2.25rem;
+  margin-bottom: 3rem;
+  background:
+    linear-gradient(180deg, rgba(184, 111, 75, 0.08), transparent 10rem),
+    var(--surface);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.015);
+}
+
+.book-kicker {
+  font-family: system-ui, -apple-system, sans-serif;
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--history-accent);
+  margin-bottom: 0.75rem;
+}
+
+.book-title {
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: 3rem;
+  font-weight: 700;
+  color: var(--text-heading);
+  margin: 0 0 0.5rem;
+  line-height: 1.08;
+}
+
+.book-subtitle {
+  font-size: 1.08rem;
+  color: var(--muted);
+  font-style: italic;
+  margin-bottom: 1.25rem;
+  max-width: 38rem;
+}
+
+.book-rule {
+  width: 7rem;
+  height: 1px;
+  background: var(--history-accent);
+  margin: 1.4rem 0 1.75rem;
+}
+
+.book-title-page p {
+  color: var(--text);
+  font-size: 0.97rem;
+  margin-bottom: 1.1rem;
+}
+
+.book-actions {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-top: 1.75rem;
+}
 
 /* ─── Equation blocks ─── */
 .eq {
@@ -173,6 +245,7 @@ html, body {
   color: var(--text);
   font-size: 0.95rem;
   line-height: 1.8;
+  overflow-x: auto;
 }
 
 .tb-theorem {
@@ -198,6 +271,7 @@ html, body {
   color: var(--text);
   font-size: 0.95rem;
   line-height: 1.8;
+  overflow-x: auto;
 }
 
 .tb-example {
@@ -223,6 +297,7 @@ html, body {
   color: var(--text);
   font-size: 0.95rem;
   line-height: 1.8;
+  overflow-x: auto;
 }
 .tb-example-step {
   margin: 0.65rem 0 0.65rem 0.75rem;
@@ -375,6 +450,8 @@ html, body {
   border-bottom: 1px dotted color-mix(in srgb, var(--history-accent) 70%, transparent);
   cursor: help;
   font-weight: 600;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
 }
 
 .history-popover {
@@ -452,6 +529,104 @@ html, body {
   line-height: 1.75;
 }
 
+.history-source {
+  display: block;
+  margin-top: 0.65rem;
+  padding-top: 0.5rem;
+  border-top: 1px solid color-mix(in srgb, var(--history-accent) 28%, transparent);
+  color: var(--muted);
+  font-family: system-ui, -apple-system, sans-serif;
+  font-size: 0.72rem;
+  line-height: 1.45;
+}
+
+.history-source a {
+  color: var(--history-accent);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.history-further-reading {
+  display: block;
+  margin-top: 0.35rem;
+  color: var(--muted);
+  font-family: system-ui, -apple-system, sans-serif;
+  font-size: 0.72rem;
+  line-height: 1.45;
+}
+
+.history-further-reading a {
+  color: var(--history-accent);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+/* ─── Common Misconception ─── */
+.misconception {
+  margin: 1.75rem 0;
+  padding: 0.95rem 1.15rem 1.05rem;
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--misconception-accent);
+  border-radius: 0 6px 6px 0;
+  background: #110c0c;
+}
+
+.misconception-kicker {
+  font-family: system-ui, -apple-system, sans-serif;
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--misconception-accent);
+  margin-bottom: 0.3rem;
+}
+
+.misconception-wrong {
+  color: color-mix(in srgb, var(--misconception-accent) 90%, var(--text));
+  font-style: italic;
+  font-size: 0.97rem;
+  margin-bottom: 0.55rem;
+  line-height: 1.5;
+}
+
+.misconception-body {
+  color: var(--text);
+  font-size: 0.93rem;
+  line-height: 1.75;
+}
+
+/* ─── Application Note ─── */
+.app-note {
+  margin: 1.75rem 0;
+  padding: 0.95rem 1.15rem 1.05rem;
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--app-accent);
+  border-radius: 0 6px 6px 0;
+  background: #0a110e;
+}
+
+.app-note-kicker {
+  font-family: system-ui, -apple-system, sans-serif;
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--app-accent);
+  margin-bottom: 0.25rem;
+}
+
+.app-note-title {
+  color: var(--text-heading);
+  font-weight: 700;
+  margin-bottom: 0.35rem;
+}
+
+.app-note-body {
+  color: var(--text);
+  font-size: 0.93rem;
+  line-height: 1.75;
+}
+
 .chapter-field-note {
   max-width: var(--page-max);
   margin: -3.75rem auto 4.5rem;
@@ -460,6 +635,66 @@ html, body {
 
 .chapter-field-note .history-note {
   margin-top: 0;
+}
+
+/* ─── Chapter navigation ─── */
+.chapter-nav {
+  max-width: var(--page-max);
+  margin: -2.75rem auto 5rem;
+  padding: 0 2.5rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.chapter-nav-link,
+.chapter-nav-spacer {
+  min-height: 6.25rem;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+}
+
+.chapter-nav-link {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 1rem 1.1rem;
+  background: var(--surface);
+  color: var(--text);
+  text-decoration: none;
+}
+
+.chapter-nav-link:hover {
+  border-color: var(--border2);
+  background: var(--surface2);
+}
+
+.chapter-nav-next {
+  align-items: flex-end;
+  text-align: right;
+}
+
+.chapter-nav-direction {
+  font-family: system-ui, -apple-system, sans-serif;
+  color: var(--muted);
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.chapter-nav-title {
+  color: var(--text-heading);
+  font-weight: 700;
+  font-size: 1.02rem;
+  line-height: 1.35;
+  margin-top: 0.25rem;
+}
+
+.chapter-nav-track {
+  font-family: system-ui, -apple-system, sans-serif;
+  font-size: 0.72rem;
+  margin-top: 0.35rem;
 }
 
 canvas { display: block; border-radius: 6px; }
@@ -493,16 +728,61 @@ input[type='range']::-webkit-slider-thumb:hover { background: #7a9bbf; }
 /* ─── Mobile ─── */
 @media (max-width: 767px) {
   .chapter {
-    padding: 4rem 1.1rem 4rem;
+    padding: 4.5rem 1.1rem 4rem;
   }
 
   .chapter h1 {
     font-size: 1.6rem;
   }
 
+  .home-page {
+    padding: 4rem 1.1rem 4rem;
+  }
+
+  .book-title-page {
+    padding: 1.6rem 1.25rem;
+  }
+
+  .book-title {
+    font-size: 2.1rem;
+  }
+
+  .chapter-field-note,
+  .chapter-nav {
+    padding: 0 1.1rem;
+  }
+
+  .chapter-nav {
+    grid-template-columns: 1fr;
+  }
+
   .eq {
     margin: 1.25rem 0;
     padding: 0.75rem 0.75rem;
+    font-size: 0.98rem;
+  }
+
+  .chapter .subtitle {
+    font-size: 0.9rem;
+    line-height: 1.65;
+  }
+
+  .tb-definition-body,
+  .tb-theorem-body,
+  .tb-example-body {
+    padding-inline: 1rem;
+  }
+
+  .history-popover {
+    left: 0;
+    width: min(18rem, calc(100vw - 2.2rem));
+    transform: translate(0, 0.2rem);
+  }
+
+  .history-hover:hover .history-popover,
+  .history-hover:focus .history-popover,
+  .history-hover:focus-within .history-popover {
+    transform: translate(0, 0);
   }
 
   .eq-numbered {

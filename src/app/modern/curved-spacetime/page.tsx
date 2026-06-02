@@ -15,7 +15,7 @@ export default function CurvedSpacetimePage() {
         These semiclassical results sit at the intersection of quantum mechanics and general relativity.
       </p>
 
-      <Prerequisites items={['General relativity (Ch. GR)', 'QFT (Ch. QFT)', 'Tensor calculus (Ch. TC)', 'Statistical mechanics (Ch. SM)']} />
+      <Prerequisites items={['General relativity (Ch. GR)', 'QFT (Ch. QFT)', 'Tensor calculus (Ch. TC)', 'Statistical mechanics (Ch. S)']} />
 
       <LearningGoals items={[
         'Explain how Bogoliubov transformations between mode decompositions lead to particle creation in curved spacetime.',

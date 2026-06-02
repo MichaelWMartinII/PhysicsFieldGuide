@@ -1,20 +1,20 @@
 import RayOpticsClient from '@/components/sims/RayOpticsClient';
 import {
   Definition, Theorem, WorkedExample, Step,
-  PracticeProblems, Problem, InteractiveProblem, EqNumbered, Figure, Prerequisites, Takeaways, LearningGoals
+  PracticeProblems, Problem, InteractiveProblem, EqNumbered, Figure, Prerequisites, Takeaways, LearningGoals, HistoryNote
 } from '@/components/textbook';
 
 export default function GeometricOpticsPage() {
   return (
     <div className="chapter">
-      <div className="chapter-label" style={{ color: '#eab308' }}>Optics · Chapter 17</div>
+      <div className="chapter-label" style={{ color: '#eab308' }}>Optics · Chapter 19</div>
       <h1>Geometric Optics</h1>
       <p className="subtitle">
         When the wavelength of light is much smaller than the optical elements — lenses, mirrors,
         apertures — we can treat light as rays traveling in straight lines. This is geometric optics.
       </p>
 
-      <Prerequisites items={['Wave properties (Ch. 8) for the physical picture', 'Trigonometry for Snell\'s law calculations']} />
+      <Prerequisites items={['Wave properties (Ch. 9) for the physical picture', 'Trigonometry for Snell\'s law calculations']} />
 
       <LearningGoals items={[
         'Apply the law of reflection and the mirror equation to find image properties.',
@@ -24,7 +24,7 @@ export default function GeometricOpticsPage() {
         'Trace principal rays through lens and mirror systems to locate images.',
       ]} />
 
-      <h2>17.1 Reflection</h2>
+      <h2>19.1 Reflection</h2>
 
       <p>
         When light strikes a smooth surface, it reflects. The <strong>law of reflection</strong>
@@ -32,7 +32,19 @@ export default function GeometricOpticsPage() {
         normal to the surface:
       </p>
 
-      <EqNumbered number="17.1">θ_i = θ_r</EqNumbered>
+      <HistoryNote
+        year="1020s"
+        title="Ibn al-Haytham makes optics experimental"
+        source="Ibn al-Haytham, Kitab al-Manazir (Book of Optics)."
+        furtherReading={[{ label: "Ibn al-Haytham", url: "https://en.wikipedia.org/wiki/Ibn_al-Haytham" }, { label: "Book of Optics", url: "https://en.wikipedia.org/wiki/Book_of_Optics" }]}
+      >
+        Ibn al-Haytham — known in the medieval West as Alhazen — wrote his Book of Optics around 1011 while under house arrest in Cairo, having feigned madness to escape an impossible
+        engineering project assigned by the Caliph al-Hakim. He had seven volumes and a decade to think. He demolished the ancient Greek notion that the eye emits rays to see,
+        demonstrating through careful experiment that light enters the eye rather than leaving it. He built dark rooms, controlled light sources, and studied reflection and refraction
+        with the systematic discipline of someone who understood that experiment, not authority, settles questions. His methods were recognizably scientific four centuries before Galileo.
+      </HistoryNote>
+
+      <EqNumbered number="19.1">θ_i = θ_r</EqNumbered>
 
       <p>
         For a flat mirror, the image appears as far behind the mirror as the object is in front —
@@ -40,7 +52,7 @@ export default function GeometricOpticsPage() {
         For a curved mirror, we use the <strong>mirror equation</strong>:
       </p>
 
-      <EqNumbered number="17.2">1/d_o + 1/d_i = 1/f = 2/R</EqNumbered>
+      <EqNumbered number="19.2">1/d_o + 1/d_i = 1/f = 2/R</EqNumbered>
 
       <p>
         where d_o is the object distance, d_i is the image distance, f is the focal length,
@@ -48,7 +60,7 @@ export default function GeometricOpticsPage() {
         The magnification m = −d_i/d_o: negative means inverted.
       </p>
 
-      <h2>17.2 Refraction and Snell&apos;s Law</h2>
+      <h2>19.2 Refraction and Snell&apos;s Law</h2>
 
       <p>
         Light bends when it passes from one medium to another because its speed changes.
@@ -56,7 +68,7 @@ export default function GeometricOpticsPage() {
         of refraction</strong> n = c/v. The bending is governed by Snell&apos;s law:
       </p>
 
-      <EqNumbered number="17.3">n₁ sin θ₁ = n₂ sin θ₂</EqNumbered>
+      <EqNumbered number="19.3">n₁ sin θ₁ = n₂ sin θ₂</EqNumbered>
 
       <p>
         Light bends toward the normal when entering a denser medium (larger n) and away from
@@ -64,7 +76,7 @@ export default function GeometricOpticsPage() {
         glass ≈ 1.5, diamond ≈ 2.42.
       </p>
 
-      <Definition number="17.1" title="Total Internal Reflection">
+      <Definition number="19.1" title="Total Internal Reflection">
         When light travels from a dense medium (n₁) to a less dense medium (n₂ {'<'} n₁),
         there exists a critical angle θ_c above which all light is reflected and none transmitted:
         <span style={{ display: 'block', textAlign: 'center', marginTop: '0.5rem', fontStyle: 'italic' }}>
@@ -75,11 +87,11 @@ export default function GeometricOpticsPage() {
         reflection around every bend.
       </Definition>
 
-      <Figure number="17.1" caption="Ray optics simulation. Refraction tab: adjust the incident angle and index n₂ to see bending and total internal reflection. Thin lens tab: principal rays show how a converging lens forms a real image. Mirror tab: concave mirror with mirror equation.">
+      <Figure number="19.1" caption="Ray optics simulation. Refraction tab: adjust the incident angle and index n₂ to see bending and total internal reflection. Thin lens tab: principal rays show how a converging lens forms a real image. Mirror tab: concave mirror with mirror equation.">
         <RayOpticsClient />
       </Figure>
 
-      <WorkedExample number="17.1" title="Snell's Law at a Glass Surface">
+      <WorkedExample number="19.1" title="Snell's Law at a Glass Surface">
         <p>
           A light ray in air strikes a glass surface (n = 1.52) at θ₁ = 45°. Find the
           refracted angle. What is the critical angle for this glass?
@@ -90,7 +102,7 @@ export default function GeometricOpticsPage() {
         <Step label="Interpretation:">Any ray inside the glass hitting the surface at {'>'} 41.1° will be totally internally reflected.</Step>
       </WorkedExample>
 
-      <h2>17.3 Thin Lenses</h2>
+      <h2>19.3 Thin Lenses</h2>
 
       <p>
         A thin lens refracts light at two surfaces. For a lens much thinner than its focal
@@ -98,28 +110,28 @@ export default function GeometricOpticsPage() {
         equation is the same form as the mirror equation:
       </p>
 
-      <EqNumbered number="17.4">1/d_o + 1/d_i = 1/f</EqNumbered>
+      <EqNumbered number="19.4">1/d_o + 1/d_i = 1/f</EqNumbered>
 
       <p>
         A converging (convex) lens has f {'>'} 0. A diverging (concave) lens has f {'<'} 0.
         The focal length is related to the lens geometry by the <strong>lensmaker&apos;s equation</strong>:
       </p>
 
-      <EqNumbered number="17.5">1/f = (n−1) × (1/R₁ − 1/R₂)</EqNumbered>
+      <EqNumbered number="19.5">1/f = (n−1) × (1/R₁ − 1/R₂)</EqNumbered>
 
       <p>
         where R₁ and R₂ are the radii of curvature of the two surfaces (positive if center of
         curvature is to the right). The power of a lens is P = 1/f measured in diopters (D = m⁻¹).
       </p>
 
-      <Theorem number="17.1" title="Image Properties for a Converging Lens">
+      <Theorem number="19.1" title="Image Properties for a Converging Lens">
         <span style={{ display: 'block', marginBottom: '0.3rem' }}>Object beyond 2f: real, inverted, reduced, on far side of lens</span>
         <span style={{ display: 'block', marginBottom: '0.3rem' }}>Object at 2f: real, inverted, same size, at 2f</span>
         <span style={{ display: 'block', marginBottom: '0.3rem' }}>Object between f and 2f: real, inverted, enlarged (projector)</span>
         <span style={{ display: 'block' }}>Object inside f: virtual, upright, enlarged (magnifying glass)</span>
       </Theorem>
 
-      <WorkedExample number="17.2" title="Image Location from a Thin Lens">
+      <WorkedExample number="19.2" title="Image Location from a Thin Lens">
         <p>
           A converging lens has f = 20 cm. An object is placed 60 cm from the lens. Find the
           image distance and magnification.
@@ -129,7 +141,7 @@ export default function GeometricOpticsPage() {
         <Step label="Magnification:">m = −d_i/d_o = −30/60 = −0.5 (inverted, half the size)</Step>
       </WorkedExample>
 
-      <WorkedExample number="17.3" title="Combination of Two Lenses">
+      <WorkedExample number="19.3" title="Combination of Two Lenses">
         <p>
           Two converging lenses, f₁ = 30 cm and f₂ = 10 cm, are 20 cm apart. Object is 45 cm
           to the left of lens 1. Find the final image.
@@ -140,7 +152,7 @@ export default function GeometricOpticsPage() {
         <Step label="Final image:">8.75 cm to the right of lens 2. Real and inverted.</Step>
       </WorkedExample>
 
-      <Definition number="17.2" title="Common Traps">
+      <Definition number="19.2" title="Common Traps">
         <ul style={{ marginTop: '0.4rem' }}>
           <li><strong>Angles are measured from the normal:</strong> not from the surface.</li>
           <li><strong>Virtual images have sign meaning:</strong> track the sign convention before interpreting image distance.</li>
@@ -149,7 +161,7 @@ export default function GeometricOpticsPage() {
         </ul>
       </Definition>
 
-      <PracticeProblems section="17.1–17.3 Geometric Optics">
+      <PracticeProblems section="19.1–19.3 Geometric Optics">
         <InteractiveProblem n={1} difficulty="easy"
           answer={27.7} unit="°" tolerance={0.5}
           hints={['Snell\'s law: sin θ₂ = n₁ sin θ₁ / n₂ = sin(45°)/1.52']}

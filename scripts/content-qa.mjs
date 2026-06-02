@@ -36,6 +36,7 @@ const contentFiles = appFiles.filter(file => !rel(file).startsWith('src/app/api/
 
 const draftPatterns = [
   /\bwait\s*(?:[,—-]|\blet\b)/i,
+  /\bwait\s*:/i,
   /\blet me redo\b/i,
   /\brecalc(?:ulate)?\b/i,
   /\bhmm\b/i,
@@ -78,6 +79,9 @@ const knownBadPatterns = [
   [/BGL ratio/i, 'typo: BGL ratio'],
   [/¹³⁶Ge|136Ge/i, 'germanium double-beta isotope should be 76Ge'],
   [/same universality class as the 2D Ising/i, 'percolation universality class mismatch'],
+  [/g = 2L\/T²/, 'pendulum gravity formula should be g = 4π²L/T²'],
+  [/Ch\. (WO|Las|LA-Mech|DE|EM|QM|NP|Nuc|Astro|Prob|Chaos|V)\b/, 'stale shorthand chapter reference'],
+  [/Math Ch\./, 'stale generic math chapter reference'],
 ];
 
 for (const file of contentFiles) {
@@ -89,6 +93,7 @@ for (const file of contentFiles) {
 }
 
 const libText = walk(libDir).map(file => fs.readFileSync(file, 'utf8')).join('\n');
+const fieldNotesText = fs.readFileSync(path.join(libDir, 'fieldNotes.ts'), 'utf8');
 const builtTopicPattern = /\{[^{}]*built:\s*true[^{}]*\}/g;
 for (const match of libText.matchAll(builtTopicPattern)) {
   const topic = match[0];
@@ -110,6 +115,10 @@ knownRoutes.delete('/roadmap');
 for (const route of knownRoutes) {
   if (!libText.includes(`href: '${route}'`) && !libText.includes(`href: "${route}"`)) {
     warn.push(`route exists but is not referenced by curriculum/roadmap href: ${route}`);
+  }
+
+  if (!fieldNotesText.includes(`'${route}'`) && !fieldNotesText.includes(`"${route}"`)) {
+    fail.push(`missing field note for route: ${route}`);
   }
 }
 

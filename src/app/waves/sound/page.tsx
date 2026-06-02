@@ -1,20 +1,20 @@
 import DopplerWaveClient from '@/components/sims/DopplerWaveClient';
 import {
   Definition, Theorem, WorkedExample, Step,
-  PracticeProblems, Problem, InteractiveProblem, EqNumbered, Figure, Prerequisites, Takeaways, LearningGoals
+  PracticeProblems, Problem, InteractiveProblem, EqNumbered, Figure, Prerequisites, Takeaways, LearningGoals, HistoryNote
 } from '@/components/textbook';
 
 export default function SoundPage() {
   return (
     <div className="chapter">
-      <div className="chapter-label" style={{ color: '#10b981' }}>Waves &amp; Oscillations · Chapter 10</div>
+      <div className="chapter-label" style={{ color: '#10b981' }}>Waves &amp; Oscillations · Chapter 11</div>
       <h1>Sound</h1>
       <p className="subtitle">
         Sound is a longitudinal pressure wave in a medium. Its physics spans the piano and the
         sonic boom, the bat&apos;s sonar and the medical ultrasound scan.
       </p>
 
-      <Prerequisites items={['Wave properties (Ch. 8) — wavelength, frequency, speed, superposition']} />
+      <Prerequisites items={['Wave properties (Ch. 9) — wavelength, frequency, speed, superposition']} />
 
       <LearningGoals items={[
         'Calculate the speed of sound in an ideal gas from γ, R, T, and M.',
@@ -24,7 +24,7 @@ export default function SoundPage() {
         'Predict beat frequency when two nearly equal frequencies are superposed.',
       ]} />
 
-      <h2>10.1 The Nature of Sound</h2>
+      <h2>11.1 The Nature of Sound</h2>
 
       <p>
         Sound is a <strong>longitudinal mechanical wave</strong>: the displacement of the medium
@@ -38,7 +38,7 @@ export default function SoundPage() {
         ideal gas it is:
       </p>
 
-      <EqNumbered number="10.1" latex="v_s=\sqrt{\frac{\gamma RT}{M}}" />
+      <EqNumbered number="11.1" latex="v_s=\sqrt{\frac{\gamma RT}{M}}" />
 
       <p>
         where γ is the adiabatic index (≈1.4 for air), R = 8.314 J/(mol·K), T is the
@@ -47,7 +47,7 @@ export default function SoundPage() {
         force (bulk modulus) increases faster than the density.
       </p>
 
-      <h2>10.2 Intensity and the Decibel Scale</h2>
+      <h2>11.2 Intensity and the Decibel Scale</h2>
 
       <p>
         The <strong>intensity</strong> I of a sound wave is the power transported per unit area,
@@ -60,7 +60,7 @@ export default function SoundPage() {
         (threshold of hearing) to 1 W/m² (painful) — we use a logarithmic scale:
       </p>
 
-      <EqNumbered number="10.2" latex="\beta=10\log_{10}\left(\frac{I}{I_0}\right) \qquad \text{(decibels, dB)}" />
+      <EqNumbered number="11.2" latex="\beta=10\log_{10}\left(\frac{I}{I_0}\right) \qquad \text{(decibels, dB)}" />
 
       <p>
         where I₀ = 10⁻¹² W/m² is the reference intensity. Ordinary conversation ≈ 60 dB,
@@ -69,7 +69,7 @@ export default function SoundPage() {
         perceived loudness.
       </p>
 
-      <WorkedExample number="10.1" title="Sound Level at Different Distances">
+      <WorkedExample number="11.1" title="Sound Level at Different Distances">
         <p>
           A speaker outputs 1 W of acoustic power. Find the intensity and decibel level
           at 1 m and 10 m.
@@ -81,16 +81,28 @@ export default function SoundPage() {
         <Step label="Note:">10× distance → intensity drops 100× → sound level drops 20 dB. ✓ (inverse square)</Step>
       </WorkedExample>
 
-      <h2>10.3 The Doppler Effect</h2>
+      <h2>11.3 The Doppler Effect</h2>
 
       <p>
         When a source of sound moves relative to an observer, the observed frequency differs
         from the emitted frequency. This is the <strong>Doppler effect</strong>: motion toward
         the observer compresses the wavefronts, raising the perceived pitch; motion away
         stretches them, lowering it.
+        <HistoryNote
+          trigger="Doppler first proposed it for light"
+          year="1842"
+          title="From colored stars to sirens"
+          source="Christian Doppler, Uber das farbige Licht der Doppelsterne."
+          furtherReading={[{ label: "Christian Doppler", url: "https://en.wikipedia.org/wiki/Christian_Doppler" }]}
+        >
+          Christian Doppler published his frequency-shift paper in 1842 with stars in mind — he thought it explained the apparent colors of binary stars. He was largely wrong about
+          the stellar colors (the shift is too small to see visually), but the principle was right. A Dutch meteorologist tested it three years later by hiring a locomotive to carry
+          trumpeters past a panel of musicians with perfect pitch. The experiment worked. Today the Doppler shift is in every weather radar, every speed gun, every echocardiogram, and
+          every redshift measurement that tells us the universe is expanding. A paper about star colors changed how we see the world.
+        </HistoryNote>, but the idea is now a general wave principle.
       </p>
 
-      <Definition number="10.1" title="Doppler Frequency Formula">
+      <Definition number="11.1" title="Doppler Frequency Formula">
         For a source moving at speed v_s and observer moving at speed v_o, both measured
         relative to the medium (positive when moving toward each other):
         <span style={{ display: 'block', textAlign: 'center', marginTop: '0.5rem', fontStyle: 'italic' }}>
@@ -100,11 +112,11 @@ export default function SoundPage() {
         If source recedes: v_s {'<'} 0 → f_obs {'<'} f₀.
       </Definition>
 
-      <Figure number="10.1" caption="Doppler effect simulation. At rest, the wavefronts are evenly spaced. As the source moves right, wavefronts bunch toward the observer on the right (higher pitch) and spread out to the left (lower pitch). Push the source toward Mach 1 to see the Mach cone form.">
+      <Figure number="11.1" caption="Doppler effect simulation. At rest, the wavefronts are evenly spaced. As the source moves right, wavefronts bunch toward the observer on the right (higher pitch) and spread out to the left (lower pitch). Push the source toward Mach 1 to see the Mach cone form.">
         <DopplerWaveClient />
       </Figure>
 
-      <h2>10.4 Resonance in Tubes</h2>
+      <h2>11.4 Resonance in Tubes</h2>
 
       <p>
         A sound wave reflecting inside a tube creates a standing wave. The frequencies at which
@@ -112,7 +124,7 @@ export default function SoundPage() {
         These are the fundamentals and harmonics heard from organ pipes, clarinets, and trumpets.
       </p>
 
-      <Theorem number="10.1" title="Resonant Frequencies in Tubes">
+      <Theorem number="11.1" title="Resonant Frequencies in Tubes">
         <span style={{ display: 'block', marginBottom: '0.35rem' }}>
           <strong>Open–open tube</strong> (both ends open, pressure nodes at ends):
           f_n = nv/(2L), n = 1, 2, 3, … &nbsp; (all harmonics)
@@ -125,7 +137,7 @@ export default function SoundPage() {
         antinode (pressure node).
       </Theorem>
 
-      <WorkedExample number="10.2" title="Fundamental Frequency of an Organ Pipe">
+      <WorkedExample number="11.2" title="Fundamental Frequency of an Organ Pipe">
         <p>
           An open organ pipe is 2.0 m long. Find its fundamental frequency and the first three
           harmonics. (v_s = 343 m/s)
@@ -136,7 +148,7 @@ export default function SoundPage() {
         <Step label="Note:">If the pipe were closed at one end (length same), f₁ = v/(4L) = 42.9 Hz — an octave lower, with only odd harmonics.</Step>
       </WorkedExample>
 
-      <h2>10.5 Beats</h2>
+      <h2>11.5 Beats</h2>
 
       <p>
         When two sound waves of slightly different frequencies f₁ and f₂ overlap, their
@@ -144,7 +156,7 @@ export default function SoundPage() {
         The beat frequency — the rate at which the amplitude pulsates — is:
       </p>
 
-      <EqNumbered number="10.3" latex="f_\mathrm{beat}=|f_1-f_2|" />
+      <EqNumbered number="11.3" latex="f_\mathrm{beat}=|f_1-f_2|" />
 
       <p>
         Musicians use beats to tune instruments: when f_beat → 0, the two instruments are
@@ -153,7 +165,7 @@ export default function SoundPage() {
         loosened to pitch.
       </p>
 
-      <Definition number="10.2" title="Common Traps">
+      <Definition number="11.2" title="Common Traps">
         <ul style={{ marginTop: '0.4rem' }}>
           <li><strong>Sound needs a medium:</strong> unlike light, sound does not propagate through vacuum.</li>
           <li><strong>Decibels are logarithmic:</strong> adding 10 dB multiplies intensity by 10; it does not add a fixed W/m² amount.</li>
@@ -162,7 +174,7 @@ export default function SoundPage() {
         </ul>
       </Definition>
 
-      <PracticeProblems section="8.1–8.5 Sound">
+      <PracticeProblems section="11.1–11.5 Sound">
         <InteractiveProblem n={1} difficulty="easy"
           answer={438} unit="Hz" tolerance={0.02}
           hints={['f_obs = f₀(v+v_o)/(v−v_s). Source approaching: v_s > 0.']}

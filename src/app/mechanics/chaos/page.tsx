@@ -14,7 +14,7 @@ export default function ChaosPage() {
         as complex as any random process.
       </p>
 
-      <Prerequisites items={['Differential equations (Ch. 23)', 'Lagrangian mechanics (Ch. L)', 'Phase space concept']} />
+      <Prerequisites items={['Differential equations (Ch. 26)', 'Lagrangian mechanics (Ch. L)', 'Phase space concept']} />
 
       <LearningGoals items={[
         'Classify fixed points of a 2D dynamical system using the eigenvalues of the Jacobian matrix.',

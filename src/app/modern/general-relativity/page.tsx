@@ -14,7 +14,7 @@ export default function GeneralRelativityPage() {
         The theory has passed every experimental test and underlies GPS, black holes, and cosmology.
       </p>
 
-      <Prerequisites items={['Special relativity (Ch. 19)', 'Vectors and tensors', 'Differential equations']} />
+      <Prerequisites items={['Special relativity (Ch. 21)', 'Vectors and tensors', 'Differential equations']} />
 
       <LearningGoals items={[
         'State the equivalence principle and derive gravitational time dilation and light deflection from it.',

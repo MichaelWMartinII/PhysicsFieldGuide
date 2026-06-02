@@ -15,7 +15,7 @@ export default function ComputationalPage() {
         pillar of physics alongside theory and experiment.
       </p>
 
-      <Prerequisites items={['Differential equations (Ch. DE)', 'Linear algebra (Ch. LA)', 'Fourier analysis (Ch. F)', 'Lagrangian mechanics (Ch. LA-Mech)']} />
+      <Prerequisites items={['Differential equations (Ch. 26)', 'Linear algebra (Ch. LA)', 'Fourier analysis (Ch. F)', 'Lagrangian mechanics (Ch. L)']} />
 
       <LearningGoals items={[
         'Implement and compare Euler, Verlet, and RK4 integrators and explain why symplectic methods conserve energy over long times.',

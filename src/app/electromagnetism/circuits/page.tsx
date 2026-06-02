@@ -1,20 +1,20 @@
 import CircuitBuilderClient from '@/components/sims/CircuitBuilderClient';
 import {
   Definition, Theorem, WorkedExample, Step,
-  PracticeProblems, Problem, InteractiveProblem, Eq, EqNumbered, Figure, Prerequisites, Takeaways, LearningGoals, InlineMath
+  PracticeProblems, Problem, InteractiveProblem, Eq, EqNumbered, Figure, Prerequisites, Takeaways, LearningGoals, InlineMath, HistoryNote
 } from '@/components/textbook';
 
 export default function CircuitsPage() {
   return (
     <div className="chapter">
-      <div className="chapter-label" style={{ color: '#a855f7' }}>Electromagnetism · Chapter 14</div>
+      <div className="chapter-label" style={{ color: '#a855f7' }}>Electromagnetism · Chapter 16</div>
       <h1>DC Circuits</h1>
       <p className="subtitle">
         The laws governing steady currents in resistive networks — Ohm&apos;s law and Kirchhoff&apos;s
         rules — reduce any circuit, no matter how complex, to a system of linear equations.
       </p>
 
-      <Prerequisites items={['Electric fields and potential (Ch. 13)', 'Basic algebra — no calculus needed for DC circuits']} />
+      <Prerequisites items={['Electric fields and potential (Ch. 15)', 'Basic algebra — no calculus needed for DC circuits']} />
 
       <LearningGoals items={[
         'Distinguish conventional current from electron drift and connect current to charge flow.',
@@ -24,7 +24,7 @@ export default function CircuitsPage() {
         'Explain how internal resistance changes a real battery\'s terminal voltage under load.',
       ]} />
 
-      <h2>14.1 Electric Current and Resistance</h2>
+      <h2>16.1 Electric Current and Resistance</h2>
 
       <p>
         When a potential difference (voltage) is applied across a conductor, charge carriers —
@@ -32,7 +32,7 @@ export default function CircuitsPage() {
         flow is the <strong>electric current</strong>:
       </p>
 
-      <EqNumbered number="14.1" latex="I = \frac{dQ}{dt}" />
+      <EqNumbered number="16.1" latex="I = \frac{dQ}{dt}" />
 
       <p>
         Current is measured in amperes (A = C/s). By convention, the direction of current is the
@@ -43,9 +43,19 @@ export default function CircuitsPage() {
         In this chapter every circuit is assumed to have reached a <strong>steady state</strong>:
         currents are constant in time, charge does not pile up at junctions, and capacitors or
         inductors are not changing the current. That is why the algebraic rules below are enough.
+        <HistoryNote
+          trigger="Ohm's law"
+          year="1827"
+          title="A simple law that took time to be accepted"
+          source="Georg Simon Ohm, Die galvanische Kette, mathematisch bearbeitet."
+          furtherReading={[{ label: "Georg Simon Ohm", url: "https://en.wikipedia.org/wiki/Georg_Ohm" }]}
+        >
+          Georg Simon Ohm was a high school teacher in Cologne when he published his law in 1827. German scientific authorities called his work "a tissue of naked fantasy," and he lost his teaching position.
+          The Royal Society of London awarded him the Copley Medal in 1841, and by the end of his life V = IR appeared in every textbook. The law that was once a scandal became the grammar of circuit design.
+        </HistoryNote> is the local rule that makes that algebra useful.
       </p>
 
-      <Definition number="14.1" title="Ohm's Law">
+      <Definition number="16.1" title="Ohm's Law">
         For many materials over a wide range of conditions, the current through a conductor
         is proportional to the voltage across it:
         <span style={{ display: 'block', textAlign: 'center', marginTop: '0.5rem', fontStyle: 'italic' }}>
@@ -60,16 +70,16 @@ export default function CircuitsPage() {
         Power dissipated in a resistor (converted to heat) follows from <InlineMath latex="P = IV" /> combined with Ohm&apos;s law:
       </p>
 
-      <EqNumbered number="14.2" latex="P = IV = I^2R = \frac{V^2}{R}" />
+      <EqNumbered number="16.2" latex="P = IV = I^2R = \frac{V^2}{R}" />
 
-      <h2>14.2 Series and Parallel Combinations</h2>
+      <h2>16.2 Series and Parallel Combinations</h2>
 
       <p>
         Resistors in <strong>series</strong> carry the same current; their resistances add directly.
         Resistors in <strong>parallel</strong> share the same voltage; their reciprocals add.
       </p>
 
-      <Theorem number="14.1" title="Equivalent Resistance">
+      <Theorem number="16.1" title="Equivalent Resistance">
         <Eq latex="R_\mathrm{eq} = R_1 + R_2 + R_3 + \cdots" />
         <Eq latex="\frac{1}{R_\mathrm{eq}} = \frac{1}{R_1} + \frac{1}{R_2} + \frac{1}{R_3} + \cdots" />
         <span style={{ display: 'block', marginTop: '0.4rem', color: 'var(--muted)', fontSize: '0.9rem' }}>
@@ -77,11 +87,11 @@ export default function CircuitsPage() {
         </span>
       </Theorem>
 
-      <Figure number="14.1" caption="Interactive circuit simulator. Compare series and parallel modes: in series, every resistor carries the same current and voltage divides; in parallel, every branch has the same voltage and current divides. Adjust the battery voltage and resistances, then check whether the animated charge flow matches those rules.">
+      <Figure number="16.1" caption="Interactive circuit simulator. Compare series and parallel modes: in series, every resistor carries the same current and voltage divides; in parallel, every branch has the same voltage and current divides. Adjust the battery voltage and resistances, then check whether the animated charge flow matches those rules.">
         <CircuitBuilderClient />
       </Figure>
 
-      <WorkedExample number="14.1" title="Series-Parallel Network">
+      <WorkedExample number="16.1" title="Series-Parallel Network">
         <p>
           R₁ = 6 Ω and R₂ = 3 Ω are in parallel; this combination is in series with R₃ = 2 Ω.
           A 12 V battery is connected. Find the current through each resistor.
@@ -94,7 +104,7 @@ export default function CircuitsPage() {
         <Step label="Check:"><InlineMath latex="I_1 + I_2 = 1 + 2 = 3\,\mathrm{A}" /> = total ✓</Step>
       </WorkedExample>
 
-      <h2>14.3 Kirchhoff&apos;s Rules</h2>
+      <h2>16.3 Kirchhoff&apos;s Rules</h2>
 
       <p>
         For circuits too complex to reduce by series/parallel rules, Kirchhoff&apos;s two laws provide
@@ -108,7 +118,7 @@ export default function CircuitsPage() {
         opposite to the one you guessed.
       </p>
 
-      <Definition number="14.2" title="Kirchhoff's Junction Rule (KCL)">
+      <Definition number="16.2" title="Kirchhoff's Junction Rule (KCL)">
         At any junction in a circuit, the sum of currents entering equals the sum of currents leaving:
         <span style={{ display: 'block', textAlign: 'center', marginTop: '0.5rem', fontStyle: 'italic' }}>
           <InlineMath latex="\sum I_\mathrm{in} = \sum I_\mathrm{out}" />
@@ -116,7 +126,7 @@ export default function CircuitsPage() {
         This is conservation of charge — no charge accumulates at a junction.
       </Definition>
 
-      <Definition number="14.3" title="Kirchhoff's Loop Rule (KVL)">
+      <Definition number="16.3" title="Kirchhoff's Loop Rule (KVL)">
         The sum of all potential changes around any closed loop in a circuit is zero:
         <span style={{ display: 'block', textAlign: 'center', marginTop: '0.5rem', fontStyle: 'italic' }}>
           <InlineMath latex="\sum \Delta V = 0" /> &nbsp;&nbsp; (around any closed loop)
@@ -126,7 +136,7 @@ export default function CircuitsPage() {
         Traversing a battery from − to +: <InlineMath latex="\Delta V = +\varepsilon" />.
       </Definition>
 
-      <WorkedExample number="14.2" title="Two-Loop Circuit by Kirchhoff's Rules">
+      <WorkedExample number="16.2" title="Two-Loop Circuit by Kirchhoff's Rules">
         <p>
           Two batteries (ε₁ = 12 V, ε₂ = 6 V) and three resistors (R₁ = 2 Ω, R₂ = 4 Ω,
           R₃ = 3 Ω). ε₁ and R₁ in the left branch, ε₂ and R₂ in the right, R₃ in the middle.
@@ -136,18 +146,18 @@ export default function CircuitsPage() {
         <Step label="Junction rule (top):"><InlineMath latex="I_1 + I_2 = I_3" /> → <InlineMath latex="I_3 = I_1 + I_2" /></Step>
         <Step label="Left loop (KVL):"><InlineMath latex="+\varepsilon_1 - I_1R_1 - I_3R_3 = 0" /> → <InlineMath latex="12 - 2I_1 - 3(I_1+I_2) = 0" /> → <InlineMath latex="5I_1 + 3I_2 = 12" /></Step>
         <Step label="Right loop (KVL):"><InlineMath latex="+\varepsilon_2 - I_2R_2 - I_3R_3 = 0" /> → <InlineMath latex="6 - 4I_2 - 3(I_1+I_2) = 0" /> → <InlineMath latex="3I_1 + 7I_2 = 6" /></Step>
-        <Step label="Solve system:">From eq. 1: <InlineMath latex="I_1 = (12-3I_2)/5" />. Substitute: <InlineMath latex="3(12-3I_2)/5 + 7I_2 = 6" /> → <InlineMath latex="I_2 = -0.47\,\mathrm{A}" /></Step>
-        <Step label="Result:"><InlineMath latex="I_1 \approx 2.68\,\mathrm{A}" />, <InlineMath latex="I_2 \approx -0.47\,\mathrm{A}" /> (flows opposite to assumed direction), <InlineMath latex="I_3 \approx 2.21\,\mathrm{A}" /></Step>
+        <Step label="Solve system:">From eq. 1: <InlineMath latex="I_1 = (12-3I_2)/5" />. Substitute: <InlineMath latex="3(12-3I_2)/5 + 7I_2 = 6" /> → <InlineMath latex="26I_2 = -6" /> → <InlineMath latex="I_2 = -0.23\,\mathrm{A}" /></Step>
+        <Step label="Result:"><InlineMath latex="I_1 \approx 2.54\,\mathrm{A}" />, <InlineMath latex="I_2 \approx -0.23\,\mathrm{A}" /> (flows opposite to assumed direction), <InlineMath latex="I_3 \approx 2.31\,\mathrm{A}" /></Step>
       </WorkedExample>
 
-      <h2>14.4 EMF and Internal Resistance</h2>
+      <h2>16.4 EMF and Internal Resistance</h2>
 
       <p>
         A real battery is not a pure voltage source — it has <strong>internal resistance</strong> r.
         The terminal voltage <InlineMath latex="V_t" /> differs from the EMF <InlineMath latex="\varepsilon" /> whenever current flows:
       </p>
 
-      <EqNumbered number="14.3" latex="V_t = \varepsilon - Ir \qquad \text{(discharging)}" />
+      <EqNumbered number="16.3" latex="V_t = \varepsilon - Ir \qquad \text{(discharging)}" />
 
       <p>
         This means the terminal voltage drops under load. A car battery rated at 12 V might deliver
@@ -155,7 +165,7 @@ export default function CircuitsPage() {
         power transfer to an external load <InlineMath latex="R_L" />, set <InlineMath latex="R_L = r" /> (maximum power transfer theorem).
       </p>
 
-      <Definition number="14.4" title="Common Traps">
+      <Definition number="16.4" title="Common Traps">
         <ul style={{ marginTop: '0.4rem' }}>
           <li><strong>Current is not used up:</strong> charge flow is conserved at junctions; energy is dissipated, not charge.</li>
           <li><strong>Series and parallel rules swap what stays the same:</strong> series means same current; parallel means same voltage.</li>
@@ -165,7 +175,7 @@ export default function CircuitsPage() {
         </ul>
       </Definition>
 
-      <PracticeProblems section="14.1–14.4 DC Circuits">
+      <PracticeProblems section="16.1–16.4 DC Circuits">
         <InteractiveProblem n={1} difficulty="easy"
           answer={3} unit="A" tolerance={0.01}
           hints={['I = V/R. Add resistors in series first.']}

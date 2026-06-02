@@ -14,7 +14,7 @@ export default function SpecialFunctionsPage() {
         of physics and encode the geometry and symmetry of the problem.
       </p>
 
-      <Prerequisites items={['Differential equations (Ch. DE)', 'Complex analysis (Ch. CA)', 'Fourier analysis (Ch. F)', 'Linear algebra (Ch. LA)']} />
+      <Prerequisites items={['Differential equations (Ch. 26)', 'Complex analysis (Ch. CA)', 'Fourier analysis (Ch. F)', 'Linear algebra (Ch. LA)']} />
 
       <LearningGoals items={[
         'Use the Gamma function recursion, reflection formula, and Stirling approximation, and evaluate Gaussian integrals via Γ(1/2) = √π.',
@@ -161,7 +161,7 @@ export default function SpecialFunctionsPage() {
       <PracticeProblems section="SF.1–SF.5 Special Functions">
         <InteractiveProblem n={1} difficulty="easy"
           answer={1.329} unit="" tolerance={0.02}
-          hints={['Use t = x² to write ∫₀^∞ x⁴ e^(−x²) dx = ∫₀^∞ t^(3/2) e^(−t) dt / 2 = Γ(5/2)/2.', 'Γ(5/2) = (3/2)(1/2)Γ(1/2) = (3/4)√π ≈ 1.329. The integral from −∞ to ∞ doubles this to (3/2)√π/2... wait: ∫_{-∞}^{∞} = 2∫₀^∞ = Γ(5/2) = 3√π/4.']}
+          hints={['Use t = x² to write ∫₀^∞ x⁴ e^(−x²) dx = ∫₀^∞ t^(3/2) e^(−t) dt / 2 = Γ(5/2)/2.', 'Γ(5/2) = (3/2)(1/2)Γ(1/2) = (3/4)√π, so ∫_{-∞}^{∞} x⁴ e^(−x²) dx = 2[Γ(5/2)/2] = 3√π/4 ≈ 1.329.']}
           problemText="Evaluate ∫_{-∞}^{∞} x⁴ e^{-x²} dx using Γ(1/2) = √π. Express as a decimal rounded to 3 significant figures."
           solution={<>Gamma function identities. Γ(1/2) = √π (standard). Proof: [Γ(1/2)]² = ∫(0 to ∞)∫(0 to ∞) t^(-1/2) s^(-1/2) e^(-t-s) dt ds. Let t=x², s=y²: = 4∫∫ e^(-x²-y²) dx dy = 4×(π/4) = π. So Γ(1/2) = √π. Gaussian integral: ∫(−∞ to ∞) x^(2n) e^(-x²) dx = 2∫(0 to ∞) x^(2n) e^(-x²) dx. Let t=x²: = ∫(0 to ∞) t^(n-1/2) e^(-t) dt = Γ(n+1/2). By recursion: Γ(n+1/2) = (n-1/2)Γ(n-1/2) = ... = (2n-1)!!/2^n × √π. So ∫x^(2n) e^(-x²)dx = (2n-1)!!/2^n × √π. For n=2: ∫x⁴e^(-x²)dx = 3/4 × √π ≈ 1.329. Surface area of n-sphere: S_n = 2π^(n/2)/Γ(n/2). For n=3: S_3 = 2π^(3/2)/Γ(3/2) = 2π^(3/2)/(√π/2) = 4π ✓. Volume V_n = π^(n/2)R^n/Γ(n/2+1).</>}>
           Prove that Γ(1/2) = √π using a 2D Gaussian integral. Use this to evaluate ∫(−∞ to ∞) x⁴ e^(−x²) dx.

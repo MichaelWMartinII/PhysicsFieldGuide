@@ -1,6 +1,6 @@
 import {
   Definition, Theorem, WorkedExample, Step,
-  PracticeProblems, Problem, InteractiveProblem, EqNumbered, Prerequisites, Takeaways, LearningGoals
+  PracticeProblems, Problem, InteractiveProblem, EqNumbered, Prerequisites, Takeaways, LearningGoals, HistoryNote
 } from '@/components/textbook';
 
 export default function LagrangianPage() {
@@ -14,7 +14,7 @@ export default function LagrangianPage() {
         generalizes naturally to quantum fields and general relativity.
       </p>
 
-      <Prerequisites items={['Newton\'s laws (Ch. 3)', 'Energy (Ch. 4)', 'Calculus (Ch. 22)', 'Differential equations (Ch. 23)']} />
+      <Prerequisites items={['Newton\'s laws (Ch. 3)', 'Energy (Ch. 4)', 'Calculus (Ch. 25)', 'Differential equations (Ch. 26)']} />
 
       <LearningGoals items={[
         'Choose generalized coordinates appropriate to a constrained system and count the degrees of freedom.',
@@ -55,6 +55,19 @@ export default function LagrangianPage() {
         actual path taken by a system between two configurations is the one for which the action
         S = ∫L dt is stationary (first variation vanishes). Applying variational calculus yields:
       </p>
+
+      <HistoryNote
+        year="1918"
+        title="Noether connects symmetry to conservation"
+        source="Emmy Noether, Invariante Variationsprobleme."
+        sourceUrl="https://eudml.org/doc/59024"
+        furtherReading={[{ label: "Emmy Noether", url: "https://en.wikipedia.org/wiki/Emmy_Noether" }, { label: "Noether's theorem", url: "https://en.wikipedia.org/wiki/Noether%27s_theorem" }]}
+      >
+        Emmy Noether was not permitted to enroll at the University of Erlangen as a student — she could only audit lectures. She eventually earned a doctorate and joined the faculty
+        at Göttingen, but without pay, listed officially as an assistant to David Hilbert. Her 1918 theorem connecting every symmetry of a physical system to a conserved quantity is one
+        of the most beautiful results in all of physics. When Hitler's government dismissed Jewish professors in 1933, she lost her position. She moved to Bryn Mawr and died at fifty-three.
+        Einstein called her the most significant creative mathematical genius yet produced.
+      </HistoryNote>
 
       <EqNumbered number="L.1" latex="\frac{d}{dt}\left(\frac{\partial L}{\partial \dot q_i}\right) - \frac{\partial L}{\partial q_i} = 0 \qquad \text{(Euler-Lagrange equation, for each }i\text{)}" />
 
@@ -97,7 +110,7 @@ export default function LagrangianPage() {
         pᵢ = ∂L/∂q̇ᵢ is conserved.
       </p>
 
-      <Theorem number="L.1" title="Noether's Theorem (1915)">
+      <Theorem number="L.1" title="Noether's Theorem (1918)">
         For every continuous symmetry of the action, there is a corresponding conserved quantity:
         <span style={{ display: 'block', marginTop: '0.5rem' }}>
           Time translation symmetry &nbsp;→&nbsp; conservation of energy (Hamiltonian H)

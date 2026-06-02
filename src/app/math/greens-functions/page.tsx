@@ -14,7 +14,7 @@ export default function GreensFunctionsPage() {
         potential theory, wave propagation, heat conduction, and quantum propagators.
       </p>
 
-      <Prerequisites items={['Differential equations (Ch. DE)', 'Complex analysis (Ch. CA)', 'Fourier analysis (Ch. F)', 'Electrostatics (Ch. ES)']} />
+      <Prerequisites items={['Differential equations (Ch. 26)', 'Complex analysis (Ch. CA)', 'Fourier analysis (Ch. F)', 'Electrostatics (Ch. ES)']} />
 
       <LearningGoals items={[
         'Define the Green\'s function G via LG = δ(r − r\') and use superposition to write the general solution as a convolution with the source.',

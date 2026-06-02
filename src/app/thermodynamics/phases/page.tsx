@@ -14,7 +14,7 @@ export default function PhasesPage() {
         most beautiful applications of thermodynamics and statistical mechanics.
       </p>
 
-      <Prerequisites items={['Laws of thermodynamics (Ch. 12)', 'Statistical mechanics (Ch. S)', 'Basic calculus']} />
+      <Prerequisites items={['Laws of thermodynamics (Ch. 14)', 'Statistical mechanics (Ch. S)', 'Basic calculus']} />
 
       <LearningGoals items={[
         'Apply the Gibbs phase rule to determine degrees of freedom for single and multi-component systems.',

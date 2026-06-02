@@ -1,13 +1,13 @@
 import MagneticFieldClient from '@/components/sims/MagneticFieldClient';
 import {
   Definition, Theorem, WorkedExample, Step,
-  PracticeProblems, Problem, InteractiveProblem, EqNumbered, Figure, Prerequisites, Takeaways, LearningGoals, InlineMath
+  PracticeProblems, Problem, InteractiveProblem, EqNumbered, Figure, Prerequisites, Takeaways, LearningGoals, InlineMath, HistoryNote
 } from '@/components/textbook';
 
 export default function MagnetismPage() {
   return (
     <div className="chapter">
-      <div className="chapter-label" style={{ color: '#a855f7' }}>Electromagnetism · Chapter 15</div>
+      <div className="chapter-label" style={{ color: '#a855f7' }}>Electromagnetism · Chapter 17</div>
       <h1>Magnetic Fields</h1>
       <p className="subtitle">
         A moving charge creates a magnetic field, and a magnetic field exerts a force on moving
@@ -15,7 +15,7 @@ export default function MagnetismPage() {
         into a single theory.
       </p>
 
-      <Prerequisites items={['Electric fields (Ch. 13)', 'DC circuits (Ch. 14)', 'Vectors and cross products (Math Ch.)']} />
+      <Prerequisites items={['Electric fields (Ch. 15)', 'DC circuits (Ch. 16)', 'Vectors and cross products (Ch. 24)']} />
 
       <LearningGoals items={[
         'Use the Lorentz force law to predict the magnitude and direction of magnetic forces.',
@@ -25,14 +25,25 @@ export default function MagnetismPage() {
         'Apply Ampère\'s law when symmetry makes the line integral simple.',
       ]} />
 
-      <h2>15.1 The Magnetic Force</h2>
+      <h2>17.1 The Magnetic Force</h2>
+
+      <HistoryNote
+        year="1820"
+        title="Oersted's compass needle"
+        source="Hans Christian Oersted, Experiments on the Effect of a Current of Electricity on the Magnetic Needle."
+        furtherReading={[{ label: "Hans Christian Ørsted", url: "https://en.wikipedia.org/wiki/Hans_Christian_%C3%98rsted" }]}
+      >
+        Hans Christian Oersted had suspected for years that electricity and magnetism were related. In April 1820, during a lecture demonstration, he laid a wire carrying current near a compass.
+        The needle turned perpendicular to the wire and held its strange angle as long as the current flowed. Within months, Ampère had the force law between current-carrying wires;
+        within a generation, Faraday had electromagnetic induction. Oersted had discovered the connection everyone was looking for — and he nearly did not try the experiment at all.
+      </HistoryNote>
 
       <p>
         A charged particle moving with velocity <InlineMath latex="\mathbf{v}" /> in a magnetic field <InlineMath latex="\mathbf{B}" />
         {' '}experiences the <strong>Lorentz force</strong>:
       </p>
 
-      <EqNumbered number="15.1" latex="\mathbf{F} = q\mathbf{v}\times\mathbf{B}" />
+      <EqNumbered number="17.1" latex="\mathbf{F} = q\mathbf{v}\times\mathbf{B}" />
 
       <p>
         The cross product means the force is perpendicular to both the velocity and the field.
@@ -47,7 +58,7 @@ export default function MagnetismPage() {
         and the thumb points in the direction of <InlineMath latex="\mathbf{F}" /> (for positive <InlineMath latex="q" />; reverse for negative <InlineMath latex="q" />).
       </p>
 
-      <Definition number="15.1" title="Cyclotron Motion">
+      <Definition number="17.1" title="Cyclotron Motion">
         A charged particle moving perpendicular to a uniform magnetic field follows a circular
         path. The magnetic force provides the centripetal acceleration:
         <span style={{ display: 'block', textAlign: 'center', marginTop: '0.5rem', fontStyle: 'italic' }}>
@@ -57,11 +68,11 @@ export default function MagnetismPage() {
         <InlineMath latex="T = 2\pi m/(|q|B)" /> is independent of velocity — the basis of the cyclotron particle accelerator.
       </Definition>
 
-      <Figure number="15.1" caption="Magnetic field simulator. Toggle among a straight wire, solenoid, and moving charge: reverse the current to see field directions flip, increase current to see field strength rise, and change charge sign to reverse the Lorentz-force direction in cyclotron motion.">
+      <Figure number="17.1" caption="Magnetic field simulator. Toggle among a straight wire, solenoid, and moving charge: reverse the current to see field directions flip, increase current to see field strength rise, and change charge sign to reverse the Lorentz-force direction in cyclotron motion.">
         <MagneticFieldClient />
       </Figure>
 
-      <h2>15.2 Magnetic Fields from Currents</h2>
+      <h2>17.2 Magnetic Fields from Currents</h2>
 
       <p>
         Just as a charge creates an electric field, a <em>moving</em> charge (current) creates a
@@ -69,14 +80,14 @@ export default function MagnetismPage() {
         each current element <InlineMath latex="I\,d\mathbf{l}" /> contributes a field <InlineMath latex="d\mathbf{B}" /> at position <InlineMath latex="\mathbf{r}" />:
       </p>
 
-      <EqNumbered number="15.2" latex="d\mathbf{B} = \frac{\mu_0}{4\pi}\frac{I\,d\mathbf{l}\times\hat{\mathbf{r}}}{r^2}" />
+      <EqNumbered number="17.2" latex="d\mathbf{B} = \frac{\mu_0}{4\pi}\frac{I\,d\mathbf{l}\times\hat{\mathbf{r}}}{r^2}" />
 
       <p>
         where <InlineMath latex="\mu_0 = 4\pi \times 10^{-7}\,\mathrm{T\,m/A}" /> is the permeability of free space. For practical geometries,
         we integrate this law to find closed-form results.
       </p>
 
-      <Theorem number="15.1" title="Magnetic Field of Common Current Configurations">
+      <Theorem number="17.1" title="Magnetic Field of Common Current Configurations">
         <span style={{ display: 'block', marginBottom: '0.3rem' }}>
           Infinite straight wire at distance <InlineMath latex="r" />: &nbsp; <InlineMath latex="B = \mu_0I/(2\pi r)" />, &nbsp; circles the wire by right-hand rule
         </span>
@@ -88,14 +99,14 @@ export default function MagnetismPage() {
         </span>
       </Theorem>
 
-      <h2>15.3 Ampère&apos;s Law</h2>
+      <h2>17.3 Ampère&apos;s Law</h2>
 
       <p>
         Ampère&apos;s law is the magnetic analogue of Gauss&apos;s law. For any closed loop (Amperian loop),
         the line integral of <InlineMath latex="\mathbf{B}" /> around the loop equals <InlineMath latex="\mu_0" /> times the current threading the loop:
       </p>
 
-      <EqNumbered number="15.3" latex="\oint \mathbf{B}\cdot d\mathbf{l} = \mu_0 I_\mathrm{enc}" />
+      <EqNumbered number="17.3" latex="\oint \mathbf{B}\cdot d\mathbf{l} = \mu_0 I_\mathrm{enc}" />
 
       <p>
         Like Gauss&apos;s law, Ampère&apos;s law is always true but only useful for deriving fields when
@@ -103,7 +114,7 @@ export default function MagnetismPage() {
         choose a circular Amperian loop of radius <InlineMath latex="r" />: <InlineMath latex="B(2\pi r) = \mu_0I" />, immediately giving <InlineMath latex="B = \mu_0I/(2\pi r)" />.
       </p>
 
-      <WorkedExample number="15.1" title="Force Between Two Parallel Wires">
+      <WorkedExample number="17.1" title="Force Between Two Parallel Wires">
         <p>
           Two parallel wires <InlineMath latex="0.5\,\mathrm{m}" /> apart carry currents <InlineMath latex="I_1 = 10\,\mathrm{A}" /> and <InlineMath latex="I_2 = 20\,\mathrm{A}" /> in the same
           direction. Find the force per unit length between them.
@@ -114,7 +125,7 @@ export default function MagnetismPage() {
         <Step label="Note:">This experiment defines the ampere: 2×10⁻⁷ N/m force per meter between wires 1 m apart carrying 1 A each.</Step>
       </WorkedExample>
 
-      <WorkedExample number="15.2" title="Cyclotron Radius of a Proton">
+      <WorkedExample number="17.2" title="Cyclotron Radius of a Proton">
         <p>
           A proton (<InlineMath latex="m = 1.67 \times 10^{-27}\,\mathrm{kg}" />, <InlineMath latex="q = 1.6 \times 10^{-19}\,\mathrm{C}" />) moves at <InlineMath latex="2 \times 10^6\,\mathrm{m/s}" /> perpendicular
           to a <InlineMath latex="0.1\,\mathrm{T}" /> magnetic field. Find the radius of its circular orbit.
@@ -124,7 +135,7 @@ export default function MagnetismPage() {
         <Step label="Calculate:"><InlineMath latex="r = \frac{3.34\times10^{-21}}{1.6\times10^{-20}} = 0.209\,\mathrm{m} \approx 21\,\mathrm{cm}" /></Step>
       </WorkedExample>
 
-      <h2>15.4 The Magnetic Force on a Current</h2>
+      <h2>17.4 The Magnetic Force on a Current</h2>
 
       <p>
         A current-carrying wire in a magnetic field experiences a force — since each mobile
@@ -132,7 +143,7 @@ export default function MagnetismPage() {
         segment of length <InlineMath latex="L" /> carrying current <InlineMath latex="I" /> in field <InlineMath latex="\mathbf{B}" />:
       </p>
 
-      <EqNumbered number="15.4" latex="\mathbf{F} = I\mathbf{L}\times\mathbf{B} \qquad \text{(magnitude: }F = BIL\sin\theta\text{)}" />
+      <EqNumbered number="17.4" latex="\mathbf{F} = I\mathbf{L}\times\mathbf{B} \qquad \text{(magnitude: }F = BIL\sin\theta\text{)}" />
 
       <p>
         This is the operating principle of every electric motor: a current loop in a magnetic
@@ -142,7 +153,7 @@ export default function MagnetismPage() {
         continuous rotation.
       </p>
 
-      <Definition number="15.2" title="Common Traps">
+      <Definition number="17.2" title="Common Traps">
         <ul style={{ marginTop: '0.4rem' }}>
           <li><strong>Magnetic force needs motion:</strong> a stationary charge feels no magnetic force.</li>
           <li><strong>Perpendicular matters:</strong> only the velocity component perpendicular to B curves the path.</li>
@@ -152,7 +163,7 @@ export default function MagnetismPage() {
         </ul>
       </Definition>
 
-      <PracticeProblems section="15.1–15.4 Magnetic Fields">
+      <PracticeProblems section="17.1–17.4 Magnetic Fields">
         <InteractiveProblem n={1} difficulty="easy"
           answer={0.209} unit="m" tolerance={0.02}
           hints={['r = mv/|q|B. Plug in m = 1.67×10⁻²⁷ kg, v = 2×10⁶ m/s, q = 1.6×10⁻¹⁹ C, B = 0.1 T.']}

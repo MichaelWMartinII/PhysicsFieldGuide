@@ -14,7 +14,7 @@ export default function AtomicPhysicsPage() {
         stringent tests of quantum electrodynamics and probes for new physics beyond the Standard Model.
       </p>
 
-      <Prerequisites items={['Quantum mechanics (Ch. 20)', 'Spin & angular momentum (Ch. SP)', 'Perturbation theory (Ch. PT)', 'Electromagnetism (Ch. 14–15)']} />
+      <Prerequisites items={['Quantum mechanics (Ch. 22)', 'Spin & angular momentum (Ch. SP)', 'Perturbation theory (Ch. PT)', 'Electric fields through magnetism (Ch. 15–17)']} />
 
       <LearningGoals items={[
         'Apply the Dirac fine-structure formula to compute energy splittings and compare them to the Lamb shift from QED.',
@@ -100,8 +100,8 @@ export default function AtomicPhysicsPage() {
 
       <p>
         The <strong>21 cm hyperfine line</strong> of hydrogen: the spin-flip transition
-        1s (F=1) → 1s (F=0) at 1420 MHz = 21.1 cm. Forbidden by M1 rules, occurs only
-        via hyperfine interaction. Einstein A coefficient: A = 2.87×10⁻¹⁵ s⁻¹ (τ ≈ 10 Myr!).
+        1s (F=1) → 1s (F=0) at 1420 MHz = 21.1 cm. Forbidden by E1 rules (Δℓ = 0), it occurs as a magnetic dipole (M1) transition
+        via the hyperfine interaction. Einstein A coefficient: A = 2.87×10⁻¹⁵ s⁻¹ (τ ≈ 10 Myr!).
         Despite its extreme weakness, it is the most important line in radio astronomy —
         maps the distribution of neutral hydrogen in galaxies.
       </p>

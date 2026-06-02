@@ -1,13 +1,13 @@
 import RotatingBodyClient from '@/components/sims/RotatingBodyClient';
 import {
   Definition, Theorem, WorkedExample, Step,
-  PracticeProblems, Problem, InteractiveProblem, EqNumbered, Figure, Prerequisites, Takeaways, LearningGoals
+  PracticeProblems, Problem, InteractiveProblem, EqNumbered, Figure, Prerequisites, Takeaways, LearningGoals, HistoryNote
 } from '@/components/textbook';
 
 export default function RotationPage() {
   return (
     <div className="chapter">
-      <div className="chapter-label" style={{ color: 'var(--def-accent)' }}>Classical Mechanics · Chapter 7</div>
+      <div className="chapter-label" style={{ color: 'var(--def-accent)' }}>Classical Mechanics · Chapter 6</div>
       <h1>Rotational Motion</h1>
       <p className="subtitle">Every rotational quantity has a linear analogue — once you see the correspondence, rotating systems become as natural as sliding ones.</p>
 
@@ -21,15 +21,27 @@ export default function RotationPage() {
         'Analyze rolling motion by combining translational and rotational kinetic energy.',
       ]} />
 
-      <h2>7.1 Angular Kinematics</h2>
+      <h2>6.1 Angular Kinematics</h2>
 
       <p>
         When a rigid body rotates, every point traces a circular arc. Rather than tracking individual points, we
         describe the entire body with three scalar quantities: <strong>angular position</strong> θ (radians),
         <strong> angular velocity</strong> ω = dθ/dt (rad/s), and <strong>angular acceleration</strong> α = dω/dt (rad/s²).
+        <HistoryNote
+          trigger="Euler"
+          year="1750s"
+          title="Rigid-body mechanics gets its own language"
+          source="Leonhard Euler, Theoria Motus Corporum Solidorum seu Rigidorum."
+          furtherReading={[{ label: "Leonhard Euler", url: "https://en.wikipedia.org/wiki/Leonhard_Euler" }]}
+        >
+          Leonhard Euler was blind in one eye by his late twenties and completely blind by his mid-fifties. He produced more mathematics after losing his sight than most mathematicians
+          produce in a full career, dictating to assistants and performing enormous calculations in his head. His work on rigid-body rotation — the Euler angles, the equations of motion,
+          the concept of principal axes — gave physicists and engineers the language to analyze any spinning object. The fluency with which we now describe gyroscopes, spacecraft attitude,
+          and spinning tops is largely his.
+        </HistoryNote> gave this subject its modern mathematical backbone.
       </p>
 
-      <Definition number="7.1" title="Angular Kinematic Equations">
+      <Definition number="6.1" title="Angular Kinematic Equations">
         For constant angular acceleration α, the rotational equations mirror the linear ones exactly:
         <span style={{ display: 'block', margin: '0.6rem 0 0.25rem 1rem', fontStyle: 'italic' }}>
           ω = ω₀ + αt &nbsp;&nbsp;&nbsp; θ = θ₀ + ω₀t + ½αt² &nbsp;&nbsp;&nbsp; ω² = ω₀² + 2α(θ − θ₀)
@@ -42,7 +54,7 @@ export default function RotationPage() {
         and centripetal acceleration aᶜ = rω² directed toward the axis. The two accelerations are perpendicular.
       </p>
 
-      <h2>7.2 Moment of Inertia</h2>
+      <h2>6.2 Moment of Inertia</h2>
 
       <p>
         In linear motion, mass resists changes in velocity (F = ma). In rotation, <strong>moment of inertia</strong> I
@@ -50,7 +62,7 @@ export default function RotationPage() {
         distributed relative to the rotation axis — not just how much there is.
       </p>
 
-      <EqNumbered number="7.1" latex="I = \sum_i m_ir_i^2 = \int r^2\,dm" />
+      <EqNumbered number="6.1" latex="I = \sum_i m_ir_i^2 = \int r^2\,dm" />
 
       <p>
         This integral gives different results for different shapes. A ring concentrates all mass at radius R,
@@ -59,7 +71,7 @@ export default function RotationPage() {
         momentum L = Iω is conserved.
       </p>
 
-      <Definition number="7.2" title="Common Moments of Inertia">
+      <Definition number="6.2" title="Common Moments of Inertia">
         <ul style={{ marginTop: '0.4rem' }}>
           <li><strong>Solid disk or cylinder</strong>: I = ½MR²</li>
           <li><strong>Ring or thin hoop</strong>: I = MR²</li>
@@ -73,11 +85,11 @@ export default function RotationPage() {
         </span>
       </Definition>
 
-      <Figure number="7.1" caption="Rotating body simulation. Switch between disk, ring, rod, and sphere to compare how shape affects spin. Apply torque to see angular acceleration. The gold arrow shows the direction of ω.">
+      <Figure number="6.1" caption="Rotating body simulation. Switch between disk, ring, rod, and sphere to compare how shape affects spin. Apply torque to see angular acceleration. The gold arrow shows the direction of ω.">
         <RotatingBodyClient />
       </Figure>
 
-      <h2>7.3 Torque and Newton's Second Law for Rotation</h2>
+      <h2>6.3 Torque and Newton's Second Law for Rotation</h2>
 
       <p>
         <strong>Torque</strong> τ is the rotational analogue of force — it is the tendency of a force to cause
@@ -85,7 +97,7 @@ export default function RotationPage() {
         direction it is applied:
       </p>
 
-      <EqNumbered number="7.2" latex="\boldsymbol{\tau} = \mathbf{r}\times\mathbf{F} \qquad |\boldsymbol{\tau}| = rF\sin\phi" />
+      <EqNumbered number="6.2" latex="\boldsymbol{\tau} = \mathbf{r}\times\mathbf{F} \qquad |\boldsymbol{\tau}| = rF\sin\phi" />
 
       <p>
         where r is the position vector from the axis to the point of application and φ is the angle between
@@ -93,9 +105,9 @@ export default function RotationPage() {
         for rotation is then:
       </p>
 
-      <EqNumbered number="7.3" latex="\tau_\mathrm{net} = I\alpha" />
+      <EqNumbered number="6.3" latex="\tau_\mathrm{net} = I\alpha" />
 
-      <WorkedExample number="7.1" title="Spinning Down a Flywheel">
+      <WorkedExample number="6.1" title="Spinning Down a Flywheel">
         <p>A flywheel (solid disk, M = 20 kg, R = 0.5 m) spins at 120 rpm. A brake applies 15 N·m of torque. How long until it stops?</p>
         <Step label="Moment of inertia:">I = ½MR² = ½(20)(0.5)² = <strong>2.5 kg·m²</strong></Step>
         <Step label="Angular deceleration:">α = −τ/I = −15/2.5 = <strong>−6 rad/s²</strong></Step>
@@ -103,7 +115,7 @@ export default function RotationPage() {
         <Step label="Time to stop:">t = −ω₀/α = 12.57/6 = <strong>2.09 s</strong></Step>
       </WorkedExample>
 
-      <h2>7.4 Angular Momentum and Conservation</h2>
+      <h2>6.4 Angular Momentum and Conservation</h2>
 
       <p>
         Just as linear momentum p = mv is conserved when no external force acts, <strong>angular momentum</strong>
@@ -111,7 +123,7 @@ export default function RotationPage() {
         in physics — it governs everything from spinning tops to collapsing stars.
       </p>
 
-      <Theorem number="7.1" title="Conservation of Angular Momentum">
+      <Theorem number="6.1" title="Conservation of Angular Momentum">
         If the net external torque on a system is zero, angular momentum is constant:
         <span style={{ display: 'block', margin: '0.6rem 0 0.25rem 1rem', fontStyle: 'italic' }}>
           L = Iω = constant &nbsp;&nbsp;&nbsp; → &nbsp;&nbsp;&nbsp; I₁ω₁ = I₂ω₂
@@ -120,15 +132,15 @@ export default function RotationPage() {
         When a gas cloud collapses into a star, the same principle causes rapid rotation.
       </Theorem>
 
-      <h2>7.5 Rotational Kinetic Energy and Rolling</h2>
+      <h2>6.5 Rotational Kinetic Energy and Rolling</h2>
 
-      <EqNumbered number="7.4" latex="K_\mathrm{rot} = \frac{1}{2}I\omega^2" />
+      <EqNumbered number="6.4" latex="K_\mathrm{rot} = \frac{1}{2}I\omega^2" />
 
       <p>
         For a rolling body (no slipping), the total kinetic energy combines translational and rotational:
       </p>
 
-      <EqNumbered number="7.5" latex="K_\mathrm{total} = \frac{1}{2}mv^2 + \frac{1}{2}I\omega^2 = \frac{1}{2}mv^2\left(1 + \frac{I}{mR^2}\right)" />
+      <EqNumbered number="6.5" latex="K_\mathrm{total} = \frac{1}{2}mv^2 + \frac{1}{2}I\omega^2 = \frac{1}{2}mv^2\left(1 + \frac{I}{mR^2}\right)" />
 
       <p>
         A solid disk (I = ½mR²) rolls slower down a ramp than a sliding block because some energy goes into
@@ -136,14 +148,14 @@ export default function RotationPage() {
         rolling speed — not its mass.
       </p>
 
-      <WorkedExample number="7.2" title="Rolling Down a Ramp">
+      <WorkedExample number="6.2" title="Rolling Down a Ramp">
         <p>A solid sphere (I = ²⁄₅mR²) rolls from rest down a ramp of height h = 2 m. Find the speed at the bottom.</p>
         <Step label="Energy conservation:">mgh = ½mv² + ½Iω² = ½mv² + ½(²⁄₅mR²)(v/R)² = ½mv²(1 + 2/5) = ⁷⁄₁₀mv²</Step>
         <Step label="Solve for v:">v = √(10gh/7) = √(10 × 9.81 × 2/7) = <strong>5.29 m/s</strong></Step>
         <Step label="Compare:">A sliding block (no rotation): v = √(2gh) = 6.26 m/s — 18% faster.</Step>
       </WorkedExample>
 
-      <Definition number="7.3" title="Common Traps">
+      <Definition number="6.3" title="Common Traps">
         <ul style={{ marginTop: '0.4rem' }}>
           <li><strong>Radians are dimensionless but essential:</strong> angular equations assume angles are in radians.</li>
           <li><strong>Moment of inertia is axis-dependent:</strong> changing the rotation axis changes I.</li>
@@ -153,7 +165,7 @@ export default function RotationPage() {
         </ul>
       </Definition>
 
-      <PracticeProblems section="7.1–7.5 Rotational Motion">
+      <PracticeProblems section="6.1–6.5 Rotational Motion">
         <InteractiveProblem n={1} difficulty="easy"
           answer={2.5} unit="kg·m²" tolerance={0.02}
           hints={['For a solid disk, I = ½MR². Plug in M = 5 kg, R = 1 m.']}

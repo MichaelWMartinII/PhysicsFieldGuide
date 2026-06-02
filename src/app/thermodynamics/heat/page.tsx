@@ -1,13 +1,13 @@
 import KineticGasClient from '@/components/sims/KineticGasClient';
 import {
   Definition, WorkedExample, Step,
-  PracticeProblems, Problem, InteractiveProblem, EqNumbered, Figure, Prerequisites, Takeaways, LearningGoals
+  PracticeProblems, Problem, InteractiveProblem, EqNumbered, Figure, Prerequisites, Takeaways, LearningGoals, HistoryNote
 } from '@/components/textbook';
 
 export default function HeatPage() {
   return (
     <div className="chapter">
-      <div className="chapter-label" style={{ color: '#8a5c2a' }}>Thermodynamics · Chapter 10</div>
+      <div className="chapter-label" style={{ color: '#8a5c2a' }}>Thermodynamics · Chapter 12</div>
       <h1>Heat and Temperature</h1>
       <p className="subtitle">Temperature measures the average kinetic energy of microscopic motion — heat is the transfer of that energy across a boundary.</p>
 
@@ -21,15 +21,28 @@ export default function HeatPage() {
         'Compute rms molecular speed from the kinetic theory formula v_rms = √(3k_BT/m).',
       ]} />
 
-      <h2>10.1 Temperature and the Zeroth Law</h2>
+      <h2>12.1 Temperature and the Zeroth Law</h2>
 
       <p>
         <strong>Temperature</strong> is a measure of the average translational kinetic energy of the particles
         in a substance. We cannot observe individual molecular motion directly, but we can measure
         its macroscopic effect: the tendency to spontaneously exchange energy with surroundings.
+        The older caloric-fluid picture started to fail when
+        <HistoryNote
+          trigger="Rumford's cannon-boring experiment"
+          year="1798"
+          title="Heat from motion, not fluid"
+          source="Benjamin Thompson, Count Rumford, An Experimental Enquiry Concerning the Source of the Heat."
+          furtherReading={[{ label: "Benjamin Thompson (Count Rumford)", url: "https://en.wikipedia.org/wiki/Benjamin_Thompson" }]}
+        >
+          Benjamin Thompson — Count Rumford — was an American loyalist who spied for the British during the Revolution, fled to Europe, and ended up running the Bavarian military.
+          In Munich, he noticed that boring cannon barrels with a blunt drill generated unlimited heat as long as the horses kept pulling. If heat were a fluid stored in the metal,
+          it should eventually run out. It never did. He presented his experiments to the Royal Society in 1798 and argued that heat was a form of motion. The caloric theory had
+          powerful defenders and survived for another forty years. Rumford had the right answer.
+        </HistoryNote> made heat production seem inexhaustible.
       </p>
 
-      <Definition number="10.1" title="Zeroth Law of Thermodynamics">
+      <Definition number="12.1" title="Zeroth Law of Thermodynamics">
         If two systems A and B are each in thermal equilibrium with a third system C, then A and B are
         in thermal equilibrium with each other. This law — logically prior to the other three — is the
         basis for temperature as a meaningful, transitive quantity, and for the operation of thermometers.
@@ -39,14 +52,14 @@ export default function HeatPage() {
         The three common temperature scales relate by exact conversions:
       </p>
 
-      <EqNumbered number="10.1" latex="T_K=T_C+273.15 \qquad T_F=\frac{9}{5}T_C+32" />
+      <EqNumbered number="12.1" latex="T_K=T_C+273.15 \qquad T_F=\frac{9}{5}T_C+32" />
 
       <p>
         The Kelvin scale is the fundamental one — it starts at <em>absolute zero</em>, the temperature at
         which thermal motion would theoretically cease. All thermodynamic formulas require Kelvin.
       </p>
 
-      <h2>10.2 Heat Transfer and Specific Heat</h2>
+      <h2>12.2 Heat Transfer and Specific Heat</h2>
 
       <p>
         <strong>Heat</strong> Q is energy in transit — it flows from a hotter body to a cooler one until
@@ -54,7 +67,7 @@ export default function HeatPage() {
         a substance of mass m, the temperature change ΔT depends on the material:
       </p>
 
-      <EqNumbered number="10.2" latex="Q=mc\Delta T" />
+      <EqNumbered number="12.2" latex="Q=mc\Delta T" />
 
       <p>
         where c is the <strong>specific heat capacity</strong> (J/kg·K) — how much energy per kilogram
@@ -62,14 +75,14 @@ export default function HeatPage() {
         is why oceans moderate coastal climates. Metals are far lower (aluminum: 900, iron: 450).
       </p>
 
-      <WorkedExample number="10.1" title="Mixing Hot and Cold Water">
+      <WorkedExample number="12.1" title="Mixing Hot and Cold Water">
         <p>200 g of water at 80°C is mixed with 300 g of water at 20°C in an insulated container. Find the final temperature.</p>
         <Step label="Heat balance:">Heat lost by hot = heat gained by cold: m₁c(T₁−T_f) = m₂c(T_f−T₂)</Step>
         <Step label="Solve:">0.2(80−T_f) = 0.3(T_f−20) → 16−0.2T_f = 0.3T_f−6 → 22 = 0.5T_f → T_f = <strong>44°C</strong></Step>
         <Step label="Check:">Weighted average: (0.2×80 + 0.3×20)/(0.2+0.3) = (16+6)/0.5 = 44°C ✓</Step>
       </WorkedExample>
 
-      <h2>10.3 Heat Transfer Mechanisms</h2>
+      <h2>12.3 Heat Transfer Mechanisms</h2>
 
       <p>
         Heat moves by three mechanisms:
@@ -81,16 +94,16 @@ export default function HeatPage() {
         <li><strong>Radiation</strong> — via electromagnetic waves (photons), requiring no medium. A blackbody emits power P = σT⁴A (Stefan-Boltzmann law, σ = 5.67×10⁻⁸ W/m²·K⁴).</li>
       </ul>
 
-      <EqNumbered number="10.3" latex="P_\mathrm{conduction}=kA\frac{\Delta T}{d} \qquad P_\mathrm{radiation}=\varepsilon\sigma AT^4" />
+      <EqNumbered number="12.3" latex="P_\mathrm{conduction}=kA\frac{\Delta T}{d} \qquad P_\mathrm{radiation}=\varepsilon\sigma AT^4" />
 
-      <h2>10.4 Phase Changes and Latent Heat</h2>
+      <h2>12.4 Phase Changes and Latent Heat</h2>
 
       <p>
         When a substance changes phase (solid ↔ liquid ↔ gas), energy is absorbed or released at constant
         temperature. This energy goes into rearranging molecular bonds, not increasing kinetic energy:
       </p>
 
-      <EqNumbered number="10.4" latex="Q=mL" />
+      <EqNumbered number="12.4" latex="Q=mL" />
 
       <p>
         where L is the <strong>latent heat</strong> (J/kg). For water: L_fusion = 334 kJ/kg (melting ice),
@@ -98,7 +111,7 @@ export default function HeatPage() {
         effectively — evaporating 1 g of sweat removes 2257 J from your skin.
       </p>
 
-      <Definition number="10.2" title="Thermal Equilibrium Condition">
+      <Definition number="12.2" title="Thermal Equilibrium Condition">
         When an isolated system reaches thermal equilibrium, all heat exchange has ceased.
         For two objects mixing: the total enthalpy is conserved (no work done, no phase change):
         <span style={{ display: 'block', margin: '0.5rem 0 0.25rem 1rem', fontStyle: 'italic' }}>
@@ -108,14 +121,14 @@ export default function HeatPage() {
         for a perfectly insulated system.
       </Definition>
 
-      <h2>10.5 Kinetic Theory of Temperature</h2>
+      <h2>12.5 Kinetic Theory of Temperature</h2>
 
       <p>
         At the microscopic level, temperature is a measure of average translational kinetic energy per particle.
         For an ideal gas of N molecules, the equipartition theorem gives:
       </p>
 
-      <EqNumbered number="10.5" latex="\frac{1}{2}mv_\mathrm{rms}^2=\frac{3}{2}k_BT \qquad v_\mathrm{rms}=\sqrt{\frac{3k_BT}{m}}" />
+      <EqNumbered number="12.5" latex="\frac{1}{2}mv_\mathrm{rms}^2=\frac{3}{2}k_BT \qquad v_\mathrm{rms}=\sqrt{\frac{3k_BT}{m}}" />
 
       <p>
         where k_B = 1.38×10⁻²³ J/K is Boltzmann&apos;s constant. At room temperature (T = 293 K),
@@ -123,17 +136,17 @@ export default function HeatPage() {
         below shows this directly: faster particles appear redder.
       </p>
 
-      <Figure number="10.1" caption="Kinetic gas simulation. Each dot is a molecule. Color encodes speed (blue=slow, red=fast). Raise the temperature to watch the speed distribution shift. Compress the volume (move the piston) to see pressure increase — Boyle's law in action.">
+      <Figure number="12.1" caption="Kinetic gas simulation. Each dot is a molecule. Color encodes speed (blue=slow, red=fast). Raise the temperature to watch the speed distribution shift. Compress the volume (move the piston) to see pressure increase — Boyle's law in action.">
         <KineticGasClient />
       </Figure>
 
-      <WorkedExample number="10.2" title="RMS Speed of Oxygen">
+      <WorkedExample number="12.2" title="RMS Speed of Oxygen">
         <p>Find the rms speed of O₂ molecules at T = 300 K. (m_O₂ = 32 u = 5.31×10⁻²⁶ kg)</p>
         <Step label="Formula:">v_rms = √(3k_BT/m)</Step>
         <Step label="Calculate:">v_rms = √(3 × 1.38×10⁻²³ × 300 / 5.31×10⁻²⁶) = √(2.34×10⁵) = <strong>484 m/s</strong></Step>
       </WorkedExample>
 
-      <Definition number="10.3" title="Common Traps">
+      <Definition number="12.3" title="Common Traps">
         <ul style={{ marginTop: '0.4rem' }}>
           <li><strong>Heat is not temperature:</strong> heat is energy crossing a boundary; temperature is a state variable.</li>
           <li><strong>Use Kelvin for proportional laws:</strong> Celsius differences are fine, but absolute temperature formulas need kelvin.</li>
@@ -142,7 +155,7 @@ export default function HeatPage() {
         </ul>
       </Definition>
 
-      <PracticeProblems section="10.1–10.5 Heat and Temperature">
+      <PracticeProblems section="12.1–12.5 Heat and Temperature">
         <InteractiveProblem n={1} difficulty="easy"
           answer={373} unit="K" tolerance={0.01}
           hints={['T_K = T_C + 273.15. Round to nearest integer.']}

@@ -1,6 +1,6 @@
 import {
   Definition, Theorem, WorkedExample, Step,
-  PracticeProblems, Problem, InteractiveProblem, EqNumbered, Prerequisites, Takeaways, LearningGoals
+  PracticeProblems, Problem, InteractiveProblem, EqNumbered, Prerequisites, Takeaways, LearningGoals, HistoryNote
 } from '@/components/textbook';
 
 export default function StatisticalPage() {
@@ -14,7 +14,7 @@ export default function StatisticalPage() {
         applied to systems with ~10²³ particles.
       </p>
 
-      <Prerequisites items={['Laws of thermodynamics (Ch. 12)', 'Quantum mechanics (Ch. 20) for quantum statistics', 'Basic calculus and probability']} />
+      <Prerequisites items={['Laws of thermodynamics (Ch. 14)', 'Quantum mechanics (Ch. 22) for quantum statistics', 'Basic calculus and probability']} />
 
       <LearningGoals items={[
         'State Boltzmann\'s entropy formula S = k_B ln Ω and use it to compare likelihoods of macrostates.',
@@ -32,6 +32,19 @@ export default function StatisticalPage() {
         number of microscopic configurations (<strong>microstates</strong>). Each microstate is
         a complete specification of every particle&apos;s position and momentum.
       </p>
+
+      <HistoryNote
+        year="1902"
+        title="Gibbs names the subject"
+        source="J. Willard Gibbs, Elementary Principles in Statistical Mechanics."
+        sourceUrl="https://en.wikisource.org/wiki/Elementary_Principles_in_Statistical_Mechanics"
+        furtherReading={[{ label: "Josiah Willard Gibbs", url: "https://en.wikipedia.org/wiki/Josiah_Willard_Gibbs" }, { label: "Ludwig Boltzmann", url: "https://en.wikipedia.org/wiki/Ludwig_Boltzmann" }]}
+      >
+        Josiah Willard Gibbs spent most of his career at Yale, working quietly and publishing rarely, largely unknown outside a small circle of European mathematicians. His 1902 book
+        named the field and gave it the ensemble framework that textbooks still use. Boltzmann read it and wrote that Gibbs had surpassed everything previously done on the subject.
+        Boltzmann himself was fighting a losing battle against the scientific establishment over the reality of atoms — a dispute that wore him down deeply. Gibbs never engaged in the
+        controversy. He simply solved the problem and let the work speak.
+      </HistoryNote>
 
       <Definition number="S.1" title="Boltzmann Entropy">
         The entropy of a macrostate is proportional to the logarithm of the number of

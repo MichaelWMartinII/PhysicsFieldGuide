@@ -31,9 +31,11 @@ export default function MeasurementPage() {
           trigger="Galileo"
           year="1600s"
           title="Measurement becomes physics"
+          furtherReading={[{ label: "Galileo Galilei", url: "https://en.wikipedia.org/wiki/Galileo_Galilei" }]}
         >
-          Galileo did not just watch falling bodies. He slowed motion down with ramps, timed it, and looked for mathematical regularities.
-          That shift from argument to measurement is one reason modern physics begins with him.
+          Galileo's contemporaries argued about motion from Aristotle's texts. Galileo built ramps. He polished them smooth, controlled the angle, timed the balls with a water clock,
+          and measured the distance traveled in each interval. When the ratios came out 1:3:5:7 — the odd numbers, always — he understood he had found something real. He had not just
+          observed nature; he had interrogated it. The idea that measurement could settle an argument was not obvious then. It may be the most important thing he gave us.
         </HistoryNote>: observe nature, construct a mathematical model, derive consequences from that
         model, and test those consequences against new observations. When the model fails, revise it.
         When it succeeds, extend it.
@@ -208,9 +210,10 @@ export default function MeasurementPage() {
         make rapid, reliable order-of-magnitude estimates is essential in every branch of physics.
       </p>
 
-      <HistoryNote year="1945" title="Fermi's paper scraps">
-        At the Trinity test, Enrico Fermi dropped small pieces of paper as the blast wave passed and estimated the bomb yield from how far
-        they moved. The point was not precision; it was physical judgment under uncertainty.
+      <HistoryNote year="1945" title="Fermi's paper scraps" furtherReading={[{ label: "Enrico Fermi", url: "https://en.wikipedia.org/wiki/Enrico_Fermi" }, { label: "Trinity test", url: "https://en.wikipedia.org/wiki/Trinity_(nuclear_test)" }]}>
+        Enrico Fermi stood two miles from the Trinity explosion and tore up a sheet of paper before the shock wave arrived. When the wave hit, he let the pieces fall and watched where they landed.
+        Then he paced off the distance and reached into his memory for the physics of blast waves. His estimate: ten kilotons. The actual yield was eighteen. He was off by less than a factor
+        of two with a handful of paper and forty years of physical intuition. Precision is a virtue; order-of-magnitude judgment is a superpower.
       </HistoryNote>
 
       <WorkedExample number="1.3" title="How many piano tuners are there in Chicago?">

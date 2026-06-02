@@ -15,7 +15,7 @@ export default function TensorCalculusPage() {
         and gauge theories.
       </p>
 
-      <Prerequisites items={['Linear algebra (Ch. LA)', 'Vectors & calculus (Ch. 21-22)', 'General relativity (Ch. GR)', 'Group theory (Ch. GT)']} />
+      <Prerequisites items={['Linear algebra (Ch. LA)', 'Vectors and calculus (Ch. 24–25)', 'General relativity (Ch. GR)', 'Group theory (Ch. GT)']} />
 
       <LearningGoals items={[
         'Define a tensor of type (p, q) by its transformation law and explain why tensor equations are valid in all coordinate systems.',

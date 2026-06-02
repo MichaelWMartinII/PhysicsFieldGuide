@@ -1,7 +1,7 @@
 import Collision1D from '@/components/sims/Collision1D';
 import {
   Definition, Theorem, WorkedExample, Step,
-  PracticeProblems, Problem, InteractiveProblem, EqNumbered, Figure, Prerequisites, Takeaways, LearningGoals
+  PracticeProblems, Problem, InteractiveProblem, EqNumbered, Figure, Prerequisites, Takeaways, LearningGoals, HistoryNote
 } from '@/components/textbook';
 
 export default function MomentumPage() {
@@ -26,7 +26,18 @@ export default function MomentumPage() {
       <p>
         Newton&apos;s second law is most generally stated as F = dp/dt, not F = ma. When mass is constant
         these are equivalent, but the momentum form extends naturally to variable-mass systems
-        (rockets) and special relativity.
+        (rockets) and special relativity. The idea grew out of collision studies by people like
+        <HistoryNote
+          trigger="Huygens"
+          year="1600s"
+          title="Impact as a conservation problem"
+          source="Christiaan Huygens, De Motu Corporum ex Percussione."
+          furtherReading={[{ label: "Christiaan Huygens", url: "https://en.wikipedia.org/wiki/Christiaan_Huygens" }]}
+        >
+          Christiaan Huygens worked out the rules of elastic collision in the 1650s — decades before Newton published the Principia. He had no vector notation, no calculus, no conservation
+          of energy as a named principle. He reasoned from symmetry: a collision should look the same from a boat moving alongside it as from the shore. From that single idea he derived the
+          rules that govern elastic impact. Newton later acknowledged the debt. Huygens is the reason we know what to look for when two billiard balls collide.
+        </HistoryNote>, where forces during impact are messy but the before-and-after bookkeeping is clean.
       </p>
 
       <Definition number="5.1" title="Linear Momentum and Impulse">
@@ -54,7 +65,8 @@ export default function MomentumPage() {
       <h2>5.2 Collisions and Coefficient of Restitution</h2>
 
       <p>
-        All collisions conserve momentum. They differ in what happens to kinetic energy:
+        All collisions conserve momentum when the chosen system is isolated during the short impact. They differ
+        in what happens to kinetic energy:
       </p>
 
       <ul>

@@ -14,7 +14,7 @@ export default function ParticlePhysicsPage() {
         precision and remains the most successful scientific theory ever constructed.
       </p>
 
-      <Prerequisites items={['Quantum mechanics (Ch. 20)', 'Special relativity (Ch. 19)', 'Spin & angular momentum (Ch. SP)']} />
+      <Prerequisites items={['Quantum mechanics (Ch. 22)', 'Special relativity (Ch. 21)', 'Spin & angular momentum (Ch. SP)']} />
 
       <LearningGoals items={[
         'Classify all Standard Model particles by spin, charge, and color and identify the force carrier for each interaction.',

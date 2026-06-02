@@ -14,7 +14,7 @@ export default function LinearAlgebraPage() {
         develops the tools physicists use most.
       </p>
 
-      <Prerequisites items={['Vectors (Ch. V)', 'Calculus (Ch. 22)', 'Basic matrix multiplication']} />
+      <Prerequisites items={['Vectors (Ch. 24)', 'Calculus (Ch. 25)', 'Basic matrix multiplication']} />
 
       <LearningGoals items={[
         'Identify vector spaces and inner product spaces, and apply the Cauchy-Schwarz inequality.',
@@ -48,7 +48,7 @@ export default function LinearAlgebraPage() {
         For ℂⁿ: ⟨u, v⟩ = u†v = Σᵢ uᵢ* vᵢ. For L²: ⟨f, g⟩ = ∫ f*(x) g(x) dx.
       </p>
 
-      <EqNumbered number="LA.1">⟨u, v⟩ ≤ ‖u‖ ‖v‖ &nbsp;&nbsp;&nbsp; (Cauchy-Schwarz inequality)</EqNumbered>
+      <EqNumbered number="LA.1">|⟨u, v⟩| ≤ ‖u‖ ‖v‖ &nbsp;&nbsp;&nbsp; (Cauchy-Schwarz inequality)</EqNumbered>
 
       <h2>LA.2 Eigenvalues and Eigenvectors</h2>
 
@@ -159,7 +159,7 @@ export default function LinearAlgebraPage() {
 
       <PracticeProblems section="LA.1–LA.4 Linear Algebra for Physics">
         <InteractiveProblem n={1} difficulty="easy"
-          answer={3} unit="" tolerance={0.01}
+          answer={5} unit="" tolerance={0.01}
           hints={['det(A−λI) = 0. For 2×2: λ² − Tr(A)λ + det(A) = 0.']}
           problemText="Matrix A = [[4,1],[2,3]]. Find the larger eigenvalue."
           solution={<>Tr=7, det=10. λ²−7λ+10=0 → λ=(7±3)/2 → λ=5 or 2. Larger = <strong>5</strong></>}>
@@ -175,7 +175,7 @@ export default function LinearAlgebraPage() {
         </InteractiveProblem>
 
         <Problem n={3} difficulty="easy"
-          solution={<>Orthonormal basis {'{'}e₁, e₂, e₃{'}'} for ℝ³: eᵢ·eⱼ = δᵢⱼ. Gram-Schmidt from {'{'}v₁=(1,1,0), v₂=(1,0,1), v₃=(0,1,1){'}'}. e₁ = v₁/‖v₁‖ = (1,1,0)/√2. u₂ = v₂ − (v₂·e₁)e₁ = (1,0,1) − (1/√2)(1/√2)(1,1,0) = (1,0,1)−(1/2,1/2,0) = (1/2,−1/2,1). e₂ = u₂/‖u₂‖ = (1/2,−1/2,1)/√(3/2) = (1,−1,2)/√6. u₃ = v₃ − (v₃·e₁)e₁ − (v₃·e₂)e₂ = (0,1,1) − (1/2)(1,1,0)/1 − (1/6)(1,−1,2)/1 ... = (−1/3,1/3,2/3)/‖‖. e₃ = (−1,1,2)/√6 ... orthonormal after calculation. This is Gram-Schmidt orthogonalization, the constructive proof that any basis can be orthonormalized.</>}>
+          solution={<>Orthonormal basis {'{'}e₁, e₂, e₃{'}'} for ℝ³: eᵢ·eⱼ = δᵢⱼ. Gram-Schmidt from {'{'}v₁=(1,1,0), v₂=(1,0,1), v₃=(0,1,1){'}'}. e₁ = v₁/‖v₁‖ = (1,1,0)/√2. u₂ = v₂ − (v₂·e₁)e₁ = (1,0,1) − (1/√2)(1/√2)(1,1,0) = (1,0,1)−(1/2,1/2,0) = (1/2,−1/2,1). e₂ = u₂/‖u₂‖ = (1/2,−1/2,1)/√(3/2) = (1,−1,2)/√6. u₃ = v₃ − (v₃·e₁)e₁ − (v₃·e₂)e₂ = (0,1,1) − (1/2)(1,1,0)/1 − (1/6)(1,−1,2)/1 ... = (−2/3,2/3,2/3), ‖u₃‖ = 2/√3. e₃ = (−1,1,1)/√3. Verify: e₃·e₁ = (−1+1+0)/√6 = 0 ✓, e₃·e₂ = (−1−1+2)/√18 = 0 ✓. This is Gram-Schmidt orthogonalization, the constructive proof that any basis can be orthonormalized.</>}>
           Apply Gram-Schmidt orthogonalization to the vectors v₁=(1,1,0), v₂=(1,0,1), v₃=(0,1,1) to produce an orthonormal basis.
         </Problem>
 

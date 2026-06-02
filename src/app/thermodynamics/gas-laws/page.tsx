@@ -1,13 +1,13 @@
 import KineticGasClient from '@/components/sims/KineticGasClient';
 import {
   Definition, Theorem, WorkedExample, Step,
-  PracticeProblems, Problem, InteractiveProblem, EqNumbered, Figure, Prerequisites, Takeaways, LearningGoals
+  PracticeProblems, Problem, InteractiveProblem, EqNumbered, Figure, Prerequisites, Takeaways, LearningGoals, HistoryNote
 } from '@/components/textbook';
 
 export default function GasLawsPage() {
   return (
     <div className="chapter">
-      <div className="chapter-label" style={{ color: '#8a5c2a' }}>Thermodynamics · Chapter 11</div>
+      <div className="chapter-label" style={{ color: '#8a5c2a' }}>Thermodynamics · Chapter 13</div>
       <h1>Ideal Gas Law</h1>
       <p className="subtitle">PV = nRT connects pressure, volume, temperature, and amount of gas into a single elegant relation — derived from nothing more than counting molecular collisions.</p>
 
@@ -21,14 +21,14 @@ export default function GasLawsPage() {
         'Identify when real gases deviate from ideal behavior and apply the van der Waals correction.',
       ]} />
 
-      <h2>11.1 The Gas Laws</h2>
+      <h2>13.1 The Gas Laws</h2>
 
       <p>
         Three empirical gas laws, each discovered independently in the 17th–19th centuries, all turn out
         to be special cases of a single unified law:
       </p>
 
-      <Definition number="11.1" title="The Empirical Gas Laws">
+      <Definition number="13.1" title="The Empirical Gas Laws">
         <ul style={{ marginTop: '0.4rem' }}>
           <li><strong>Boyle&apos;s Law</strong> (const T): PV = constant &nbsp; → &nbsp; P₁V₁ = P₂V₂</li>
           <li><strong>Charles&apos;s Law</strong> (const P): V/T = constant &nbsp; → &nbsp; V₁/T₁ = V₂/T₂</li>
@@ -38,14 +38,25 @@ export default function GasLawsPage() {
       </Definition>
 
       <p>
-        Boyle noticed that halving the volume of a gas doubles its pressure — the molecules hit the walls
+        <HistoryNote
+          trigger="Boyle's air pump"
+          year="1662"
+          title="Pressure from experiment"
+          source="Robert Boyle, New Experiments Physico-Mechanical."
+          furtherReading={[{ label: "Robert Boyle", url: "https://en.wikipedia.org/wiki/Robert_Boyle" }]}
+        >
+          Robert Boyle's air pump was built by Robert Hooke, then a twenty-year-old instrument maker. Together they could evacuate a glass chamber and carefully vary the pressure on a
+          trapped gas while measuring the volume. Boyle kept meticulous records, published everything including failed trials, and explicitly invited others to repeat his work. The idea
+          that a scientific result must be reproducible by strangers was not obvious in 1662 — Boyle helped make it a norm. The pattern PV = constant was just a regularity in his tables.
+          He did not know why it was true, and he said so.
+        </HistoryNote> showed that halving the volume of a gas doubles its pressure — the molecules hit the walls
         twice as often. Charles observed that heating a gas at constant pressure makes it expand proportionally
         to absolute temperature. These combine into:
       </p>
 
-      <h2>11.2 The Ideal Gas Law</h2>
+      <h2>13.2 The Ideal Gas Law</h2>
 
-      <EqNumbered number="11.1" latex="PV=nRT" />
+      <EqNumbered number="13.1" latex="PV=nRT" />
 
       <p>
         Here P is pressure (Pa), V is volume (m³), n is the amount of gas (moles), R = 8.314 J/mol·K is
@@ -53,7 +64,7 @@ export default function GasLawsPage() {
         number of molecules N and Boltzmann&apos;s constant k_B = R/N_A:
       </p>
 
-      <EqNumbered number="11.2" latex="PV=Nk_BT \qquad k_B=1.381\times10^{-23}\,\mathrm{J/K}" />
+      <EqNumbered number="13.2" latex="PV=Nk_BT \qquad k_B=1.381\times10^{-23}\,\mathrm{J/K}" />
 
       <p>
         An <strong>ideal gas</strong> is one in which (1) molecular volume is negligible compared to container volume,
@@ -61,14 +72,14 @@ export default function GasLawsPage() {
         attractive forces. Real gases obey this law closely at low pressure and high temperature.
       </p>
 
-      <WorkedExample number="11.1" title="Bicycle Tire Pressure">
+      <WorkedExample number="13.1" title="Bicycle Tire Pressure">
         <p>A bicycle tire has volume 1.2 L and is filled to gauge pressure 6.0 atm at 20°C. The tire heats to 40°C in the sun. Find the new pressure. (Gauge pressure = pressure above atmospheric.)</p>
         <Step label="Setup:">Volume is constant, so use Gay-Lussac: P₁/T₁ = P₂/T₂.</Step>
         <Step label="Absolute pressures:">P₁ = 6.0 + 1.0 = 7.0 atm, T₁ = 293 K, T₂ = 313 K</Step>
         <Step label="New pressure:">P₂ = P₁(T₂/T₁) = 7.0 × (313/293) = <strong>7.48 atm</strong> absolute = 6.48 atm gauge</Step>
       </WorkedExample>
 
-      <h2>11.3 Kinetic Theory Derivation</h2>
+      <h2>13.3 Kinetic Theory Derivation</h2>
 
       <p>
         The ideal gas law is not just empirical — it can be derived from Newton&apos;s laws applied to
@@ -76,14 +87,14 @@ export default function GasLawsPage() {
         off a wall delivers impulse 2mv_x. The average force on one wall:
       </p>
 
-      <EqNumbered number="11.3" latex="F=\frac{Nm\langle v_x^2\rangle}{L} \qquad P=\frac{F}{L^2}=\frac{Nm\langle v_x^2\rangle}{V}" />
+      <EqNumbered number="13.3" latex="F=\frac{Nm\langle v_x^2\rangle}{L} \qquad P=\frac{F}{L^2}=\frac{Nm\langle v_x^2\rangle}{V}" />
 
       <p>
         Using isotropy (v²_x = v²_y = v²_z = v²_rms/3) and the definition of temperature
         (½mv²_rms = (3/2)k_BT), this gives PV = Nk_BT exactly.
       </p>
 
-      <Theorem number="11.1" title="Internal Energy of an Ideal Gas">
+      <Theorem number="13.1" title="Internal Energy of an Ideal Gas">
         The total internal energy of a monatomic ideal gas (3 translational degrees of freedom) is:
         <span style={{ display: 'block', margin: '0.6rem 0 0.25rem 1rem', fontStyle: 'italic' }}>
           U = (3/2)Nk_BT = (3/2)nRT
@@ -92,18 +103,18 @@ export default function GasLawsPage() {
         The molar heat capacity at constant volume is C_V = (f/2)R where f is the number of degrees of freedom.
       </Theorem>
 
-      <Figure number="11.1" caption="Kinetic gas simulation. Observe Boyle's law: compress the volume (slider) while watching pressure rise. Observe Charles's law: raise temperature while watching the gas expand at constant pressure. Color = speed.">
+      <Figure number="13.1" caption="Kinetic gas simulation. Observe Boyle's law: compress the volume (slider) while watching pressure rise. Observe Charles's law: raise temperature while watching the gas expand at constant pressure. Color = speed.">
         <KineticGasClient />
       </Figure>
 
-      <h2>11.4 Real Gases and the van der Waals Equation</h2>
+      <h2>13.4 Real Gases and the van der Waals Equation</h2>
 
       <p>
         At high pressure or low temperature, the ideal gas law fails because molecular volume and
         intermolecular attraction become significant. The van der Waals equation corrects for these:
       </p>
 
-      <EqNumbered number="11.4" latex="\left(P+a\frac{n^2}{V^2}\right)(V-nb)=nRT" />
+      <EqNumbered number="13.4" latex="\left(P+a\frac{n^2}{V^2}\right)(V-nb)=nRT" />
 
       <p>
         The term an²/V² accounts for attractive forces reducing effective pressure; nb accounts for
@@ -111,14 +122,14 @@ export default function GasLawsPage() {
         For CO₂: a = 3.64 L²·atm/mol², b = 0.0427 L/mol.
       </p>
 
-      <WorkedExample number="11.2" title="Volume of One Mole of Gas">
+      <WorkedExample number="13.2" title="Volume of One Mole of Gas">
         <p>What volume does 1 mol of ideal gas occupy at STP (T = 273.15 K, P = 101.325 kPa)?</p>
         <Step label="Ideal gas law:">V = nRT/P = (1)(8.314)(273.15)/(101325) = 2271/101325</Step>
         <Step label="Result:">V = <strong>0.02241 m³ = 22.41 L</strong> — the molar volume at STP.</Step>
         <Step label="Note:">Every gas has the same molar volume at STP — this is Avogadro&apos;s principle.</Step>
       </WorkedExample>
 
-      <Definition number="11.2" title="Common Traps">
+      <Definition number="13.2" title="Common Traps">
         <ul style={{ marginTop: '0.4rem' }}>
           <li><strong>Gauge pressure is not absolute pressure:</strong> add atmospheric pressure before using PV = nRT.</li>
           <li><strong>Gas laws require kelvin:</strong> proportionality to temperature fails if Celsius is used.</li>
@@ -127,7 +138,7 @@ export default function GasLawsPage() {
         </ul>
       </Definition>
 
-      <PracticeProblems section="11.1–11.4 Ideal Gas Law">
+      <PracticeProblems section="13.1–13.4 Ideal Gas Law">
         <InteractiveProblem n={1} difficulty="easy"
           answer={2.0} unit="atm" tolerance={0.02}
           hints={['Boyle\'s Law: P₁V₁ = P₂V₂. Solve for P₂.', 'P₂ = P₁V₁/V₂ = 1.0 × 4.0 / 2.0']}

@@ -7,7 +7,7 @@ import {
 export default function ElectricFieldsPage() {
   return (
     <div className="chapter">
-      <div className="chapter-label" style={{ color: 'var(--thm-accent)' }}>Electromagnetism · Chapter 13</div>
+      <div className="chapter-label" style={{ color: 'var(--thm-accent)' }}>Electromagnetism · Chapter 15</div>
       <h1>Electric Charges and Fields</h1>
       <p className="subtitle">Like charges repel, unlike charges attract — but the field concept turns this force-at-a-distance into something local and geometric.</p>
 
@@ -21,7 +21,7 @@ export default function ElectricFieldsPage() {
         'Use Gauss\'s law qualitatively and recognize when symmetry makes it powerful.',
       ]} />
 
-      <h2>13.1 Electric Charge</h2>
+      <h2>15.1 Electric Charge</h2>
 
       <p>
         Electric charge is a fundamental property of matter, carried by protons (<InlineMath latex="+e" />) and electrons (<InlineMath latex="-e" />),
@@ -30,7 +30,7 @@ export default function ElectricFieldsPage() {
         <strong>conserved</strong> — the total charge of an isolated system never changes.
       </p>
 
-      <Definition number="13.1" title="Coulomb's Law">
+      <Definition number="15.1" title="Coulomb's Law">
         The electrostatic force between two point charges <InlineMath latex="q_1" /> and <InlineMath latex="q_2" /> separated by distance <InlineMath latex="r" />:
         <span style={{ display: 'block', margin: '0.6rem 0 0.25rem 1rem', fontStyle: 'italic' }}>
           <InlineMath latex="F = \frac{k|q_1q_2|}{r^2}" /> &nbsp;&nbsp;&nbsp; <InlineMath latex="k = 8.99 \times 10^9\,\mathrm{N\,m^2/C^2}" />
@@ -45,41 +45,44 @@ export default function ElectricFieldsPage() {
         free space. For multiple charges, forces add as vectors (superposition principle).
       </p>
 
-      <WorkedExample number="13.1" title="Force Between Charges">
+      <WorkedExample number="15.1" title="Force Between Charges">
         <p>Two charges, <InlineMath latex="q_1 = +3\,\mu\mathrm{C}" /> and <InlineMath latex="q_2 = -2\,\mu\mathrm{C}" />, are <InlineMath latex="0.15\,\mathrm{m}" /> apart. Find the force between them.</p>
         <Step label="Apply Coulomb's law:"><InlineMath latex="F = \frac{k|q_1q_2|}{r^2} = \frac{(8.99\times10^9)(3\times10^{-6})(2\times10^{-6})}{(0.15)^2}" /></Step>
         <Step label="Calculate:"><InlineMath latex="F = \frac{(8.99\times10^9)(6\times10^{-12})}{0.0225} = \frac{53.94\times10^{-3}}{0.0225} = 2.40\,\mathrm{N}" /></Step>
         <Step label="Direction:">Attractive — unlike charges. The force pulls them toward each other.</Step>
       </WorkedExample>
 
-      <h2>13.2 The Electric Field</h2>
+      <h2>15.2 The Electric Field</h2>
 
       <p>
         Rather than thinking about force-at-a-distance, <HistoryNote
           trigger="Faraday"
           year="1830s"
           title="The field idea starts as a picture"
+          furtherReading={[{ label: "Michael Faraday", url: "https://en.wikipedia.org/wiki/Michael_Faraday" }]}
         >
-          Michael Faraday had little formal mathematics, but his line-of-force diagrams were physically sharp.
-          Maxwell later translated those pictures into equations.
+          Faraday drew lines of force because he could not write the mathematics. His notebooks are full of diagrams — loops around magnets, curves between charges — that he understood
+          physically without being able to formalize. When Maxwell finally read those notebooks, he said they were more precise than most mathematical treatments. Faraday was embarrassed by
+          the praise, but Maxwell was right: the pictures encoded genuine structure that nobody else had seen.
         </HistoryNote> introduced the <strong>electric field</strong>:
         a charge creates a field everywhere in space, and other charges respond to that field locally.
         The field <InlineMath latex="\mathbf{E}" /> at a point is the force per unit positive test charge placed there:
       </p>
 
-      <HistoryNote year="1785" title="Coulomb's torsion balance">
-        Charles-Augustin de Coulomb measured tiny electric forces with a twisting fiber. By watching the fiber's angle,
-        he found the same inverse-square pattern that Newton had found for gravity.
+      <HistoryNote year="1785" title="Coulomb's torsion balance" furtherReading={[{ label: "Charles-Augustin de Coulomb", url: "https://en.wikipedia.org/wiki/Charles-Augustin_de_Coulomb" }]}>
+        Coulomb's torsion balance was a marvel of precision for its era — a delicate wire from which a rod was suspended, with charged spheres at each end. He could measure forces
+        smaller than anyone before him by watching how much the fiber twisted. A military engineer by training, he brought that care for measurement to physics. When the result came out
+        inverse-square, he knew immediately it paralleled Newton's law of gravity. The universe had given the same answer twice.
       </HistoryNote>
 
-      <EqNumbered number="13.1" latex="\mathbf{E} = \frac{\mathbf{F}}{q_0} \qquad |\mathbf{E}| = \frac{kq}{r^2} \qquad \text{(point charge)}" />
+      <EqNumbered number="15.1" latex="\mathbf{E} = \frac{\mathbf{F}}{q_0} \qquad |\mathbf{E}| = \frac{kq}{r^2} \qquad \text{(point charge)}" />
 
       <p>
         The electric field is a <strong>vector field</strong> — it has a direction (away from + charges,
         toward − charges) and a magnitude at every point in space. For multiple charges, fields add as vectors.
       </p>
 
-      <Definition number="13.2" title="Electric Field Lines">
+      <Definition number="15.2" title="Electric Field Lines">
         Field lines are a visual tool for representing electric fields:
         <ul style={{ marginTop: '0.4rem' }}>
           <li>Field lines originate on positive charges and terminate on negative charges.</li>
@@ -89,24 +92,24 @@ export default function ElectricFieldsPage() {
         </ul>
       </Definition>
 
-      <Figure number="13.1" caption="Interactive electric field simulation. Start with one positive charge and one negative charge, then add a second positive charge to see superposition. Field lines show direction by their tangent and relative strength by their density; drag charges around and watch where lines crowd together or cancel.">
+      <Figure number="15.1" caption="Interactive electric field simulation. Start with one positive charge and one negative charge, then add a second positive charge to see superposition. Field lines show direction by their tangent and relative strength by their density; drag charges around and watch where lines crowd together or cancel.">
         <ElectricFieldClient />
       </Figure>
 
-      <h2>13.3 Electric Potential Energy and Potential</h2>
+      <h2>15.3 Electric Potential Energy and Potential</h2>
 
       <p>
         Just as gravitational force has an associated potential energy <InlineMath latex="U = mgh" />, the electric force is
         conservative and has a potential energy. For two point charges:
       </p>
 
-      <EqNumbered number="13.2" latex="U = \frac{kq_1q_2}{r}" />
+      <EqNumbered number="15.2" latex="U = \frac{kq_1q_2}{r}" />
 
       <p>
         The <strong>electric potential</strong> V (not to be confused with voltage) is potential energy per unit charge:
       </p>
 
-      <EqNumbered number="13.3" latex="V = \frac{U}{q_0} = \frac{kq}{r} \qquad \text{(point charge)} \qquad \Delta V = -\int \mathbf{E}\cdot d\mathbf{l}" />
+      <EqNumbered number="15.3" latex="V = \frac{U}{q_0} = \frac{kq}{r} \qquad \text{(point charge)} \qquad \Delta V = -\int \mathbf{E}\cdot d\mathbf{l}" />
 
       <p>
         Potential is a scalar — it&apos;s easier to work with than the vector field. The field points from
@@ -114,7 +117,7 @@ export default function ElectricFieldsPage() {
         perpendicular to field lines.
       </p>
 
-      <Theorem number="13.1" title="Gauss's Law">
+      <Theorem number="15.1" title="Gauss's Law">
         The total electric flux through any closed surface equals the enclosed charge divided by ε₀:
         <span style={{ display: 'block', margin: '0.6rem 0 0.25rem 1rem', fontStyle: 'italic' }}>
           <InlineMath latex="\Phi_E = \oint \mathbf{E}\cdot d\mathbf{A} = \frac{Q_\mathrm{enc}}{\varepsilon_0}" />
@@ -124,14 +127,14 @@ export default function ElectricFieldsPage() {
         a single integral. It is one of Maxwell&apos;s four equations.
       </Theorem>
 
-      <WorkedExample number="13.2" title="Field from a Charged Sphere">
+      <WorkedExample number="15.2" title="Field from a Charged Sphere">
         <p>A solid metal sphere of radius <InlineMath latex="R = 0.1\,\mathrm{m}" /> carries charge <InlineMath latex="Q = 5\,\mu\mathrm{C}" />. Find <InlineMath latex="E" /> at <InlineMath latex="r = 0.3\,\mathrm{m}" /> from the center.</p>
         <Step label="By Gauss's law:">For <InlineMath latex="r > R" />, the sphere looks like a point charge: <InlineMath latex="E = kQ/r^2" />.</Step>
         <Step label="Calculate:"><InlineMath latex="E = \frac{(8.99\times10^9)(5\times10^{-6})}{(0.3)^2} = \frac{44950}{0.09} = 4.99\times10^5\,\mathrm{N/C} \approx 500\,\mathrm{kN/C}" /></Step>
         <Step label="Inside:">For <InlineMath latex="r < R" /> (inside a conductor): <InlineMath latex="E = 0" />. All charge resides on the surface.</Step>
       </WorkedExample>
 
-      <Definition number="13.3" title="Common Traps">
+      <Definition number="15.3" title="Common Traps">
         <ul style={{ marginTop: '0.4rem' }}>
           <li><strong>Force and field are not the same:</strong> E is force per unit test charge; F = qE depends on the charge placed in the field.</li>
           <li><strong>Potential is a scalar:</strong> add potentials algebraically, but add electric fields as vectors.</li>
@@ -141,7 +144,7 @@ export default function ElectricFieldsPage() {
         </ul>
       </Definition>
 
-      <PracticeProblems section="13.1–13.3 Electric Charges and Fields">
+      <PracticeProblems section="15.1–15.3 Electric Charges and Fields">
         <InteractiveProblem n={1} difficulty="easy"
           answer={8.99} unit="N" tolerance={0.02}
           hints={['F = kq₁q₂/r². With q₁=q₂=1×10⁻⁶ C, r=0.1 m, k=8.99×10⁹.', 'F = (8.99×10⁹)(10⁻⁶)(10⁻⁶)/(0.1)²']}

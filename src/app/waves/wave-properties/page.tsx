@@ -2,13 +2,13 @@ import WaveInterference from '@/components/sims/WaveInterference';
 import WaveSurface3D from '@/components/sims/WaveSurface3DClient';
 import {
   Definition, Theorem, WorkedExample, Step,
-  PracticeProblems, Problem, InteractiveProblem, EqNumbered, Figure, Prerequisites, Takeaways, LearningGoals
+  PracticeProblems, Problem, InteractiveProblem, EqNumbered, Figure, Prerequisites, Takeaways, LearningGoals, HistoryNote
 } from '@/components/textbook';
 
 export default function WavePropertiesPage() {
   return (
     <div className="chapter">
-      <div className="chapter-label" style={{ color: 'var(--ex-accent)' }}>Waves &amp; Oscillations · Chapter 8</div>
+      <div className="chapter-label" style={{ color: 'var(--ex-accent)' }}>Waves &amp; Oscillations · Chapter 9</div>
       <h1>Wave Properties</h1>
       <p className="subtitle">Waves carry energy without carrying matter. Understanding their properties unlocks optics, acoustics, electromagnetism, and quantum mechanics.</p>
 
@@ -22,7 +22,7 @@ export default function WavePropertiesPage() {
         'Apply the conditions for constructive and destructive interference to two-source problems.',
       ]} />
 
-      <h2>8.1 What is a Wave?</h2>
+      <h2>9.1 What is a Wave?</h2>
 
       <p>
         A wave is a disturbance that propagates through space and time, transferring energy without
@@ -35,7 +35,7 @@ export default function WavePropertiesPage() {
         <li><strong>Longitudinal waves</strong> — medium displaces parallel to propagation. Examples: sound, seismic P-waves.</li>
       </ul>
 
-      <Definition number="8.1" title="Wave Parameters">
+      <Definition number="9.1" title="Wave Parameters">
         A sinusoidal traveling wave is described by:
         <span style={{ display: 'block', margin: '0.5rem 0 0.25rem 1rem', fontStyle: 'italic' }}>
           y(x, t) = A sin(kx − ωt + φ)
@@ -50,35 +50,46 @@ export default function WavePropertiesPage() {
         </ul>
       </Definition>
 
-      <h2>8.2 The Wave Equation</h2>
+      <h2>9.2 The Wave Equation</h2>
 
       <p>
         All waves satisfy the wave equation — a second-order partial differential equation that
         relates the spatial and temporal second derivatives of displacement:
       </p>
 
-      <EqNumbered number="8.1" latex="\frac{\partial^2 y}{\partial t^2}=v^2\frac{\partial^2 y}{\partial x^2}" />
+      <EqNumbered number="9.1" latex="\frac{\partial^2 y}{\partial t^2}=v^2\frac{\partial^2 y}{\partial x^2}" />
 
       <p>
-        You can verify that y = A sin(kx − ωt) satisfies (8.1) with v = ω/k. This equation arises
-        from Newton&apos;s second law applied to an elastic medium. The wave speed v depends on the medium:
+        You can verify that y = A sin(kx − ωt) satisfies (9.1) with v = ω/k. The equation grew out of the
+        <HistoryNote
+          trigger="vibrating-string problem"
+          year="1740s"
+          title="Music forces a new mathematics"
+          source="d'Alembert, Euler, and Daniel Bernoulli papers on vibrating strings."
+          furtherReading={[{ label: "Vibrating string (history)", url: "https://en.wikipedia.org/wiki/Vibrating_string" }, { label: "Joseph Fourier", url: "https://en.wikipedia.org/wiki/Joseph_Fourier" }]}
+        >
+          The vibrating-string controversy of the 1740s and 1750s reads like a mathematical dispute of the highest order. D'Alembert, Euler, Daniel Bernoulli, and Lagrange — some
+          of the greatest mathematicians alive — argued fiercely about which functions could describe a plucked string. Bernoulli said any shape was a sum of sines. Euler and d'Alembert
+          thought this was obviously wrong and said so at length. The dispute was not resolved in their lifetimes; Fourier's 1822 proof eventually vindicated Bernoulli. The argument
+          forced mathematicians to clarify what a function even is.
+        </HistoryNote>: Newton&apos;s second law applied to an elastic medium. The wave speed v depends on the medium:
       </p>
 
-      <EqNumbered number="8.2" latex="v_\mathrm{string}=\sqrt{\frac{F_T}{\mu}} \qquad v_\mathrm{sound}=\sqrt{\frac{B}{\rho}} \qquad v_\mathrm{light}=c=3.00\times10^8\,\mathrm{m/s}" />
+      <EqNumbered number="9.2" latex="v_\mathrm{string}=\sqrt{\frac{F_T}{\mu}} \qquad v_\mathrm{sound}=\sqrt{\frac{B}{\rho}} \qquad v_\mathrm{light}=c=3.00\times10^8\,\mathrm{m/s}" />
 
       <p>
         where F_T is string tension, μ is linear mass density, B is bulk modulus, and ρ is density.
         Note: wave speed in a medium is a property of that medium, not of frequency.
       </p>
 
-      <h2>8.3 Standing Waves</h2>
+      <h2>9.3 Standing Waves</h2>
 
       <p>
         When two identical waves travel in opposite directions, their superposition creates a
         <strong> standing wave</strong> — a pattern that oscillates in place with fixed nodes and antinodes.
       </p>
 
-      <Theorem number="8.1" title="Standing Wave Formation">
+      <Theorem number="9.1" title="Standing Wave Formation">
         Adding two traveling waves of equal amplitude moving in opposite directions:
         <span style={{ display: 'block', margin: '0.5rem 0 0.25rem 1rem', fontStyle: 'italic' }}>
           y = A sin(kx − ωt) + A sin(kx + ωt) = 2A sin(kx) cos(ωt)
@@ -92,7 +103,7 @@ export default function WavePropertiesPage() {
         and x = L. This forces the allowed wavelengths:
       </p>
 
-      <EqNumbered number="8.3" latex="\lambda_n=\frac{2L}{n} \qquad f_n=\frac{nv}{2L} \qquad n=1,2,3,\ldots" />
+      <EqNumbered number="9.3" latex="\lambda_n=\frac{2L}{n} \qquad f_n=\frac{nv}{2L} \qquad n=1,2,3,\ldots" />
 
       <p>
         These are the <strong>harmonics</strong> (or overtones). n = 1 is the fundamental frequency;
@@ -100,11 +111,11 @@ export default function WavePropertiesPage() {
         the string length forces specific resonant frequencies.
       </p>
 
-      <Figure number="8.1" caption="3D wave surface simulation. Switch between traveling, standing, and circular (point source) modes. Note how the standing wave has fixed nodes — points that never move. Drag to rotate, scroll to zoom.">
+      <Figure number="9.1" caption="3D wave surface simulation. Switch between traveling, standing, and circular (point source) modes. Note how the standing wave has fixed nodes — points that never move. Drag to rotate, scroll to zoom.">
         <WaveSurface3D />
       </Figure>
 
-      <WorkedExample number="8.1" title="Guitar String Harmonics">
+      <WorkedExample number="9.1" title="Guitar String Harmonics">
         <p>A guitar string is 65 cm long. The wave speed on this string is 400 m/s. Find the first three harmonic frequencies.</p>
         <Step label="Fundamental (n=1):">f₁ = v/(2L) = 400/(2 × 0.65) = <strong>307.7 Hz</strong> ≈ E₄ note</Step>
         <Step label="Second harmonic (n=2):">f₂ = 2f₁ = <strong>615 Hz</strong> ≈ E₅</Step>
@@ -112,25 +123,25 @@ export default function WavePropertiesPage() {
         <Step label="Note:">The harmonics are integer multiples of the fundamental — this is what gives musical instruments their timbre.</Step>
       </WorkedExample>
 
-      <h2>8.4 Wave Interference</h2>
+      <h2>9.4 Wave Interference</h2>
 
       <p>
         When two or more waves overlap in the same medium, the resulting displacement is the sum of
         the individual displacements. This is the <strong>superposition principle</strong>.
       </p>
 
-      <Figure number="8.2" caption="Two-source interference pattern. Blue = constructive (waves in phase), Red = destructive (waves out of phase). Adjust phase difference to see the pattern invert.">
+      <Figure number="9.2" caption="Two-source interference pattern. Blue = constructive (waves in phase), Red = destructive (waves out of phase). Adjust phase difference to see the pattern invert.">
         <WaveInterference />
       </Figure>
 
-      <WorkedExample number="8.2" title="Double-Slit Fringe Spacing">
+      <WorkedExample number="9.2" title="Double-Slit Fringe Spacing">
         <p>In Young&apos;s double-slit experiment: slit separation d = 0.2 mm, screen distance L = 2 m, λ = 550 nm. Find fringe spacing.</p>
         <Step label="Formula:">Δy = λL/d</Step>
         <Step label="Calculate:">Δy = (550×10⁻⁹ × 2) / (0.2×10⁻³) = <strong>5.5 mm</strong></Step>
         <Step label="Interpretation:">Bright fringes appear every 5.5 mm. Shorter wavelength → closer fringes; larger slit separation → closer fringes.</Step>
       </WorkedExample>
 
-      <Definition number="8.2" title="Common Traps">
+      <Definition number="9.2" title="Common Traps">
         <ul style={{ marginTop: '0.4rem' }}>
           <li><strong>Amplitude is not wave speed:</strong> larger amplitude carries more energy, but the speed is set by the medium.</li>
           <li><strong>Frequency and wavelength trade off in one medium:</strong> if v is fixed, increasing f decreases λ.</li>
@@ -139,7 +150,7 @@ export default function WavePropertiesPage() {
         </ul>
       </Definition>
 
-      <PracticeProblems section="8.1–8.4 Waves">
+      <PracticeProblems section="9.1–9.4 Waves">
         <InteractiveProblem n={1} difficulty="easy"
           answer={500} unit="Hz" tolerance={0.02}
           hints={['v = fλ → f = v/λ', 'v = 340 m/s, λ = 0.68 m']}

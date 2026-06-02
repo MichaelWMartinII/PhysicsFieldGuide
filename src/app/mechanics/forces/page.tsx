@@ -1,7 +1,8 @@
 import ForceDiagram from '@/components/sims/ForceDiagram';
 import {
   Definition, Theorem, WorkedExample, Step,
-  PracticeProblems, Problem, InteractiveProblem, EqNumbered, Figure, Prerequisites, Takeaways, LearningGoals, HistoryNote
+  PracticeProblems, Problem, InteractiveProblem, EqNumbered, Figure, Prerequisites, Takeaways, LearningGoals, HistoryNote, InlineMath,
+  Misconception, ApplicationNote
 } from '@/components/textbook';
 
 export default function ForcesPage() {
@@ -9,13 +10,7 @@ export default function ForcesPage() {
     <div className="chapter">
       <div className="chapter-label" style={{ color: 'var(--def-accent)' }}>Classical Mechanics · Chapter 3</div>
       <h1>Newton&apos;s Laws</h1>
-      <p className="subtitle">Three laws, written in <HistoryNote
-        trigger="1687"
-        title="The Principia"
-      >
-        Newton's Philosophiæ Naturalis Principia Mathematica unified terrestrial motion and celestial motion with the same mechanics.
-        That was the move: apples and planets became one subject.
-      </HistoryNote>, that governed all of physics for 230 years — and still govern most of engineering today.</p>
+      <p className="subtitle">Three laws, written in 1687, that governed all of physics for 230 years — and still govern most of engineering today.</p>
 
       <Prerequisites items={['Kinematics', 'Vectors', 'Basic algebra']} />
 
@@ -29,10 +24,18 @@ export default function ForcesPage() {
 
       <h2>3.1 The Three Laws</h2>
 
-      <HistoryNote year="1687" title="Why Newton's laws felt so radical">
-        Before Newton, motion on Earth and motion in the heavens were usually treated as different kinds of phenomena.
-        The Principia made the bolder claim: a thrown stone, the Moon, and Jupiter's moons all obey the same rules.
+      <HistoryNote year="1687" title="Why Newton's laws felt so radical" furtherReading={[{ label: "Isaac Newton", url: "https://en.wikipedia.org/wiki/Isaac_Newton" }, { label: "Principia Mathematica", url: "https://en.wikipedia.org/wiki/Philosophi%C3%A6_Naturalis_Principia_Mathematica" }]}>
+        Isaac Newton wrote most of the Principia in roughly eighteen months, spurred by Halley's visit in 1684 and a question about what force law would produce elliptical orbits.
+        The deeper audacity of the book was its universality: the same force governing a falling apple also governed the Moon and Jupiter's moons. Before Newton, earthly and celestial
+        physics were philosophically separate worlds. He later said he had seen further by standing on the shoulders of giants — Kepler, Galileo, Huygens. The synthesis was his own,
+        and it held for two and a quarter centuries before Einstein revised it.
       </HistoryNote>
+
+      <Misconception wrong="A continuous force is needed to keep an object moving at constant velocity.">
+        Newton's first law says the opposite: an object moving at constant velocity needs zero net force. Force changes velocity;
+        the absence of net force preserves it. We need force in daily life only to overcome friction — but friction is itself a force
+        opposing motion, not evidence that motion requires force. On a frictionless surface a hockey puck slides forever.
+      </Misconception>
 
       <Theorem number="3.1" title="Newton's First Law — Inertia">
         An object at rest remains at rest, and an object in motion remains in uniform motion (constant
@@ -45,9 +48,9 @@ export default function ForcesPage() {
       <Theorem number="3.2" title="Newton's Second Law — Force and Acceleration">
         The net force on an object equals its mass times acceleration:
         <span style={{ display: 'block', margin: '0.5rem 0 0.25rem 1rem', fontStyle: 'italic' }}>
-          F_net = ma &nbsp;&nbsp;&nbsp; or &nbsp;&nbsp;&nbsp; ΣF = ma
+          <InlineMath latex="F_\mathrm{net}=ma" /> &nbsp;&nbsp;&nbsp; or &nbsp;&nbsp;&nbsp; <InlineMath latex="\sum F=ma" />
         </span>
-        More precisely, F_net = dp/dt (the rate of change of momentum). Force is a vector — direction matters.
+        More precisely, <InlineMath latex="F_\mathrm{net}=dp/dt" /> (the rate of change of momentum). Force is a vector — direction matters.
         When multiple forces act, they add vectorially to give the net force.
       </Theorem>
 
@@ -55,7 +58,7 @@ export default function ForcesPage() {
         For every force exerted by object A on object B, there is an equal and opposite force exerted by
         B on A:
         <span style={{ display: 'block', margin: '0.5rem 0 0.25rem 1rem', fontStyle: 'italic' }}>
-          F_{'{A on B}'} = −F_{'{B on A}'}
+          <InlineMath latex="\mathbf{F}_{A\to B}=-\mathbf{F}_{B\to A}" />
         </span>
         Critical: these forces act on <em>different</em> objects. A horse pulling a cart exerts a force
         on the cart; the cart exerts an equal force back on the horse. They don&apos;t cancel (they&apos;re on
@@ -87,15 +90,15 @@ export default function ForcesPage() {
           <li><strong>Kinetic friction</strong> f_k = μ_k N: constant once sliding begins. Always μ_k &lt; μ_s.</li>
         </ul>
         <span style={{ display: 'block', margin: '0.5rem 0 0.25rem 1rem', fontStyle: 'italic' }}>
-          f_k = μ_k N = μ_k mg (on flat surface) &nbsp;&nbsp;&nbsp; direction: opposes motion
+          <InlineMath latex="f_k=\mu_k N=\mu_k mg" /> (on a flat surface) &nbsp;&nbsp;&nbsp; direction: opposes motion
         </span>
       </Definition>
 
       <EqNumbered number="3.1" latex="a = \frac{F_\mathrm{applied} - \mu_k mg}{m} = \frac{F_\mathrm{applied}}{m} - \mu_k g" />
 
       <p>
-        The block won&apos;t move at all if F_applied &lt; μ_s N. Once moving, use μ_k. In the simulation,
-        we model the transition: if |v| &lt; 0.01 m/s and |F| &lt; μN, acceleration is zero.
+        The block won&apos;t move at all if <InlineMath latex="F_\mathrm{applied}<\mu_s N" />. Once moving, use <InlineMath latex="\mu_k" />.
+        In the simulation, we model the transition: if <InlineMath latex="|v|<0.01\,\mathrm{m/s}" /> and <InlineMath latex="|F|<\mu N" />, acceleration is zero.
       </p>
 
       <Figure number="3.1" caption="Force diagram simulation. Forces are drawn proportionally to magnitude. The velocity bar (top right) shows speed and direction. Negative applied force reverses the block.">
@@ -160,6 +163,14 @@ export default function ForcesPage() {
           A block slides at constant velocity down a 25° incline. Derive the kinetic friction coefficient μ_k purely from the angle. (Hint: draw the FBD and apply Newton&apos;s 2nd law with a = 0.)
         </Problem>
       </PracticeProblems>
+
+      <ApplicationNote title="Newton's laws in safety engineering">
+        Every car crumple zone is designed around the impulse-momentum theorem: extending the collision time reduces the peak force on
+        occupants. Airbags do the same — they extend the stopping time from milliseconds to tens of milliseconds, cutting the peak
+        deceleration by roughly a factor of ten. Seatbelts supply the backward force that keeps passengers inside when the car
+        decelerates. Helmets slow down head deceleration during impact. The entire field of crash-safety engineering is applied
+        Newton's second law.
+      </ApplicationNote>
 
       <Takeaways items={[
         "Newton's 1st: Objects resist changes in motion (inertia). Force is needed to change velocity.",

@@ -14,7 +14,7 @@ export default function GroupTheoryPage() {
         particles, and underlies the gauge theories of all fundamental forces.
       </p>
 
-      <Prerequisites items={['Linear algebra (Ch. LA)', 'Quantum mechanics (Ch. 20)', 'Basic matrix multiplication']} />
+      <Prerequisites items={['Linear algebra (Ch. LA)', 'Quantum mechanics (Ch. 22)', 'Basic matrix multiplication']} />
 
       <LearningGoals items={[
         'Verify that a set with a binary operation satisfies the four group axioms.',

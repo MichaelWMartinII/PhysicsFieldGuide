@@ -18,16 +18,17 @@ export default function CurriculumNav() {
     return () => window.removeEventListener('resize', check);
   }, []);
 
-  // Close drawer when navigating on mobile
-  useEffect(() => { setMobileOpen(false); }, [pathname]);
-
   function toggle(id: string) {
     setCollapsed((prev) => ({ ...prev, [id]: !prev[id] }));
   }
 
+  function closeMobileNav() {
+    setMobileOpen(false);
+  }
+
   const navContent = (
     <>
-      <Link href="/" style={{ padding: '0 1rem 1rem', borderBottom: '1px solid var(--border)', marginBottom: '0.75rem', display: 'block', textDecoration: 'none' }}>
+      <Link href="/" onClick={closeMobileNav} style={{ padding: '0 1rem 1rem', borderBottom: '1px solid var(--border)', marginBottom: '0.75rem', display: 'block', textDecoration: 'none' }}>
         <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
           <div>
             <div style={{ fontSize: '0.9rem', fontWeight: 700, color: 'var(--text-heading)', letterSpacing: '-0.01em' }}>Physics: A Field Guide</div>
@@ -39,9 +40,10 @@ export default function CurriculumNav() {
         </div>
       </Link>
 
-      <div style={{ padding: '0 0.5rem', marginBottom: '0.5rem' }}>
+      <div style={{ padding: '0 0.5rem', marginBottom: '0.5rem', display: 'flex', flexDirection: 'column', gap: '0.3rem' }}>
         <Link
           href="/roadmap"
+          onClick={closeMobileNav}
           style={{
             display: 'flex', alignItems: 'center', justifyContent: 'space-between',
             padding: '0.4rem 0.6rem', borderRadius: '4px', textDecoration: 'none',
@@ -54,6 +56,31 @@ export default function CurriculumNav() {
           Full Roadmap
           <span style={{ fontSize: '0.65rem', color: 'var(--muted)' }}>HS→PhD</span>
         </Link>
+
+        {/* Reference tools — compact 2×2 grid */}
+        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '0.25rem' }}>
+          {[
+            { href: '/map',       label: 'Concept Map', hint: 'graph' },
+            { href: '/search',    label: 'Search',      hint: '⌘K'   },
+            { href: '/constants', label: 'Constants',   hint: 'ref'  },
+            { href: '/equations', label: 'Equations',   hint: 'ref'  },
+          ].map(({ href, label, hint }) => (
+            <Link
+              key={href}
+              href={href}
+              onClick={closeMobileNav}
+              style={{
+                display: 'flex', flexDirection: 'column', alignItems: 'flex-start',
+                padding: '0.35rem 0.5rem', borderRadius: '4px', textDecoration: 'none',
+                border: '1px solid var(--border)',
+                background: pathname === href ? 'var(--surface2)' : 'transparent',
+              }}
+            >
+              <span style={{ fontSize: '0.73rem', fontWeight: 500, color: pathname === href ? 'var(--text-heading)' : 'var(--muted)', lineHeight: 1.2 }}>{label}</span>
+              <span style={{ fontSize: '0.6rem', color: 'var(--border2)', lineHeight: 1 }}>{hint}</span>
+            </Link>
+          ))}
+        </div>
       </div>
 
       <div style={{ padding: '0 0.5rem' }}>
@@ -81,6 +108,7 @@ export default function CurriculumNav() {
                       <Link
                         key={topic.id}
                         href={topic.built ? topic.href : '#'}
+                        onClick={topic.built ? closeMobileNav : undefined}
                         style={{
                           display: 'flex', alignItems: 'center', justifyContent: 'space-between',
                           padding: '0.3rem 0.6rem', borderRadius: '4px', textDecoration: 'none',

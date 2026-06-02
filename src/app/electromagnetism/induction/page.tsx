@@ -1,20 +1,21 @@
 import InductionSimClient from '@/components/sims/InductionSimClient';
 import {
   Definition, WorkedExample, Step,
-  PracticeProblems, Problem, InteractiveProblem, EqNumbered, Figure, Prerequisites, Takeaways, LearningGoals, InlineMath
+  PracticeProblems, Problem, InteractiveProblem, EqNumbered, Figure, Prerequisites, Takeaways, LearningGoals, InlineMath, HistoryNote,
+  ApplicationNote
 } from '@/components/textbook';
 
 export default function InductionPage() {
   return (
     <div className="chapter">
-      <div className="chapter-label" style={{ color: '#a855f7' }}>Electromagnetism · Chapter 16</div>
+      <div className="chapter-label" style={{ color: '#a855f7' }}>Electromagnetism · Chapter 18</div>
       <h1>Electromagnetic Induction</h1>
       <p className="subtitle">
         A changing magnetic flux generates an electric field. This single principle — Faraday&apos;s
         law — is the basis of every electrical generator, transformer, and induction motor ever built.
       </p>
 
-      <Prerequisites items={['Magnetic fields (Ch. 15)', 'Basic calculus — derivatives and the concept of rate of change']} />
+      <Prerequisites items={['Magnetic fields (Ch. 17)', 'Basic calculus — derivatives and the concept of rate of change']} />
 
       <LearningGoals items={[
         'Calculate magnetic flux through a surface and identify the ways flux can change.',
@@ -24,7 +25,19 @@ export default function InductionPage() {
         'Connect induction to generators, transformers, and back-EMF in motors.',
       ]} />
 
-      <h2>16.1 Magnetic Flux</h2>
+      <h2>18.1 Magnetic Flux</h2>
+
+      <HistoryNote
+        year="1831"
+        title="Faraday's induction ring"
+        source="Michael Faraday, Experimental Researches in Electricity, first series on electromagnetic induction."
+        furtherReading={[{ label: "Michael Faraday", url: "https://en.wikipedia.org/wiki/Michael_Faraday" }]}
+      >
+        Michael Faraday had no university education and no mathematical training worth mentioning — the son of a blacksmith, he had apprenticed as a bookbinder before talking his way
+        into the Royal Institution as Humphry Davy's assistant. On August 29, 1831, he wound two coils around an iron ring, connected one to a battery, and watched the galvanometer needle
+        flick only when he made or broke the circuit — not while current was steady. He spent months following that flicker. Every generator, transformer, and electric motor in the world
+        traces back to that morning in his laboratory.
+      </HistoryNote>
 
       <p>
         Before stating Faraday&apos;s law, we need the concept of <strong>magnetic flux</strong>
@@ -32,7 +45,7 @@ export default function InductionPage() {
         accounting for the angle between <InlineMath latex="\mathbf{B}" /> and the surface:
       </p>
 
-      <EqNumbered number="16.1" latex="\Phi_B = \int \mathbf{B}\cdot d\mathbf{A} = BA\cos\theta \qquad \text{(uniform field, flat surface)}" />
+      <EqNumbered number="18.1" latex="\Phi_B = \int \mathbf{B}\cdot d\mathbf{A} = BA\cos\theta \qquad \text{(uniform field, flat surface)}" />
 
       <p>
         The SI unit of magnetic flux is the <strong>weber</strong> (<InlineMath latex="\mathrm{Wb} = \mathrm{T\,m^2}" />). Flux is maximum
@@ -40,9 +53,9 @@ export default function InductionPage() {
         is parallel to the surface (<InlineMath latex="\theta = 90^\circ" />, field skims the area).
       </p>
 
-      <h2>16.2 Faraday&apos;s Law</h2>
+      <h2>18.2 Faraday&apos;s Law</h2>
 
-      <Definition number="16.1" title="Faraday's Law of Electromagnetic Induction">
+      <Definition number="18.1" title="Faraday's Law of Electromagnetic Induction">
         The electromotive force (EMF) induced in a closed loop is equal to the negative rate of
         change of magnetic flux through the loop:
         <span style={{ display: 'block', textAlign: 'center', marginTop: '0.5rem', fontStyle: 'italic' }}>
@@ -57,11 +70,11 @@ export default function InductionPage() {
         of these produces an EMF and, if the circuit is closed, a current.
       </p>
 
-      <Figure number="16.1" caption="Induction simulator. Move the magnet slowly, then quickly: the galvanometer responds to the rate of flux change, not the flux itself. Reverse the magnet direction to test Lenz&apos;s law, and increase the number of turns to see why coils amplify induced EMF.">
+      <Figure number="18.1" caption="Induction simulator. Move the magnet slowly, then quickly: the galvanometer responds to the rate of flux change, not the flux itself. Reverse the magnet direction to test Lenz&apos;s law, and increase the number of turns to see why coils amplify induced EMF.">
         <InductionSimClient />
       </Figure>
 
-      <Definition number="16.2" title="Lenz's Law">
+      <Definition number="18.2" title="Lenz's Law">
         The induced current flows in a direction such that the magnetic field it creates
         opposes the change in flux that caused it.
         <span style={{ display: 'block', marginTop: '0.5rem', color: 'var(--muted)', fontSize: '0.9rem' }}>
@@ -71,7 +84,7 @@ export default function InductionPage() {
         </span>
       </Definition>
 
-      <h2>16.3 Motional EMF</h2>
+      <h2>18.3 Motional EMF</h2>
 
       <p>
         A conductor of length <InlineMath latex="L" /> moving with velocity <InlineMath latex="\mathbf{v}" /> through a magnetic field <InlineMath latex="\mathbf{B}" /> experiences
@@ -79,7 +92,7 @@ export default function InductionPage() {
         difference — a <strong>motional EMF</strong>:
       </p>
 
-      <EqNumbered number="16.2" latex="\varepsilon = BLv \qquad \text{(conductor perpendicular to both }\mathbf{B}\text{ and }\mathbf{v}\text{)}" />
+      <EqNumbered number="18.2" latex="\varepsilon = BLv \qquad \text{(conductor perpendicular to both }\mathbf{B}\text{ and }\mathbf{v}\text{)}" />
 
       <p>
         This is the operating principle of the electric generator: a coil of wire rotates in
@@ -88,7 +101,7 @@ export default function InductionPage() {
         (AC) — which is why the power grid runs on AC.
       </p>
 
-      <WorkedExample number="16.1" title="EMF from a Changing Magnetic Field">
+      <WorkedExample number="18.1" title="EMF from a Changing Magnetic Field">
         <p>
           A circular loop of radius 10 cm lies in a uniform magnetic field that increases from
           0.2 T to 0.8 T in 0.5 s. Find the induced EMF.
@@ -99,7 +112,17 @@ export default function InductionPage() {
         <Step label="Direction:">By Lenz&apos;s law, the induced current opposes the increasing flux — it flows to create <InlineMath latex="\mathbf{B}" /> opposing the increase.</Step>
       </WorkedExample>
 
-      <h2>16.4 Inductance and Transformers</h2>
+      <ApplicationNote title="Faraday's law runs the modern electrical world">
+        Every power transformer — whether at a substation stepping 138 kV down to 240 V for homes, or the brick on your laptop
+        charger — works by induction. Wireless phone chargers pass an oscillating current through a transmit coil, creating
+        changing flux that drives current in the receiver coil inside your phone without physical contact. Guitar pickups are
+        permanent magnets wrapped in coils: a vibrating steel string changes the flux, generating the tiny signal that becomes
+        amplified sound. MRI gradient coils induce currents to encode spatial position. The motor in your washing machine, the
+        generator at a wind turbine, the alternator in a car — all electromagnetic induction. Faraday's flicker in 1831
+        became the infrastructure of civilization.
+      </ApplicationNote>
+
+      <h2>18.4 Inductance and Transformers</h2>
 
       <p>
         A coil opposes changes in current through itself because any change in current changes
@@ -107,7 +130,7 @@ export default function InductionPage() {
         back-EMF is:
       </p>
 
-      <EqNumbered number="16.3">ε = −L dI/dt &nbsp;&nbsp;&nbsp; (self-inductance)</EqNumbered>
+      <EqNumbered number="18.3">ε = −L dI/dt &nbsp;&nbsp;&nbsp; (self-inductance)</EqNumbered>
 
       <p>
         The inductance <InlineMath latex="L" /> (in henries, <InlineMath latex="\mathrm{H} = \mathrm{V\,s/A}" />) depends only on the coil geometry. For a
@@ -121,7 +144,7 @@ export default function InductionPage() {
         the secondary, and assuming all flux is shared:
       </p>
 
-      <EqNumbered number="16.4" latex="\frac{V_2}{V_1} = \frac{N_2}{N_1} \qquad \text{(ideal transformer)}" />
+      <EqNumbered number="18.4" latex="\frac{V_2}{V_1} = \frac{N_2}{N_1} \qquad \text{(ideal transformer)}" />
 
       <p>
         Power is conserved (<InlineMath latex="I_1V_1 = I_2V_2" />), so stepping voltage up steps current down by the
@@ -130,7 +153,7 @@ export default function InductionPage() {
         without induction — the modern power grid would be impossible.
       </p>
 
-      <Definition number="16.3" title="Common Traps">
+      <Definition number="18.3" title="Common Traps">
         <ul style={{ marginTop: '0.4rem' }}>
           <li><strong>Flux is not just field strength:</strong> it also depends on area and angle.</li>
           <li><strong>Constant flux gives no EMF:</strong> a large steady flux induces nothing unless it changes.</li>
@@ -140,7 +163,7 @@ export default function InductionPage() {
         </ul>
       </Definition>
 
-      <WorkedExample number="16.2" title="Step-Down Transformer">
+      <WorkedExample number="18.2" title="Step-Down Transformer">
         <p>
           A transformer has 2000 primary turns and 100 secondary turns. The primary is connected
           to 240 V AC. Find the secondary voltage and the secondary current if the load is 12 Ω.
@@ -151,7 +174,7 @@ export default function InductionPage() {
         <Step label="Primary current:"><InlineMath latex="I_1 = I_2(N_2/N_1) = 1(1/20) = 0.05\,\mathrm{A}" /> (power conserved: <InlineMath latex="240(0.05)=12(1)=12\,\mathrm{W}" /> ✓)</Step>
       </WorkedExample>
 
-      <PracticeProblems section="16.1–16.4 Electromagnetic Induction">
+      <PracticeProblems section="18.1–18.4 Electromagnetic Induction">
         <InteractiveProblem n={1} difficulty="easy"
           answer={37.7} unit="mV" tolerance={0.02}
           hints={['ε = ΔΦ/Δt. First find ΔΦ = ΔB × A = ΔB × πr².']}

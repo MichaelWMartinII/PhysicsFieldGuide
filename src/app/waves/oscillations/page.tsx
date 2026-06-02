@@ -1,13 +1,13 @@
 import PendulumClient from '@/components/sims/PendulumClient';
 import {
   Definition, Theorem, WorkedExample, Step,
-  PracticeProblems, Problem, InteractiveProblem, EqNumbered, Figure, Prerequisites, Takeaways, LearningGoals
+  PracticeProblems, Problem, InteractiveProblem, EqNumbered, Figure, Prerequisites, Takeaways, LearningGoals, HistoryNote
 } from '@/components/textbook';
 
 export default function OscillationsPage() {
   return (
     <div className="chapter">
-      <div className="chapter-label" style={{ color: 'var(--ex-accent)' }}>Waves &amp; Oscillations · Chapter 9</div>
+      <div className="chapter-label" style={{ color: 'var(--ex-accent)' }}>Waves &amp; Oscillations · Chapter 8</div>
       <h1>Simple Harmonic Motion</h1>
       <p className="subtitle">Any system near a stable equilibrium oscillates the same way — from atomic vibrations to suspension bridges.</p>
 
@@ -21,15 +21,16 @@ export default function OscillationsPage() {
         'Interpret damping, resonance, and phase-space plots qualitatively.',
       ]} />
 
-      <h2>9.1 What is Simple Harmonic Motion?</h2>
+      <h2>8.1 What is Simple Harmonic Motion?</h2>
 
       <p>
         A system undergoes <strong>simple harmonic motion</strong> (SHM) when the restoring force is proportional
         to — and directed opposite to — the displacement from equilibrium. This is <em>Hooke&apos;s Law</em> in its
-        most general form, and it applies to an enormous range of physical systems.
+        most general form, and it applies to an enormous range of physical systems. The reason this chapter
+        sits before waves is that a wave can be viewed as many neighboring oscillators passing motion along.
       </p>
 
-      <Definition number="9.1" title="Condition for SHM">
+      <Definition number="8.1" title="Condition for SHM">
         A system undergoes SHM whenever its equation of motion has the form:
         <span style={{ display: 'block', margin: '0.6rem 0 0.25rem 1rem', fontStyle: 'italic' }}>
           d²x/dt² = −ω²x
@@ -40,8 +41,19 @@ export default function OscillationsPage() {
 
       <p>
         This last point — <em>isochronism</em> — is profound. A pendulum swinging in a large arc takes the same
-        time as one swinging in a small arc (for small angles). Galileo allegedly discovered this by timing
-        swinging lamps in Pisa Cathedral with his pulse.
+        time as one swinging in a small arc (for small angles).
+        <HistoryNote
+          trigger="Galileo allegedly noticed this"
+          year="1580s"
+          title="The swinging lamp story"
+          source="Vincenzo Viviani's biography of Galileo; later historical discussions of the Pisa lamp account."
+          furtherReading={[{ label: "Galileo Galilei", url: "https://en.wikipedia.org/wiki/Galileo_Galilei" }, { label: "Pendulum", url: "https://en.wikipedia.org/wiki/Pendulum" }]}
+        >
+          The story of Galileo timing a swinging cathedral lamp with his pulse comes from Vincenzo Viviani, who wrote a biography of Galileo decades after Galileo died. There is no entry
+          in any notebook, and it may be invention — though it may not matter. The physics is exactly right: a pendulum's period depends on its length, not on how wide it swings, as long
+          as the swings stay small. Whether Galileo discovered this in a cathedral or a workshop, the insight held. What the story captures perfectly is the habit of treating experience
+          as a question — not just watching the lamp, but asking what the lamp is telling you.
+        </HistoryNote> by timing swinging lamps in Pisa Cathedral with his pulse.
       </p>
 
       <p>
@@ -50,27 +62,27 @@ export default function OscillationsPage() {
         system behaves like SHM only near equilibrium.
       </p>
 
-      <h2>9.2 The Mass-Spring System</h2>
+      <h2>8.2 The Mass-Spring System</h2>
 
       <p>
         A mass m on a spring of stiffness k is the canonical SHM system. The restoring force is F = −kx
         (Hooke&apos;s Law), giving Newton&apos;s second law:
       </p>
 
-      <EqNumbered number="9.1">m d²x/dt² = −kx &nbsp;&nbsp;&nbsp; → &nbsp;&nbsp;&nbsp; d²x/dt² = −(k/m)x</EqNumbered>
+      <EqNumbered number="8.1">m d²x/dt² = −kx &nbsp;&nbsp;&nbsp; → &nbsp;&nbsp;&nbsp; d²x/dt² = −(k/m)x</EqNumbered>
 
       <p>
-        Comparing with Definition 9.1, we see ω² = k/m, so:
+        Comparing with Definition 8.1, we see ω² = k/m, so:
       </p>
 
-      <EqNumbered number="9.2">ω = √(k/m) &nbsp;&nbsp;&nbsp; T = 2π√(m/k) &nbsp;&nbsp;&nbsp; f = (1/2π)√(k/m)</EqNumbered>
+      <EqNumbered number="8.2">ω = √(k/m) &nbsp;&nbsp;&nbsp; T = 2π√(m/k) &nbsp;&nbsp;&nbsp; f = (1/2π)√(k/m)</EqNumbered>
 
       <p>
         A stiffer spring (larger k) oscillates faster; a heavier mass oscillates slower. The amplitude has
         no effect on the period.
       </p>
 
-      <Theorem number="9.1" title="Energy in SHM">
+      <Theorem number="8.1" title="Energy in SHM">
         The total mechanical energy of a mass-spring system is constant:
         <span style={{ display: 'block', margin: '0.6rem 0 0.25rem 1rem', fontStyle: 'italic' }}>
           E = ½mv² + ½kx² = ½kA² = constant
@@ -80,20 +92,20 @@ export default function OscillationsPage() {
         between KE and PE at twice the oscillation frequency.
       </Theorem>
 
-      <WorkedExample number="9.1" title="Spring-Mass Period">
+      <WorkedExample number="8.1" title="Spring-Mass Period">
         <p>A 0.5 kg mass hangs on a spring. When pulled 8 cm and released, it oscillates with period 1.2 s. Find the spring constant k.</p>
         <Step label="Use T = 2π√(m/k):">T² = 4π²m/k → k = 4π²m/T² = 4π²(0.5)/(1.2)² = <strong>13.7 N/m</strong></Step>
         <Step label="Max speed:">v_max = Aω = A(2π/T) = (0.08)(2π/1.2) = <strong>0.419 m/s</strong></Step>
       </WorkedExample>
 
-      <h2>9.3 The Simple Pendulum</h2>
+      <h2>8.3 The Simple Pendulum</h2>
 
       <p>
         A pendulum of length L, displaced by a small angle θ₀, experiences a restoring torque
         τ = −mgL sin θ ≈ −mgLθ for small θ. This gives SHM with:
       </p>
 
-      <EqNumbered number="9.3">ω = √(g/L) &nbsp;&nbsp;&nbsp; T = 2π√(L/g)</EqNumbered>
+      <EqNumbered number="8.3">ω = √(g/L) &nbsp;&nbsp;&nbsp; T = 2π√(L/g)</EqNumbered>
 
       <p>
         Note that T is independent of both mass and amplitude (for small angles). A pendulum of length
@@ -101,11 +113,11 @@ export default function OscillationsPage() {
         The approximation breaks down above about 15°; at 90° the true period is about 18% longer.
       </p>
 
-      <Figure number="9.1" caption="Pendulum simulation with phase-space portrait. Try a small angle first: the phase plot is nearly an ellipse and the period follows T = 2π√(L/g). Increase the initial angle to see nonlinear distortion, increase damping to watch the orbit spiral inward, and change length to verify the √L period scaling.">
+      <Figure number="8.1" caption="Pendulum simulation with phase-space portrait. Try a small angle first: the phase plot is nearly an ellipse and the period follows T = 2π√(L/g). Increase the initial angle to see nonlinear distortion, increase damping to watch the orbit spiral inward, and change length to verify the √L period scaling.">
         <PendulumClient />
       </Figure>
 
-      <Theorem number="9.2" title="Small-Angle Approximation">
+      <Theorem number="8.2" title="Small-Angle Approximation">
         The pendulum equation is exactly θ¨ = −(g/L) sin θ. It becomes SHM only after the
         approximation sin θ ≈ θ:
         <span style={{ display: 'block', margin: '0.6rem 0 0.25rem 1rem', fontStyle: 'italic' }}>
@@ -115,28 +127,28 @@ export default function OscillationsPage() {
         Amplitude cancels only in the small-angle limit; large-amplitude pendulums run slow.
       </Theorem>
 
-      <WorkedExample number="9.2" title="Pendulum on the Moon">
+      <WorkedExample number="8.2" title="Pendulum on the Moon">
         <p>A pendulum has period T = 2.0 s on Earth. What is its period on the Moon (g_Moon = 1.62 m/s²)?</p>
         <Step label="Find length:">T_E = 2π√(L/g_E) → L = g_E(T_E/2π)² = 9.81(2/2π)² = <strong>0.994 m</strong></Step>
         <Step label="Moon period:">T_M = 2π√(L/g_M) = 2π√(0.994/1.62) = 2π × 0.783 = <strong>4.92 s</strong></Step>
         <Step label="Ratio:">T_M/T_E = √(g_E/g_M) = √(9.81/1.62) = 2.46 — the pendulum runs 2.46× slower.</Step>
       </WorkedExample>
 
-      <h2>9.4 Damped and Driven Oscillations</h2>
+      <h2>8.4 Damped and Driven Oscillations</h2>
 
       <p>
         Real oscillators lose energy to friction and air resistance. The equation of motion with a damping
         force −bẋ (proportional to velocity) is:
       </p>
 
-      <EqNumbered number="9.4">m ẍ + b ẋ + kx = 0 &nbsp;&nbsp;&nbsp; → &nbsp;&nbsp;&nbsp; x(t) = Ae^(−γt) cos(ω′t + φ)</EqNumbered>
+      <EqNumbered number="8.4">m ẍ + b ẋ + kx = 0 &nbsp;&nbsp;&nbsp; → &nbsp;&nbsp;&nbsp; x(t) = Ae^(−γt) cos(ω′t + φ)</EqNumbered>
 
       <p>
         where γ = b/2m is the damping coefficient and ω′ = √(ω₀² − γ²) is the damped frequency.
         When a periodic driving force F₀ cos(ωt) is added, the system reaches a steady state with amplitude:
       </p>
 
-      <EqNumbered number="9.5">A(ω) = F₀/m / √((ω₀² − ω²)² + (bω/m)²)</EqNumbered>
+      <EqNumbered number="8.5">A(ω) = F₀/m / √((ω₀² − ω²)² + (bω/m)²)</EqNumbered>
 
       <p>
         The amplitude peaks near ω = ω₀ — this is <strong>resonance</strong>. At resonance, even a small driving
@@ -144,7 +156,7 @@ export default function OscillationsPage() {
         Bridge in 1940 and must be engineered around in every building, bridge, and engine.
       </p>
 
-      <Definition number="9.2" title="Common Traps">
+      <Definition number="8.2" title="Common Traps">
         <ul style={{ marginTop: '0.4rem' }}>
           <li><strong>Amplitude independence is not universal:</strong> it is exact for ideal springs, approximate for pendulums.</li>
           <li><strong>Mass does not affect a simple pendulum&apos;s period:</strong> heavier bobs have larger weight and larger inertia in the same proportion.</li>
@@ -153,7 +165,7 @@ export default function OscillationsPage() {
         </ul>
       </Definition>
 
-      <PracticeProblems section="9.1–9.4 Simple Harmonic Motion">
+      <PracticeProblems section="8.1–8.4 Simple Harmonic Motion">
         <InteractiveProblem n={1} difficulty="easy"
           answer={1.4} unit="s" tolerance={0.02}
           hints={['T = 2π√(m/k). Compute √(m/k) first.', '√(0.5/10) = √0.05 ≈ 0.2236. Multiply by 2π.']}

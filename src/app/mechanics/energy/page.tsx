@@ -1,7 +1,8 @@
 import Pendulum from '@/components/sims/Pendulum';
 import {
   Definition, Theorem, WorkedExample, Step,
-  PracticeProblems, Problem, InteractiveProblem, EqNumbered, Figure, Prerequisites, Takeaways, LearningGoals
+  PracticeProblems, Problem, InteractiveProblem, EqNumbered, Figure, Prerequisites, Takeaways, LearningGoals, HistoryNote,
+  Misconception
 } from '@/components/textbook';
 
 export default function EnergyPage() {
@@ -32,7 +33,20 @@ export default function EnergyPage() {
 
       <p>
         For a variable force, work is the integral of force over displacement. This leads directly to
-        one of the most important results in mechanics:
+        one of the most important results in mechanics. Historically, this way of thinking took shape through
+        engines, mills, heat, and careful measurements like
+        <HistoryNote
+          trigger="Joule's paddle-wheel experiments"
+          year="1840s"
+          title="Work becomes heat"
+          source="James Prescott Joule, papers on the mechanical equivalent of heat; Royal Society biographical records."
+          furtherReading={[{ label: "James Prescott Joule", url: "https://en.wikipedia.org/wiki/James_Prescott_Joule" }]}
+        >
+          James Joule ran a brewery and did physics as a serious hobby. He used falling weights to drive paddle wheels inside insulated containers of water, then measured the temperature
+          rise with thermometers he had personally calibrated. The rise was tiny — fractions of a degree — and the Royal Society initially rejected his paper. He presented his results at
+          a meeting in 1847 where a young William Thomson sat in the audience. Thomson saw immediately what Joule had found, and their eventual collaboration led to the first law of thermodynamics.
+          Joule paid for most of his own experiments.
+        </HistoryNote>:
       </p>
 
       <Theorem number="4.1" title="Work-Energy Theorem">
@@ -45,6 +59,13 @@ export default function EnergyPage() {
       </Theorem>
 
       <h2>4.2 Potential Energy and Conservation</h2>
+
+      <Misconception wrong="Potential energy is stored inside an object.">
+        Potential energy belongs to a system of interacting objects, not to any single object. Gravitational PE is a property of
+        the Earth–ball system, not of the ball alone: if the Earth disappeared, there would be no gravitational PE. The energy
+        lives in the configuration of the system — how the objects are arranged relative to each other. Saying "the ball has
+        10 J of potential energy" is a useful shorthand, but it quietly assumes the rest of the system is present and fixed.
+      </Misconception>
 
       <p>
         Some forces — called <strong>conservative forces</strong> — have the property that the work they
@@ -72,7 +93,8 @@ export default function EnergyPage() {
       <p>
         The simple pendulum beautifully illustrates energy conservation. As it swings, kinetic and potential
         energy constantly exchange. At the lowest point, all energy is kinetic; at the turning points,
-        all energy is potential.
+        all energy is potential. This is why the pendulum became more than a clock part: it is a visible
+        exchange ledger for mechanical energy.
       </p>
 
       <p>

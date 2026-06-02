@@ -15,7 +15,7 @@ export default function NonlinearOpticsPage() {
         solitons, and quantum light generation.
       </p>
 
-      <Prerequisites items={['Wave optics (Ch. WO)', 'Lasers & coherent light (Ch. LA)', 'Maxwell\'s equations (Ch. EM)', 'Electrostatics: boundary (Ch. ES)']} />
+      <Prerequisites items={['Wave optics (Ch. 20)', 'Lasers and coherent light (Ch. LZ)', 'Maxwell\'s equations (Ch. M)', 'Electrostatics: boundary (Ch. ES)']} />
 
       <LearningGoals items={[
         'Write the nonlinear polarization expansion and identify which symmetry classes permit non-zero χ⁽²⁾ vs. χ⁽³⁾.',

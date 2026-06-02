@@ -6,27 +6,28 @@ const TOTAL_COUNT = curriculum.reduce((s, c) => s + c.topics.length, 0);
 
 export default function Home() {
   return (
-    <div style={{ maxWidth: 820, margin: '0 auto', padding: '3rem 2.5rem 5rem', fontFamily: 'Georgia, "Times New Roman", serif', lineHeight: 1.85 }}>
+    <div className="home-page">
 
       {/* Preface */}
-      <div style={{ borderBottom: '1px solid var(--border)', paddingBottom: '2.5rem', marginBottom: '3rem' }}>
-        <div style={{ fontFamily: 'system-ui, sans-serif', fontSize: '0.68rem', fontWeight: 700, letterSpacing: '0.13em', textTransform: 'uppercase', color: 'var(--muted)', marginBottom: '0.75rem' }}>
-          Preface
+      <div className="book-title-page">
+        <div className="book-kicker">
+          Interactive textbook
         </div>
-        <h1 style={{ fontFamily: 'Georgia, "Times New Roman", serif', fontSize: '2.4rem', fontWeight: 700, color: 'var(--text-heading)', margin: '0 0 0.5rem', letterSpacing: '-0.02em', lineHeight: 1.15 }}>
+        <h1 className="book-title">
           Physics: A Field Guide
         </h1>
-        <p style={{ fontSize: '1.1rem', color: 'var(--muted)', fontStyle: 'italic', marginBottom: '2rem' }}>
+        <p className="book-subtitle">
           An interactive textbook about matter, motion, energy, light, and the people who figured out how to read them.
         </p>
+        <div className="book-rule" />
 
-        <p style={{ color: 'var(--text)', fontSize: '0.97rem', marginBottom: '1.1rem' }}>
+        <p>
           This is a full physics curriculum, structured as a field guide and technical textbook, designed to carry a student
           with no prior exposure through the same material covered in a research-level graduate physics education.
           It is not a summary or a survey. The chapters are meant to be read carefully, worked through, tested, and understood.
         </p>
 
-        <p style={{ color: 'var(--text)', fontSize: '0.97rem', marginBottom: '1.1rem' }}>
+        <p>
           The curriculum is organized into seven tracks: <strong style={{ color: 'var(--text-strong)' }}>Classical Mechanics</strong>,{' '}
           <strong style={{ color: 'var(--text-strong)' }}>Waves &amp; Oscillations</strong>,{' '}
           <strong style={{ color: 'var(--text-strong)' }}>Thermodynamics</strong>,{' '}
@@ -39,7 +40,7 @@ export default function Home() {
           <Link href="/roadmap" style={{ color: 'var(--def-accent)', textDecoration: 'underline', textUnderlineOffset: '3px' }}>curriculum roadmap</Link>.
         </p>
 
-        <p style={{ color: 'var(--text)', fontSize: '0.97rem', marginBottom: '1.1rem' }}>
+        <p>
           What makes physics different from other sciences is that it seeks the smallest possible number
           of fundamental principles from which everything else follows by logical necessity. Newton&apos;s
           three laws govern the motion of every object from a falling apple to a deep-space probe.
@@ -50,7 +51,7 @@ export default function Home() {
           how to confront those predictions against experiment.
         </p>
 
-        <p style={{ color: 'var(--text)', fontSize: '0.97rem', marginBottom: '1.75rem' }}>
+        <p>
           Each chapter contains formal definitions, theorems, worked examples, and short field notes about
           how the ideas were discovered. Where a concept benefits from visualization, a live interactive
           simulation is embedded directly in the text. Practice exercises include numeric answer checking
@@ -58,7 +59,7 @@ export default function Home() {
           answer questions or work through problems with you.
         </p>
 
-        <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
+        <div className="book-actions">
           <Link href="/mechanics/measurement" style={{
             display: 'inline-block', padding: '0.55rem 1.4rem', borderRadius: '4px',
             background: 'var(--surface2)', border: '1px solid var(--border2)',

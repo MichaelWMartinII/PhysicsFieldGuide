@@ -1,13 +1,13 @@
 import DoubleSlitSimClient from '@/components/sims/DoubleSlitSimClient';
 import {
   Definition, Theorem, WorkedExample, Step,
-  PracticeProblems, Problem, InteractiveProblem, EqNumbered, Figure, Prerequisites, Takeaways, LearningGoals
+  PracticeProblems, Problem, InteractiveProblem, EqNumbered, Figure, Prerequisites, Takeaways, LearningGoals, HistoryNote
 } from '@/components/textbook';
 
 export default function WaveOpticsPage() {
   return (
     <div className="chapter">
-      <div className="chapter-label" style={{ color: '#eab308' }}>Optics · Chapter 18</div>
+      <div className="chapter-label" style={{ color: '#eab308' }}>Optics · Chapter 20</div>
       <h1>Wave Optics</h1>
       <p className="subtitle">
         When the scale of optical elements approaches the wavelength of light, geometric optics
@@ -15,7 +15,7 @@ export default function WaveOpticsPage() {
         resolution limit of every optical instrument.
       </p>
 
-      <Prerequisites items={['Wave properties (Ch. 8)', 'Interference (Ch. 11)', 'Geometric optics (Ch. 17)']} />
+      <Prerequisites items={['Wave properties (Ch. 9)', 'Interference (Ch. 10)', 'Geometric optics (Ch. 19)']} />
 
       <LearningGoals items={[
         'Predict bright and dark fringe positions in a double-slit experiment using the path difference condition.',
@@ -25,7 +25,7 @@ export default function WaveOpticsPage() {
         'Explain how anti-reflection coatings exploit destructive interference to minimize reflection losses.',
       ]} />
 
-      <h2>18.1 The Wave Nature of Light</h2>
+      <h2>20.1 The Wave Nature of Light</h2>
 
       <p>
         Light is an electromagnetic wave with wavelength roughly 380–780 nm. Its wave nature
@@ -41,16 +41,28 @@ export default function WaveOpticsPage() {
         (crests meet troughs) produces dark fringes.
       </p>
 
-      <h2>18.2 Young&apos;s Double-Slit Experiment</h2>
+      <h2>20.2 Young&apos;s Double-Slit Experiment</h2>
 
       <p>
-        In 1801, Thomas Young demonstrated light&apos;s wave nature by shining monochromatic light
+        In 1801,
+        <HistoryNote
+          trigger="Thomas Young"
+          year="1801"
+          title="Interference as evidence"
+          source="Thomas Young, Bakerian Lectures on light and colors, Royal Society."
+          furtherReading={[{ label: "Thomas Young", url: "https://en.wikipedia.org/wiki/Thomas_Young_(scientist)" }]}
+        >
+          Thomas Young was arguing against Newton — specifically against the particle theory of light that Newton's authority had enforced for a century. Showing that two beams could
+          produce darkness was provocative precisely because it made no sense for particles: you cannot add particles and get nothing. The wave picture makes cancellation natural.
+          What made the experiment historic was the clarity of the reasoning: Young understood exactly what the fringes meant and said so plainly. The double-slit experiment became
+          the defining demonstration of wave behavior, and a century later, of quantum superposition itself.
+        </HistoryNote> demonstrated light&apos;s wave nature by shining monochromatic light
         through two narrow slits separated by distance d and observing alternating bright and
         dark bands on a screen at distance L. The path difference from the two slits to a point
         at height y on the screen is Δ = d sin θ ≈ dy/L for small angles.
       </p>
 
-      <Theorem number="18.1" title="Double-Slit Interference Conditions">
+      <Theorem number="20.1" title="Double-Slit Interference Conditions">
         <span style={{ display: 'block', marginBottom: '0.3rem' }}>
           Bright fringes (constructive): &nbsp; d sin θ = mλ &nbsp; (m = 0, ±1, ±2, …)
         </span>
@@ -67,11 +79,11 @@ export default function WaveOpticsPage() {
         the fringes. This is how wavelengths of light were first measured with precision.
       </p>
 
-      <Figure number="18.1" caption="Double-slit interference pattern. The colored band on the right is the intensity at the screen. Change λ (wavelength controls fringe color), d (slit separation controls fringe spacing), and a (slit width controls the single-slit envelope that modulates the pattern). Notice how narrower slits spread the envelope.">
+      <Figure number="20.1" caption="Double-slit interference pattern. The colored band on the right is the intensity at the screen. Change λ (wavelength controls fringe color), d (slit separation controls fringe spacing), and a (slit width controls the single-slit envelope that modulates the pattern). Notice how narrower slits spread the envelope.">
         <DoubleSlitSimClient />
       </Figure>
 
-      <WorkedExample number="18.1" title="Fringe Spacing in Young's Experiment">
+      <WorkedExample number="20.1" title="Fringe Spacing in Young's Experiment">
         <p>
           Light of wavelength 589 nm passes through two slits 0.25 mm apart. A screen is 1.2 m
           away. Find the distance between adjacent bright fringes.
@@ -81,14 +93,14 @@ export default function WaveOpticsPage() {
         <Step label="Calculate:">Δy = 7.068×10⁻⁷ / 2.5×10⁻⁴ = 2.83×10⁻³ m = <strong>2.83 mm</strong></Step>
       </WorkedExample>
 
-      <h2>18.3 Single-Slit Diffraction</h2>
+      <h2>20.3 Single-Slit Diffraction</h2>
 
       <p>
         Even a single slit of finite width a produces a diffraction pattern. Each point within
         the slit acts as a secondary wave source (Huygens&apos; principle). The intensity pattern is:
       </p>
 
-      <EqNumbered number="18.1">I(θ) = I₀ [sin(β/2) / (β/2)]² &nbsp;&nbsp; where β = (2πa/λ) sin θ</EqNumbered>
+      <EqNumbered number="20.1">I(θ) = I₀ [sin(β/2) / (β/2)]² &nbsp;&nbsp; where β = (2πa/λ) sin θ</EqNumbered>
 
       <p>
         This sinc² function gives a central maximum flanked by minima at a sin θ = mλ
@@ -97,7 +109,7 @@ export default function WaveOpticsPage() {
         and diffraction spread is a fundamental feature of wave physics (and of Fourier transforms).
       </p>
 
-      <Definition number="18.1" title="Rayleigh Criterion — Resolution Limit">
+      <Definition number="20.1" title="Rayleigh Criterion — Resolution Limit">
         Two point sources are just resolved when the central maximum of one falls on the first
         minimum of the other. For a circular aperture of diameter D:
         <span style={{ display: 'block', textAlign: 'center', marginTop: '0.5rem', fontStyle: 'italic' }}>
@@ -108,7 +120,7 @@ export default function WaveOpticsPage() {
         — all real optical instruments are resolution-limited by diffraction.
       </Definition>
 
-      <WorkedExample number="18.2" title="Resolution of the Human Eye">
+      <WorkedExample number="20.2" title="Resolution of the Human Eye">
         <p>
           The pupil diameter in bright light is about 2 mm. What is the angular resolution
           of the human eye at λ = 550 nm?
@@ -118,7 +130,7 @@ export default function WaveOpticsPage() {
         <Step label="Context:">At arm&apos;s length (60 cm), this resolves features separated by 60 cm × 3.35×10⁻⁴ = 0.2 mm. The retina&apos;s cone spacing (≈3 μm at the fovea) matches this limit.</Step>
       </WorkedExample>
 
-      <h2>18.4 Thin Film Interference</h2>
+      <h2>20.4 Thin Film Interference</h2>
 
       <p>
         When light reflects off the top and bottom surfaces of a thin film (soap bubble,
@@ -127,7 +139,7 @@ export default function WaveOpticsPage() {
         where n increases introduce an extra <strong>half-wavelength phase shift</strong>.
       </p>
 
-      <Theorem number="18.2" title="Thin Film Conditions (film of index n, in air)">
+      <Theorem number="20.2" title="Thin Film Conditions (film of index n, in air)">
         <span style={{ display: 'block', marginBottom: '0.3rem' }}>
           Light reflects with phase shift at air→film boundary (lower→higher n), but not at film→air.
         </span>
@@ -147,7 +159,7 @@ export default function WaveOpticsPage() {
         so 2nt = λ/2, producing destructive reflection for the design wavelength.
       </p>
 
-      <Definition number="18.2" title="Common Traps">
+      <Definition number="20.2" title="Common Traps">
         <ul style={{ marginTop: '0.4rem' }}>
           <li><strong>Use path difference for phase:</strong> bright and dark conditions depend on relative phase, not absolute distance.</li>
           <li><strong>Single-slit diffraction envelopes double-slit fringes:</strong> real slits are not point sources.</li>
@@ -156,7 +168,7 @@ export default function WaveOpticsPage() {
         </ul>
       </Definition>
 
-      <PracticeProblems section="18.1–18.4 Wave Optics">
+      <PracticeProblems section="20.1–20.4 Wave Optics">
         <InteractiveProblem n={1} difficulty="easy"
           answer={2.83} unit="mm" tolerance={0.02}
           hints={['Δy = λL/d. Keep units consistent — convert nm and mm to meters.']}

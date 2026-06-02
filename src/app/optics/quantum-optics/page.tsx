@@ -14,7 +14,7 @@ export default function QuantumOpticsPage() {
         underlie modern quantum communication, sensing, and computation.
       </p>
 
-      <Prerequisites items={['Quantum mechanics (Ch. QM)', 'Lasers (Ch. Las)', 'Electromagnetism (Ch. EM)', 'Harmonic oscillator (Ch. QM)']} />
+      <Prerequisites items={['Quantum mechanics (Ch. 22)', 'Lasers (Ch. LZ)', 'Electric fields through induction (Ch. 15–18)', 'Simple harmonic motion (Ch. 8)']} />
 
       <LearningGoals items={[
         'Quantise a single EM field mode as a harmonic oscillator and write the Hamiltonian in terms of creation and annihilation operators.',

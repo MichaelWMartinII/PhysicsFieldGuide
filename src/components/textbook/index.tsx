@@ -10,4 +10,7 @@ export { Prerequisites } from './Prerequisites';
 export { Takeaways } from './Takeaways';
 export { LearningGoals } from './LearningGoals';
 export { HistoryNote } from './HistoryNote';
+export { Misconception } from './Misconception';
+export { ApplicationNote } from './ApplicationNote';
 export { ChapterFieldNote } from './ChapterFieldNote';
+export { ChapterNavigation } from './ChapterNavigation';

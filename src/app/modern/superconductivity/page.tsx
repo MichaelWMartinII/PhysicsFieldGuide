@@ -14,7 +14,7 @@ export default function SuperconductivityPage() {
         producing a finite-temperature phase transition into a macroscopic coherent state.
       </p>
 
-      <Prerequisites items={['Solid-state physics (Ch. SS)', 'Quantum mechanics (Ch. QM)', 'Statistical mechanics (Ch. SM)', 'Second quantization']} />
+      <Prerequisites items={['Solid-state physics (Ch. SS)', 'Quantum mechanics (Ch. 22)', 'Statistical mechanics (Ch. S)', 'Second quantization']} />
 
       <LearningGoals items={[
         'Derive the London penetration depth λ_L from the London equations and explain the Meissner effect.',
@@ -150,13 +150,13 @@ export default function SuperconductivityPage() {
 
       <PracticeProblems section="SC.1–SC.4 Superconductivity">
         <InteractiveProblem n={1} difficulty="easy"
-          answer={47} unit="nm" tolerance={0.05}
+          answer={24} unit="nm" tolerance={0.05}
           hints={[
             'Start from J_s = -(n_s e²/m)A (London equation) and take the curl of ∇×B = μ₀J_s to get ∇²B = B/λ_L².',
             'λ_L = √(m/(μ₀ n_s e²)). Plug in n_s = 5×10²⁸ m⁻³, m = 9.11×10⁻³¹ kg, μ₀ = 4π×10⁻⁷ H/m.',
           ]}
           problemText="Derive the London penetration depth λ_L from the London equations. Estimate λ_L in nm for niobium with superfluid density n_s ≈ 5×10²⁸ m⁻³."
-          solution={<>London equation: J_s = -(n_s e²/m)A. Maxwell: ∇×B = μ₀J_s. Taking curl: ∇×(∇×B) = μ₀∇×J_s = -μ₀(n_s e²/m) B. Using ∇×(∇×B) = ∇(∇·B) - ∇²B = -∇²B (since ∇·B=0): ∇²B = B/λ_L² where λ_L = √(m/(μ₀ n_s e²)). For a semi-infinite superconductor x&gt;0 with field B₀ at surface: B(x) = B₀ e^(-x/λ_L). For Nb: n_s ≈ 5×10²⁸ m⁻³, m = m_e = 9.11×10⁻³¹ kg: λ_L = √(9.11×10⁻³¹/(4π×10⁻⁷ × 5×10²⁸ × (1.6×10⁻¹⁹)²)) = √(9.11×10⁻³¹/2.01×10⁻¹¹) = √(4.53×10⁻²⁰) ≈ 47 nm. Nb measured λ_L ≈ 32 nm — same order (London model uses free-electron mass; effective mass and partial superfluid density affect the exact value).</>}>
+          solution={<>London equation: J_s = -(n_s e²/m)A. Maxwell: ∇×B = μ₀J_s. Taking curl: ∇×(∇×B) = μ₀∇×J_s = -μ₀(n_s e²/m) B. Using ∇×(∇×B) = ∇(∇·B) - ∇²B = -∇²B (since ∇·B=0): ∇²B = B/λ_L² where λ_L = √(m/(μ₀ n_s e²)). For a semi-infinite superconductor x&gt;0 with field B₀ at surface: B(x) = B₀ e^(-x/λ_L). For Nb: n_s ≈ 5×10²⁸ m⁻³, m = m_e = 9.11×10⁻³¹ kg: λ_L = √(9.11×10⁻³¹/(4π×10⁻⁷ × 5×10²⁸ × (1.6×10⁻¹⁹)²)) = √(9.11×10⁻³¹/1.61×10⁻¹⁵) = √(5.66×10⁻¹⁶) ≈ 24 nm. Nb measured λ_L ≈ 32 nm — same order (London model uses free-electron mass; effective mass and partial superfluid density affect the exact value).</>}>
           Derive the London penetration depth λ_L from the London equations. Estimate λ_L for niobium (density n_s ≈ 5×10²⁸ m⁻³).
         </InteractiveProblem>
 

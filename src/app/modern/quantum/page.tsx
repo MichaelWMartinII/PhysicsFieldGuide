@@ -1,20 +1,21 @@
 import QuantumWellClient from '@/components/sims/QuantumWellClient';
 import {
   Definition, Theorem, WorkedExample, Step,
-  PracticeProblems, Problem, InteractiveProblem, EqNumbered, Figure, Prerequisites, Takeaways, LearningGoals
+  PracticeProblems, Problem, InteractiveProblem, EqNumbered, Figure, Prerequisites, Takeaways, LearningGoals, HistoryNote,
+  Misconception
 } from '@/components/textbook';
 
 export default function QuantumPage() {
   return (
     <div className="chapter">
-      <div className="chapter-label" style={{ color: '#ec4899' }}>Modern Physics · Chapter 20</div>
+      <div className="chapter-label" style={{ color: '#ec4899' }}>Modern Physics · Chapter 22</div>
       <h1>Quantum Mechanics</h1>
       <p className="subtitle">
         At the atomic scale, nature is neither wave nor particle but something fundamentally
         stranger — a probability amplitude that collapses to a definite outcome only upon measurement.
       </p>
 
-      <Prerequisites items={['Wave properties (Ch. 8)', 'Special relativity (Ch. 19)', 'Basic calculus']} />
+      <Prerequisites items={['Wave properties (Ch. 9)', 'Special relativity (Ch. 21)', 'Basic calculus']} />
 
       <LearningGoals items={[
         'Explain the photoelectric effect and blackbody radiation as evidence for energy quantization.',
@@ -24,7 +25,7 @@ export default function QuantumPage() {
         'Find the quantized energy levels of a particle in an infinite square well.',
       ]} />
 
-      <h2>20.1 The Failure of Classical Physics</h2>
+      <h2>22.1 The Failure of Classical Physics</h2>
 
       <p>
         By 1900, several experiments could not be explained by classical mechanics and
@@ -50,12 +51,25 @@ export default function QuantumPage() {
         <strong>Atomic spectra.</strong> Hydrogen emits light at only discrete wavelengths —
         a spectrum of sharp lines. Classical orbiting electrons should radiate continuously and
         spiral into the nucleus in nanoseconds. Bohr&apos;s 1913 model imposed quantization by fiat;
-        the explanation had to wait for Schrödinger.
+        the explanation had to wait for
+        <HistoryNote
+          trigger="Schrödinger"
+          year="1926"
+          title="Quantization as an eigenvalue problem"
+          source="Erwin Schrodinger, Quantisierung als Eigenwertproblem."
+          sourceUrl="https://commons.wikimedia.org/wiki/File:Quantisierung_als_Eigenwertproblem.pdf"
+          furtherReading={[{ label: "Erwin Schrödinger", url: "https://en.wikipedia.org/wiki/Erwin_Schr%C3%B6dinger" }]}
+        >
+          Erwin Schrödinger developed his wave equation over Christmas 1925 while staying at a villa in the Alps. He returned with an equation and was not entirely sure where it had
+          come from. He tried the relativistic version first and got the wrong answer for hydrogen; the non-relativistic version worked. He published four papers in six months.
+          Heisenberg's matrix mechanics and Schrödinger's wave mechanics looked like different theories, and the two men disliked each other's approaches — Schrödinger called matrix
+          mechanics "repulsive." Dirac showed they were mathematically equivalent. The wave equation became standard because physicists already knew how to solve differential equations.
+        </HistoryNote>.
       </p>
 
-      <h2>20.2 Wave-Particle Duality</h2>
+      <h2>22.2 Wave-Particle Duality</h2>
 
-      <Definition number="20.1" title="De Broglie Hypothesis (1924)">
+      <Definition number="22.1" title="De Broglie Hypothesis (1924)">
         Every particle with momentum p has an associated wavelength:
         <span style={{ display: 'block', textAlign: 'center', marginTop: '0.5rem', fontStyle: 'italic' }}>
           λ = h/p = h/(mv) &nbsp;&nbsp;&nbsp; (de Broglie wavelength)
@@ -66,25 +80,25 @@ export default function QuantumPage() {
       </Definition>
 
       <p>
-        The double-slit experiment with electrons (Davisson–Germer, 1927; Jönsson, 1961)
+        The double-slit experiment with electrons (Jönsson, 1961)
         shows interference fringes identical to light — even when electrons are sent one at a time.
         Each electron passes through both slits simultaneously (as a wave), then lands at a definite
         spot (as a particle). No classical picture explains this.
       </p>
 
-      <WorkedExample number="20.1" title="De Broglie Wavelength of an Electron">
+      <WorkedExample number="22.1" title="De Broglie Wavelength of an Electron">
         <p>
           An electron is accelerated through V = 100 V. Find its de Broglie wavelength.
         </p>
         <Step label="Kinetic energy:">K = eV = 1.6×10⁻¹⁹ × 100 = 1.6×10⁻¹⁷ J</Step>
-        <Step label="Momentum:">K = p²/2m → p = √(2mK) = √(2 × 9.11×10⁻³¹ × 1.6×10⁻¹⁷) = 1.71×10⁻²⁴ kg·m/s</Step>
-        <Step label="Wavelength:">λ = h/p = 6.626×10⁻³⁴ / 1.71×10⁻²⁴ = <strong>3.88×10⁻¹⁰ m = 0.388 nm</strong></Step>
+        <Step label="Momentum:">K = p²/2m → p = √(2mK) = √(2 × 9.11×10⁻³¹ × 1.6×10⁻¹⁷) = 5.40×10⁻²⁴ kg·m/s</Step>
+        <Step label="Wavelength:">λ = h/p = 6.626×10⁻³⁴ / 5.40×10⁻²⁴ = <strong>1.226×10⁻¹⁰ m = 0.1226 nm</strong></Step>
         <Step label="Context:">This is comparable to atomic spacings — explaining why electron microscopes achieve atomic resolution.</Step>
       </WorkedExample>
 
-      <h2>20.3 The Heisenberg Uncertainty Principle</h2>
+      <h2>22.3 The Heisenberg Uncertainty Principle</h2>
 
-      <Definition number="20.2" title="Heisenberg Uncertainty Principle (1927)">
+      <Definition number="22.2" title="Heisenberg Uncertainty Principle (1927)">
         It is impossible to simultaneously know a particle&apos;s position and momentum with
         arbitrary precision. The product of their uncertainties is bounded:
         <span style={{ display: 'block', textAlign: 'center', marginTop: '0.5rem', fontStyle: 'italic' }}>
@@ -101,6 +115,14 @@ export default function QuantumPage() {
         (many momenta), so Δp grows.
       </p>
 
+      <Misconception wrong="The uncertainty principle is about measurement disturbing the system — more careful measurement could beat it.">
+        The uncertainty principle is a fundamental property of quantum states, not a measurement artifact. A particle in a
+        state of precisely defined momentum (a pure plane wave) genuinely has no definite position — the wavefunction is spread
+        uniformly across all space. This is not ignorance; it simply has no fact of the matter about position. Heisenberg's
+        original gamma-ray microscope thought experiment suggested a measurement-disturbance picture, but the modern understanding
+        is deeper: the uncertainty is intrinsic to the quantum state itself, before any measurement occurs.
+      </Misconception>
+
       <p>
         The uncertainty principle explains atomic stability: an electron cannot collapse into
         the nucleus because confining it to Δx ≈ 10⁻¹⁵ m would require Δp ≥ ℏ/(2Δx) —
@@ -108,7 +130,7 @@ export default function QuantumPage() {
         the radius where kinetic and potential energies balance.
       </p>
 
-      <WorkedExample number="20.2" title="Uncertainty Principle Applied">
+      <WorkedExample number="22.2" title="Uncertainty Principle Applied">
         <p>
           An electron is confined to a region of size Δx = 0.1 nm (atomic scale). Estimate
           the minimum uncertainty in its momentum and kinetic energy.
@@ -118,7 +140,7 @@ export default function QuantumPage() {
         <Step label="Context:">This is comparable to atomic binding energies (~13.6 eV for hydrogen). The electron cannot be confined more tightly without enormous energy cost.</Step>
       </WorkedExample>
 
-      <h2>20.4 The Schrödinger Equation</h2>
+      <h2>22.4 The Schrödinger Equation</h2>
 
       <p>
         De Broglie&apos;s matter waves needed a wave equation. In 1926, Schrödinger provided it.
@@ -126,7 +148,7 @@ export default function QuantumPage() {
         the <strong>wavefunction</strong>:
       </p>
 
-      <EqNumbered number="20.1">iℏ ∂ψ/∂t = [−ℏ²/2m · ∂²/∂x² + V(x)] ψ</EqNumbered>
+      <EqNumbered number="22.1">iℏ ∂ψ/∂t = [−ℏ²/2m · ∂²/∂x² + V(x)] ψ</EqNumbered>
 
       <p>
         The wavefunction ψ is complex-valued. Its physical meaning, given by Born (1926):
@@ -138,7 +160,7 @@ export default function QuantumPage() {
         For a particle in a box (infinite square well of width L), the allowed energies are:
       </p>
 
-      <EqNumbered number="20.2">E_n = n² π² ℏ² / (2mL²) &nbsp;&nbsp;&nbsp; n = 1, 2, 3, …</EqNumbered>
+      <EqNumbered number="22.2">E_n = n² π² ℏ² / (2mL²) &nbsp;&nbsp;&nbsp; n = 1, 2, 3, …</EqNumbered>
 
       <p>
         Energy is quantized — only discrete values are allowed. This is not an assumption;
@@ -146,18 +168,18 @@ export default function QuantumPage() {
         standing waves just like a guitar string — but the &quot;string&quot; is a probability amplitude.
       </p>
 
-      <Figure number="20.1" caption="Particle in an infinite square well. Toggle between the wavefunction ψ(x) (animated, showing the oscillation in time) and the probability density |ψ|². Higher quantum number n means more nodes and higher energy. Energy scales as n².">
+      <Figure number="22.1" caption="Particle in an infinite square well. Toggle between the wavefunction ψ(x) (animated, showing the oscillation in time) and the probability density |ψ|². Higher quantum number n means more nodes and higher energy. Energy scales as n².">
         <QuantumWellClient />
       </Figure>
 
-      <Theorem number="20.1" title="Quantum Numbers and Ground State Energy">
+      <Theorem number="22.1" title="Quantum Numbers and Ground State Energy">
         The lowest energy state (n=1) has energy E₁ = π²ℏ²/(2mL²) {'>'} 0. A quantum particle
         can never be at rest at the bottom of a potential well. This <strong>zero-point energy</strong>
         is another consequence of the uncertainty principle: zero momentum would mean Δp = 0,
         requiring Δx = ∞.
       </Theorem>
 
-      <Definition number="20.3" title="Common Traps">
+      <Definition number="22.3" title="Common Traps">
         <ul style={{ marginTop: '0.4rem' }}>
           <li><strong>The wavefunction is not the probability:</strong> probability density is |ψ|².</li>
           <li><strong>Uncertainty is not bad equipment:</strong> ΔxΔp is a property of the state.</li>
@@ -166,7 +188,7 @@ export default function QuantumPage() {
         </ul>
       </Definition>
 
-      <PracticeProblems section="20.1–20.4 Quantum Mechanics">
+      <PracticeProblems section="22.1–22.4 Quantum Mechanics">
         <InteractiveProblem n={1} difficulty="easy"
           answer={1.22} unit="eV" tolerance={0.03}
           hints={['E = hf. First find f = c/λ. Then convert J to eV: 1 eV = 1.602×10⁻¹⁹ J.']}
@@ -176,10 +198,10 @@ export default function QuantumPage() {
         </InteractiveProblem>
 
         <InteractiveProblem n={2} difficulty="easy"
-          answer={0.388} unit="nm" tolerance={0.02}
+          answer={0.1226} unit="nm" tolerance={0.02}
           hints={['λ = h/p. Find p from K = eV = p²/2m.']}
           problemText="Electron accelerated through 100 V. Find de Broglie wavelength (nm)."
-          solution={<>p = √(2 × 9.11e-31 × 1.6e-17) = 1.71e-24. λ = 6.626e-34/1.71e-24 = <strong>0.388 nm</strong></>}>
+          solution={<>p = √(2 × 9.11e-31 × 1.6e-17) = 5.40e-24. λ = 6.626e-34/5.40e-24 = <strong>0.1226 nm</strong></>}>
           An electron is accelerated through 100 V. Find its de Broglie wavelength.
         </InteractiveProblem>
 

@@ -15,7 +15,7 @@ export default function ScatteringPage() {
         relativistic limit.
       </p>
 
-      <Prerequisites items={['Quantum mechanics (Ch. 20)', 'Green\'s functions (Ch. GF)', 'Angular momentum (Ch. SP)']} />
+      <Prerequisites items={['Quantum mechanics (Ch. 22)', 'Green\'s functions (Ch. GF)', 'Angular momentum (Ch. SP)']} />
 
       <LearningGoals items={[
         'Define the scattering amplitude f(θ) and relate it to the differential cross section dσ/dΩ = |f|².',

@@ -14,7 +14,7 @@ export default function QuantumInfoPage() {
         faster, generate provably secure keys, and simulate quantum systems efficiently.
       </p>
 
-      <Prerequisites items={['Quantum mechanics (Ch. 20)', 'Spin & angular momentum (Ch. SP)', 'Linear algebra (Ch. LA)']} />
+      <Prerequisites items={['Quantum mechanics (Ch. 22)', 'Spin & angular momentum (Ch. SP)', 'Linear algebra (Ch. LA)']} />
 
       <LearningGoals items={[
         'Represent single- and multi-qubit states on the Bloch sphere and in the computational basis.',

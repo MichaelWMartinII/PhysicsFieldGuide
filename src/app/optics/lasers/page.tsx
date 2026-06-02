@@ -14,7 +14,7 @@ export default function LasersPage() {
         requires population inversions, optical cavities, and coherence theory.
       </p>
 
-      <Prerequisites items={['Atomic structure (Ch. 21)', 'Wave optics (Ch. W)', 'Statistical mechanics (Ch. S)', 'Quantum mechanics (Ch. 20)']} />
+      <Prerequisites items={['Atomic structure (Ch. 23)', 'Wave optics (Ch. 20)', 'Statistical mechanics (Ch. S)', 'Quantum mechanics (Ch. 22)']} />
 
       <LearningGoals items={[
         'Explain spontaneous emission, stimulated emission, and absorption using the Einstein A and B coefficients.',

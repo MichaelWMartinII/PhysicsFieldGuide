@@ -15,7 +15,7 @@ export default function ElasticityPage() {
         of DNA molecules.
       </p>
 
-      <Prerequisites items={['Newton\'s laws (Ch. 3)', 'Vectors and calculus (Ch. 21-22)', 'Linear algebra (Ch. LA)', 'Fluid mechanics (Ch. FM)']} />
+      <Prerequisites items={['Newton\'s laws (Ch. 3)', 'Vectors and calculus (Ch. 24–25)', 'Linear algebra (Ch. LA)', 'Fluid mechanics (Ch. FM)']} />
 
       <LearningGoals items={[
         'Define the linearised strain tensor and identify diagonal (stretch) vs. off-diagonal (shear) components.',

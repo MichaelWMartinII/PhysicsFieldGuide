@@ -6,14 +6,14 @@ import {
 export default function DifferentialEquationsPage() {
   return (
     <div className="chapter">
-      <div className="chapter-label" style={{ color: '#06b6d4' }}>Mathematics for Physics · Chapter 23</div>
+      <div className="chapter-label" style={{ color: '#06b6d4' }}>Mathematics for Physics · Chapter 26</div>
       <h1>Differential Equations</h1>
       <p className="subtitle">
         Physics equations are almost always differential equations — relations between a function
         and its derivatives. Knowing how to solve them is knowing how to solve physics.
       </p>
 
-      <Prerequisites items={['Calculus essentials (Ch. 22)', 'Vectors (Ch. 21)', 'Simple harmonic motion (Ch. 9) provides physical motivation']} />
+      <Prerequisites items={['Calculus essentials (Ch. 25)', 'Vectors (Ch. 24)', 'Simple harmonic motion (Ch. 8) provides physical motivation']} />
 
       <LearningGoals items={[
         'Solve first-order linear ODEs using the integrating factor method.',
@@ -23,7 +23,7 @@ export default function DifferentialEquationsPage() {
         'Use separation of variables to solve first-order separable ODEs and apply initial conditions.',
       ]} />
 
-      <h2>23.1 What Is a Differential Equation?</h2>
+      <h2>26.1 What Is a Differential Equation?</h2>
 
       <p>
         A <strong>differential equation</strong> (DE) is an equation involving an unknown function
@@ -39,9 +39,9 @@ export default function DifferentialEquationsPage() {
         consistent with initial conditions — is the central technical task of theoretical physics.
       </p>
 
-      <h2>23.2 First-Order Linear ODEs</h2>
+      <h2>26.2 First-Order Linear ODEs</h2>
 
-      <Definition number="23.1" title="First-Order Linear ODE">
+      <Definition number="26.1" title="First-Order Linear ODE">
         Standard form: dy/dx + P(x)y = Q(x).
         The general solution uses an <strong>integrating factor</strong> μ(x) = exp(∫P dx):
         <span style={{ display: 'block', textAlign: 'center', marginTop: '0.5rem', fontStyle: 'italic' }}>
@@ -56,7 +56,7 @@ export default function DifferentialEquationsPage() {
         Newton&apos;s law of cooling (ΔT = ΔT₀ e^(−kt)).
       </p>
 
-      <WorkedExample number="23.1" title="RC Circuit — Capacitor Charging">
+      <WorkedExample number="26.1" title="RC Circuit — Capacitor Charging">
         <p>
           A capacitor (capacitance C) charges through a resistor R from a battery of EMF ε.
           The loop equation gives ε = IR + q/C, with I = dq/dt. Solve for q(t).
@@ -69,7 +69,7 @@ export default function DifferentialEquationsPage() {
         <Step label="Result:">q(t) = Cε(1 − e^(−t/τ)) where τ = RC is the time constant. ✓</Step>
       </WorkedExample>
 
-      <h2>23.3 Second-Order Linear ODEs with Constant Coefficients</h2>
+      <h2>26.3 Second-Order Linear ODEs with Constant Coefficients</h2>
 
       <p>
         The equation m ẍ + b ẋ + kx = F(t) governs every oscillating system in physics:
@@ -77,7 +77,7 @@ export default function DifferentialEquationsPage() {
         try the ansatz x = e^(rt), substitute, and solve the <strong>characteristic equation</strong>.
       </p>
 
-      <Definition number="23.2" title="Characteristic Equation">
+      <Definition number="26.2" title="Characteristic Equation">
         For ay'' + by' + cy = 0, substitute y = e^(rt):
         <span style={{ display: 'block', textAlign: 'center', marginTop: '0.4rem', fontStyle: 'italic' }}>
           ar² + br + c = 0 &nbsp;&nbsp;&nbsp; (characteristic equation)
@@ -96,7 +96,7 @@ export default function DifferentialEquationsPage() {
         </span>
       </Definition>
 
-      <WorkedExample number="23.2" title="Simple Harmonic Oscillator">
+      <WorkedExample number="26.2" title="Simple Harmonic Oscillator">
         <p>
           Solve m ẍ + kx = 0 with initial conditions x(0) = A, ẋ(0) = 0.
         </p>
@@ -107,7 +107,7 @@ export default function DifferentialEquationsPage() {
         <Step label="Result:">x(t) = A cos(ω₀t) — pure cosine, as expected for release from rest. ✓</Step>
       </WorkedExample>
 
-      <WorkedExample number="23.3" title="Damped Oscillator">
+      <WorkedExample number="26.3" title="Damped Oscillator">
         <p>
           Solve mẍ + bẋ + kx = 0 for the underdamped case (b² {'<'} 4mk).
         </p>
@@ -118,14 +118,14 @@ export default function DifferentialEquationsPage() {
         <Step label="Physics:">An exponentially decaying envelope × oscillation. Amplitude halves every t₁/₂ = ln2/γ.</Step>
       </WorkedExample>
 
-      <h2>23.4 Particular Solutions and Resonance</h2>
+      <h2>26.4 Particular Solutions and Resonance</h2>
 
       <p>
         For a driven oscillator mẍ + bẋ + kx = F₀ cos(ωt), the <strong>particular solution</strong>
         (steady-state response) has the form x_p = X cos(ωt − δ), where the amplitude is:
       </p>
 
-      <EqNumbered number="23.1">X = F₀ / √[(k−mω²)² + (bω)²]</EqNumbered>
+      <EqNumbered number="26.1">X = F₀ / √[(k−mω²)² + (bω)²]</EqNumbered>
 
       <p>
         This is maximum when the driving frequency ω equals the natural frequency ω₀ = √(k/m)
@@ -140,13 +140,13 @@ export default function DifferentialEquationsPage() {
         (nuclear magnetic resonance). The mathematics is identical in all cases.
       </p>
 
-      <h2>23.5 Separation of Variables</h2>
+      <h2>26.5 Separation of Variables</h2>
 
       <p>
         Many first-order ODEs can be solved by separating the variables:
       </p>
 
-      <Definition number="23.3" title="Separation of Variables">
+      <Definition number="26.3" title="Separation of Variables">
         If dy/dx = f(x)g(y), rewrite as dy/g(y) = f(x)dx, then integrate both sides:
         <span style={{ display: 'block', textAlign: 'center', marginTop: '0.4rem', fontStyle: 'italic' }}>
           ∫ dy/g(y) = ∫ f(x) dx + C
@@ -155,7 +155,7 @@ export default function DifferentialEquationsPage() {
         is separable — the right-hand side factors into a function of x times a function of y.
       </Definition>
 
-      <WorkedExample number="23.4" title="Radioactive Decay">
+      <WorkedExample number="26.4" title="Radioactive Decay">
         <p>
           Carbon-14 decays with half-life t₁/₂ = 5730 years. A bone sample contains 30% of
           the original C-14. Find its age.
@@ -167,7 +167,7 @@ export default function DifferentialEquationsPage() {
         <Step label="Age:">t = 1.204/λ = 1.204 × 5730/ln2 = 1.204 × 8267 = <strong>9,950 years</strong></Step>
       </WorkedExample>
 
-      <Definition number="23.4" title="Common Traps">
+      <Definition number="26.4" title="Common Traps">
         <ul style={{ marginTop: '0.4rem' }}>
           <li><strong>General solutions need constants:</strong> initial or boundary conditions choose the physical solution.</li>
           <li><strong>Homogeneous and particular parts both matter:</strong> driven systems need the forced response.</li>
@@ -176,7 +176,7 @@ export default function DifferentialEquationsPage() {
         </ul>
       </Definition>
 
-      <PracticeProblems section="23.1–23.5 Differential Equations">
+      <PracticeProblems section="26.1–26.5 Differential Equations">
         <InteractiveProblem n={1} difficulty="easy"
           answer={9950} unit="years" tolerance={0.02}
           hints={['N = N₀ e^(−λt). λ = ln2/t₁/₂. Solve for t when N/N₀ = 0.30.']}

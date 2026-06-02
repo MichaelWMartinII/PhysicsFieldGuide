@@ -3,7 +3,8 @@ import 'katex/dist/katex.min.css';
 import './globals.css';
 import CurriculumNav from '@/components/CurriculumNav';
 import AISidebar from '@/components/AISidebar';
-import { ChapterFieldNote } from '@/components/textbook';
+import SearchShortcut from '@/components/SearchShortcut';
+import { ChapterFieldNote, ChapterNavigation } from '@/components/textbook';
 
 export const metadata: Metadata = {
   title: 'Physics: A Field Guide',
@@ -23,8 +24,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <main className="flex-1 overflow-y-auto min-w-0">
           {children}
           <ChapterFieldNote />
+          <ChapterNavigation />
         </main>
         <AISidebar />
+        <SearchShortcut />
       </body>
     </html>
   );

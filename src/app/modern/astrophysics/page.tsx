@@ -14,7 +14,7 @@ export default function AstrophysicsPage() {
         the life cycle of stars, and the endpoints — white dwarfs, neutron stars, black holes.
       </p>
 
-      <Prerequisites items={['Gravitation (Ch. 7)', 'Nuclear physics (Ch. NP)', 'Statistical mechanics (Ch. S)', 'General relativity (Ch. GR)']} />
+      <Prerequisites items={['Gravitation (Ch. 7)', 'Nuclear physics (Ch. N)', 'Statistical mechanics (Ch. S)', 'General relativity (Ch. GR)']} />
 
       <LearningGoals items={[
         'Derive the hydrostatic equilibrium equation and use it to estimate central pressures and temperatures in stars.',
@@ -193,10 +193,10 @@ export default function AstrophysicsPage() {
         </InteractiveProblem>
 
         <InteractiveProblem n={2} difficulty="medium"
-          answer={2.97e8} unit="kg/m³" tolerance={0.05}
+          answer={9.95e8} unit="kg/m³" tolerance={0.05}
           hints={['Estimate the white dwarf radius using R_WD ≈ 0.0126 R☉ × (M/M☉)^(-1/3) with R☉ = 6.96×10⁸ m', 'Compute mean density: ρ = 3M/(4πR³) with M = 1.2×1.99×10³⁰ kg']}
           problemText="Estimate the mean density of a white dwarf with mass M = 1.2 M☉ composed of C/O (μe = 2), using the non-relativistic degeneracy pressure mass-radius relation."
-          solution={<>White dwarf: M = 1.2 M☉ = 2.38×10³⁰ kg of C/O (μe = 2). Non-relativistic electron degeneracy pressure: P = K_NR (ρ/μe m_H)^(5/3), K_NR = (ℏ²/5m_e)(3/π)^(2/3) (6π²)^(2/3)/(m_H)^(5/3). Virial theorem: P_c ∼ GM²/R⁴ (from hydrostatic). Mass-radius: R ∝ M^(-1/3) → R = R☉(M/M_Ch)^(-1/3) × correction. Exact: R_WD = 0.0127 R☉ (M_Ch/M)^(1/3) − ..., non-rel limit: R_WD = 0.0126 R☉ × (1.2)^(-1/3) = 0.0126 × 0.942 = 0.0119 R☉ ≈ 8300 km. Mean density: ρ = 3M/(4πR³) = 3×2.38×10³⁰/(4π(8.3×10⁶)³) = 7.14×10³⁰/2.40×10²² = 2.97×10⁸ kg/m³ ≈ 3×10⁵ g/cm³. Sirius B (actual 1.0 M☉ WD): R = 0.0084 R☉, ρ = 3.9×10⁸ kg/m³. The Fermi energy of electrons: E_F = (ℏ²/2m_e)(3π²n_e)^(2/3) ≈ 0.3 MeV (relativistic!). Near Chandrasekhar limit, R → 0 and collapse is inevitable.</>}>
+          solution={<>White dwarf: M = 1.2 M☉ = 2.38×10³⁰ kg of C/O (μe = 2). Non-relativistic electron degeneracy pressure: P = K_NR (ρ/μe m_H)^(5/3), K_NR = (ℏ²/5m_e)(3/π)^(2/3) (6π²)^(2/3)/(m_H)^(5/3). Virial theorem: P_c ∼ GM²/R⁴ (from hydrostatic). Mass-radius: R ∝ M^(-1/3) → R = R☉(M/M_Ch)^(-1/3) × correction. Exact: R_WD = 0.0127 R☉ (M_Ch/M)^(1/3) − ..., non-rel limit: R_WD = 0.0126 R☉ × (1.2)^(-1/3) = 0.0126 × 0.942 = 0.0119 R☉ ≈ 8300 km. Mean density: ρ = 3M/(4πR³) = 3×2.38×10³⁰/(4π(8.3×10⁶)³) = 7.14×10³⁰/7.19×10²¹ = 9.95×10⁸ kg/m³ ≈ 10⁶ g/cm³. Sirius B (actual 1.0 M☉ WD): R = 0.0084 R☉, ρ = 3.9×10⁸ kg/m³. The Fermi energy of electrons: E_F = (ℏ²/2m_e)(3π²n_e)^(2/3) ≈ 0.3 MeV (relativistic!). Near Chandrasekhar limit, R → 0 and collapse is inevitable.</>}>
           Estimate the radius and mean density of a white dwarf with mass M = 1.2 M☉ (composed of C/O, μe = 2). How does this compare to the Chandrasekhar limit?
         </InteractiveProblem>
 

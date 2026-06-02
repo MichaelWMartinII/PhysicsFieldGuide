@@ -14,7 +14,7 @@ export default function ComplexAnalysisPage() {
         2D electrostatics; analytic continuation ties together special functions.
       </p>
 
-      <Prerequisites items={['Calculus (Ch. 22)', 'Differential equations (Ch. 23)', 'Basic complex numbers']} />
+      <Prerequisites items={['Calculus (Ch. 25)', 'Differential equations (Ch. 26)', 'Basic complex numbers']} />
 
       <LearningGoals items={[
         'Verify analyticity using the Cauchy-Riemann equations and identify poles, branch cuts, and essential singularities.',

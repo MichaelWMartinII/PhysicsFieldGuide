@@ -1,6 +1,6 @@
 import {
   Definition, Theorem, WorkedExample, Step,
-  PracticeProblems, Problem, InteractiveProblem, EqNumbered, Prerequisites, Takeaways, LearningGoals
+  PracticeProblems, Problem, InteractiveProblem, EqNumbered, Prerequisites, Takeaways, LearningGoals, HistoryNote
 } from '@/components/textbook';
 
 export default function ElectrostaticsPage() {
@@ -14,7 +14,7 @@ export default function ElectrostaticsPage() {
         of classical electrostatics.
       </p>
 
-      <Prerequisites items={['Electric fields (Ch. 13)', 'Maxwell\'s equations (Ch. M)', 'Partial differential equations', 'Fourier series']} />
+      <Prerequisites items={['Electric fields (Ch. 15)', 'Maxwell\'s equations (Ch. M)', 'Partial differential equations', 'Fourier series']} />
 
       <LearningGoals items={[
         'Derive Poisson\'s and Laplace\'s equations from Gauss\'s law and E = −∇V.',
@@ -28,7 +28,18 @@ export default function ElectrostaticsPage() {
 
       <p>
         From Gauss&apos;s law (∇·E = ρ/ε₀) and E = −∇V, the electric potential V satisfies
-        <strong> Poisson&apos;s equation</strong>:
+        <strong> Poisson&apos;s equation</strong>.
+        <HistoryNote
+          trigger="Poisson and Laplace"
+          year="1810s"
+          title="Potential theory before fields"
+          source="Pierre-Simon Laplace and Simeon-Denis Poisson, early papers on gravitational and electrostatic potential theory."
+          furtherReading={[{ label: "Pierre-Simon Laplace", url: "https://en.wikipedia.org/wiki/Pierre-Simon_Laplace" }, { label: "Siméon Denis Poisson", url: "https://en.wikipedia.org/wiki/Sim%C3%A9on_Denis_Poisson" }]}
+        >
+          Laplace and Poisson were developing tools for celestial mechanics — predicting planetary positions, asking whether the solar system was stable — when they wrote the equations that now bear their names.
+          They were not thinking about electric fields. The remarkable thing is that the same differential equation governs gravity, electrostatics, heat conduction, fluid flow, and the quantum probability amplitude.
+          The universe reuses its mathematics with startling economy.
+        </HistoryNote>
       </p>
 
       <EqNumbered number="ES.1">∇²V = −ρ/ε₀ &nbsp;&nbsp;&nbsp; (Poisson)</EqNumbered>

@@ -1,20 +1,20 @@
 import SpacetimeDiagramClient from '@/components/sims/SpacetimeDiagramClient';
 import {
   Definition, WorkedExample, Step,
-  PracticeProblems, Problem, InteractiveProblem, EqNumbered, Figure, Prerequisites, Takeaways, LearningGoals
+  PracticeProblems, Problem, InteractiveProblem, EqNumbered, Figure, Prerequisites, Takeaways, LearningGoals, HistoryNote
 } from '@/components/textbook';
 
 export default function RelativityPage() {
   return (
     <div className="chapter">
-      <div className="chapter-label" style={{ color: '#ec4899' }}>Modern Physics · Chapter 19</div>
+      <div className="chapter-label" style={{ color: '#ec4899' }}>Modern Physics · Chapter 21</div>
       <h1>Special Relativity</h1>
       <p className="subtitle">
         In 1905, Einstein showed that the constancy of the speed of light — confirmed by every
         experiment — forces a complete revision of our concepts of space and time.
       </p>
 
-      <Prerequisites items={['Classical mechanics (Ch. 1–7)', 'Electromagnetism (Ch. 13–16) motivates why c must be constant']} />
+      <Prerequisites items={['Classical mechanics (Ch. 1–7)', 'Electromagnetism (Ch. 15–18) motivates why c must be constant']} />
 
       <LearningGoals items={[
         'State Einstein\'s two postulates and explain why the second one forces a revision of space and time.',
@@ -24,14 +24,27 @@ export default function RelativityPage() {
         'Resolve the twin paradox by identifying the non-inertial frame that breaks the symmetry.',
       ]} />
 
-      <h2>19.1 The Two Postulates</h2>
+      <h2>21.1 The Two Postulates</h2>
 
       <p>
         Special relativity rests on two postulates, both of which are confirmed to extraordinary
-        precision by experiment:
+        precision by experiment.
+        <HistoryNote
+          trigger="Einstein's 1905 paper"
+          year="1905"
+          title="Electrodynamics forces new spacetime"
+          source="Albert Einstein, Zur Elektrodynamik bewegter Korper."
+          sourceUrl="https://sites.pitt.edu/~jdnorton/teaching/Einstein_graduate/pdfs/Einstein_STR_1905_English.pdf"
+          furtherReading={[{ label: "Annus mirabilis papers", url: "https://en.wikipedia.org/wiki/Annus_mirabilis_papers" }, { label: "Albert Einstein", url: "https://en.wikipedia.org/wiki/Albert_Einstein" }]}
+        >
+          Einstein was twenty-six and working as a patent examiner in Bern when he submitted his special relativity paper in June 1905. He had been thinking about a single question for
+          ten years: what would light look like if you could chase it? The answer — that you cannot, that light's speed is the same for all observers — required abandoning the idea of
+          absolute time. He submitted the paper without citations, without a university position, and without having read most of the contemporary literature. In the same year he also
+          explained Brownian motion and the photoelectric effect. Physicists still call 1905 his miracle year.
+        </HistoryNote>
       </p>
 
-      <Definition number="19.1" title="Einstein's Two Postulates (1905)">
+      <Definition number="21.1" title="Einstein's Two Postulates (1905)">
         <span style={{ display: 'block', marginBottom: '0.5rem' }}>
           <strong>I. Principle of Relativity:</strong> The laws of physics are identical in all
           inertial reference frames. No experiment performed entirely within a closed system can
@@ -51,7 +64,7 @@ export default function RelativityPage() {
         in Newtonian mechanics, and it forces the revision of space and time.
       </p>
 
-      <h2>19.2 Time Dilation</h2>
+      <h2>21.2 Time Dilation</h2>
 
       <p>
         Consider a &quot;light clock&quot;: a photon bouncing between two mirrors separated by
@@ -60,7 +73,7 @@ export default function RelativityPage() {
         path. By Postulate II, it still travels at c, so the tick takes longer.
       </p>
 
-      <EqNumbered number="19.1">Δt = γ Δt₀ &nbsp;&nbsp;&nbsp; where &nbsp;&nbsp; γ = 1/√(1 − v²/c²)</EqNumbered>
+      <EqNumbered number="21.1">Δt = γ Δt₀ &nbsp;&nbsp;&nbsp; where &nbsp;&nbsp; γ = 1/√(1 − v²/c²)</EqNumbered>
 
       <p>
         The factor γ ≥ 1 is the <strong>Lorentz factor</strong>. Time dilation: a moving clock
@@ -70,11 +83,11 @@ export default function RelativityPage() {
         reach the ground only because of time dilation.
       </p>
 
-      <Figure number="19.1" caption="Minkowski spacetime diagram. The gray axes are the rest frame S; the blue line is the ct'-axis (worldline of the moving frame's origin); the red line is the x'-axis (the moving frame's simultaneity plane). As β → 1 both axes scissor toward the 45° light cone. The proper-time ticks on the blue worldline are spaced farther apart in coordinate time — time dilation made visible.">
+      <Figure number="21.1" caption="Minkowski spacetime diagram. The gray axes are the rest frame S; the blue line is the ct'-axis (worldline of the moving frame's origin); the red line is the x'-axis (the moving frame's simultaneity plane). As β → 1 both axes scissor toward the 45° light cone. The proper-time ticks on the blue worldline are spaced farther apart in coordinate time — time dilation made visible.">
         <SpacetimeDiagramClient />
       </Figure>
 
-      <h2>19.3 Length Contraction</h2>
+      <h2>21.3 Length Contraction</h2>
 
       <p>
         The same geometry that dilates time also contracts length. An object of proper length L₀
@@ -82,7 +95,7 @@ export default function RelativityPage() {
         from a frame where it moves at speed v:
       </p>
 
-      <EqNumbered number="19.2">L = L₀/γ = L₀ √(1 − v²/c²)</EqNumbered>
+      <EqNumbered number="21.2">L = L₀/γ = L₀ √(1 − v²/c²)</EqNumbered>
 
       <p>
         Lengths perpendicular to the motion are unchanged. Length contraction and time dilation
@@ -90,7 +103,7 @@ export default function RelativityPage() {
         are required for the speed of light to be the same in all frames.
       </p>
 
-      <WorkedExample number="19.1" title="Muon Survival">
+      <WorkedExample number="21.1" title="Muon Survival">
         <p>
           Muons are produced at h = 10 km altitude moving at v = 0.998c. Their mean lifetime
           at rest is τ₀ = 2.2 μs. How many mean lifetimes does it take them to reach the ground
@@ -103,14 +116,14 @@ export default function RelativityPage() {
         <Step label="Equivalently:">In muon frame, the atmosphere is length-contracted: L = 10000/15.8 = 633 m. Short trip.</Step>
       </WorkedExample>
 
-      <h2>19.4 Relativistic Energy and Momentum</h2>
+      <h2>21.4 Relativistic Energy and Momentum</h2>
 
       <p>
         The Lorentz transformation forces revisions to momentum and energy. The relativistic
         momentum is p = γmv, and the total relativistic energy is:
       </p>
 
-      <EqNumbered number="19.3">E = γmc²</EqNumbered>
+      <EqNumbered number="21.3">E = γmc²</EqNumbered>
 
       <p>
         At rest (v = 0, γ = 1), this gives Einstein&apos;s most famous result: E₀ = mc². Mass is a
@@ -118,14 +131,14 @@ export default function RelativityPage() {
         energy-momentum relation holds in all frames:
       </p>
 
-      <EqNumbered number="19.4">E² = (pc)² + (mc²)²</EqNumbered>
+      <EqNumbered number="21.4">E² = (pc)² + (mc²)²</EqNumbered>
 
       <p>
         For a photon (m = 0): E = pc, so E = hf = hc/λ. For a particle at rest: E = mc².
         These are special cases of the same equation.
       </p>
 
-      <WorkedExample number="19.2" title="Kinetic Energy at High Speed">
+      <WorkedExample number="21.2" title="Kinetic Energy at High Speed">
         <p>
           An electron (m = 9.11×10⁻³¹ kg) is accelerated to v = 0.99c. Find its
           kinetic energy in MeV. (1 MeV = 1.602×10⁻¹³ J, mc² = 0.511 MeV)
@@ -135,14 +148,14 @@ export default function RelativityPage() {
         <Step label="Compare Newtonian:">K_classical = ½mv² = ½(0.511)(0.99)² = 0.250 MeV — a factor of 12 too small!</Step>
       </WorkedExample>
 
-      <h2>19.5 Relativistic Velocity Addition</h2>
+      <h2>21.5 Relativistic Velocity Addition</h2>
 
       <p>
         If frame S moves at v relative to the lab, and an object moves at u in frame S
         (along the same direction), its velocity in the lab is:
       </p>
 
-      <EqNumbered number="19.5">u_lab = (u + v) / (1 + uv/c²)</EqNumbered>
+      <EqNumbered number="21.5">u_lab = (u + v) / (1 + uv/c²)</EqNumbered>
 
       <p>
         For u, v ≪ c, the denominator ≈ 1 and we recover the Galilean result. But if u = c:
@@ -150,7 +163,7 @@ export default function RelativityPage() {
         of the source&apos;s motion — Postulate II is built into the algebra.
       </p>
 
-      <Definition number="19.2" title="Common Traps">
+      <Definition number="21.2" title="Common Traps">
         <ul style={{ marginTop: '0.4rem' }}>
           <li><strong>Time dilation is symmetric between inertial observers:</strong> the asymmetry in twin-style problems comes from changing frames.</li>
           <li><strong>Length contraction is along motion only:</strong> transverse dimensions are unchanged.</li>
@@ -159,7 +172,7 @@ export default function RelativityPage() {
         </ul>
       </Definition>
 
-      <PracticeProblems section="19.1–19.5 Special Relativity">
+      <PracticeProblems section="21.1–21.5 Special Relativity">
         <InteractiveProblem n={1} difficulty="easy"
           answer={7.09} unit="" tolerance={0.02}
           hints={['γ = 1/√(1−v²/c²). Compute 1 − (0.99)².']}

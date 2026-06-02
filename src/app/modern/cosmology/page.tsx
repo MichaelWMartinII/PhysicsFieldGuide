@@ -14,7 +14,7 @@ export default function CosmologyPage() {
         to the large-scale structure, cosmology is one of the most precisely tested areas of physics.
       </p>
 
-      <Prerequisites items={['General relativity (Ch. GR)', 'Statistical mechanics (Ch. S)', 'Nuclear physics (Ch. NP)', 'Astrophysics (Ch. AS)']} />
+      <Prerequisites items={['General relativity (Ch. GR)', 'Statistical mechanics (Ch. S)', 'Nuclear physics (Ch. N)', 'Astrophysics (Ch. AS)']} />
 
       <LearningGoals items={[
         'Write down the FLRW metric and derive the Friedmann equations from Einstein field equations.',

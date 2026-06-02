@@ -14,7 +14,7 @@ export default function FluidMechanicsPage() {
         and remain one of the great unsolved problems of mathematics.
       </p>
 
-      <Prerequisites items={['Newton\'s laws (Ch. 3)', 'Vectors and calculus (Ch. 21-22)', 'Partial differential equations']} />
+      <Prerequisites items={['Newton\'s laws (Ch. 3)', 'Vectors and calculus (Ch. 24–25)', 'Partial differential equations']} />
 
       <LearningGoals items={[
         'Distinguish Eulerian and Lagrangian descriptions and write the material derivative D/Dt in terms of partial derivatives.',

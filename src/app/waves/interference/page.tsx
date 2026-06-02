@@ -1,20 +1,21 @@
 import WaveInterference from '@/components/sims/WaveInterference';
 import {
   Definition, WorkedExample, Step,
-  PracticeProblems, Problem, InteractiveProblem, EqNumbered, Figure, Prerequisites, Takeaways, LearningGoals
+  PracticeProblems, Problem, InteractiveProblem, EqNumbered, Figure, Prerequisites, Takeaways, LearningGoals, HistoryNote,
+  Misconception
 } from '@/components/textbook';
 
 export default function InterferencePage() {
   return (
     <div className="chapter">
-      <div className="chapter-label" style={{ color: '#10b981' }}>Waves &amp; Oscillations · Chapter 11</div>
+      <div className="chapter-label" style={{ color: '#10b981' }}>Waves &amp; Oscillations · Chapter 10</div>
       <h1>Interference &amp; Diffraction</h1>
       <p className="subtitle">
         Waves add together. Where they add constructively, you get bright spots. Where they cancel, darkness.
         These patterns encode deep information about sources, slits, and the wave nature of light itself.
       </p>
 
-      <Prerequisites items={['Wave properties (Ch. 8) — superposition, wavelength, phase', 'Trigonometry']} />
+      <Prerequisites items={['Wave properties (Ch. 9) — superposition, wavelength, phase', 'Trigonometry']} />
 
       <LearningGoals items={[
         'State the superposition principle and express the total displacement of two overlapping waves.',
@@ -24,7 +25,7 @@ export default function InterferencePage() {
         'Explain why single-photon and single-electron double-slit experiments still show interference.',
       ]} />
 
-      <h2>11.1 The Superposition Principle</h2>
+      <h2>10.1 The Superposition Principle</h2>
 
       <p>
         When two waves overlap in space, the resulting displacement at any point is simply the sum of
@@ -32,7 +33,7 @@ export default function InterferencePage() {
         and it is what gives rise to interference patterns.
       </p>
 
-      <EqNumbered number="11.1" latex="y_\mathrm{total}(x,t)=y_1(x,t)+y_2(x,t)" />
+      <EqNumbered number="10.1" latex="y_\mathrm{total}(x,t)=y_1(x,t)+y_2(x,t)" />
 
       <p>
         The superposition principle holds for all linear wave systems — light, sound, water waves, and
@@ -40,7 +41,14 @@ export default function InterferencePage() {
         nonlinearly to large amplitudes (e.g., nonlinear optics, shock waves).
       </p>
 
-      <h2>11.2 Two-Source Interference</h2>
+      <Misconception wrong="Destructive interference destroys energy — the energy just disappears.">
+        Energy is conserved in interference. Where two waves cancel, the energy does not vanish — it redistributes to where they
+        reinforce. In a double-slit experiment, the dark fringes have zero intensity and the bright fringes have four times the
+        intensity of a single slit (not two times). The "missing" energy from the dark regions reappears in the bright ones.
+        Interference redistributes energy; it does not destroy it.
+      </Misconception>
+
+      <h2>10.2 Two-Source Interference</h2>
 
       <p>
         Two coherent point sources emit identical waves. At any point P in the field, the two waves
@@ -48,7 +56,7 @@ export default function InterferencePage() {
         Δr = |r₂ − r₁| determines whether they interfere constructively or destructively.
       </p>
 
-      <Definition number="11.1" title="Conditions for Two-Source Interference">
+      <Definition number="10.1" title="Conditions for Two-Source Interference">
         For two coherent sources in phase (Δφ = 0):
         <ul style={{ marginTop: '0.4rem' }}>
           <li><strong>Constructive:</strong> Δr = mλ &nbsp; (m = 0, ±1, ±2, …) — waves arrive in phase, amplitudes add.</li>
@@ -61,28 +69,41 @@ export default function InterferencePage() {
         Each source emits:
       </p>
 
-      <EqNumbered number="11.2" latex="y=A\sin(kr-\omega t+\phi) \qquad k=\frac{2\pi}{\lambda}" />
+      <EqNumbered number="10.2" latex="y=A\sin(kr-\omega t+\phi) \qquad k=\frac{2\pi}{\lambda}" />
 
-      <Figure number="11.1" caption="Two-source interference pattern. Blue = constructive interference (waves in phase), red = destructive (out of phase), black = nodal lines. Adjust source separation, wavelength, and phase difference to watch the pattern change.">
+      <Figure number="10.1" caption="Two-source interference pattern. Blue = constructive interference (waves in phase), red = destructive (out of phase), black = nodal lines. Adjust source separation, wavelength, and phase difference to watch the pattern change.">
         <WaveInterference />
       </Figure>
 
-      <h2>11.3 Young&apos;s Double-Slit Experiment</h2>
+      <h2>10.3 Young&apos;s Double-Slit Experiment</h2>
 
       <p>
         Thomas Young&apos;s 1801 experiment showed that light produces an interference pattern, proving
-        its wave nature. A monochromatic source illuminates two narrow slits separated by distance d.
+        its wave nature.
+        <HistoryNote
+          trigger="Young's double-slit result"
+          year="1801"
+          title="Light makes fringes"
+          source="Thomas Young, The Bakerian Lecture: Experiments and calculations relative to physical optics."
+          sourceUrl="https://royalsocietypublishing.org/doi/10.1098/rstl.1804.0001"
+          furtherReading={[{ label: "Thomas Young", url: "https://en.wikipedia.org/wiki/Thomas_Young_(scientist)" }]}
+        >
+          Thomas Young was a prodigy — reading at two, fluent in several languages as a teenager, trained as a physician — and he understood interference by analogy with water waves.
+          His 1801 experiment produced alternating bands of bright and dark on a screen beyond two slits. The dark bands were the hard part: if light were particles, two sources should
+          only add brightness. The darkness meant cancellation, and waves explain cancellation naturally. He was mocked by the Edinburgh Review, which called his work "destitute of every
+          species of merit." Fresnel's rigorous wave theory eventually silenced the critics, but Young had seen it first.
+        </HistoryNote> A monochromatic source illuminates two narrow slits separated by distance d.
         On a screen at distance L (with L ≫ d), bright fringes appear at positions:
       </p>
 
-      <EqNumbered number="11.3" latex="y_m=\frac{m\lambda L}{d} \qquad m=0,\pm1,\pm2,\ldots" />
+      <EqNumbered number="10.3" latex="y_m=\frac{m\lambda L}{d} \qquad m=0,\pm1,\pm2,\ldots" />
 
       <p>
         where m is the fringe order. The fringe spacing is constant: Δy = λL/d. Shorter wavelength
         gives closer fringes; larger slit separation also gives closer fringes.
       </p>
 
-      <WorkedExample number="11.1" title="Double-Slit Fringe Spacing">
+      <WorkedExample number="10.1" title="Double-Slit Fringe Spacing">
         <p>
           In Young&apos;s experiment: slit separation d = 0.2 mm, screen distance L = 2.0 m,
           wavelength λ = 550 nm. Find the fringe spacing and the position of the third bright fringe.
@@ -92,7 +113,7 @@ export default function InterferencePage() {
         <Step label="Note:">Switching to λ = 440 nm (violet): Δy = 4.4 mm — fringes pack closer together. Switching to d = 0.4 mm: Δy = 2.75 mm — same effect.</Step>
       </WorkedExample>
 
-      <h2>11.4 What to Watch in the Simulation</h2>
+      <h2>10.4 What to Watch in the Simulation</h2>
 
       <ul>
         <li>
@@ -115,7 +136,7 @@ export default function InterferencePage() {
         quantum probability amplitudes, not just classical wave superposition.
       </p>
 
-      <Definition number="11.2" title="Common Traps">
+      <Definition number="10.2" title="Common Traps">
         <ul style={{ marginTop: '0.4rem' }}>
           <li><strong>Constructive does not mean high everywhere:</strong> the path difference changes from point to point.</li>
           <li><strong>Fringe spacing uses consistent units:</strong> convert nm, mm, and m before using Δy = λL/d.</li>
@@ -124,7 +145,7 @@ export default function InterferencePage() {
         </ul>
       </Definition>
 
-      <PracticeProblems section="11.1–11.4 Interference">
+      <PracticeProblems section="10.1–10.4 Interference">
         <InteractiveProblem n={1} difficulty="easy"
           answer={5.5} unit="mm" tolerance={0.02}
           hints={['Δy = λL/d', 'Convert all units: λ in m, L in m, d in m', 'Δy = (550×10⁻⁹ × 2.0) / (0.2×10⁻³)']}

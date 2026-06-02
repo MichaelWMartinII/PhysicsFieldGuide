@@ -14,7 +14,7 @@ export default function PlasmaPage() {
         Understanding plasma is key to fusion energy and space weather.
       </p>
 
-      <Prerequisites items={['Electromagnetism (Ch. 14–15)', 'Maxwell\'s equations (Ch. EM)', 'Statistical mechanics (Ch. S)', 'Fluid mechanics (Ch. FM)']} />
+      <Prerequisites items={['Electric fields through magnetism (Ch. 15–17)', 'Maxwell\'s equations (Ch. M)', 'Statistical mechanics (Ch. S)', 'Fluid mechanics (Ch. FM)']} />
 
       <LearningGoals items={[
         'State the three conditions that define a plasma (Debye shielding, quasi-neutrality, collective behaviour) and compute the Debye length for given n and T.',

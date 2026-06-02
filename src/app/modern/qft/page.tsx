@@ -14,7 +14,7 @@ export default function QFTPage() {
         QFT underlies the Standard Model and is the most precisely tested theory in physics.
       </p>
 
-      <Prerequisites items={['Quantum mechanics (Ch. 20)', 'Special relativity (Ch. 19)', 'Lagrangian mechanics (Ch. LA)', 'Complex analysis (Ch. CA)']} />
+      <Prerequisites items={['Quantum mechanics (Ch. 22)', 'Special relativity (Ch. 21)', 'Lagrangian mechanics (Ch. L)', 'Complex analysis (Ch. CA)']} />
 
       <LearningGoals items={[
         'Quantize the real scalar field using canonical commutation relations and interpret particle states as field quanta.',

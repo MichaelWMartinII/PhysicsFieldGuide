@@ -15,7 +15,7 @@ export default function ManyBodyPage() {
         Green&apos;s functions, and diagrammatic methods are the essential tools.
       </p>
 
-      <Prerequisites items={['Quantum mechanics (Ch. QM)', 'Statistical mechanics (Ch. SM)', 'Solid-state physics (Ch. SS)', 'QFT basics (Ch. QFT)']} />
+      <Prerequisites items={['Quantum mechanics (Ch. 22)', 'Statistical mechanics (Ch. S)', 'Solid-state physics (Ch. SS)', 'Quantum field theory (Ch. QFT)']} />
 
       <LearningGoals items={[
         'Write the electron-electron Coulomb interaction in second-quantized form and identify Hartree and Fock contributions.',
