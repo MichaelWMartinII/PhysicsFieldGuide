@@ -9,6 +9,30 @@ export type FieldNote = {
 const source = (sourceText: string, sourceUrl?: string) => ({ source: sourceText, sourceUrl });
 
 export const fieldNotes: Record<string, FieldNote> = {
+  '/constants': {
+    year: '2019',
+    title: 'Constants become exact',
+    body: 'The SI redefinition fixed several constants by definition, including h, e, k, and N_A. Measurement units now rest on invariant physics rather than artifact standards.',
+    ...source('BIPM, SI Brochure, 9th edition.'),
+  },
+  '/equations': {
+    year: '1900s',
+    title: 'Equations as landmarks',
+    body: 'Physics keeps its deepest ideas in compact mathematical forms. A good equation page is a map of what each theory chooses to preserve, relate, or approximate.',
+    ...source('Standard mathematical physics and pedagogy references.'),
+  },
+  '/map': {
+    year: '1970s',
+    title: 'Concept maps',
+    body: 'Joseph Novak developed concept maps to show how ideas connect rather than listing them in sequence. Physics benefits because prerequisites form a network, not a line.',
+    ...source('Joseph D. Novak and D. Bob Gowin, Learning How to Learn.'),
+  },
+  '/search': {
+    year: '1945',
+    title: "Bush's memex",
+    body: 'Vannevar Bush imagined associative trails through knowledge before modern hypertext existed. Search turns a large curriculum into something navigable at the moment of need.',
+    ...source('Vannevar Bush, "As We May Think."', 'https://www.theatlantic.com/magazine/archive/1945/07/as-we-may-think/303881/'),
+  },
   '/mechanics/measurement': {
     year: '1945',
     title: "Fermi's paper scraps",
