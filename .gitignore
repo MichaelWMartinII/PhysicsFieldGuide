@@ -41,3 +41,4 @@ yarn-error.log*
 next-env.d.ts
 CONTENT_AUDIT.md
 TEXTBOOK_TODO.md
+/.next-export/

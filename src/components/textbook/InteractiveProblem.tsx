@@ -80,7 +80,7 @@ export function InteractiveProblem({
           messages: [...chatMessages, userMsg],
         }),
       });
-      if (!res.body) throw new Error();
+      if (!res.ok || !res.body) throw new Error();
       const reader = res.body.getReader();
       const decoder = new TextDecoder();
       outer: while (true) {
@@ -88,24 +88,32 @@ export function InteractiveProblem({
         if (done) break;
         for (const line of decoder.decode(value, { stream: true }).split('\n')) {
           if (!line.startsWith('data: ')) continue;
+          let msg;
           try {
-            const msg = JSON.parse(line.slice(6).trim());
-            if (msg.type === 'done') break outer;
-            if (msg.type === 'token' && msg.content) {
-              setChatMessages((prev) => {
-                const next = [...prev];
-                next[next.length - 1] = { ...next[next.length - 1], content: next[next.length - 1].content + msg.content };
-                return next;
-              });
-            }
-            if (msg.type === 'error') throw new Error(msg.content);
-          } catch {}
+            msg = JSON.parse(line.slice(6).trim());
+          } catch {
+            continue;
+          }
+          if (msg.type === 'done') break outer;
+          if ((msg.type === 'token' || msg.type === 'error') && msg.content) {
+            // Errors (e.g. the daily limit) are shown as the tutor's reply.
+            const content: string = msg.content;
+            setChatMessages((prev) => {
+              const next = [...prev];
+              const last = next[next.length - 1];
+              next[next.length - 1] = {
+                ...last,
+                content: msg.type === 'error' ? content : last.content + content,
+              };
+              return next;
+            });
+          }
         }
       }
     } catch {
       setChatMessages((p) => {
         const n2 = [...p];
-        n2[n2.length - 1] = { role: 'assistant', content: 'Could not reach the AI tutor.' };
+        n2[n2.length - 1] = { role: 'assistant', content: "The AI tutor runs on Michael's laptop and is offline right now. The problems still work — try the tutor again later." };
         return n2;
       });
     } finally {
