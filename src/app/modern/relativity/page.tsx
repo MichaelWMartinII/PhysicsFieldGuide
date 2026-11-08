@@ -1,7 +1,7 @@
 import SpacetimeDiagramClient from '@/components/sims/SpacetimeDiagramClient';
 import {
   Definition, WorkedExample, Step,
-  PracticeProblems, Problem, InteractiveProblem, EqNumbered, Figure, Prerequisites, Takeaways, LearningGoals, HistoryNote
+  PracticeProblems, Problem, InteractiveProblem, EqNumbered, Figure, Prerequisites, Takeaways, LearningGoals, HistoryNote, InlineMath
 } from '@/components/textbook';
 
 export default function RelativityPage() {
@@ -33,7 +33,7 @@ export default function RelativityPage() {
           trigger="Einstein's 1905 paper"
           year="1905"
           title="Electrodynamics forces new spacetime"
-          source="Albert Einstein, Zur Elektrodynamik bewegter Korper."
+          source="Albert Einstein, Zur Elektrodynamik bewegter Körper."
           sourceUrl="https://sites.pitt.edu/~jdnorton/teaching/Einstein_graduate/pdfs/Einstein_STR_1905_English.pdf"
           furtherReading={[{ label: "Annus mirabilis papers", url: "https://en.wikipedia.org/wiki/Annus_mirabilis_papers" }, { label: "Albert Einstein", url: "https://en.wikipedia.org/wiki/Albert_Einstein" }]}
         >
@@ -73,7 +73,7 @@ export default function RelativityPage() {
         path. By Postulate II, it still travels at c, so the tick takes longer.
       </p>
 
-      <EqNumbered number="21.1">Δt = γ Δt₀ &nbsp;&nbsp;&nbsp; where &nbsp;&nbsp; γ = 1/√(1 − v²/c²)</EqNumbered>
+      <EqNumbered number="21.1" latex="\Delta t = \gamma\, \Delta t_0 \qquad \text{where} \quad \gamma = \frac{1}{\sqrt{1 - v^2/c^2}}" />
 
       <p>
         The factor γ ≥ 1 is the <strong>Lorentz factor</strong>. Time dilation: a moving clock
@@ -112,7 +112,7 @@ export default function RelativityPage() {
         <Step label="γ:">γ = 1/√(1 − 0.998²) = 1/√(1 − 0.996) = 1/√0.004 = 1/0.0632 ≈ 15.8</Step>
         <Step label="Lab frame travel time:">Δt = h/v = 10000/(0.998 × 3×10⁸) = 3.34×10⁻⁵ s = 33.4 μs</Step>
         <Step label="Number of lifetimes (lab):">33.4 μs / 2.2 μs ≈ 15.2 — classically, almost none would survive</Step>
-        <Step label="Muon frame:">Δt₀ = Δt/γ = 33.4/15.8 = 2.11 μs — less than one lifetime. Most survive. ✓</Step>
+        <Step label="Muon frame:">Δt₀ = Δt/γ = 33.4/15.8 = 2.11 μs — less than one lifetime. About 38% survive (e^(−2.11/2.2) ≈ 0.38). ✓</Step>
         <Step label="Equivalently:">In muon frame, the atmosphere is length-contracted: L = 10000/15.8 = 633 m. Short trip.</Step>
       </WorkedExample>
 
@@ -159,7 +159,7 @@ export default function RelativityPage() {
 
       <p>
         For u, v ≪ c, the denominator ≈ 1 and we recover the Galilean result. But if u = c:
-        u_lab = (c + v)/(1 + v/c) = c(1+v/c)/(1+v/c) = c. Light always travels at c, regardless
+        <InlineMath latex="u_{\text{lab}} = (c + v)/(1 + v/c) = c(1 + v/c)/(1 + v/c) = c" />. Light always travels at c, regardless
         of the source&apos;s motion — Postulate II is built into the algebra.
       </p>
 

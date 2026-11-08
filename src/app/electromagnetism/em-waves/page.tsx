@@ -1,7 +1,7 @@
 import EMWaveSimClient from '@/components/sims/EMWaveSimClient';
 import {
   Definition, Theorem, WorkedExample, Step,
-  PracticeProblems, Problem, InteractiveProblem, EqNumbered, Figure, Prerequisites, Takeaways, LearningGoals
+  PracticeProblems, Problem, InteractiveProblem, EqNumbered, InlineMath, Figure, Prerequisites, Takeaways, LearningGoals
 } from '@/components/textbook';
 
 export default function EMWavesPage() {
@@ -73,10 +73,10 @@ export default function EMWavesPage() {
         linearly polarized at angle θ to a polarizer axis, the transmitted intensity is:
       </p>
 
-      <EqNumbered number="W.3">I = I₀ cos²θ &nbsp;&nbsp;&nbsp; (Malus&apos;s law)</EqNumbered>
+      <EqNumbered number="W.3" latex="I = I_0\cos^2\theta \qquad \text{(Malus's law)}" />
 
       <p>
-        This follows directly from the E-field projection: |E_transmitted|² = |E₀ cos θ|², and
+        This follows directly from the E-field projection: <InlineMath latex="|E_{\text{transmitted}}|^2 = |E_0\cos\theta|^2" />, and
         intensity scales as E². Two crossed polarizers transmit nothing; a third at 45° in between
         restores partial transmission — a consequence of the projection law applied twice.
       </p>
@@ -88,7 +88,7 @@ export default function EMWavesPage() {
         Poynting vector (from Maxwell&apos;s equations chapter):
       </p>
 
-      <EqNumbered number="W.4">S = (1/μ₀) E × B &nbsp;&nbsp;&nbsp; [W/m²]</EqNumbered>
+      <EqNumbered number="W.4" latex="\mathbf{S} = \frac{1}{\mu_0}\,\mathbf{E}\times\mathbf{B} \qquad [\mathrm{W/m^2}]" />
 
       <p>
         For a plane wave, |S| = E²/(μ₀c) = cε₀E². The time-averaged intensity is:
@@ -100,23 +100,23 @@ export default function EMWavesPage() {
         Electromagnetic waves also carry <strong>momentum</strong>. The momentum density is:
       </p>
 
-      <EqNumbered number="W.6">g = S/c² = ε₀ E × B &nbsp;&nbsp;&nbsp; [kg/(m²·s)]</EqNumbered>
+      <EqNumbered number="W.6" latex="\mathbf{g} = \mathbf{S}/c^2 = \varepsilon_0\,\mathbf{E}\times\mathbf{B} \qquad [\mathrm{kg/(m^2\cdot s)}]" />
 
       <p>
         When a wave is absorbed by a surface, it deposits momentum, exerting a
         <strong> radiation pressure</strong>:
       </p>
 
-      <EqNumbered number="W.7">P_rad = I/c &nbsp;&nbsp; (absorbed) &nbsp;&nbsp;&nbsp;&nbsp; P_rad = 2I/c &nbsp;&nbsp; (reflected)</EqNumbered>
+      <EqNumbered number="W.7" latex="P_{\text{rad}} = I/c \quad \text{(absorbed)} \qquad P_{\text{rad}} = 2I/c \quad \text{(reflected)}" />
 
       <WorkedExample number="W.1" title="Solar Radiation Pressure on a Sail">
         <p>
           The solar intensity at Earth&apos;s distance is I = 1361 W/m². Find the radiation pressure
           on a perfectly reflecting solar sail of area A = 100 m² and mass m = 5 kg.
         </p>
-        <Step label="Radiation pressure:">P_rad = 2I/c = 2 × 1361 / (3×10⁸) = 9.07×10⁻⁶ Pa</Step>
-        <Step label="Force:">F = P_rad × A = 9.07×10⁻⁶ × 100 = 9.07×10⁻⁴ N</Step>
-        <Step label="Acceleration:">a = F/m = 9.07×10⁻⁴ / 5 = 1.81×10⁻⁴ m/s²</Step>
+        <Step label="Radiation pressure:"><InlineMath latex="P_{\text{rad}} = 2I/c = 2 \times 1361 / (3\times10^8) = 9.07\times10^{-6}\,\mathrm{Pa}" /></Step>
+        <Step label="Force:"><InlineMath latex="F = P_{\text{rad}} \times A = 9.07\times10^{-6} \times 100 = 9.07\times10^{-4}\,\mathrm{N}" /></Step>
+        <Step label="Acceleration:"><InlineMath latex="a = F/m = 9.07\times10^{-4} / 5 = 1.81\times10^{-4}\,\mathrm{m/s^2}" /></Step>
         <Step label="Perspective:">This tiny acceleration, applied continuously without fuel for months, can accumulate to significant velocity changes. Solar sails are viable for deep-space propulsion — IKAROS (JAXA, 2010) demonstrated the principle.</Step>
       </WorkedExample>
 
@@ -150,10 +150,10 @@ export default function EMWavesPage() {
           In a good conductor (conductivity σ), EM waves decay exponentially. Find the skin depth δ.
         </p>
         <Step label="Wave equation in conductor:">∇²E = μσ ∂E/∂t + με ∂²E/∂t² ≈ μσ ∂E/∂t (σ/ε ≫ ω)</Step>
-        <Step label="Plane wave ansatz:">E ∝ e^(ikz−iωt) with complex k² = iωμσ</Step>
-        <Step label="Solve:">k = (1+i)√(ωμσ/2). Imaginary part gives exponential decay.</Step>
-        <Step label="Skin depth:">δ = √(2/ωμσ) — e-folding length for field amplitude.</Step>
-        <Step label="Example:">Copper at 60 Hz: σ = 6×10⁷ S/m → δ = √(2/(2π×60 × 4π×10⁻⁷ × 6×10⁷)) ≈ 8.5 mm. At 1 GHz: δ ≈ 2 μm — only the surface layer carries current.</Step>
+        <Step label="Plane wave ansatz:"><InlineMath latex="E \propto e^{i(kz-\omega t)}" /> with complex <InlineMath latex="k^2 = i\omega\mu\sigma" /></Step>
+        <Step label="Solve:"><InlineMath latex="k = (1+i)\sqrt{\omega\mu\sigma/2}" />. Imaginary part gives exponential decay.</Step>
+        <Step label="Skin depth:"><InlineMath latex="\delta = \sqrt{2/(\omega\mu\sigma)}" /> — e-folding length for field amplitude.</Step>
+        <Step label="Example:">Copper at 60 Hz: <InlineMath latex="\sigma = 6\times10^7\,\mathrm{S/m} \;\Rightarrow\; \delta = \sqrt{\dfrac{2}{2\pi\times60 \times 4\pi\times10^{-7} \times 6\times10^7}} \approx 8.4\,\mathrm{mm}" />. At 1 GHz: δ ≈ 2 μm — only the surface layer carries current.</Step>
       </WorkedExample>
 
       <Definition number="W.2" title="Common Traps">
@@ -167,28 +167,28 @@ export default function EMWavesPage() {
 
       <PracticeProblems section="W.1–W.4 EM Wave Propagation">
         <InteractiveProblem n={1} difficulty="easy"
-          answer={1011} unit="V/m" tolerance={0.03}
+          answer={1013} unit="V/m" tolerance={0.03}
           hints={['I = ½cε₀E₀² → E₀ = √(2I/cε₀)', 'I = 1361 W/m², c = 3×10⁸ m/s, ε₀ = 8.85×10⁻¹² F/m']}
           problemText="The solar constant is I = 1361 W/m². Find E₀ (peak electric field amplitude) in V/m."
-          solution={<>E₀ = √(2×1361/(3×10⁸ × 8.85×10⁻¹²)) = √(1.02×10⁶) ≈ <strong>1011 V/m</strong>. B₀ = E₀/c ≈ 3.37 μT.</>}>
+          solution={<><InlineMath latex="E_0 = \sqrt{2\times1361/(3\times10^8 \times 8.85\times10^{-12})} = \sqrt{1.025\times10^6}" /> ≈ <strong>1013 V/m</strong>. <InlineMath latex="B_0 = E_0/c \approx 3.38\,\mu\mathrm{T}" />.</>}>
           The solar constant is I = 1361 W/m². Find E₀ and B₀ for sunlight. Verify using the Poynting vector formula.
         </InteractiveProblem>
 
         <InteractiveProblem n={2} difficulty="medium"
           answer={0.125} unit="" tolerance={0.02}
-          hints={['Unpolarized → first polarizer: I₀/2', 'Malus\'s law for each subsequent polarizer: I = I_prev cos²θ', 'Second polarizer at 45°: cos²45° = 1/2. Third at 90° from first (45° from second): cos²45° = 1/2']}
+          hints={['Unpolarized → first polarizer: I₀/2', 'Malus\'s law for each subsequent polarizer: multiply the incoming intensity by cos²θ', 'Second polarizer at 45°: cos²45° = 1/2. Third at 90° from first (45° from second): cos²45° = 1/2']}
           problemText="Unpolarized light of intensity I₀ passes through three polarizers at 0°, 45°, 90°. What fraction (as a decimal) of I₀ survives?"
           solution={<>I₀ → I₀/2 → (I₀/2)(1/2) = I₀/4 → (I₀/4)(1/2) = <strong>I₀/8 = 0.125 I₀</strong></>}>
           Unpolarized light passes through three polarizers at 0°, 45°, 90°. What fraction survives? Why does the middle polarizer matter?
         </InteractiveProblem>
 
         <Problem n={3} difficulty="medium"
-          solution={<>Radiation pressure force on Earth: F = I·A_cross/c (absorbed) where A_cross = πR_E² = π(6.37×10⁶)² = 1.27×10¹⁴ m². F = 1361 × 1.27×10¹⁴ / (3×10⁸) = 5.76×10⁸ N. Gravity from Sun: F_grav = GM_sun·M_Earth/R² = 6.67×10⁻¹¹ × 2×10³⁰ × 6×10²⁴/(1.5×10¹¹)² = 3.56×10²² N. Ratio: 5.76×10⁸ / 3.56×10²² ≈ 1.6×10⁻¹⁴. Radiation pressure is 14 orders of magnitude weaker than gravity for Earth. For dust grains (high A/m): can dominate → comet tails point away from Sun.</>}>
+          solution={<>Radiation pressure force on Earth: <InlineMath latex="F = I A_{\text{cross}}/c" /> (absorbed) where <InlineMath latex="A_{\text{cross}} = \pi R_E^2 = \pi(6.37\times10^6)^2 = 1.27\times10^{14}\,\mathrm{m^2}" />. <InlineMath latex="F = 1361 \times 1.27\times10^{14} / (3\times10^8) = 5.76\times10^8\,\mathrm{N}" />. Gravity from Sun: <InlineMath latex="F_{\text{grav}} = GM_{\text{Sun}}M_{\text{Earth}}/R^2 = 6.67\times10^{-11} \times 2\times10^{30} \times 6\times10^{24}/(1.5\times10^{11})^2 = 3.56\times10^{22}\,\mathrm{N}" />. Ratio: 5.76×10⁸ / 3.56×10²² ≈ 1.6×10⁻¹⁴. Radiation pressure is 14 orders of magnitude weaker than gravity for Earth. For dust grains (high A/m): can dominate → comet tails point away from Sun.</>}>
           Estimate the radiation pressure force on Earth from sunlight. Compare to the Sun&apos;s gravitational force on Earth. When does radiation pressure dominate?
         </Problem>
 
         <Problem n={4} difficulty="hard"
-          solution={<>Derivation from Maxwell: start with ∂u/∂t + ∇·S = −J·E (Poynting theorem). In free space J=0: ∂u/∂t + ∇·S = 0. This is an energy continuity equation. The EM momentum density is g = S/c² = ε₀E×B. Maxwell stress tensor T_ij = ε₀(E_iE_j − δ_ij E²/2) + (1/μ₀)(B_iB_j − δ_ij B²/2). The force per volume on matter: f = ∇·T − ∂g/∂t. For a wave hitting a perfect reflector: the momentum flux (T_zz for a z-traveling wave) = ε₀E²/2 + B²/(2μ₀) = u (energy density). The rate of momentum transfer per area = 2u·c/c = 2I/c = 2P_rad. The factor 2 comes from reversal of momentum upon reflection.</>}>
+          solution={<>Derivation from Maxwell: start with ∂u/∂t + ∇·S = −J·E (Poynting theorem). In free space J=0: ∂u/∂t + ∇·S = 0. This is an energy continuity equation. The EM momentum density is g = S/c² = ε₀E×B. Maxwell stress tensor <InlineMath latex="T_{ij} = \varepsilon_0\left(E_iE_j - \tfrac{1}{2}\delta_{ij}E^2\right) + \frac{1}{\mu_0}\left(B_iB_j - \tfrac{1}{2}\delta_{ij}B^2\right)" />. The force per volume on matter: <InlineMath latex="\mathbf{f} = \nabla\cdot\overleftrightarrow{T} - \partial\mathbf{g}/\partial t" />. For a wave hitting a perfect reflector: the momentum flux (<InlineMath latex="-T_{zz}" /> for a z-traveling wave) <InlineMath latex="= \varepsilon_0E^2/2 + B^2/(2\mu_0) = u" /> (energy density). The rate of momentum transfer per area <InlineMath latex="= 2u\cdot c/c = 2I/c = 2P_{\text{rad}}" />. The factor 2 comes from reversal of momentum upon reflection.</>}>
           Derive the radiation pressure formula P = I/c for an absorbed wave from the Maxwell stress tensor. Explain the factor of 2 for reflection.
         </Problem>
       </PracticeProblems>

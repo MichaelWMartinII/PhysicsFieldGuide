@@ -1,7 +1,7 @@
 import PVDiagramClient from '@/components/sims/PVDiagramClient';
 import {
   Definition, Theorem, WorkedExample, Step,
-  PracticeProblems, Problem, InteractiveProblem, EqNumbered, Figure, Prerequisites, Takeaways, LearningGoals, HistoryNote,
+  PracticeProblems, Problem, InteractiveProblem, EqNumbered, InlineMath, Figure, Prerequisites, Takeaways, LearningGoals, HistoryNote,
   Misconception, ApplicationNote
 } from '@/components/textbook';
 
@@ -95,16 +95,16 @@ export default function LawsPage() {
         For any process in an isolated system, the total entropy either increases or remains
         constant — it never decreases:
         <span style={{ display: 'block', textAlign: 'center', marginTop: '0.5rem', fontStyle: 'italic' }}>
-          ΔS_total ≥ 0
+          <InlineMath latex="\Delta S_{\text{total}} \ge 0" />
         </span>
         Equality holds for reversible (quasi-static) processes. All real processes are irreversible
         and increase the total entropy of the universe.
       </Theorem>
 
       <p>
-        Entropy has a statistical interpretation, given by Boltzmann: S = k_B ln Ω, where Ω is the
+        Entropy has a statistical interpretation, given by Boltzmann: <InlineMath latex="S = k_B \ln \Omega" />, where Ω is the
         number of microscopic configurations (microstates) consistent with the macroscopic state,
-        and k_B = 1.38 × 10⁻²³ J/K. Systems evolve toward states with overwhelmingly more
+        and <InlineMath latex="k_B = 1.38 \times 10^{-23}\ \text{J/K}" />. Systems evolve toward states with overwhelmingly more
         microstates — not because of a mysterious force, but because probability demands it.
       </p>
 
@@ -120,9 +120,9 @@ export default function LawsPage() {
 
       <p>
         A <strong>heat engine</strong> is any device that converts heat into work by operating in a
-        thermodynamic cycle. It absorbs heat Q_h from a hot reservoir at temperature T_h, converts
-        some of it into net work W_net, and rejects the remainder Q_c to a cold reservoir at T_c.
-        By energy conservation: W_net = Q_h − Q_c.
+        thermodynamic cycle. It absorbs heat <InlineMath latex="Q_h" /> from a hot reservoir at temperature <InlineMath latex="T_h" />, converts
+        some of it into net work <InlineMath latex="W_{\text{net}}" />, and rejects the remainder <InlineMath latex="Q_c" /> to a cold reservoir at <InlineMath latex="T_c" />.
+        By energy conservation: <InlineMath latex="W_{\text{net}} = Q_h - Q_c" />.
       </p>
 
       <p>
@@ -150,7 +150,7 @@ export default function LawsPage() {
         in 1824 — decades before the first and second laws were formally stated.
 
       <ApplicationNote title="Why efficiency limits matter for power plants, EVs, and phone batteries">
-        The Carnot efficiency η = 1 − T_c/T_h is the design ceiling for every heat engine ever built. A coal plant operating
+        The Carnot efficiency <InlineMath latex="\eta = 1 - T_c/T_h" /> is the design ceiling for every heat engine ever built. A coal plant operating
         between 600°C (873 K) and 30°C (303 K) ambient has a Carnot limit of 65%; real plants achieve 40–45% because of
         irreversibilities. Your phone battery heats up because lithium-ion cells are not Carnot-efficient — the irreversibility
         dissipates as heat. EV charging is limited similarly: fast charging heats the battery because pushing current through
@@ -165,15 +165,15 @@ export default function LawsPage() {
         isothermal compression, and adiabatic compression.
       </p>
 
-      <Figure number="14.1" caption="The Carnot cycle on a P–V diagram. The shaded area equals the net work output per cycle. Adjust the reservoir temperatures to see how efficiency η = 1 − Tc/Th changes. The dot traces the cycle in real time.">
+      <Figure number="14.1" caption="The Carnot cycle on a P–V diagram. The shaded area equals the net work output per cycle. Adjust the reservoir temperatures to see how efficiency η = 1 − T_c/T_h changes. The dot traces the cycle in real time.">
         <PVDiagramClient />
       </Figure>
 
       <Theorem number="14.2" title="Carnot Efficiency">
         The maximum possible efficiency of any heat engine operating between reservoirs at
-        temperatures T_h and T_c (in kelvin) is the Carnot efficiency:
+        temperatures <InlineMath latex="T_h" /> and <InlineMath latex="T_c" /> (in kelvin) is the Carnot efficiency:
         <span style={{ display: 'block', textAlign: 'center', marginTop: '0.5rem', fontStyle: 'italic' }}>
-          η_Carnot = 1 − T_c / T_h
+          <InlineMath latex="\eta_{\text{Carnot}} = 1 - T_c / T_h" />
         </span>
         No engine can exceed this limit. A real engine always falls short because real processes
         are irreversible — they generate entropy.
@@ -182,7 +182,7 @@ export default function LawsPage() {
       <p>
         This is a profound result. The maximum efficiency depends only on the temperatures of the
         two reservoirs — not on the working substance, the pressure, the volume, or any other
-        detail of the engine. A steam turbine with T_h = 800 K and T_c = 300 K cannot exceed
+        detail of the engine. A steam turbine with <InlineMath latex="T_h = 800\ \text{K}" /> and <InlineMath latex="T_c = 300\ \text{K}" /> cannot exceed
         η = 1 − 300/800 = 62.5%, no matter how well engineered.
       </p>
 
@@ -212,14 +212,14 @@ export default function LawsPage() {
 
       <p>
         A <strong>heat pump</strong> also moves heat from cold to hot, but the desired output is
-        Q_h delivered to the hot space (e.g., heating a building). Its COP is:
+        <InlineMath latex="Q_h" /> delivered to the hot space (e.g., heating a building). Its COP is:
       </p>
 
       <EqNumbered number="14.5" latex="\mathrm{COP}_\mathrm{hp}=\frac{Q_h}{W}=1+\mathrm{COP}_\mathrm{ref}" />
 
       <p>
         The Carnot COP sets the upper bound:
-        COP_ref,max = T_c / (T_h − T_c) and COP_hp,max = T_h / (T_h − T_c).
+        <InlineMath latex="\mathrm{COP}_{\text{ref,max}} = T_c / (T_h - T_c)" /> and <InlineMath latex="\mathrm{COP}_{\text{hp,max}} = T_h / (T_h - T_c)" />.
         Under normal operating conditions, a heat pump can deliver more heat to a building per joule
         of electrical input than direct electrical resistance heating (COP = 1), which is why
         ground-source heat pumps often deliver 3–5 units of heat per unit of electrical energy.
@@ -231,7 +231,7 @@ export default function LawsPage() {
         As the temperature of a system approaches absolute zero (T → 0 K), its entropy approaches
         a minimum value — typically zero for a perfect crystal in its ground state:
         <span style={{ display: 'block', textAlign: 'center', marginTop: '0.5rem', fontStyle: 'italic' }}>
-          lim_(T→0) S = 0
+          <InlineMath latex="\lim_{T \to 0} S = 0" />
         </span>
         A consequence: absolute zero is unattainable by any finite sequence of processes.
       </Definition>
@@ -249,7 +249,7 @@ export default function LawsPage() {
         </p>
         <Step label="Hot reservoir loses heat:">ΔS_h = −Q/T_h = −100/400 = −0.250 J/K</Step>
         <Step label="Cold reservoir gains heat:">ΔS_c = +Q/T_c = +100/200 = +0.500 J/K</Step>
-        <Step label="Total:">ΔS_total = −0.250 + 0.500 = +0.250 J/K {'>'} 0 ✓</Step>
+        <Step label="Total:"><InlineMath latex="\Delta S_{\text{total}}" /> = −0.250 + 0.500 = +0.250 J/K {'>'} 0 ✓</Step>
         <Step label="Lesson:">
           This irreversible process increased the entropy of the universe by 0.25 J/K.
           No process can reverse this — the entropy increase is permanent.
@@ -291,12 +291,12 @@ export default function LawsPage() {
         </InteractiveProblem>
 
         <Problem n={4} difficulty="medium"
-          solution={<>COP_hp = T_h/(T_h−T_c) = 293/(293−263) = 293/30 ≈ 9.8. For 1 kW of electrical input, the heat pump delivers 9.8 kW of heating power. Direct resistance heating delivers only 1 kW per kW of electricity — a factor of ~10 less efficient.</>}>
+          solution={<><InlineMath latex="\mathrm{COP}_{\text{hp}} = T_h/(T_h - T_c)" /> = 293/(293−263) = 293/30 ≈ 9.8. For 1 kW of electrical input, the heat pump delivers 9.8 kW of heating power. Direct resistance heating delivers only 1 kW per kW of electricity — a factor of ~10 less efficient.</>}>
           A heat pump heats a house at 20°C (293 K) by drawing from outdoor air at −10°C (263 K). Calculate the maximum COP and compare to resistance heating.
         </Problem>
 
         <Problem n={5} difficulty="hard"
-          solution={<>W_net = Q_h − Q_c = 500 − 300 = 200 J. Actual η = W/Q_h = 200/500 = 40%. Carnot η = 1 − 300/600 = 50%. Irreversibility = (η_Carnot − η_actual)/η_Carnot = 20%. ΔS_engine = 0 per cycle (state function). ΔS_universe = Q_c/T_c − Q_h/T_h = 300/300 − 500/600 = 1.000 − 0.833 = +0.167 J/K per cycle.</>}>
+          solution={<><InlineMath latex="W_{\text{net}} = Q_h - Q_c" /> = 500 − 300 = 200 J. Actual η = W/Q_h = 200/500 = 40%. Carnot η = 1 − 300/600 = 50%. Irreversibility = <InlineMath latex="(\eta_{\text{Carnot}} - \eta_{\text{actual}})/\eta_{\text{Carnot}}" /> = 20%. <InlineMath latex="\Delta S_{\text{engine}} = 0" /> per cycle (state function). <InlineMath latex="\Delta S_{\text{universe}} = Q_c/T_c - Q_h/T_h" /> = 300/300 − 500/600 = 1.000 − 0.833 = +0.167 J/K per cycle.</>}>
           A heat engine absorbs Q_h = 500 J from a 600 K reservoir and rejects Q_c = 300 J to a 300 K reservoir per cycle. Find: (a) actual efficiency, (b) Carnot efficiency, (c) entropy generated per cycle.
         </Problem>
       </PracticeProblems>
@@ -306,7 +306,7 @@ export default function LawsPage() {
         'First law: ΔU = Q − W. Energy is conserved; heat and work are equivalent.',
         'Second law: entropy of an isolated system never decreases. Heat flows spontaneously only from hot to cold.',
         'Entropy S = k_B ln Ω connects macroscopic thermodynamics to microscopic probability.',
-        'Carnot efficiency η = 1 − Tc/Th is the maximum possible for any heat engine — set by the second law alone.',
+        'Carnot efficiency η = 1 − T_c/T_h is the maximum possible for any heat engine — set by the second law alone.',
         'Third law: S → 0 as T → 0 K, making absolute zero unattainable by any finite process.',
       ]} />
     </div>

@@ -2,7 +2,7 @@ import FourierSimClient from '@/components/sims/FourierSimClient';
 import {
   Definition, Theorem, WorkedExample, Step,
   PracticeProblems, Problem, InteractiveProblem, EqNumbered, Figure, Prerequisites, Takeaways, LearningGoals, HistoryNote,
-  ApplicationNote
+  ApplicationNote, InlineMath
 } from '@/components/textbook';
 
 export default function FourierPage() {
@@ -49,7 +49,7 @@ export default function FourierPage() {
 
       <p>
         The coefficients aₙ and bₙ are found by exploiting the <strong>orthogonality</strong> of
-        sines and cosines: ∫(−L to L) sin(mπx/L) sin(nπx/L) dx = 0 unless m = n.
+        sines and cosines: <InlineMath latex="\int_{-L}^{L} \sin(m\pi x/L)\,\sin(n\pi x/L)\,dx = 0" /> unless m = n.
         Multiplying both sides by the appropriate trig function and integrating isolates each coefficient:
       </p>
 
@@ -58,8 +58,8 @@ export default function FourierPage() {
       <WorkedExample number="F.1" title="Fourier Series of a Square Wave">
         <p>f(x) = +1 for 0 &lt; x &lt; L, −1 for −L &lt; x &lt; 0. Find the Fourier coefficients.</p>
         <Step label="Symmetry:">f is odd → all aₙ = 0 (cosine terms vanish)</Step>
-        <Step label="bₙ:">bₙ = (1/L)∫(−L to L) f(x)sin(nπx/L)dx = (2/L)∫(0 to L) sin(nπx/L)dx</Step>
-        <Step label="Integrate:">= (2/L)[−L/(nπ) cos(nπx/L)]₀^L = (2/nπ)(1 − cos nπ)</Step>
+        <Step label="bₙ:"><InlineMath latex="b_n = \frac{1}{L}\int_{-L}^{L} f(x)\sin(n\pi x/L)\,dx = \frac{2}{L}\int_{0}^{L} \sin(n\pi x/L)\,dx" /></Step>
+        <Step label="Integrate:"><InlineMath latex="= \frac{2}{L}\left[-\frac{L}{n\pi}\cos(n\pi x/L)\right]_0^L = \frac{2}{n\pi}(1 - \cos n\pi)" /></Step>
         <Step label="Result:">bₙ = 4/(nπ) for odd n, 0 for even n</Step>
         <Step label="Series:">f(x) = (4/π)[sin(πx/L) + sin(3πx/L)/3 + sin(5πx/L)/5 + …]</Step>
       </WorkedExample>
@@ -105,7 +105,7 @@ export default function FourierPage() {
       <Theorem number="F.1" title="Parseval's Theorem">
         The total energy is the same whether computed in position space or frequency space:
         <span style={{ display: 'block', textAlign: 'center', marginTop: '0.5rem', fontStyle: 'italic' }}>
-          ∫₋∞^∞ |f(x)|² dx = (1/2π) ∫₋∞^∞ |F̂(k)|² dk
+          <InlineMath latex="\int_{-\infty}^{\infty} |f(x)|^2\,dx = \frac{1}{2\pi}\int_{-\infty}^{\infty} |\hat F(k)|^2\,dk" />
         </span>
         This means no information is lost in the transform — it is a unitary operation.
       </Theorem>
@@ -118,7 +118,7 @@ export default function FourierPage() {
 
       <p>
         <strong>Quantum mechanics.</strong> The position wavefunction ψ(x) and momentum wavefunction
-        φ(p) are Fourier transforms of each other: φ(p) = (1/√2πℏ)∫ψ(x)e^(−ipx/ℏ)dx.
+        φ(p) are Fourier transforms of each other: <InlineMath latex="\phi(p) = \frac{1}{\sqrt{2\pi\hbar}}\int \psi(x)\,e^{-ipx/\hbar}\,dx" />.
         The Heisenberg uncertainty relation Δx·Δp ≥ ℏ/2 is a direct consequence of the
         Fourier uncertainty principle: a narrow ψ(x) requires a broad φ(p) and vice versa.
       </p>
@@ -126,7 +126,7 @@ export default function FourierPage() {
       <p>
         <strong>Diffraction.</strong> The far-field diffraction pattern of an aperture is exactly
         the Fourier transform of the aperture&apos;s transmission function. The single-slit sinc² pattern
-        from Chapter 18 is the squared magnitude of the Fourier transform of a rectangular function.
+        from Chapter 20 is the squared magnitude of the Fourier transform of a rectangular function.
       </p>
 
       <p>
@@ -156,19 +156,19 @@ export default function FourierPage() {
       <PracticeProblems section="F.1–F.4 Fourier Analysis">
         <InteractiveProblem n={0} difficulty="easy"
           answer={0.577} unit="" tolerance={0.02}
-          hints={['RMS² = (1/2π)∫_{-π}^{π} (x/π)² dx. Compute the integral then take the square root.']}
+          hints={['RMS² = (1/2π)∫(x/π)² dx, integrated from −π to π. Compute the integral then take the square root.']}
           problemText="For the sawtooth wave f(x) = x/π on −π < x < π, compute its RMS value. (RMS² = (1/2π)∫f(x)²dx.)"
-          solution={<>(1/2π)∫(−π to π)(x/π)²dx = (1/2π)(1/π²)(2π³/3) = 1/3. RMS = √(1/3) = <strong>0.577</strong>. This equals what Parseval&apos;s theorem gives from summing |bₙ|² of the Fourier series.</>}>
+          solution={<><InlineMath latex="\frac{1}{2\pi}\int_{-\pi}^{\pi}\left(\frac{x}{\pi}\right)^2 dx = \frac{1}{2\pi}\cdot\frac{1}{\pi^2}\cdot\frac{2\pi^3}{3} = \frac{1}{3}" />. RMS = √(1/3) = <strong>0.577</strong>. This equals what Parseval&apos;s theorem gives from summing |bₙ|² of the Fourier series.</>}>
           Compute the RMS value of the sawtooth wave f(x) = x/π on −π &lt; x &lt; π using the definition (1/2π)∫f(x)²dx, and verify using Parseval&apos;s theorem.
         </InteractiveProblem>
 
         <Problem n={1} difficulty="easy"
-          solution={<>Sawtooth wave f(x) = x/π for −π &lt; x &lt; π. It is an odd function, so aₙ=0. bₙ = (1/π)∫₋π^π(x/π)sin(nx)dx = (2/π)∫₀^π (x/π)sin(nx)dx. Integration by parts: = (2/π²)[(−x cos(nx)/n + sin(nx)/n²)]₀^π = (2/π²)(−π cos(nπ)/n) = −(2/nπ)cos(nπ) = (2/(nπ))(−1)^(n+1). f(x) = (2/π)[sin x − sin(2x)/2 + sin(3x)/3 − …]</>}>
+          solution={<>Sawtooth wave f(x) = x/π for −π &lt; x &lt; π. It is an odd function, so aₙ=0. <InlineMath latex="b_n = \frac{1}{\pi}\int_{-\pi}^{\pi}\frac{x}{\pi}\sin(nx)\,dx = \frac{2}{\pi}\int_0^{\pi}\frac{x}{\pi}\sin(nx)\,dx" />. Integration by parts: <InlineMath latex="= \frac{2}{\pi^2}\left[-\frac{x\cos(nx)}{n} + \frac{\sin(nx)}{n^2}\right]_0^{\pi} = \frac{2}{\pi^2}\left(-\frac{\pi\cos(n\pi)}{n}\right) = -\frac{2}{n\pi}\cos(n\pi) = \frac{2}{n\pi}(-1)^{n+1}" />. f(x) = (2/π)[sin x − sin(2x)/2 + sin(3x)/3 − …]</>}>
           Find the Fourier sine series of f(x) = x/π on −π &lt; x &lt; π (the sawtooth wave).
         </Problem>
 
         <Problem n={2} difficulty="medium"
-          solution={<>The Fourier transform of f(x) = e^(−a|x|) (a &gt; 0): F̂(k) = ∫₋∞^∞ e^(−a|x|)e^(−ikx)dx = ∫₋∞^0 e^(ax)e^(−ikx)dx + ∫₀^∞ e^(−ax)e^(−ikx)dx = 1/(a−ik) + 1/(a+ik) = 2a/(a²+k²). This is a Lorentzian. Wider in x (small a) → narrower in k (sharp peak). Narrower in x (large a) → broader in k. This is Fourier uncertainty directly.</>}>
+          solution={<>The Fourier transform of f(x) = e^(−a|x|) (a &gt; 0): <InlineMath latex="\hat F(k) = \int_{-\infty}^{\infty} e^{-a|x|}e^{-ikx}\,dx = \int_{-\infty}^{0} e^{ax}e^{-ikx}\,dx + \int_{0}^{\infty} e^{-ax}e^{-ikx}\,dx = \frac{1}{a-ik} + \frac{1}{a+ik} = \frac{2a}{a^2+k^2}" />. This is a Lorentzian. Wider in x (small a) → narrower in k (sharp peak). Narrower in x (large a) → broader in k. This is Fourier uncertainty directly.</>}>
           Find the Fourier transform F̂(k) of f(x) = e^(−a|x|) for a {'>'} 0. How does the width of f in x relate to the width of F̂ in k?
         </Problem>
 

@@ -100,7 +100,7 @@ export default function WaveOpticsPage() {
         the slit acts as a secondary wave source (Huygens&apos; principle). The intensity pattern is:
       </p>
 
-      <EqNumbered number="20.1">I(θ) = I₀ [sin(β/2) / (β/2)]² &nbsp;&nbsp; where β = (2πa/λ) sin θ</EqNumbered>
+      <EqNumbered number="20.1" latex="I(\theta) = I_0\left[\frac{\sin(\beta/2)}{\beta/2}\right]^2 \quad \text{where } \beta = \frac{2\pi a}{\lambda}\sin\theta" />
 
       <p>
         This sinc² function gives a central maximum flanked by minima at a sin θ = mλ
@@ -173,7 +173,7 @@ export default function WaveOpticsPage() {
           answer={2.83} unit="mm" tolerance={0.02}
           hints={['Δy = λL/d. Keep units consistent — convert nm and mm to meters.']}
           problemText="λ=589 nm, d=0.25 mm, L=1.2 m. Find fringe spacing Δy (mm)."
-          solution={<>Δy = (589e-9 × 1.2)/(0.25e-3) = <strong>2.83 mm</strong></>}>
+          solution={<>Δy = (589×10⁻⁹ × 1.2)/(0.25×10⁻³) = <strong>2.83 mm</strong></>}>
           Light of 589 nm passes through two slits 0.25 mm apart, screen at 1.2 m. Find the fringe spacing.
         </InteractiveProblem>
 
@@ -181,13 +181,13 @@ export default function WaveOpticsPage() {
           answer={3.35e-4} unit="rad" tolerance={0.05}
           hints={['θ_min = 1.22λ/D. Diameter = 2 mm = 0.002 m.']}
           problemText="Pupil D=2 mm, λ=550 nm. Find angular resolution θ_min (rad)."
-          solution={<>θ_min = 1.22×550e-9/0.002 = <strong>3.35×10⁻⁴ rad</strong></>}>
+          solution={<>θ_min = 1.22×550×10⁻⁹/0.002 = <strong>3.35×10⁻⁴ rad</strong></>}>
           Find the diffraction-limited angular resolution of a 2 mm pupil at λ = 550 nm.
         </InteractiveProblem>
 
         <InteractiveProblem n={3} difficulty="medium"
           answer={145} unit="nm" tolerance={0.02}
-          hints={['Minimum thickness for first-order constructive: 2nt = λ/2, so t = λ/(4n).']}
+          hints={['Minimum thickness for first-order destructive reflection: 2nt = λ/2, so t = λ/(4n).']}
           problemText="Anti-reflection coating, n=1.38, λ=800 nm. Find minimum thickness t (nm)."
           solution={<>t = λ/(4n) = 800/(4×1.38) = 800/5.52 = <strong>145 nm</strong></>}>
           An anti-reflection coating (n = 1.38) is applied for λ = 800 nm. Find the minimum thickness for destructive reflection.
@@ -199,7 +199,7 @@ export default function WaveOpticsPage() {
         </Problem>
 
         <Problem n={5} difficulty="hard"
-          solution={<>The Hubble Space Telescope (D = 2.4 m) achieves θ_min = 1.22×550e-9/2.4 = 2.8×10⁻⁷ rad ≈ 0.05 arcseconds. The James Webb (D = 6.5 m, λ∼2μm): θ_min = 1.22×2e-6/6.5 = 3.75×10⁻⁷ rad, worse per-pixel in IR but vastly more light-gathering. The ELT (39 m, adaptive optics): θ_min ≈ 4×10⁻⁹ rad at 500nm = 0.8 milliarcseconds — atmosphere is corrected, diffraction limit reached. Compare: 1 arcsecond = 4.85×10⁻⁶ rad.</>}>
+          solution={<>The Hubble Space Telescope (D = 2.4 m) achieves θ_min = 1.22×550×10⁻⁹/2.4 = 2.8×10⁻⁷ rad ≈ 0.06 arcseconds. The James Webb (D = 6.5 m, λ∼2μm): θ_min = 1.22×2×10⁻⁶/6.5 = 3.75×10⁻⁷ rad, worse per-pixel in IR but vastly more light-gathering. The ELT (39 m, adaptive optics): θ_min ≈ 1.6×10⁻⁸ rad at 500nm ≈ 3 milliarcseconds — atmosphere is corrected, diffraction limit reached. Compare: 1 arcsecond = 4.85×10⁻⁶ rad.</>}>
           Calculate the diffraction-limited angular resolution of (a) the Hubble Space Telescope (D = 2.4 m, λ = 550 nm), (b) the James Webb Space Telescope (D = 6.5 m, λ = 2 μm), (c) the ELT ground telescope (D = 39 m). Express in arcseconds.
         </Problem>
       </PracticeProblems>

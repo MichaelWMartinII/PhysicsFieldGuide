@@ -1,4 +1,5 @@
 import Collision1D from '@/components/sims/Collision1D';
+import { InlineMath } from '@/components/textbook/Equation';
 import {
   Definition, Theorem, WorkedExample, Step,
   PracticeProblems, Problem, InteractiveProblem, EqNumbered, Figure, Prerequisites, Takeaways, LearningGoals, HistoryNote
@@ -50,13 +51,13 @@ export default function MomentumPage() {
           J = Δp = ∫F dt = F_avg · Δt
         </span>
         This is why airbags save lives: same Δp (car decelerates to rest either way), but larger Δt →
-        smaller F_avg → survivable force.
+        smaller <InlineMath latex="F_{\text{avg}}" /> → survivable force.
       </Definition>
 
       <Theorem number="5.1" title="Conservation of Momentum">
         For an isolated system (no net external forces), total linear momentum is conserved:
         <span style={{ display: 'block', margin: '0.5rem 0 0.25rem 1rem', fontStyle: 'italic' }}>
-          p_total = Σmᵢvᵢ = const. &nbsp;&nbsp;&nbsp; (when F_external = 0)
+          <InlineMath latex="p_{\text{total}} = \sum m_i v_i = \text{const.}" /> &nbsp;&nbsp;&nbsp; (when <InlineMath latex="F_{\text{external}} = 0" />)
         </span>
         This follows directly from Newton&apos;s third law: internal forces come in equal-and-opposite pairs
         and cancel in the total. Conservation of momentum holds even when energy is not conserved.
@@ -98,7 +99,7 @@ export default function MomentumPage() {
       <WorkedExample number="5.2" title="Ballistic Pendulum">
         <p>A 10 g bullet embeds in a 2 kg pendulum bob at rest. The pendulum rises 8 cm. Find the bullet&apos;s initial speed.</p>
         <Step label="Phase 2 (energy):">½(m+M)v_f² = (m+M)gh → v_f = √(2gh) = √(2×9.81×0.08) = 1.253 m/s</Step>
-        <Step label="Phase 1 (momentum):">mv_bullet = (m+M)v_f → v_bullet = (m+M)v_f/m = (2.01)(1.253)/0.01 = <strong>251.9 m/s</strong></Step>
+        <Step label="Phase 1 (momentum):"><InlineMath latex="mv_{\text{bullet}} = (m+M)v_f \to v_{\text{bullet}} = (m+M)v_f/m = (2.01)(1.253)/0.01" /> = <strong>251.9 m/s</strong></Step>
         <Step label="Note:">Momentum conserved in the collision (Phase 1); energy conserved in the swing (Phase 2). You can&apos;t use energy conservation across the collision itself — the impact is inelastic.</Step>
       </WorkedExample>
 
@@ -134,12 +135,12 @@ export default function MomentumPage() {
         </InteractiveProblem>
 
         <Problem n={3} difficulty="medium"
-          solution={<>Perfectly inelastic: m_combined = 1200+2000 = 3200 kg. p_before = 1200×20+2000×0 = 24,000 kg·m/s. v_f = p/m = 24000/3200 = 7.5 m/s. KE_before = ½(1200)(400) = 240,000 J. KE_after = ½(3200)(56.25) = 90,000 J. KE lost = <strong>150,000 J</strong> (62.5% lost to deformation).</>}>
+          solution={<>Perfectly inelastic: <InlineMath latex="m_{\text{combined}} = 1200 + 2000 = 3200\ \text{kg}" />. <InlineMath latex="p_{\text{before}} = 1200\times 20 + 2000\times 0 = 24{,}000\ \text{kg·m/s}" />. <InlineMath latex="v_f = p/m = 24000/3200 = 7.5\ \text{m/s}" />. <InlineMath latex="KE_{\text{before}} = \tfrac{1}{2}(1200)(400) = 240{,}000\ \text{J}" />. <InlineMath latex="KE_{\text{after}} = \tfrac{1}{2}(3200)(56.25) = 90{,}000\ \text{J}" />. KE lost = <strong>150,000 J</strong> (62.5% lost to deformation).</>}>
           A 1200 kg car traveling 20 m/s rear-ends a stationary 2000 kg truck. They stick together. Find the final speed and the kinetic energy lost.
         </Problem>
 
         <Problem n={4} difficulty="hard"
-          solution={<>For e = 0 (perfectly inelastic): v_f = (m₁v₁+m₂v₂)/(m₁+m₂) = m₁v₁/(m₁+m₂) (if v₂=0). KE_f/KE_i = (½(m₁+m₂)v_f²)/(½m₁v₁²) = m₁/(m₁+m₂). Fraction LOST = 1 − m₁/(m₁+m₂) = m₂/(m₁+m₂). For m₁ = m₂: fraction lost = 1/2 = 50%. For m₁ ≫ m₂: fraction lost → 0 (heavy bullet barely slows). For m₁ ≪ m₂: fraction lost → 1 (light bullet transfers almost all KE).</>}>
+          solution={<>For e = 0 (perfectly inelastic): v_f = (m₁v₁+m₂v₂)/(m₁+m₂) = m₁v₁/(m₁+m₂) (if v₂=0). KE_f/KE_i = (½(m₁+m₂)v_f²)/(½m₁v₁²) = m₁/(m₁+m₂). Fraction LOST = 1 − m₁/(m₁+m₂) = m₂/(m₁+m₂). For m₁ = m₂: fraction lost = 1/2 = 50%. For m₁ ≫ m₂: fraction lost → 0 (heavy bullet barely slows). For m₁ ≪ m₂: fraction lost → 1 (almost all of the light bullet&apos;s KE is dissipated).</>}>
           Derive a general formula for the fraction of kinetic energy lost in a perfectly inelastic collision between mass m₁ (moving) and m₂ (stationary). Evaluate for equal masses and for m₁ ≪ m₂.
         </Problem>
       </PracticeProblems>

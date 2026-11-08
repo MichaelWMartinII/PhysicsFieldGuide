@@ -1,6 +1,6 @@
 import {
   Definition, Theorem, WorkedExample, Step,
-  PracticeProblems, Problem, InteractiveProblem, EqNumbered, Prerequisites, Takeaways, LearningGoals
+  PracticeProblems, Problem, InteractiveProblem, EqNumbered, InlineMath, Prerequisites, Takeaways, LearningGoals
 } from '@/components/textbook';
 
 export default function VariationalPage() {
@@ -28,15 +28,15 @@ export default function VariationalPage() {
       <h2>VM.1 The Euler-Lagrange Equation</h2>
 
       <p>
-        A <strong>functional</strong> maps functions to numbers: J[y] = ∫(a to b) F(x, y, y&apos;) dx.
+        A <strong>functional</strong> maps functions to numbers: <InlineMath latex="J[y] = \int_a^b F(x, y, y')\, dx" />.
         The <strong>calculus of variations</strong> finds functions y(x) that make J stationary.
       </p>
 
       <Theorem number="VM.1" title="Euler-Lagrange Equation">
-        A necessary condition for y(x) to extremize J[y] = ∫(a to b) F(x, y, y&apos;) dx
+        A necessary condition for y(x) to extremize <InlineMath latex="J[y] = \int_a^b F(x, y, y')\, dx" />
         (with y fixed at endpoints) is:
         <span style={{ display: 'block', textAlign: 'center', marginTop: '0.5rem', fontStyle: 'italic' }}>
-          ∂F/∂y − d/dx (∂F/∂y&apos;) = 0
+          <InlineMath latex="\dfrac{\partial F}{\partial y} - \dfrac{d}{dx}\left(\dfrac{\partial F}{\partial y'}\right) = 0" />
         </span>
         Derivation: let y → y + εη where η(a) = η(b) = 0. Then δJ = ε ∫[∂F/∂y η + ∂F/∂y&apos; η&apos;] dx
         = ε ∫[∂F/∂y − d/dx(∂F/∂y&apos;)] η dx = 0 for all η → E-L equation.
@@ -55,7 +55,7 @@ export default function VariationalPage() {
           Find the curve of fastest descent between two points A = (0,0) and B = (x₁, y₁)
           under gravity (the brachistochrone).
         </p>
-        <Step label="Time functional:">dt = ds/v where v = √(2gy) (energy conservation from rest). ds = √(1+y&apos;²) dx. T = ∫(0 to x₁) √((1+y&apos;²)/(2gy)) dx. Minimize T.</Step>
+        <Step label="Time functional:">dt = ds/v where v = √(2gy) (energy conservation from rest). ds = √(1+y&apos;²) dx. <InlineMath latex="T = \int_0^{x_1} \sqrt{\dfrac{1 + y'^2}{2gy}}\, dx" />. Minimize T.</Step>
         <Step label="F has no x:">Use Beltrami: F − y&apos; ∂F/∂y&apos; = const. F = √((1+y&apos;²)/(2gy)). ∂F/∂y&apos; = y&apos;/√(2gy(1+y&apos;²)). Beltrami: 1/√(2gy(1+y&apos;²)) = 1/√(2g c²) (constant).</Step>
         <Step label="Simplify:">y(1+y&apos;²) = c² = const. Parametric solution: x = c²(θ − sinθ)/2, y = c²(1 − cosθ)/2. This is a cycloid — traced by a point on the rim of a rolling circle of radius R = c²/2.</Step>
         <Step label="Result:">The fastest path is NOT the straight line, NOT the circular arc, but the cycloid. Johann Bernoulli (1696) — first solved by Newton, Leibniz, l'Hôpital, and Bernoulli using different methods. The brachistochrone is also the tautochrone (period independent of starting point).</Step>
@@ -67,7 +67,7 @@ export default function VariationalPage() {
         For a functional F[ρ] = ∫ f(r, ρ(r), ∇ρ(r)) d³r, the functional derivative is:
       </p>
 
-      <EqNumbered number="VM.1">δF/δρ(r) = ∂f/∂ρ − ∇·(∂f/∂(∇ρ)) &nbsp;&nbsp;&nbsp; (functional derivative)</EqNumbered>
+      <EqNumbered number="VM.1" latex="\frac{\delta F}{\delta \rho(\mathbf{r})} = \frac{\partial f}{\partial \rho} - \nabla \cdot \left(\frac{\partial f}{\partial (\nabla \rho)}\right) \qquad \text{(functional derivative)}" />
 
       <p>
         This is the continuum analog of a partial derivative. The condition δF/δρ = 0 gives
@@ -92,14 +92,14 @@ export default function VariationalPage() {
 
       <p>
         For the variational principle in quantum mechanics — approximate ψ by trial function
-        ψ_trial(α₁, α₂, ...):
+        <InlineMath latex="\psi_{\text{trial}}(\alpha_1, \alpha_2, \ldots)" />:
       </p>
 
-      <EqNumbered number="VM.2">E_trial = ⟨ψ_trial|H|ψ_trial⟩/⟨ψ_trial|ψ_trial⟩ ≥ E_0 &nbsp;&nbsp;&nbsp; (variational bound)</EqNumbered>
+      <EqNumbered number="VM.2" latex="E_{\text{trial}} = \frac{\langle \psi_{\text{trial}} | H | \psi_{\text{trial}} \rangle}{\langle \psi_{\text{trial}} | \psi_{\text{trial}} \rangle} \ge E_0 \qquad \text{(variational bound)}" />
 
       <p>
-        E_trial is always an upper bound on the ground state energy. The best trial function
-        minimizes E_trial. Gaussian basis sets in quantum chemistry (Pople 6-31G* etc.) use
+        <InlineMath latex="E_{\text{trial}}" /> is always an upper bound on the ground state energy. The best trial function
+        minimizes <InlineMath latex="E_{\text{trial}}" />. Gaussian basis sets in quantum chemistry (Pople 6-31G* etc.) use
         the Rayleigh-Ritz method to compute electronic structure. The finite element method (FEM)
         for PDEs is another application: divide space into elements, minimize energy.
       </p>
@@ -115,7 +115,7 @@ export default function VariationalPage() {
 
       <p>
         <strong>Isoperimetric problem</strong>: maximize the enclosed area for a fixed perimeter
-        → solution is a circle (proven by Euler). Equivalent: for a soap bubble, surface tension
+        → solution is a circle (proven rigorously by Weierstrass). Equivalent: for a soap bubble, surface tension
         minimizes area for fixed volume → spherical shape.
       </p>
 
@@ -132,10 +132,10 @@ export default function VariationalPage() {
         Feynman&apos;s path integral quantizes a system by summing over all paths:
       </p>
 
-      <EqNumbered number="VM.3">K(x_f, t_f; x_i, t_i) = ∫ Dx(t) e^(iS[x]/(ℏ)) &nbsp;&nbsp;&nbsp; (Feynman path integral)</EqNumbered>
+      <EqNumbered number="VM.3" latex="K(x_f, t_f; x_i, t_i) = \int \mathcal{D}x(t)\, e^{iS[x]/\hbar} \qquad \text{(Feynman path integral)}" />
 
       <p>
-        where S[x] = ∫(t_i to t_f) L(x, ẋ) dt is the action. The classical path (δS = 0 →
+        where <InlineMath latex="S[x] = \int_{t_i}^{t_f} L(x, \dot{x})\, dt" /> is the action. The classical path (δS = 0 →
         E-L equations) dominates in the limit ℏ → 0 (stationary phase). Quantum fluctuations
         around the classical path give O(ℏ) corrections — the WKB approximation, loop expansion
         in QFT.
@@ -143,7 +143,7 @@ export default function VariationalPage() {
 
       <p>
         The <strong>stationary phase approximation</strong>:
-        ∫ e^(iS[x]/ℏ) Dx ≈ e^(iS_cl/ℏ) × (det(−δ²S/δx²))^(−1/2) — functional determinant.
+        <InlineMath latex="\int e^{iS[x]/\hbar}\, \mathcal{D}x \approx e^{iS_{\text{cl}}/\hbar} \times \left[\det\left(-\frac{\delta^2 S}{\delta x^2}\right)\right]^{-1/2}" /> — functional determinant.
         This connects semiclassical mechanics (WKB) to one-loop quantum corrections.
       </p>
 
@@ -176,7 +176,7 @@ export default function VariationalPage() {
         </Problem>
 
         <Problem n={4} difficulty="hard"
-          solution={<>One-loop path integral for SHO: Z = ∫Dx e^(-S_E[x]/ℏ) (Euclidean). Classical action: S_E_cl = ½mω² ∫x_cl²dτ (classical trajectory from x_i to x_f). Fluctuations: x = x_cl + y, y(0) = y(β)= 0. S_E[x] = S_E_cl + ½∫y(−m∂²/∂τ² + mω²)y dτ + (cubic...). Quadratic fluctuation: det(−∂²_τ + ω²). Eigenvalues of −∂²/∂τ on [0,β]: λ_n = (2πn/β)² + ω² for n=0,±1,±2,... Functional determinant: det(−∂²+ω²) = Π_n (ω_n² + ω²) where ω_n = 2πn/β. Regulated ratio: det/det_free = sinh(ωβ/2)/(ωβ/2). Partition function: Z = (2 sinh(ωβ/2))^(-1) = e^(-ωβ/2) × 1/(1-e^(-ωβ)) = Σ_n e^(-β ω(n+1/2)) ✓. This reproduces the exact result E_n = ω(n+1/2) (ℏ=1). The functional determinant method computes quantum corrections exactly for quadratic actions.</>}>
+          solution={<>One-loop path integral for SHO: Z = ∫Dx e^(-S_E[x]/ℏ) (Euclidean). Classical action: <InlineMath latex="S_{E,\text{cl}} = \tfrac{1}{2} m \bigl[x_{\text{cl}}\, \dot{x}_{\text{cl}}\bigr]_0^{\beta}" /> (classical trajectory from x_i to x_f). Fluctuations: x = x_cl + y, y(0) = y(β)= 0. <InlineMath latex="S_E[x] = S_{E,\text{cl}} + \tfrac{1}{2}\int y \left(-m\,\partial_\tau^2 + m\omega^2\right) y\, d\tau" /> + (cubic...). Quadratic fluctuation: det(−∂²_τ + ω²). Eigenvalues of −∂²/∂τ² on [0,β]: λ_n = (2πn/β)² + ω² for n=0,±1,±2,... Functional determinant: det(−∂²+ω²) = Π_n (ω_n² + ω²) where ω_n = 2πn/β. Regulated ratio: <InlineMath latex="\det / \det_{\text{free}}" /> = sinh(ωβ/2)/(ωβ/2). Partition function: Z = (2 sinh(ωβ/2))^(-1) = e^(-ωβ/2) × 1/(1-e^(-ωβ)) = Σ_n e^(-β ω(n+1/2)) ✓. This reproduces the exact result E_n = ω(n+1/2) (ℏ=1). The functional determinant method computes quantum corrections exactly for quadratic actions.</>}>
           Compute the one-loop path integral for the harmonic oscillator in Euclidean time to find the partition function Z = Tr e^(-βH). Show the functional determinant gives the correct energy levels.
         </Problem>
       </PracticeProblems>

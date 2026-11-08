@@ -1,7 +1,7 @@
 import HydrogenSpectrumClient from '@/components/sims/HydrogenSpectrumClient';
 import {
   Definition, WorkedExample, Step,
-  PracticeProblems, Problem, InteractiveProblem, EqNumbered, Figure, Prerequisites, Takeaways, LearningGoals, HistoryNote
+  PracticeProblems, Problem, InteractiveProblem, EqNumbered, Figure, Prerequisites, Takeaways, LearningGoals, HistoryNote, InlineMath
 } from '@/components/textbook';
 
 export default function AtomicPage() {
@@ -45,9 +45,9 @@ export default function AtomicPage() {
         yields discrete radii and energies:
       </p>
 
-      <EqNumbered number="23.1">r_n = n² a₀ &nbsp;&nbsp;&nbsp; (a₀ = 0.0529 nm = Bohr radius)</EqNumbered>
+      <EqNumbered number="23.1" latex="r_n = n^2 a_0 \qquad (a_0 = 0.0529\ \text{nm} = \text{Bohr radius})" />
 
-      <EqNumbered number="23.2">E_n = −13.6 eV / n²</EqNumbered>
+      <EqNumbered number="23.2" latex="E_n = -\frac{13.6\ \text{eV}}{n^2}" />
 
       <p>
         The ground state (n = 1) has E₁ = −13.6 eV. The minus sign means the electron is
@@ -102,7 +102,7 @@ export default function AtomicPage() {
 
       <p>
         The orbital shapes are striking: s orbitals are spherical, p orbitals have two lobes
-        along an axis (p_x, p_y, p_z), d orbitals have four lobes. The <strong>probability density</strong>
+        along an axis (<InlineMath latex="p_x, p_y, p_z" />), d orbitals have four lobes. The <strong>probability density</strong>
         |ψ|² gives the region of space where the electron is likely to be found — not a definite
         orbit but a cloud.
       </p>
@@ -138,9 +138,9 @@ export default function AtomicPage() {
         In 1922, Stern and Gerlach sent silver atoms through an inhomogeneous magnetic field
         and observed the beam split into exactly two components — not a continuous smear.
         This demonstrated that the angular momentum of the valence electron is quantized with
-        only two possible projections: m_s = +½ and m_s = −½. This intrinsic angular
+        only two possible projections: <InlineMath latex="m_s = +\tfrac{1}{2}" /> and <InlineMath latex="m_s = -\tfrac{1}{2}" />. This intrinsic angular
         momentum — <strong>spin</strong> — has no classical analogue. Its magnitude is
-        |S| = ℏ√(s(s+1)) = ℏ(√3)/2 for spin-½ particles.
+        <InlineMath latex="|\mathbf{S}| = \hbar\sqrt{s(s+1)} = \tfrac{\sqrt{3}}{2}\hbar" /> for spin-½ particles.
       </p>
 
       <WorkedExample number="23.2" title="Electron Configuration of Iron">

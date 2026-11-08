@@ -1,6 +1,6 @@
 import {
   Definition, Theorem, WorkedExample, Step,
-  PracticeProblems, Problem, InteractiveProblem, EqNumbered, Prerequisites, Takeaways, LearningGoals
+  PracticeProblems, Problem, InteractiveProblem, EqNumbered, InlineMath, Prerequisites, Takeaways, LearningGoals
 } from '@/components/textbook';
 
 export default function ComplexAnalysisPage() {
@@ -43,8 +43,8 @@ export default function ComplexAnalysisPage() {
 
       <p>
         Key analytic functions and their singularities:
-        e^z (entire), sin z (entire), 1/z (simple pole at z=0), ln z (branch cut),
-        z^(1/2) (branch point), 1/(z²+1) (poles at ±i).
+        <InlineMath latex="e^z" /> (entire), sin z (entire), 1/z (simple pole at z=0), ln z (branch cut),
+        <InlineMath latex="z^{1/2}" /> (branch point), 1/(z²+1) (poles at ±i).
       </p>
 
       <h2>CA.2 The Residue Theorem</h2>
@@ -53,10 +53,10 @@ export default function ComplexAnalysisPage() {
         For a function f(z) analytic inside and on a closed contour C except at isolated
         singularities z₁, z₂, ..., zₙ:
         <span style={{ display: 'block', textAlign: 'center', marginTop: '0.5rem', fontStyle: 'italic' }}>
-          ∮_C f(z) dz = 2πi Σₖ Res(f, zₖ)
+          <InlineMath latex="\oint_C f(z)\,dz = 2\pi i \sum_k \operatorname{Res}(f, z_k)" />
         </span>
-        where the residue at a simple pole z₀ is Res(f, z₀) = lim(z→z₀) (z−z₀)f(z).
-        For a pole of order n: Res(f, z₀) = (1/(n−1)!) lim(z→z₀) d^(n−1)/dz^(n−1) [(z−z₀)ⁿf(z)].
+        where the residue at a simple pole z₀ is <InlineMath latex="\operatorname{Res}(f, z_0) = \lim_{z \to z_0} (z - z_0) f(z)" />.
+        For a pole of order n: <InlineMath latex="\operatorname{Res}(f, z_0) = \frac{1}{(n-1)!} \lim_{z \to z_0} \frac{d^{n-1}}{dz^{n-1}} \left[(z - z_0)^n f(z)\right]" />.
       </Theorem>
 
       <p>
@@ -66,14 +66,14 @@ export default function ComplexAnalysisPage() {
 
       <WorkedExample number="CA.1" title="Evaluating a Real Integral by Contour Integration">
         <p>
-          Evaluate I = ∫(−∞ to ∞) dx/(1+x⁴).
+          Evaluate <InlineMath latex="I = \int_{-\infty}^{\infty} \frac{dx}{1+x^4}" />.
         </p>
         <Step label="Poles of 1/(1+z⁴):">z⁴ = −1 = e^(iπ) → z = e^(iπ/4), e^(i3π/4), e^(i5π/4), e^(i7π/4). Upper half-plane poles: z₁ = e^(iπ/4) = (1+i)/√2, z₂ = e^(i3π/4) = (−1+i)/√2.</Step>
         <Step label="Close contour:">Take semicircle in upper half-plane. As R→∞, the arc contribution → 0 (Jordan&apos;s lemma: |z⁻⁴| → 0 fast enough).</Step>
         <Step label="Residue at z₁:">Res(z₁) = 1/(4z₁³) = z₁/(4z₁⁴) = z₁/(4×(−1)) = −z₁/4 = −(1+i)/(4√2).</Step>
         <Step label="Residue at z₂:">Res(z₂) = −z₂/4 = (1−i)/(4√2).</Step>
         <Step label="Sum of residues:">Σ Res = [−(1+i) + (1−i)]/(4√2) = −2i/(4√2) = −i/(2√2).</Step>
-        <Step label="Result:">I = 2πi × (−i/(2√2)) = π/√2. ✓ (Verify: ∫ dx/(1+x⁴) = π/(2sin(π/4)) × 1/2 = π/√2)</Step>
+        <Step label="Result:">I = 2πi × (−i/(2√2)) = π/√2. ✓ (Verify: ∫ dx/(1+x⁴) = π/(2sin(π/4)) = π/√2)</Step>
       </WorkedExample>
 
       <h2>CA.3 Dispersion Relations and Kramers-Kronig</h2>
@@ -84,7 +84,7 @@ export default function ComplexAnalysisPage() {
         the <strong>Kramers-Kronig relations</strong>:
       </p>
 
-      <EqNumbered number="CA.2">χ&apos;(ω) = (1/π) P ∫(−∞ to ∞) χ&apos;&apos;(ω&apos;)/(ω&apos;−ω) dω&apos; &nbsp;&nbsp;&nbsp;&nbsp; χ&apos;&apos;(ω) = −(1/π) P ∫ χ&apos;(ω&apos;)/(ω&apos;−ω) dω&apos;</EqNumbered>
+      <EqNumbered number="CA.2" latex="\chi'(\omega) = \frac{1}{\pi}\, \mathcal{P}\!\int_{-\infty}^{\infty} \frac{\chi''(\omega')}{\omega' - \omega}\, d\omega' \qquad \chi''(\omega) = -\frac{1}{\pi}\, \mathcal{P}\!\int_{-\infty}^{\infty} \frac{\chi'(\omega')}{\omega' - \omega}\, d\omega'" />
 
       <p>
         Here P denotes the Cauchy principal value, and χ = χ&apos; + iχ&apos;&apos;. These follow from
@@ -100,12 +100,12 @@ export default function ComplexAnalysisPage() {
         <strong>Laurent series</strong>:
       </p>
 
-      <EqNumbered number="CA.3">f(z) = Σ(n=−∞ to ∞) aₙ (z−z₀)ⁿ &nbsp;&nbsp;&nbsp;&nbsp; a₋₁ = Res(f, z₀)</EqNumbered>
+      <EqNumbered number="CA.3" latex="f(z) = \sum_{n=-\infty}^{\infty} a_n (z - z_0)^n \qquad a_{-1} = \operatorname{Res}(f, z_0)" />
 
       <p>
-        The residue is the coefficient of (z−z₀)^(−1). The <strong>principal part</strong>
+        The residue is the coefficient of <InlineMath latex="(z - z_0)^{-1}" />. The <strong>principal part</strong>
         (negative powers) classifies singularities: finite number of negative powers → pole;
-        infinitely many → essential singularity (e.g., e^(1/z) at z=0).
+        infinitely many → essential singularity (e.g., <InlineMath latex="e^{1/z}" /> at z=0).
       </p>
 
       <p>
@@ -114,14 +114,14 @@ export default function ComplexAnalysisPage() {
         <strong>Stirling&apos;s approximation</strong>:
       </p>
 
-      <EqNumbered number="CA.4">ln Γ(z) ≈ (z − ½) ln z − z + ½ ln(2π) + 1/(12z) − ... &nbsp;&nbsp;&nbsp; (Stirling)</EqNumbered>
+      <EqNumbered number="CA.4" latex="\ln \Gamma(z) \approx \left(z - \tfrac{1}{2}\right) \ln z - z + \tfrac{1}{2} \ln(2\pi) + \frac{1}{12z} - \cdots \qquad \text{(Stirling)}" />
 
       <WorkedExample number="CA.2" title="Green's Function via Contour Integration">
         <p>
           Find the retarded Green&apos;s function for the harmonic oscillator: (d²/dt² + ω₀²)G(t) = δ(t).
         </p>
         <Step label="Fourier transform:">G̃(ω) = −1/(ω² − ω₀²). Poles at ω = ±ω₀.</Step>
-        <Step label="Retarded condition:">Shift poles below real axis: ω → ω ± iε. G_ret(ω) = −1/((ω+iε)²−ω₀²).</Step>
+        <Step label="Retarded condition:">Shift poles below real axis: ω → ω + iε. G_ret(ω) = −1/((ω+iε)²−ω₀²).</Step>
         <Step label="Inverse transform:">G(t) = (1/2π) ∫ G̃(ω) e^(−iωt) dω.</Step>
         <Step label="For t &gt; 0:">Close in lower half-plane. Both poles now inside. Sum residues: G(t) = (1/ω₀) sin(ω₀t) for t &gt; 0.</Step>
         <Step label="For t &lt; 0:">Close in upper half-plane. No poles inside. G(t) = 0 for t &lt; 0 (causality).</Step>
@@ -140,10 +140,10 @@ export default function ComplexAnalysisPage() {
       <PracticeProblems section="CA.1–CA.4 Complex Analysis">
         <InteractiveProblem n={1} difficulty="easy"
           answer={2.221} unit="" tolerance={0.02}
-          hints={['∫₋∞^∞ dx/(1+x⁴) = π/√2. Compute π/√2.']}
+          hints={['∫_(−∞)^∞ dx/(1+x⁴) = π/√2. Compute π/√2.']}
           problemText="Evaluate ∫₋∞^∞ dx/(1+x⁴) using residues. Give the numerical value."
           solution={<>π/√2 = π/1.4142 = <strong>2.221</strong></>}>
-          Using the residue theorem, evaluate the integral ∫₋∞^∞ dx/(1+x⁴).
+          Using the residue theorem, evaluate the integral <InlineMath latex="\int_{-\infty}^{\infty} \frac{dx}{1+x^4}" />.
         </InteractiveProblem>
 
         <InteractiveProblem n={2} difficulty="easy"
@@ -155,13 +155,13 @@ export default function ComplexAnalysisPage() {
         </InteractiveProblem>
 
         <Problem n={3} difficulty="easy"
-          solution={<>∫₀^∞ sin(x)/x dx = π/2. Method: consider f(z) = e^(iz)/z, integrate over semicircle with small indentation at z=0. ∮f dz = 0 (no poles enclosed). Break into: integral along real axis + small semicircle (−iπ Res at 0 = −iπ×1 = −iπ) + large arc (→0 by Jordan). So ∫₋∞^∞ e^(ix)/x dx = iπ (principal value). Taking imaginary part: 2∫₀^∞ sin(x)/x dx = π → result = π/2. This integral appears in signal processing (sinc function), Fourier analysis (Dirichlet kernel), and quantum scattering (Born approximation).</>}>
+          solution={<>∫₀^∞ sin(x)/x dx = π/2. Method: consider f(z) = e^(iz)/z, integrate over semicircle with small indentation at z=0. ∮f dz = 0 (no poles enclosed). Break into: integral along real axis + small semicircle (−iπ Res at 0 = −iπ×1 = −iπ) + large arc (→0 by Jordan). So <InlineMath latex="\mathcal{P}\!\int_{-\infty}^{\infty} \frac{e^{ix}}{x}\,dx = i\pi" /> (principal value). Taking imaginary part: 2∫₀^∞ sin(x)/x dx = π → result = π/2. This integral appears in signal processing (sinc function), Fourier analysis (Dirichlet kernel), and quantum scattering (Born approximation).</>}>
           Evaluate ∫₀^∞ sin(x)/x dx = π/2 using contour integration. Which contour do you use and why?
         </Problem>
 
         <Problem n={4} difficulty="medium"
-          solution={<>Inverse Laplace transform: f(t) = L^{'-1'}{'{'}F(s){'}'} = (1/2πi)∫(c−i∞ to c+i∞) F(s)e^(st) ds (Bromwich integral). For F(s) = 1/(s²+ω²): poles at s = ±iω. For t&gt;0: close in left half-plane, both poles inside. Res at s=iω: e^(iωt)/(2iω). Res at s=−iω: e^(−iωt)/(−2iω). Sum: (e^(iωt)−e^(−iωt))/(2iω) = sin(ωt)/ω. For t&lt;0: close right, no poles, f=0. f(t) = θ(t)sin(ωt)/ω — same as Green&apos;s function result. The Bromwich integral is causally correct (c &gt; max Re(poles) keeps all poles to the left of integration line).</>}>
-          Use the Bromwich contour (inverse Laplace transform) to find f(t) = L^(-1){'{'}1/(s²+ω²){'}'}. Compare to the Green&apos;s function result.
+          solution={<>Inverse Laplace transform: <InlineMath latex="f(t) = \mathcal{L}^{-1}\{F(s)\} = \frac{1}{2\pi i} \int_{c - i\infty}^{c + i\infty} F(s)\, e^{st}\, ds" /> (Bromwich integral). For F(s) = 1/(s²+ω²): poles at s = ±iω. For t&gt;0: close in left half-plane, both poles inside. Res at s=iω: e^(iωt)/(2iω). Res at s=−iω: e^(−iωt)/(−2iω). Sum: <InlineMath latex="\dfrac{e^{i\omega t} - e^{-i\omega t}}{2i\omega} = \dfrac{\sin(\omega t)}{\omega}" />. For t&lt;0: close right, no poles, f=0. f(t) = θ(t)sin(ωt)/ω — same as Green&apos;s function result. The Bromwich integral is causally correct (c &gt; max Re(poles) keeps all poles to the left of integration line).</>}>
+          Use the Bromwich contour (inverse Laplace transform) to find <InlineMath latex="f(t) = \mathcal{L}^{-1}\{1/(s^2+\omega^2)\}" />. Compare to the Green&apos;s function result.
         </Problem>
 
         <Problem n={5} difficulty="medium"
@@ -170,7 +170,7 @@ export default function ComplexAnalysisPage() {
         </Problem>
 
         <Problem n={6} difficulty="hard"
-          solution={<>Gamma function: Γ(z) = ∫₀^∞ t^(z−1)e^(−t)dt (Re z &gt; 0). Analytic continuation: integrate by parts gives Γ(z+1)=zΓ(z). This extends to all z except z = 0,−1,−2,... (simple poles). Stirling from saddle point: Γ(n+1) = n! = ∫₀^∞ e^(n ln t − t) dt. Saddle at t*=n: expand ln(t) ≈ ln(n) + (t−n)/n − (t−n)²/(2n²). n! ≈ ∫₋∞^∞ e^(n ln n − n) e^(−(t−n)²/(2n)) dt = (n/e)^n √(2πn) — Stirling! Error in ln n!: exact − Stirling ≈ 1/(12n). Reflection formula: Γ(z)Γ(1−z) = π/sin(πz) — from residue computation. Gamma connects combinatorics (factorials), statistics (chi-squared distribution ∝ Γ(n/2)), and special functions (Bessel functions via Γ in their series).</>}>
+          solution={<>Gamma function: Γ(z) = ∫₀^∞ t^(z−1)e^(−t)dt (Re z &gt; 0). Analytic continuation: integrate by parts gives Γ(z+1)=zΓ(z). This extends to all z except z = 0,−1,−2,... (simple poles). Stirling from saddle point: Γ(n+1) = n! = ∫₀^∞ e^(n ln t − t) dt. Saddle at t*=n: expand ln(t) ≈ ln(n) + (t−n)/n − (t−n)²/(2n²). <InlineMath latex="n! \approx \int_{-\infty}^{\infty} e^{n \ln n - n}\, e^{-(t-n)^2/(2n)}\, dt = (n/e)^n \sqrt{2\pi n}" /> — Stirling! Error in ln n!: exact − Stirling ≈ 1/(12n). Reflection formula: Γ(z)Γ(1−z) = π/sin(πz) — from residue computation. Gamma connects combinatorics (factorials), statistics (chi-squared distribution ∝ Γ(n/2)), and special functions (Bessel functions via Γ in their series).</>}>
           Derive Stirling&apos;s approximation for n! using the saddle-point method on the Gamma function integral. What is the reflection formula?
         </Problem>
       </PracticeProblems>
@@ -178,7 +178,7 @@ export default function ComplexAnalysisPage() {
       <Takeaways items={[
         'Cauchy-Riemann: ∂u/∂x = ∂v/∂y, ∂u/∂y = −∂v/∂x — analytic ↔ real/imaginary parts harmonic.',
         'Residue theorem: ∮f dz = 2πi Σ Res — converts integrals to sums of local residues.',
-        'Real integrals via contour: close in upper or lower half-plane; Jordan&apos;s lemma kills the arc.',
+        'Real integrals via contour: close in upper or lower half-plane; Jordan’s lemma kills the arc.',
         'Kramers-Kronig: causality forces Re(χ) and Im(χ) to be Hilbert transform pairs.',
         'Laurent series: a₋₁ = residue. Pole order from principal part; essential singularity has ∞ terms.',
         'Conformal maps preserve angles, reduce Laplace to simpler domains — key tool in 2D electrostatics.',

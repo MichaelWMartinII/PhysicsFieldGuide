@@ -1,6 +1,6 @@
 import {
   Definition, Theorem, WorkedExample, Step,
-  PracticeProblems, Problem, InteractiveProblem, EqNumbered, Prerequisites, Takeaways, LearningGoals, HistoryNote
+  PracticeProblems, Problem, InteractiveProblem, EqNumbered, InlineMath, Prerequisites, Takeaways, LearningGoals, HistoryNote
 } from '@/components/textbook';
 
 export default function ElectrostaticsPage() {
@@ -42,13 +42,13 @@ export default function ElectrostaticsPage() {
         </HistoryNote>
       </p>
 
-      <EqNumbered number="ES.1">∇²V = −ρ/ε₀ &nbsp;&nbsp;&nbsp; (Poisson)</EqNumbered>
+      <EqNumbered number="ES.1" latex="\nabla^2 V = -\rho/\varepsilon_0 \qquad \text{(Poisson)}" />
 
       <p>
         In charge-free regions (ρ = 0), this reduces to <strong>Laplace&apos;s equation</strong>:
       </p>
 
-      <EqNumbered number="ES.2">∇²V = 0 &nbsp;&nbsp;&nbsp; (Laplace)</EqNumbered>
+      <EqNumbered number="ES.2" latex="\nabla^2 V = 0 \qquad \text{(Laplace)}" />
 
       <p>
         Solutions to Laplace&apos;s equation are called <strong>harmonic functions</strong>. They
@@ -92,10 +92,10 @@ export default function ElectrostaticsPage() {
           (V=0); the top wall (y=b) is held at V₀(x). Find V(x,y).
         </p>
         <Step label="Separated solutions:">V(x,y) = X(x)Y(y). Boundary conditions: V=0 at x=0,a → X = sin(nπx/a). V=0 at y=0 → Y(0)=0 → Y = sinh(nπy/a).</Step>
-        <Step label="General solution:">V(x,y) = Σ(n) Cₙ sin(nπx/a) sinh(nπy/a)</Step>
-        <Step label="Top boundary:">At y=b: V₀(x) = Σ Cₙ sin(nπx/a) sinh(nπb/a). This is a Fourier sine series.</Step>
-        <Step label="Coefficients:">Cₙ = [2/(a sinh(nπb/a))] ∫(0 to a) V₀(x) sin(nπx/a) dx</Step>
-        <Step label="Special case:">For V₀(x) = V₀ (constant): Cₙ = 4V₀/(nπ sinh(nπb/a)) for odd n, 0 for even n.</Step>
+        <Step label="General solution:"><InlineMath latex="V(x,y) = \sum_n C_n \sin(n\pi x/a)\,\sinh(n\pi y/a)" /></Step>
+        <Step label="Top boundary:">At y=b: <InlineMath latex="V_0(x) = \sum_n C_n \sin(n\pi x/a)\,\sinh(n\pi b/a)" />. This is a Fourier sine series.</Step>
+        <Step label="Coefficients:"><InlineMath latex="C_n = \frac{2}{a\sinh(n\pi b/a)} \int_0^a V_0(x) \sin(n\pi x/a)\,dx" /></Step>
+        <Step label="Special case:">For V₀(x) = V₀ (constant): <InlineMath latex="C_n = \dfrac{4V_0}{n\pi\sinh(n\pi b/a)}" /> for odd n, 0 for even n.</Step>
       </WorkedExample>
 
       <h2>ES.3 Separation in Spherical Coordinates</h2>
@@ -104,19 +104,19 @@ export default function ElectrostaticsPage() {
         In spherical coordinates, Laplace&apos;s equation becomes:
       </p>
 
-      <EqNumbered number="ES.4">(1/r²) d/dr(r² dV/dr) + (1/r² sin θ) ∂/∂θ(sin θ ∂V/∂θ) + ... = 0</EqNumbered>
+      <EqNumbered number="ES.4" latex="\frac{1}{r^2}\frac{\partial}{\partial r}\left(r^2\frac{\partial V}{\partial r}\right) + \frac{1}{r^2\sin\theta}\frac{\partial}{\partial\theta}\left(\sin\theta\,\frac{\partial V}{\partial\theta}\right) + \cdots = 0" />
 
       <p>
         For azimuthal symmetry (V independent of φ), the separated solutions are:
       </p>
 
-      <EqNumbered number="ES.5">V(r,θ) = Σ(l=0 to ∞) (Aₗ rˡ + Bₗ r^(−l−1)) Pₗ(cos θ)</EqNumbered>
+      <EqNumbered number="ES.5" latex="V(r,\theta) = \sum_{l=0}^{\infty} \left(A_l r^l + B_l r^{-(l+1)}\right) P_l(\cos\theta)" />
 
       <p>
         where Pₗ(cos θ) are <strong>Legendre polynomials</strong>:
         P₀ = 1, P₁ = cos θ, P₂ = ½(3cos²θ−1), P₃ = ½(5cos³θ−3cosθ), ...
-        The rˡ term is regular at the origin; r^(−l−1) is regular at infinity (multipole fields).
-        A pure r^(−l−1) term with Pₗ is called a 2ˡ-pole: l=0 monopole, l=1 dipole, l=2 quadrupole.
+        The rˡ term is regular at the origin; <InlineMath latex="r^{-(l+1)}" /> is regular at infinity (multipole fields).
+        A pure <InlineMath latex="r^{-(l+1)}" /> term with Pₗ is called a <InlineMath latex="2^l" />-pole: l=0 monopole, l=1 dipole, l=2 quadrupole.
       </p>
 
       <WorkedExample number="ES.2" title="Conducting Sphere in a Uniform Field">
@@ -146,10 +146,10 @@ export default function ElectrostaticsPage() {
         </p>
         <Step label="Image charge:">Place −q at position z = −d (mirror image below the plane).</Step>
         <Step label="Verify BC:">On the plane (z=0), the potential from +q and −q cancels by symmetry: V=0 ✓</Step>
-        <Step label="Potential (z &gt; 0):">V = q/(4πε₀) [1/r₊ − 1/r₋], where r± = √(x²+y²+(z∓d)²)</Step>
-        <Step label="Surface charge:">σ = −ε₀ ∂V/∂z|_(z=0) = −qd/(2π(x²+y²+d²)^(3/2))</Step>
+        <Step label="Potential (z &gt; 0):"><InlineMath latex="V = \frac{q}{4\pi\varepsilon_0}\left[\frac{1}{r_+} - \frac{1}{r_-}\right]" />, where <InlineMath latex="r_\pm = \sqrt{x^2 + y^2 + (z \mp d)^2}" /></Step>
+        <Step label="Surface charge:"><InlineMath latex="\sigma = -\varepsilon_0 \left.\frac{\partial V}{\partial z}\right|_{z=0} = -\frac{qd}{2\pi\,(x^2+y^2+d^2)^{3/2}}" /></Step>
         <Step label="Total charge:">∫σ dA = −q (the plane carries total charge −q, as required by Gauss&apos;s law).</Step>
-        <Step label="Force:">F = q × (field from −q) = −q²/(16πε₀d²) ẑ — attractive, as expected.</Step>
+        <Step label="Force:"><InlineMath latex="\mathbf{F} = q \times (\text{field from } {-q}) = -\frac{q^2}{16\pi\varepsilon_0 d^2}\,\hat{\mathbf{z}}" /> — attractive, as expected.</Step>
       </WorkedExample>
 
       <Definition number="ES.2" title="Common Traps">
@@ -176,17 +176,17 @@ export default function ElectrostaticsPage() {
         </Problem>
 
         <Problem n={2} difficulty="medium"
-          solution={<>Dielectric sphere in uniform field: V_in = −E₀(3εᵣ/(εᵣ+2))r cos θ (uniform field inside). V_out = −E₀r cos θ + E₀(εᵣ−1)/(εᵣ+2) R³/r² cos θ. Apply BC at r=R: V continuous and εᵣ(∂V_in/∂r) = ∂V_out/∂r (D_n continuous). E_in = 3E₀/(εᵣ+2) (reduced from E₀). P = ε₀(εᵣ−1)E_in = 3ε₀(εᵣ−1)/(εᵣ+2) E₀. For εᵣ→∞ (conductor): E_in → 0, P → bound surface charge σ_b = P·n̂.</>}>
+          solution={<>Dielectric sphere in uniform field: <InlineMath latex="V_{\text{in}} = -\frac{3}{\varepsilon_r+2}E_0 r\cos\theta" /> (uniform field inside). <InlineMath latex="V_{\text{out}} = -E_0 r\cos\theta + \frac{\varepsilon_r-1}{\varepsilon_r+2}\,\frac{E_0R^3}{r^2}\cos\theta" />. Apply BC at r=R: V continuous and <InlineMath latex="\varepsilon_r\,\partial V_{\text{in}}/\partial r = \partial V_{\text{out}}/\partial r" /> (<InlineMath latex="D_n" /> continuous). <InlineMath latex="E_{\text{in}} = \frac{3E_0}{\varepsilon_r+2}" /> (reduced from E₀). <InlineMath latex="P = \varepsilon_0(\varepsilon_r-1)E_{\text{in}} = \frac{3\varepsilon_0(\varepsilon_r-1)}{\varepsilon_r+2}E_0" />. For εᵣ→∞ (conductor): <InlineMath latex="E_{\text{in}} \to 0" />, P → bound surface charge <InlineMath latex="\sigma_b = \mathbf{P}\cdot\hat{\mathbf{n}}" />.</>}>
           Solve for the potential of a dielectric sphere (relative permittivity εᵣ) in a uniform applied field E₀. Find the field inside and the polarization.
         </Problem>
 
         <Problem n={3} difficulty="medium"
-          solution={<>Point charge q between two grounded planes at z=0 and z=d, charge at z=a. Needs infinite series of images to satisfy both BCs simultaneously. Image in z=0: −q at z=−a. Image in z=d: −q at z=2d−a. But these need further images to cancel each other: +q at z=2d+a, +q at z=−2d+a, −q at z=−2d−a, etc. Total image series: alternating signs at positions ±2nd ± a. Force on q is F = q Σ(images) / (4πε₀ × distance²). Converges conditionally — this is the same sum as appears in the energy of an ionic crystal. The Green&apos;s function for the strip is G(r,r&apos;) = Σ (1/|r−rₙ&apos;| − 1/|r−rₙ&apos;&apos;|)/(4πε₀).</>}>
+          solution={<>Point charge q between two grounded planes at z=0 and z=d, charge at z=a. Needs infinite series of images to satisfy both BCs simultaneously. Image in z=0: −q at z=−a. Image in z=d: −q at z=2d−a. But these need further images to cancel each other: +q at z=2d+a, +q at z=−2d+a, −q at z=−2d−a, etc. Total image series: alternating signs at positions <InlineMath latex="\pm 2n\,d \pm a" />. Force on q is <InlineMath latex="F = \frac{q}{4\pi\varepsilon_0}\sum_{\text{images}} \frac{q_{\text{image}}}{(\text{distance})^2}" />. Converges conditionally — this is the same sum as appears in the energy of an ionic crystal. The Green&apos;s function for the strip is <InlineMath latex="G(\mathbf{r},\mathbf{r}') = \frac{1}{4\pi\varepsilon_0}\sum_n \left(\frac{1}{|\mathbf{r}-\mathbf{r}_n'|} - \frac{1}{|\mathbf{r}-\mathbf{r}_n''|}\right)" />.</>}>
           A charge q is placed between two parallel grounded conducting planes separated by distance d. Set up the method of images (infinite series). How does this connect to electrostatic energy in ionic crystals?
         </Problem>
 
         <Problem n={4} difficulty="hard"
-          solution={<>Multipole expansion: V(r) = (1/4πε₀) Σ (1/r^(l+1)) ∫ r&apos;ˡ Pₗ(cos θ&apos;) ρ(r&apos;) dV&apos;. l=0: Q/(4πε₀r) (total charge Q = ∫ρdV). l=1: p·r̂/(4πε₀r²) where p = ∫r&apos;ρdV&apos; (dipole moment). l=2: quadrupole. A neutral system (Q=0) falls off as 1/r² minimum (unless p=0 too). Two charges +q,−q separated by d: Q=0, p=qd. V ≈ p·r̂/(4πε₀r²). E_r = p cos θ/(2πε₀r³), E_θ = p sin θ/(4πε₀r³). Force between two dipoles p₁, p₂: F ∝ 1/r⁴ (falls faster than Coulomb). Relevance: van der Waals forces between neutral atoms arise from induced dipole–dipole interactions.</>}>
+          solution={<>Multipole expansion: <InlineMath latex="V(\mathbf{r}) = \frac{1}{4\pi\varepsilon_0}\sum_l \frac{1}{r^{l+1}}\int r'^{\,l}\, P_l(\cos\theta')\,\rho(\mathbf{r}')\,dV'" />. l=0: Q/(4πε₀r) (total charge Q = ∫ρdV). l=1: p·r̂/(4πε₀r²) where p = ∫r&apos;ρdV&apos; (dipole moment). l=2: quadrupole. A neutral system (Q=0) falls off as 1/r² minimum (unless p=0 too). Two charges +q,−q separated by d: Q=0, p=qd. V ≈ p·r̂/(4πε₀r²). E_r = p cos θ/(2πε₀r³), E_θ = p sin θ/(4πε₀r³). Force between two dipoles p₁, p₂: F ∝ 1/r⁴ (falls faster than Coulomb). Relevance: van der Waals forces between neutral atoms arise from induced dipole–dipole interactions.</>}>
           Derive the multipole expansion for the potential of a localized charge distribution. Find the leading terms for a neutral system and an electric dipole. What is the practical importance for intermolecular forces?
         </Problem>
       </PracticeProblems>

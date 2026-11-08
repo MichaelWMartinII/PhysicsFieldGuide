@@ -1,6 +1,6 @@
 import {
   Definition, WorkedExample, Step,
-  PracticeProblems, Problem, InteractiveProblem, EqNumbered, Prerequisites, Takeaways, LearningGoals
+  PracticeProblems, Problem, InteractiveProblem, EqNumbered, Prerequisites, Takeaways, LearningGoals, InlineMath
 } from '@/components/textbook';
 
 export default function GeneralRelativityPage() {
@@ -46,19 +46,19 @@ export default function GeneralRelativityPage() {
         (2) Clocks run slow in a gravitational potential (gravitational time dilation):
       </p>
 
-      <EqNumbered number="GR.1">Δτ/Δt = √(1 − 2GM/rc²) ≈ 1 − GM/(rc²) &nbsp;&nbsp;&nbsp; (gravitational redshift)</EqNumbered>
+      <EqNumbered number="GR.1" latex="\frac{\Delta\tau}{\Delta t} = \sqrt{1 - \frac{2GM}{rc^2}} \approx 1 - \frac{GM}{rc^2} \qquad \text{(gravitational redshift)}" />
 
       <h2>GR.2 Spacetime and the Metric</h2>
 
       <p>
         General relativity describes spacetime as a 4D <strong>Lorentzian manifold</strong> with
-        a metric tensor gμν. The spacetime interval between nearby events is:
+        a metric tensor <InlineMath latex="g_{\mu\nu}" />. The spacetime interval between nearby events is:
       </p>
 
-      <EqNumbered number="GR.2">ds² = gμν dxμ dxν &nbsp;&nbsp;&nbsp; (summation over repeated indices)</EqNumbered>
+      <EqNumbered number="GR.2" latex="ds^2 = g_{\mu\nu}\, dx^\mu dx^\nu \qquad \text{(summation over repeated indices)}" />
 
       <p>
-        In flat spacetime: gμν = ημν = diag(−1, +1, +1, +1) (Minkowski metric).
+        In flat spacetime: <InlineMath latex="g_{\mu\nu} = \eta_{\mu\nu} = \text{diag}(-1, +1, +1, +1)" /> (Minkowski metric).
         The metric encodes the gravitational field — it determines distances, angles,
         and the paths of freely falling objects (<strong>geodesics</strong>).
       </p>
@@ -68,10 +68,10 @@ export default function GeneralRelativityPage() {
         spacetime — determined by the <strong>geodesic equation</strong>:
       </p>
 
-      <EqNumbered number="GR.3">d²xμ/dτ² + Γμ_αβ (dxα/dτ)(dxβ/dτ) = 0</EqNumbered>
+      <EqNumbered number="GR.3" latex="\frac{d^2x^\mu}{d\tau^2} + \Gamma^\mu_{\alpha\beta}\frac{dx^\alpha}{d\tau}\frac{dx^\beta}{d\tau} = 0" />
 
       <p>
-        where Γμ_αβ are the <strong>Christoffel symbols</strong>, computed from derivatives of gμν.
+        where <InlineMath latex="\Gamma^\mu_{\alpha\beta}" /> are the <strong>Christoffel symbols</strong>, computed from derivatives of <InlineMath latex="g_{\mu\nu}" />.
         These play the role of the gravitational force in Newtonian mechanics — but they are
         coordinate-dependent (fictitious forces), not true forces.
       </p>
@@ -83,12 +83,12 @@ export default function GeneralRelativityPage() {
         content (right side):
       </p>
 
-      <EqNumbered number="GR.4">Gμν ≡ Rμν − ½ gμν R = 8πG/c⁴ × Tμν &nbsp;&nbsp;&nbsp; (Einstein&apos;s equations)</EqNumbered>
+      <EqNumbered number="GR.4" latex="G_{\mu\nu} \equiv R_{\mu\nu} - \tfrac{1}{2} g_{\mu\nu} R = \frac{8\pi G}{c^4} T_{\mu\nu} \qquad \text{(Einstein's equations)}" />
 
       <p>
-        Here: Rμν is the Ricci tensor (curvature from Christoffel symbols), R = gμν Rμν is the
-        Ricci scalar, Gμν is the Einstein tensor, and Tμν is the stress-energy tensor
-        (energy density, momentum flux, pressure). In vacuum (Tμν = 0): Rμν = 0.
+        Here: <InlineMath latex="R_{\mu\nu}" /> is the Ricci tensor (curvature from Christoffel symbols), <InlineMath latex="R = g^{\mu\nu} R_{\mu\nu}" /> is the
+        Ricci scalar, <InlineMath latex="G_{\mu\nu}" /> is the Einstein tensor, and <InlineMath latex="T_{\mu\nu}" /> is the stress-energy tensor
+        (energy density, momentum flux, pressure). In vacuum (<InlineMath latex="T_{\mu\nu} = 0" />): <InlineMath latex="R_{\mu\nu} = 0" />.
         The field equations are 10 nonlinear second-order PDEs — exact solutions are rare and precious.
       </p>
 
@@ -99,7 +99,7 @@ export default function GeneralRelativityPage() {
         </p>
         <Step label="Metric:">ds² = −(1−r_s/r)c²dt² + (1−r_s/r)⁻¹dr² + r²dΩ² &nbsp;&nbsp; (r_s = 2GM/c²)</Step>
         <Step label="Schwarzschild radius:">r_s = 2GM/c². For the Sun: r_s = 2×6.67×10⁻¹¹×2×10³⁰/(3×10⁸)² = 2.95 km (Sun&apos;s radius is 696,000 km — safe).</Step>
-        <Step label="Gravitational time dilation:">A clock at r ticks at rate √(1−r_s/r) relative to one at infinity. At r = 2r_s: rate = 1/√2 ≈ 71% — significant slowing.</Step>
+        <Step label="Gravitational time dilation:">A clock at r ticks at rate √(1−r_s/r) relative to one at infinity. At r = 2r_s: rate = 1/√(2) ≈ 71% — significant slowing.</Step>
         <Step label="Black hole:">At r = r_s: g_tt = 0, g_rr → ∞. The event horizon — an infalling observer crosses it in finite proper time but a distant observer never sees them cross (infinite coordinate time). Inside r_s: r and t swap roles; everything must fall toward r=0 (future singularity).</Step>
         <Step label="Orbits:">Innermost stable circular orbit (ISCO): r_ISCO = 3r_s = 6GM/c². Below this, there are no stable circular orbits — matter accreting in a black hole spirals rapidly to the ISCO then plunges in.</Step>
       </WorkedExample>
@@ -125,8 +125,8 @@ export default function GeneralRelativityPage() {
 
       <p>
         <strong>Gravitational waves:</strong> Linearized GR predicts waves propagating at c in
-        the metric perturbation hμν. First direct detection: LIGO 2015 (GW150914), from two
-        ~30 M☉ black holes merging 1.3 billion light-years away. Peak luminosity ~50 M☉c²/s —
+        the metric perturbation <InlineMath latex="h_{\mu\nu}" />. First direct detection: LIGO 2015 (GW150914), from two
+        ~30 M☉ black holes merging 1.3 billion light-years away. Peak luminosity ~200 M☉c²/s —
         briefly outshining all stars in the observable universe.
       </p>
 
@@ -164,7 +164,7 @@ export default function GeneralRelativityPage() {
         </InteractiveProblem>
 
         <Problem n={3} difficulty="easy"
-          solution={<>Gravitational redshift: from GR.1, ratio of clock rates at r₁ and r₂: Δτ₁/Δτ₂ = √(g_tt(r₁)/g_tt(r₂)) = √((1−r_s/r₁)/(1−r_s/r₂)). For photon emitted from surface (r₁) received at infinity (r₂→∞): z = (λ_obs−λ_em)/λ_em = 1/√(1−r_s/r₁) − 1 ≈ r_s/(2r₁) = GM/(r₁c²) for weak field. For white dwarf Sirius B: M = 1.018 M☉, R = 0.0084 R☉ = 5840 km. z = GM/(Rc²) = 6.67×10⁻¹¹×2.03×10³⁰/(5.84×10⁶×9×10¹⁶) = 2.57×10⁻⁴. Measured: 3.0×10⁻⁴ — first precision measurement confirming gravitational redshift (1925, Adams). Neutron star: R~10km, M~1.4M☉ → z ≈ 0.3 — not perturbative!</>}>
+          solution={<>Gravitational redshift: from GR.1, ratio of clock rates at r₁ and r₂: Δτ₁/Δτ₂ = √(g_tt(r₁)/g_tt(r₂)) = √((1−r_s/r₁)/(1−r_s/r₂)). For photon emitted from surface (r₁) received at infinity (r₂→∞): z = (λ_obs−λ_em)/λ_em = 1/√(1−r_s/r₁) − 1 ≈ r_s/(2r₁) = GM/(r₁c²) for weak field. For white dwarf Sirius B: M = 1.018 M☉, R = 0.0084 R☉ = 5840 km. z = GM/(Rc²) = 6.67×10⁻¹¹×2.03×10³⁰/(5.84×10⁶×9×10¹⁶) = 2.57×10⁻⁴. Measured (Hubble Space Telescope, 2005): 2.7×10⁻⁴. Adams&apos;s famous 1925 measurement was later shown to be contaminated by scattered light from Sirius A. Neutron star: R~10km, M~1.4M☉ → z ≈ 0.3 — not perturbative!</>}>
           Calculate the gravitational redshift of light from the surface of a white dwarf (M = 1M☉, R = 0.0085 R☉). Compare to the historical measurement from Sirius B.
         </Problem>
 
@@ -174,7 +174,7 @@ export default function GeneralRelativityPage() {
         </Problem>
 
         <Problem n={5} difficulty="medium"
-          solution={<>Gravitational wave strain: h = ΔL/L (fractional change in interferometer arm). GW150914: M₁ = 36M☉, M₂ = 29M☉, d = 1.3 Gpc = 4.0×10²⁵m. Peak strain h_peak ≈ 10⁻²¹. Quadrupole formula: h ~ (G/c⁴) × (second time derivative of quadrupole moment) / d. For two equal masses M orbiting at frequency f_orbit = f_GW/2: Q̈̈ ≈ 4M(πf)²r² where r ~ GM/f²c² (orbital radius). Power radiated: P = 32G⁴M⁵/(5c⁵r⁵). Inspiral timescale ~ 1/f × df/dt. Peak frequency at merger: f_peak ~ c³/(6√6 πGM_chirp) where M_chirp = (M₁M₂)^(3/5)/(M₁+M₂)^(1/5). For GW150914: M_chirp = 28.3M☉ → f_peak ≈ 150 Hz (in LIGO band 10-2000 Hz).</>}>
+          solution={<>Gravitational wave strain: h = ΔL/L (fractional change in interferometer arm). GW150914: M₁ = 36M☉, M₂ = 29M☉, d = 410 Mpc = 1.3×10²⁵ m. Peak strain h_peak ≈ 10⁻²¹. Quadrupole formula: h ~ (G/c⁴) × (second time derivative of quadrupole moment) / d. For two equal masses M orbiting at frequency f_orbit = f_GW/2: Q̈ ≈ 4M(πf)²r² where r = (2GM/(πf)²)^(1/3) (orbital separation, from Kepler). Power radiated: P = 64G⁴M⁵/(5c⁵r⁵). Inspiral timescale ~ 1/f × df/dt. Frequency near merger: the GW frequency at the ISCO is f_ISCO = c³/(6√6 πGM) with M = M₁+M₂ the total mass; the inspiral rate is set by the chirp mass M_chirp = (M₁M₂)^(3/5)/(M₁+M₂)^(1/5). For GW150914: M = 65M☉ → f_ISCO ≈ 68 Hz, M_chirp ≈ 28M☉, and the signal peaked near 150 Hz at merger (in LIGO band 10-2000 Hz).</>}>
           Estimate the gravitational wave strain from a binary black hole merger at 1 Gpc. What determines the frequency at merger?
         </Problem>
 
@@ -186,8 +186,8 @@ export default function GeneralRelativityPage() {
 
       <Takeaways items={[
         'EEP: gravity is locally indistinguishable from acceleration. Gravity curves spacetime.',
-        'Metric ds² = gμν dxμ dxν encodes geometry. Geodesic equation gives free-fall trajectories.',
-        'Einstein equations: Gμν = 8πG/c⁴ × Tμν. Mass-energy tells spacetime how to curve.',
+        'Metric ds² = g_(μν) dx^μ dx^ν encodes geometry. Geodesic equation gives free-fall trajectories.',
+        'Einstein equations: G_(μν) = 8πG/c⁴ × T_(μν). Mass-energy tells spacetime how to curve.',
         'Schwarzschild metric: r_s = 2GM/c² is the event horizon. ISCO at 3r_s.',
         'Tested: Mercury perihelion, gravitational lensing (4GM/rc²), LIGO gravitational waves (2015).',
         'GPS: +45μs/day GR time dilation, −7μs/day SR time dilation, net +38μs/day must be corrected.',

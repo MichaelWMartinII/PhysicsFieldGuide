@@ -1,3 +1,4 @@
+import { InlineMath } from '@/components/textbook/Equation';
 import {
   Definition, WorkedExample, Step,
   PracticeProblems, Problem, InteractiveProblem, EqNumbered, Prerequisites, Takeaways, LearningGoals
@@ -98,10 +99,10 @@ export default function FluidMechanicsPage() {
         <p>
           A large tank has a small hole at depth h below the surface. Find the exit velocity.
         </p>
-        <Step label="Apply Bernoulli:">At surface: P = P_atm, v ≈ 0 (large tank), height = h. At hole: P = P_atm, height = 0.</Step>
-        <Step label="Bernoulli:">P_atm + 0 + ρgh = P_atm + ½ρv²_exit + 0</Step>
-        <Step label="Result:">v_exit = √(2gh) &nbsp;&nbsp; (Torricelli&apos;s law, 1643)</Step>
-        <Step label="Same as projectile:">This is the velocity a ball acquires falling freely a height h — as if the water fell freely. Discharge rate: Q = A_hole × v_exit = A_hole √(2gh).</Step>
+        <Step label="Apply Bernoulli:">At surface: <InlineMath latex="P = P_{\text{atm}}" />, v ≈ 0 (large tank), height = h. At hole: <InlineMath latex="P = P_{\text{atm}}" />, height = 0.</Step>
+        <Step label="Bernoulli:"><InlineMath latex="P_{\text{atm}} + 0 + \rho g h = P_{\text{atm}} + \tfrac{1}{2}\rho v_{\text{exit}}^2 + 0" /></Step>
+        <Step label="Result:"><InlineMath latex="v_{\text{exit}} = \sqrt{2gh}" /> &nbsp;&nbsp; (Torricelli&apos;s law, 1643)</Step>
+        <Step label="Same as projectile:">This is the velocity a ball acquires falling freely a height h — as if the water fell freely. Discharge rate: <InlineMath latex="Q = A_{\text{hole}}\, v_{\text{exit}} = A_{\text{hole}}\sqrt{2gh}" />.</Step>
       </WorkedExample>
 
       <h2>FM.4 Vorticity and Potential Flow</h2>
@@ -116,7 +117,7 @@ export default function FluidMechanicsPage() {
 
       <p>
         Potential flow is solved by the same methods as electrostatics! A cylinder in uniform
-        flow U_∞ has solution φ = U_∞ r(1 + R²/r²) cos θ — D&apos;Alembert&apos;s paradox: no drag.
+        flow <InlineMath latex="U_\infty" /> has solution <InlineMath latex="\phi = U_\infty\, r\,(1 + R^2/r^2)\cos\theta" /> — D&apos;Alembert&apos;s paradox: no drag.
         Real fluids have viscous boundary layers that separate, creating drag — potential flow
         misses this entirely. Adding circulation Γ (rotation around the cylinder) gives lift:
       </p>
@@ -129,9 +130,9 @@ export default function FluidMechanicsPage() {
           the drag force is:
         </p>
         <Step label="Stokes flow solution:">In the Stokes limit, drop the inertial term in N-S: η∇²v = ∇P. Solve with no-slip BC at sphere surface.</Step>
-        <Step label="Stokes drag formula:">F_drag = 6πηRU</Step>
-        <Step label="Terminal velocity:">For a sphere of density ρ_s in fluid ρ_f: weight − buoyancy = drag → (4/3)πR³(ρ_s − ρ_f)g = 6πηRU → U_terminal = 2R²(ρ_s−ρ_f)g/(9η)</Step>
-        <Step label="Example:">Rain drop R=1mm, ρ_water = 1000, ρ_air = 1.2 kg/m³, η_air = 1.8×10⁻⁵ Pa·s. U = 2(10⁻³)²×999×9.8/(9×1.8×10⁻⁵) ≈ 12 m/s. (Re = ρvR/η ≈ 800 — Stokes is not valid here; the actual terminal velocity with form drag correction is ~9 m/s.)</Step>
+        <Step label="Stokes drag formula:"><InlineMath latex="F_{\text{drag}} = 6\pi\eta R U" /></Step>
+        <Step label="Terminal velocity:">For a sphere of density ρ_s in fluid ρ_f: weight − buoyancy = drag → (4/3)πR³(ρ_s − ρ_f)g = 6πηRU → <InlineMath latex="U_{\text{terminal}} = 2R^2(\rho_s - \rho_f)g/(9\eta)" /></Step>
+        <Step label="Example:">Rain drop R = 1 mm, <InlineMath latex="\rho_{\text{water}} = 1000" />, <InlineMath latex="\rho_{\text{air}} = 1.2\ \text{kg/m}^3" />, <InlineMath latex="\eta_{\text{air}} = 1.8\times 10^{-5}\ \text{Pa·s}" />. U = 2(10⁻³)²×999×9.8/(9×1.8×10⁻⁵) ≈ 120 m/s. (Re = ρvR/η ≈ 8000 — Stokes is not valid here; the measured terminal velocity of a 2 mm drop is ~6.5 m/s.)</Step>
       </WorkedExample>
 
       <Definition number="FM.2" title="Common Traps">
@@ -149,7 +150,7 @@ export default function FluidMechanicsPage() {
           answer={1.8} unit="L/s" tolerance={0.05}
           hints={['Use continuity A₁v₁ = A₂v₂ and Bernoulli P₁ + ½ρv₁² = P₂ + ½ρv₂².', 'ΔP = ½ρ v₁²((r₁/r₂)⁴ − 1). Solve for v₁ then Q = A₁ v₁. With r₁ = 5 cm, r₂ = 2 cm, (r₁/r₂)⁴ = 39.1.']}
           problemText="A Venturi meter has upstream radius 5 cm, throat radius 2 cm, and pressure difference 1000 Pa. Find the volume flow rate Q in L/s for water (ρ = 1000 kg/m³)."
-          solution={<>Venturi meter: narrow throat at radius r₂ &lt; r₁ (upstream). Continuity: A₁v₁ = A₂v₂ → v₂ = v₁(r₁/r₂)². Bernoulli (horizontal): P₁ + ½ρv₁² = P₂ + ½ρv₂². ΔP = P₁−P₂ = ½ρ(v₂²−v₁²) = ½ρv₁²((r₁/r₂)⁴−1). v₁ = √(2ΔP/(ρ((r₁/r₂)⁴−1))). Volume flow: Q = A₁v₁. For r₁=5cm, r₂=2cm, ΔP=1000 Pa, ρ=1000kg/m³: (r₁/r₂)⁴ = (2.5)⁴ = 39.1. v₁ = √(2000/(1000×38.1)) = √0.0525 = 0.229 m/s. Q = π(0.05)²×0.229 = 1.8×10⁻³ m³/s = 1.8 L/s. The Venturi effect is also used in aircraft carburetors (the airflow through a constriction draws fuel into the intake) and in jet pumps (high-velocity jet entrains surrounding fluid).</>}>
+          solution={<>Venturi meter: narrow throat at radius r₂ &lt; r₁ (upstream). Continuity: A₁v₁ = A₂v₂ → v₂ = v₁(r₁/r₂)². Bernoulli (horizontal): P₁ + ½ρv₁² = P₂ + ½ρv₂². ΔP = P₁−P₂ = ½ρ(v₂²−v₁²) = ½ρv₁²((r₁/r₂)⁴−1). <InlineMath latex="v_1 = \sqrt{2\Delta P/\big(\rho\,((r_1/r_2)^4 - 1)\big)}" />. Volume flow: Q = A₁v₁. For r₁=5cm, r₂=2cm, ΔP=1000 Pa, ρ=1000kg/m³: (r₁/r₂)⁴ = (2.5)⁴ = 39.1. <InlineMath latex="v_1 = \sqrt{2000/(1000\times 38.1)} = \sqrt{0.0525} = 0.229\ \text{m/s}" />. Q = π(0.05)²×0.229 = 1.8×10⁻³ m³/s = 1.8 L/s. The Venturi effect is also used in aircraft carburetors (the airflow through a constriction draws fuel into the intake) and in jet pumps (high-velocity jet entrains surrounding fluid).</>}>
           A Venturi meter has upstream radius 5 cm and throat radius 2 cm. The pressure difference is 1000 Pa. Find the flow velocity and volume flow rate Q (L/s) for water.
         </InteractiveProblem>
 
@@ -159,12 +160,12 @@ export default function FluidMechanicsPage() {
         </Problem>
 
         <Problem n={3} difficulty="medium"
-          solution={<>Boundary layer: near a flat plate at Re≫1, viscous effects confined to thin layer. Prandtl (1904): outside layer, potential flow. Inside: viscous-inertial balance. Thickness δ ~ √(νx/U) (grows as √distance). Similarity solution: ψ = √(νUx) f(η), η = y/√(νx/U). Blasius equation: 2f''' + f f'' = 0 (nonlinear ODE). Drag: τ_wall = ρU²/(2)×0.664/√Re_x. Total drag: F = 0.664 bρU²L√(Re_L)^(-1/2) for plate of width b, length L. At Re_x ≈ 5×10⁵: transition to turbulent. Turbulent BL: δ ∝ x^(4/5) (thicker), more drag. Separation: adverse pressure gradient (decelerating flow) reverses near-wall flow → wake → form drag. Design of airfoils is about delaying separation to maximize lift/drag ratio.</>}>
+          solution={<>Boundary layer: near a flat plate at Re≫1, viscous effects confined to thin layer. Prandtl (1904): outside layer, potential flow. Inside: viscous-inertial balance. Thickness δ ~ √(νx/U) (grows as √x). Similarity solution: ψ = √(νUx) f(η), η = y/√(νx/U). Blasius equation: 2f''' + f f'' = 0 (nonlinear ODE). Drag: <InlineMath latex="\tau_{\text{wall}} = \tfrac{1}{2}\rho U^2 \times 0.664/\sqrt{\mathrm{Re}_x}" />. Total drag: <InlineMath latex="F = 0.664\, b\rho U^2 L\, \mathrm{Re}_L^{-1/2}" /> for plate of width b, length L. At Re_x ≈ 5×10⁵: transition to turbulent. Turbulent BL: <InlineMath latex="\delta \propto x^{4/5}" /> (thicker), more drag. Separation: adverse pressure gradient (decelerating flow) reverses near-wall flow → wake → form drag. Design of airfoils is about delaying separation to maximize lift/drag ratio.</>}>
           Describe the Prandtl boundary layer. How does the thickness δ scale with distance x along a flat plate? When does the boundary layer separate?
         </Problem>
 
         <Problem n={4} difficulty="hard"
-          solution={<>Turbulence — Kolmogorov theory (1941): energy cascades from large scales L (energy injection) to small scales η (dissipation). Power spectrum E(k) ∝ k^(−5/3) in the inertial range (Kolmogorov -5/3 law). Argument: in inertial range, energy flux ε (W/kg) is constant. On dimensional grounds: E(k) = Cε^(2/3) k^(−5/3) where C ≈ 1.5 (Kolmogorov constant). Dissipation scale: η = (ν³/ε)^(1/4) (Kolmogorov microscale). For atmospheric turbulence: L~1km, η~1mm, ratio L/η = Re^(3/4) ≈ 10⁶ scales across 6 decades! DNS (direct numerical simulation) must resolve all scales → requires grid ~Re^(9/4) points → impossible at atmospheric Re. LES (large eddy simulation) resolves large scales, models small. Turbulence is the hardest problem in classical mechanics — no analytic theory exists for Re≫1 flows.</>}>
+          solution={<>Turbulence — Kolmogorov theory (1941): energy cascades from large scales L (energy injection) to small scales η (dissipation). Power spectrum <InlineMath latex="E(k) \propto k^{-5/3}" /> in the inertial range (Kolmogorov -5/3 law). Argument: in inertial range, energy flux ε (W/kg) is constant. On dimensional grounds: <InlineMath latex="E(k) = C\varepsilon^{2/3} k^{-5/3}" /> where C ≈ 1.5 (Kolmogorov constant). Dissipation scale: <InlineMath latex="\eta = (\nu^3/\varepsilon)^{1/4}" /> (Kolmogorov microscale). For atmospheric turbulence: L~1km, η~1mm, ratio <InlineMath latex="L/\eta = \mathrm{Re}^{3/4} \approx 10^6" /> scales across 6 decades! DNS (direct numerical simulation) must resolve all scales → requires grid <InlineMath latex="\sim \mathrm{Re}^{9/4}" /> points → impossible at atmospheric Re. LES (large eddy simulation) resolves large scales, models small. Turbulence is the hardest problem in classical mechanics — no analytic theory exists for Re≫1 flows.</>}>
           State Kolmogorov&apos;s theory of turbulence and the -5/3 power law for the energy spectrum. What determines the smallest and largest scales? Why is turbulence computationally intractable?
         </Problem>
       </PracticeProblems>

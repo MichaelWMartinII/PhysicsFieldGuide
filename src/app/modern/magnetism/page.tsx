@@ -1,6 +1,6 @@
 import {
   Definition, WorkedExample, Step,
-  PracticeProblems, Problem, InteractiveProblem, EqNumbered, Prerequisites, Takeaways, LearningGoals
+  PracticeProblems, Problem, InteractiveProblem, EqNumbered, Prerequisites, Takeaways, LearningGoals, InlineMath
 } from '@/components/textbook';
 
 export default function MagnetismPage() {
@@ -27,20 +27,20 @@ export default function MagnetismPage() {
       <h2>MG.1 Paramagnetism and Diamagnetism</h2>
 
       <p>
-        In an external field H, a free spin-J atom acquires energy −g_J μ_B m_J H.
-        The partition function Z = Σ e^(g_J μ_B m_J H/(k_BT)) gives the magnetization:
+        In an external field H, a free spin-J atom acquires energy <InlineMath latex="-g_J \mu_B m_J H" />.
+        The partition function <InlineMath latex="Z = \sum e^{g_J \mu_B m_J H/k_B T}" /> gives the magnetization:
       </p>
 
-      <EqNumbered number="MG.1">M = N g_J μ_B J B_J(x) &nbsp;&nbsp;&nbsp; where x = g_J μ_B J H / (k_B T) and B_J is the Brillouin function</EqNumbered>
+      <EqNumbered number="MG.1" latex="M = N g_J \mu_B J\, B_J(x) \qquad \text{where } x = \frac{g_J \mu_B J H}{k_B T} \text{ and } B_J \text{ is the Brillouin function}" />
 
       <p>
-        At high T (x ≪ 1): M ≈ N g_J² μ_B² J(J+1) H/(3k_BT) — <strong>Curie law</strong>:
-        χ = C/T. At low T (x ≫ 1): M → N g_J μ_B J (saturation).
+        At high T (x ≪ 1): <InlineMath latex="M \approx N g_J^2 \mu_B^2 J(J+1) H/(3k_B T)" /> — <strong>Curie law</strong>:
+        χ = C/T. At low T (x ≫ 1): <InlineMath latex="M \to N g_J \mu_B J" /> (saturation).
       </p>
 
       <p>
         <strong>Diamagnetism</strong>: all materials are weakly diamagnetic. The orbital
-        response of closed shells to H gives χ_dia = −Ze²⟨r²⟩/(6m_e c²) per atom (Langevin).
+        response of closed shells to H gives <InlineMath latex="\chi_{\text{dia}} = -Ze^2\langle r^2\rangle/(6m_e c^2)" /> per atom (Langevin).
         Negative susceptibility: induced magnetization opposes applied field. Superconductors
         are perfect diamagnets (Meissner effect): χ = −1.
       </p>
@@ -53,39 +53,39 @@ export default function MagnetismPage() {
         exclusion principle. For two electrons on adjacent atoms:
       </p>
 
-      <EqNumbered number="MG.2">H_ex = −2J S₁ · S₂ &nbsp;&nbsp;&nbsp; (Heisenberg exchange Hamiltonian)</EqNumbered>
+      <EqNumbered number="MG.2" latex="H_{\text{ex}} = -2J\, \mathbf{S}_1 \cdot \mathbf{S}_2 \qquad \text{(Heisenberg exchange Hamiltonian)}" />
 
       <p>
         J &gt; 0: ferromagnetic exchange (parallel spins lower energy — triplet state preferred).
         J &lt; 0: antiferromagnetic exchange (antiparallel spins — singlet preferred).
-        Exchange integral: J = ⟨↑↓|1/r₁₂|↑↓⟩ − ⟨↑↓|1/r₁₂|↓↑⟩ (direct vs exchange term).
+        Exchange integral: <InlineMath latex="J = \langle\uparrow\downarrow|1/r_{12}|\uparrow\downarrow\rangle - \langle\uparrow\downarrow|1/r_{12}|\downarrow\uparrow\rangle" /> (direct vs exchange term).
       </p>
 
       <p>
         The full <strong>Heisenberg model</strong> on a lattice:
-        H = −J Σ_(ij) S_i · S_j − g μ_B H Σᵢ S_i^z. For J &gt; 0: ferromagnet.
-        For J &lt; 0: antiferromagnet. The Ising model (1D solvable): H = −J Σ σᵢ σᵢ₊₁.
+        <InlineMath latex="H = -J\sum_{ij} \mathbf{S}_i \cdot \mathbf{S}_j - g\mu_B H \sum_i S_i^z" />. For J &gt; 0: ferromagnet.
+        For J &lt; 0: antiferromagnet. The Ising model (1D solvable): <InlineMath latex="H = -J\sum_i \sigma_i \sigma_{i+1}" />.
       </p>
 
       <h2>MG.3 Ferromagnetism — Mean-Field Theory</h2>
 
       <p>
-        In mean-field theory, replace S_j · S_i → ⟨S_j⟩ · S_i = m S_i^z (Weiss molecular
-        field approximation). Each spin sees an effective field H_eff = H + λm where
-        λ = 2zJ/(g μ_B)² is the Weiss constant (z = coordination number).
+        In mean-field theory, replace <InlineMath latex="\mathbf{S}_j \cdot \mathbf{S}_i \to \langle \mathbf{S}_j\rangle \cdot \mathbf{S}_i = m S_i^z" /> (Weiss molecular
+        field approximation). Each spin sees an effective field <InlineMath latex="H_{\text{eff}} = H + \lambda m" /> where
+        <InlineMath latex="\lambda = 2zJ/(g\mu_B)^2" /> is the Weiss constant (z = coordination number).
       </p>
 
       <p>
-        Self-consistency equation: m = B_J(g μ_B J H_eff/(k_BT)).
-        Curie temperature: T_C = 2zJ J(J+1)/(3k_B) (for J→1/2 Ising: T_C = zJ/(2k_B)).
+        Self-consistency equation: <InlineMath latex="m = B_J\!\left(g\mu_B J H_{\text{eff}}/k_B T\right)" />.
+        Curie temperature: <InlineMath latex="T_C = 2zJ\, J(J+1)/(3k_B)" /> (for J → 1/2 Ising: <InlineMath latex="T_C = zJ/(2k_B)" />).
       </p>
 
-      <EqNumbered number="MG.3">T_C = 2zJ J(J+1)/(3k_B) &nbsp;&nbsp;&nbsp; (Curie-Weiss temperature, mean field)</EqNumbered>
+      <EqNumbered number="MG.3" latex="T_C = \frac{2zJ\, J(J+1)}{3k_B} \qquad \text{(Curie-Weiss temperature, mean field)}" />
 
       <p>
-        Below T_C: spontaneous magnetization m ≠ 0. Near T_C: m ∝ (T_C − T)^β with mean-field
-        β = 1/2. Actual 3D Ising: β ≈ 0.326 (fluctuations matter). Curie-Weiss law above T_C:
-        χ = C/(T − T_C).
+        Below <InlineMath latex="T_C" />: spontaneous magnetization m ≠ 0. Near <InlineMath latex="T_C" />: <InlineMath latex="m \propto (T_C - T)^\beta" /> with mean-field
+        β = 1/2. Actual 3D Ising: β ≈ 0.326 (fluctuations matter). Curie-Weiss law above <InlineMath latex="T_C" />:
+        <InlineMath latex="\chi = C/(T - T_C)" />.
       </p>
 
       <WorkedExample number="MG.1" title="Iron Ferromagnetism — Curie Temperature">
@@ -104,7 +104,7 @@ export default function MagnetismPage() {
       <p>
         For J &lt; 0 on a bipartite lattice (two sublattices A and B), the ground state has
         spins on A pointing up and B pointing down — <strong>antiferromagnetism</strong>.
-        Néel temperature T_N = 2z|J|S(S+1)/(3k_B) (same formula as T_C).
+        Néel temperature <InlineMath latex="T_N = 2z|J|S(S+1)/(3k_B)" /> (same formula as <InlineMath latex="T_C" />).
         Neutron scattering (magnetic Bragg peaks) detects the antiferromagnetic order.
       </p>
 
@@ -118,7 +118,7 @@ export default function MagnetismPage() {
       <p>
         <strong>Spin liquid</strong>: highly entangled state with no long-range order even at
         T = 0. Ground state is a superposition of many configurations (resonating valence bonds,
-        proposed by Anderson 1973 for high-T_c). Characterized by fractional excitations
+        proposed by Anderson in 1973 and applied to high-<InlineMath latex="T_c" /> superconductors in 1987). Characterized by fractional excitations
         (spinons) and topological order. Candidate materials: herbertsmithite (ZnCu₃(OH)₆Cl₂),
         RVB models of cuprate superconductors.
       </p>
@@ -129,15 +129,15 @@ export default function MagnetismPage() {
         A spin in a magnetic field H precesses (Larmor precession):
       </p>
 
-      <EqNumbered number="MG.4">dS/dt = γ S × H &nbsp;&nbsp;&nbsp; (Larmor precession, γ = gyromagnetic ratio)</EqNumbered>
+      <EqNumbered number="MG.4" latex="\frac{d\mathbf{S}}{dt} = \gamma\, \mathbf{S} \times \mathbf{H} \qquad \text{(Larmor precession, } \gamma = \text{gyromagnetic ratio)}" />
 
       <p>
-        For protons: γ = 2.675×10⁸ rad/(s·T) → Larmor frequency ν_L = γH/(2π).
-        At H = 3 T (clinical MRI): ν_L = 127 MHz (RF range).
+        For protons: γ = 2.675×10⁸ rad/(s·T) → Larmor frequency <InlineMath latex="\nu_L = \gamma H/(2\pi)" />.
+        At H = 3 T (clinical MRI): <InlineMath latex="\nu_L = 127" /> MHz (RF range).
       </p>
 
       <p>
-        <strong>NMR (Nuclear Magnetic Resonance):</strong> RF pulse at ν_L tips the magnetization.
+        <strong>NMR (Nuclear Magnetic Resonance):</strong> RF pulse at <InlineMath latex="\nu_L" /> tips the magnetization.
         Relaxation times T₁ (longitudinal, spin-lattice) and T₂ (transverse, spin-spin) encode
         local chemical environment. <strong>MRI</strong> adds a gradient field to encode spatial
         position in the Larmor frequency: frequency encodes location. Fourier transform of FID
@@ -164,7 +164,7 @@ export default function MagnetismPage() {
         </InteractiveProblem>
 
         <Problem n={2} difficulty="medium"
-          solution={<>Spin wave (magnon) dispersion for Heisenberg ferromagnet H = −J Σ S_i·S_j. Linear spin-wave theory: expand around classical ferromagnetic ground state |↑↑...↑⟩. Holstein-Primakoff: S+ = √(2S) a (for S=1/2: S+ = a, Sz = 1/2 − a†a). Magnon dispersion: ℏω_k = 2S J(1−γ_k) where γ_k = (1/z)Σ_δ e^(ik·δ) (structure factor, δ=nearest neighbor vectors). At small k (long wavelength): γ_k ≈ 1 − (ka)²/2 (for simple cubic) → ω_k = SJ(ka)². Quadratic dispersion ω ∝ k² (contrast phonons: ω = ck, linear). Magnon density of states: g(ω) ∝ ω^(1/2) (in 3D, from ω ∝ k²). Heat capacity: C = dU/dT where U = ∫ℏω g(ω) n_B(ω) dω, n_B = 1/(e^(ℏω/k_BT)−1). For ω ∝ k²: C ∝ T^(3/2) (Bloch T^(3/2) law). For k → 0: ω_k → 0 (Goldstone mode from broken O(3) symmetry). This is why ferromagnets have T^(3/2) heat capacity at low T, unlike antiferromagnets (linear dispersion → T³).</>}>
+          solution={<>Spin wave (magnon) dispersion for Heisenberg ferromagnet H = −J Σ S_i·S_j. Linear spin-wave theory: expand around classical ferromagnetic ground state |↑↑...↑⟩. Holstein-Primakoff: S+ = √(2S) a (for S=1/2: S+ = a, Sz = 1/2 − a†a). Magnon dispersion: ℏω_k = 2zSJ(1−γ_k) where γ_k = (1/z)Σ_δ e^(ik·δ) (structure factor, δ=nearest neighbor vectors). At small k (long wavelength): γ_k ≈ 1 − (ka)²/6 (for simple cubic, z = 6) → ℏω_k = 2SJ(ka)². Quadratic dispersion ω ∝ k² (contrast phonons: ω = ck, linear). Magnon density of states: g(ω) ∝ ω^(1/2) (in 3D, from ω ∝ k²). Heat capacity: C = dU/dT where U = ∫ℏω g(ω) n_B(ω) dω, n_B = 1/(e^(ℏω/k_B T)−1). For ω ∝ k²: C ∝ T^(3/2) (Bloch T^(3/2) law). For k → 0: ω_k → 0 (Goldstone mode from broken O(3) symmetry). This is why ferromagnets have T^(3/2) heat capacity at low T, unlike antiferromagnets (linear dispersion → T³).</>}>
           Derive the magnon dispersion ω_k ∝ k² for a Heisenberg ferromagnet and show that the low-temperature heat capacity is C ∝ T^(3/2).
         </Problem>
 
@@ -172,12 +172,12 @@ export default function MagnetismPage() {
           answer={127.7e6} unit="Hz" tolerance={0.02}
           hints={['Larmor frequency: ν_L = γH₀/(2π) with γ = 2.675×10⁸ rad/(s·T)', 'At H₀ = 3 T: ν_L = 2.675×10⁸ × 3 / (2π)']}
           problemText="Calculate the proton Larmor frequency (in MHz) at a clinical MRI field of H₀ = 3 T, given γ = 2.675×10⁸ rad/(s·T)."
-          solution={<>MRI signal: magnetization M₀ = χ H₀ ∝ H₀/T. At H₀ = 3 T: ν_L = γ H₀/(2π) = 2.675×10⁸×3/(2π) = 127.7 MHz. Signal (from Faraday induction): V ∝ ω_L M₀ ∝ H₀². SNR ∝ H₀^(7/4) (including noise from coil resistance). At H₀=7T (research): SNR ∝ (7/3)^(7/4) = 2.33^(7/4) ≈ 4.6× better than 3T. Spatial encoding: gradient G_z applied → ν(z) = γ(H₀+G_z z)/(2π). RF pulse at ν(z₀) → selects slice at z₀. Phase encoding: gradient G_y for time τ → phase = γ G_y y τ. Frequency encoding: G_x during readout → ν(x) = γ(H₀+G_x x)/(2π). FID signal: S(t) = ∫∫ ρ(x,y) e^(iγG_x x t) e^(iφ_y(y)) e^(−t/T₂*) dx dy. 2D Fourier transform → image. Resolution: Δx = 1/(γ G_x T_acq). For G_x = 10 mT/m, T_acq = 10 ms: Δx = 1/(2.675×10⁸×0.01×0.01) = 0.37 mm.</>}>
+          solution={<>MRI signal: magnetization M₀ = χ H₀ ∝ H₀/T. At H₀ = 3 T: ν_L = γ H₀/(2π) = 2.675×10⁸×3/(2π) = 127.7 MHz. Signal (from Faraday induction): V ∝ ω_L M₀ ∝ H₀². SNR ∝ H₀^(7/4) (including noise from coil resistance). At H₀=7T (research): SNR ∝ (7/3)^(7/4) = 2.33^(7/4) ≈ 4.4× better than 3T. Spatial encoding: gradient G_z applied → ν(z) = γ(H₀+G_z z)/(2π). RF pulse at ν(z₀) → selects slice at z₀. Phase encoding: gradient G_y for time τ → phase = γ G_y y τ. Frequency encoding: G_x during readout → ν(x) = γ(H₀+G_x x)/(2π). FID signal: S(t) = ∫∫ ρ(x,y) e^(iγG_x x t) e^(iφ_y(y)) e^(−t/T₂*) dx dy. 2D Fourier transform → image. Resolution: Δx = 2π/(γ G_x T_acq). For G_x = 10 mT/m, T_acq = 10 ms: Δx = 2π/(2.675×10⁸×0.01×0.01) = 0.23 mm.</>}>
           Explain the physics of MRI. How does spatial encoding work? Why does SNR scale as H₀²? What is achievable resolution at 3 T?
         </InteractiveProblem>
 
         <Problem n={4} difficulty="hard"
-          solution={<>Kitaev honeycomb model: spin-1/2 on a honeycomb lattice. H = −J_x Σ_x K^x_j K^x_k − J_y Σ_y K^y_j K^y_k − J_z Σ_z K^z_j K^z_k. Each bond has a direction-dependent Ising-like coupling. Exact solution: map to Majorana fermions c_j (Jordan-Wigner extended). Each site: two Majoranas a_j, b_j with c_j = ia_j b_j. Define link variables u_(jk) = ib_j b_k for each bond (conserved quantities, Z₂ gauge field). In the flux-free sector (u=+1): H_Majorana = free Majorana fermion hopping. Dispersion: for J_x=J_y=J_z=J: Dirac cones at K, K' points (gapless). For J_z ≫ J_x,J_y: gapped phase. The gapless phase has topological nature: non-Abelian anyons in the vortex sector. Physical realization: α-RuCl₃, Na₂IrO₃ (strong spin-orbit, honeycomb). Signatures: fractionalization of neutron scattering response (no magnon peak), spin-1/2 continuum. Nobel candidate work (Kitaev 2003).</>}>
+          solution={<>Kitaev honeycomb model: spin-1/2 on a honeycomb lattice. H = −J_x Σ_x K^x_j K^x_k − J_y Σ_y K^y_j K^y_k − J_z Σ_z K^z_j K^z_k. Each bond has a direction-dependent Ising-like coupling. Exact solution: map to Majorana fermions c_j (Jordan-Wigner extended). Each site: two Majoranas a_j, b_j with c_j = ia_j b_j. Define link variables u_(jk) = ib_j b_k for each bond (conserved quantities, Z₂ gauge field). In the flux-free sector (u=+1): H_Majorana = free Majorana fermion hopping. Dispersion: for J_x=J_y=J_z=J: Dirac cones at K, K' points (gapless). For J_z ≫ J_x,J_y: gapped phase. The gapless phase has topological nature: non-Abelian anyons in the vortex sector. Physical realization: α-RuCl₃, Na₂IrO₃ (strong spin-orbit, honeycomb). Signatures: fractionalization of neutron scattering response (no magnon peak), spin-1/2 continuum. Nobel candidate work (Kitaev 2006).</>}>
           Describe the Kitaev honeycomb model and its exact solution via Majorana fermions. Why is this a quantum spin liquid and what physical materials realize it?
         </Problem>
       </PracticeProblems>

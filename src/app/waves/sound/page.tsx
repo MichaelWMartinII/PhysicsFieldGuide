@@ -1,7 +1,7 @@
 import DopplerWaveClient from '@/components/sims/DopplerWaveClient';
 import {
   Definition, Theorem, WorkedExample, Step,
-  PracticeProblems, Problem, InteractiveProblem, EqNumbered, Figure, Prerequisites, Takeaways, LearningGoals, HistoryNote
+  PracticeProblems, Problem, InteractiveProblem, EqNumbered, InlineMath, Figure, Prerequisites, Takeaways, LearningGoals, HistoryNote
 } from '@/components/textbook';
 
 export default function SoundPage() {
@@ -42,7 +42,7 @@ export default function SoundPage() {
 
       <p>
         where γ is the adiabatic index (≈1.4 for air), R = 8.314 J/(mol·K), T is the
-        absolute temperature, and M is the molar mass. At 20°C, v_s ≈ 343 m/s in air.
+        absolute temperature, and M is the molar mass. At 20°C, <InlineMath latex="v_s \approx 343\ \mathrm{m/s}" /> in air.
         Sound travels faster in denser solids — about 5100 m/s in steel — because the restoring
         force (bulk modulus) increases faster than the density.
       </p>
@@ -106,7 +106,7 @@ export default function SoundPage() {
         For a source moving at speed v_s and observer moving at speed v_o, both measured
         relative to the medium (positive when moving toward each other):
         <span style={{ display: 'block', textAlign: 'center', marginTop: '0.5rem', fontStyle: 'italic' }}>
-          f_obs = f₀ × (v + v_o) / (v − v_s)
+          <InlineMath latex="f_{\text{obs}} = f_0 \times \dfrac{v + v_o}{v - v_s}" />
         </span>
         where v = 343 m/s is the speed of sound. If source approaches: v_s {'>'} 0 → f_obs {'>'} f₀.
         If source recedes: v_s {'<'} 0 → f_obs {'<'} f₀.
@@ -140,7 +140,7 @@ export default function SoundPage() {
       <WorkedExample number="11.2" title="Fundamental Frequency of an Organ Pipe">
         <p>
           An open organ pipe is 2.0 m long. Find its fundamental frequency and the first three
-          harmonics. (v_s = 343 m/s)
+          harmonics. (v = 343 m/s)
         </p>
         <Step label="Fundamental (n=1):">f₁ = v/(2L) = 343/(2×2.0) = 343/4 = 85.75 Hz</Step>
         <Step label="Second harmonic:">f₂ = 2f₁ = 171.5 Hz</Step>
@@ -159,7 +159,7 @@ export default function SoundPage() {
       <EqNumbered number="11.3" latex="f_\mathrm{beat}=|f_1-f_2|" />
 
       <p>
-        Musicians use beats to tune instruments: when f_beat → 0, the two instruments are
+        Musicians use beats to tune instruments: when <InlineMath latex="f_{\text{beat}} \to 0" />, the two instruments are
         in tune. A guitar string slightly sharp relative to a 440 Hz tuning fork produces a
         3 Hz beat — three loud pulses per second — which slows to zero as the string is
         loosened to pitch.
@@ -205,7 +205,7 @@ export default function SoundPage() {
         </Problem>
 
         <Problem n={5} difficulty="hard"
-          solution={<>The shock wave (Mach cone) forms when v_source ≥ v_sound, i.e., Mach number M = v_s/v ≥ 1. The half-angle of the Mach cone: sin α = v/v_s = 1/M. At Mach 2: α = 30°, cone half-angle = 30°. The sonic boom is heard when the cone's oblique shock wave passes the observer — not when the aircraft breaks Mach 1. The observer on the ground hears nothing until the cone sweeps over them.</>}>
+          solution={<>The shock wave (Mach cone) forms when <InlineMath latex="v_{\text{source}} \ge v_{\text{sound}}" />, i.e., Mach number M = v_s/v ≥ 1. The half-angle of the Mach cone: sin α = v/v_s = 1/M. At Mach 2: α = 30°, cone half-angle = 30°. The sonic boom is heard when the cone's oblique shock wave passes the observer — not when the aircraft breaks Mach 1. The observer on the ground hears nothing until the cone sweeps over them.</>}>
           Derive the Mach cone half-angle as a function of Mach number. At Mach 2, what is the cone angle? Explain why an observer on the ground hears silence until the boom arrives.
         </Problem>
       </PracticeProblems>

@@ -1,6 +1,6 @@
 import {
   Definition, Theorem, WorkedExample, Step,
-  PracticeProblems, Problem, InteractiveProblem, EqNumbered, Prerequisites, Takeaways, LearningGoals, HistoryNote
+  PracticeProblems, Problem, InteractiveProblem, EqNumbered, InlineMath, Prerequisites, Takeaways, LearningGoals, HistoryNote
 } from '@/components/textbook';
 
 export default function MaxwellPage() {
@@ -46,15 +46,15 @@ export default function MaxwellPage() {
 
       <Theorem number="M.1" title="Maxwell's Equations (Integral Form, in vacuum)">
         <div style={{ fontFamily: 'Georgia, serif', fontSize: '0.95rem', lineHeight: 2 }}>
-          <div><strong>I. Gauss&apos;s law:</strong> &nbsp; ∮ E·dA = Q_enc/ε₀ &nbsp;&nbsp; (electric field from charges)</div>
-          <div><strong>II. Gauss&apos;s law for magnetism:</strong> &nbsp; ∮ B·dA = 0 &nbsp;&nbsp; (no magnetic monopoles)</div>
-          <div><strong>III. Faraday&apos;s law:</strong> &nbsp; ∮ E·dl = −dΦ_B/dt &nbsp;&nbsp; (changing B creates E)</div>
-          <div><strong>IV. Ampère–Maxwell law:</strong> &nbsp; ∮ B·dl = μ₀(I + ε₀ dΦ_E/dt) &nbsp;&nbsp; (current and changing E create B)</div>
+          <div><strong>I. Gauss&apos;s law:</strong> &nbsp; <InlineMath latex="\oint \mathbf{E}\cdot d\mathbf{A} = Q_{\text{enc}}/\varepsilon_0" /> &nbsp;&nbsp; (electric field from charges)</div>
+          <div><strong>II. Gauss&apos;s law for magnetism:</strong> &nbsp; <InlineMath latex="\oint \mathbf{B}\cdot d\mathbf{A} = 0" /> &nbsp;&nbsp; (no magnetic monopoles)</div>
+          <div><strong>III. Faraday&apos;s law:</strong> &nbsp; <InlineMath latex="\oint \mathbf{E}\cdot d\mathbf{l} = -\dfrac{d\Phi_B}{dt}" /> &nbsp;&nbsp; (changing B creates E)</div>
+          <div><strong>IV. Ampère–Maxwell law:</strong> &nbsp; <InlineMath latex="\oint \mathbf{B}\cdot d\mathbf{l} = \mu_0\left(I + \varepsilon_0\dfrac{d\Phi_E}{dt}\right)" /> &nbsp;&nbsp; (current and changing E create B)</div>
         </div>
       </Theorem>
 
       <p>
-        The new term ε₀ dΦ_E/dt is Maxwell&apos;s 1865 addition. Without it, Ampère&apos;s law was
+        The new term <InlineMath latex="\varepsilon_0\, d\Phi_E/dt" /> is Maxwell&apos;s addition (1861–62). Without it, Ampère&apos;s law was
         inconsistent — charge conservation was violated at a capacitor plate. With it, the
         equations are consistent, and they predict electromagnetic waves.
       </p>
@@ -83,13 +83,13 @@ export default function MaxwellPage() {
         In free space, take the curl of Faraday&apos;s law and substitute the Ampère-Maxwell law:
       </p>
 
-      <EqNumbered number="M.3">∇²E = μ₀ε₀ ∂²E/∂t² &nbsp;&nbsp;&nbsp; (wave equation for E)</EqNumbered>
+      <EqNumbered number="M.3" latex="\nabla^2 \mathbf{E} = \mu_0\varepsilon_0\frac{\partial^2 \mathbf{E}}{\partial t^2} \qquad \text{(wave equation for } \mathbf{E}\text{)}" />
 
       <p>
         This is the wave equation with speed:
       </p>
 
-      <EqNumbered number="M.4">c = 1/√(μ₀ε₀) = 2.998×10⁸ m/s</EqNumbered>
+      <EqNumbered number="M.4" latex="c = \frac{1}{\sqrt{\mu_0\varepsilon_0}} = 2.998\times10^8\ \mathrm{m/s}" />
 
       <p>
         Maxwell calculated this in 1865 from the measured values of μ₀ and ε₀ — and recognized
@@ -133,7 +133,7 @@ export default function MaxwellPage() {
         The rate of energy flow per unit area is given by the <strong>Poynting vector</strong>:
       </p>
 
-      <EqNumbered number="M.6">S = (1/μ₀) E × B &nbsp;&nbsp;&nbsp; [W/m²]</EqNumbered>
+      <EqNumbered number="M.6" latex="\mathbf{S} = \frac{1}{\mu_0}\,\mathbf{E}\times\mathbf{B} \qquad [\mathrm{W/m^2}]" />
 
       <p>
         For a plane wave, S = (E²/μ₀c) ẑ — energy flows in the direction of propagation,
@@ -171,7 +171,7 @@ export default function MaxwellPage() {
         </Problem>
 
         <Problem n={4} difficulty="hard"
-          solution={<>The Poynting vector theorem (EM energy conservation): ∂u/∂t + ∇·S = −J·E (energy dissipated by currents). Derivation: take E·(Ampère-Maxwell) − B·(Faraday): E·(∇×B) − B·(∇×E) = μ₀J·E + μ₀ε₀E·∂E/∂t + B·∂B/∂t. Left side = ∇·(E×B) by vector identity. Right = μ₀J·E + ½μ₀∂(ε₀E²+B²/μ₀)/∂t. Rearrange: ∂u/∂t + ∇·S = −J·E, where S = E×B/μ₀ (Poynting vector) and u = ½(ε₀E²+B²/μ₀). This is Poynting&apos;s theorem — EM energy continuity equation.</>}>
+          solution={<>The Poynting vector theorem (EM energy conservation): ∂u/∂t + ∇·S = −J·E (energy dissipated by currents). Derivation: take E·(Ampère-Maxwell) − B·(Faraday): E·(∇×B) − B·(∇×E) = μ₀J·E + μ₀ε₀E·∂E/∂t + B·∂B/∂t. Left side = −∇·(E×B) by vector identity. Right = μ₀J·E + ½μ₀∂(ε₀E²+B²/μ₀)/∂t. Rearrange: ∂u/∂t + ∇·S = −J·E, where S = E×B/μ₀ (Poynting vector) and u = ½(ε₀E²+B²/μ₀). This is Poynting&apos;s theorem — EM energy continuity equation.</>}>
           Derive Poynting&apos;s theorem ∂u/∂t + ∇·S = −J·E from Maxwell&apos;s equations. Interpret each term physically.
         </Problem>
       </PracticeProblems>

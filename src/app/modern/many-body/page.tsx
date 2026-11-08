@@ -1,6 +1,6 @@
 import {
   Definition, WorkedExample, Step,
-  PracticeProblems, Problem, InteractiveProblem, EqNumbered, Prerequisites, Takeaways, LearningGoals
+  PracticeProblems, Problem, InteractiveProblem, EqNumbered, Prerequisites, Takeaways, LearningGoals, InlineMath
 } from '@/components/textbook';
 
 export default function ManyBodyPage() {
@@ -33,36 +33,36 @@ export default function ManyBodyPage() {
       </p>
 
       <p>
-        <strong>Bosons</strong>: [b_k, b†_(k')] = δ_(kk'), [b_k, b_(k')] = 0.
-        <strong>Fermions</strong>: {'{'}c_k, c†_(k'){'}'} = δ_(kk'), {'{'}c_k, c_(k'){'}'} = 0 (anticommutators).
-        The Pauli exclusion principle is automatic: (c†_k)² = 0 (can&apos;t create two fermions in same state).
+        <strong>Bosons</strong>: <InlineMath latex="[b_k, b^\dagger_{k'}] = \delta_{kk'}" />, <InlineMath latex="[b_k, b_{k'}] = 0" />.
+        <strong>Fermions</strong>: <InlineMath latex="\{c_k, c^\dagger_{k'}\} = \delta_{kk'}" />, <InlineMath latex="\{c_k, c_{k'}\} = 0" /> (anticommutators).
+        The Pauli exclusion principle is automatic: <InlineMath latex="(c^\dagger_k)^2 = 0" /> (can&apos;t create two fermions in same state).
       </p>
 
       <p>
         The Hamiltonian in second quantization:
       </p>
 
-      <EqNumbered number="MB.1">H = Σ_(kσ) ε_k c†_(kσ) c_(kσ) + ½ Σ_(k,k',q,σ,σ') V_q c†_(k+q,σ) c†_(k'−q,σ') c_(k',σ') c_(k,σ)</EqNumbered>
+      <EqNumbered number="MB.1" latex="H = \sum_{k\sigma} \varepsilon_k c^\dagger_{k\sigma} c_{k\sigma} + \frac{1}{2}\sum_{k,k',q,\sigma,\sigma'} V_q\, c^\dagger_{k+q,\sigma} c^\dagger_{k'-q,\sigma'} c_{k',\sigma'} c_{k,\sigma}" />
 
       <p>
         The first term is kinetic energy; the second is the two-body interaction in momentum space.
-        For the Coulomb interaction V_q = e²/(ε₀ q²) in 3D.
+        For the Coulomb interaction <InlineMath latex="V_q = e^2/(\varepsilon_0 q^2)" /> in 3D.
       </p>
 
       <h2>MB.2 Hartree-Fock Theory</h2>
 
       <p>
-        The simplest variational ansatz: a Slater determinant |ΦHF⟩ = Π_(k∈occ) c†_k |0⟩.
+        The simplest variational ansatz: a Slater determinant <InlineMath latex="|\Phi_{\text{HF}}\rangle = \prod_{k \in \text{occ}} c^\dagger_k |0\rangle" />.
         Variation gives the <strong>Hartree-Fock equations</strong>:
       </p>
 
-      <EqNumbered number="MB.2">[−ℏ²∇²/(2m) + V_H(r) + V_X] ψ_k(r) = ε_k ψ_k(r)</EqNumbered>
+      <EqNumbered number="MB.2" latex="\left[-\frac{\hbar^2\nabla^2}{2m} + V_H(\mathbf{r}) + V_X\right]\psi_k(\mathbf{r}) = \varepsilon_k \psi_k(\mathbf{r})" />
 
       <p>
-        where V_H = ∫ n(r') e²/(4πε₀|r−r'|) d³r' (Hartree, electrostatic) and V_X is the
+        where <InlineMath latex="V_H = \int n(\mathbf{r}')\, \frac{e^2}{4\pi\varepsilon_0|\mathbf{r} - \mathbf{r}'|}\, d^3r'" /> (Hartree, electrostatic) and <InlineMath latex="V_X" /> is the
         non-local Fock exchange operator. For the homogeneous electron gas: exchange
-        energy per electron E_X/N = −(3e²)/(4π)(3/π)^(1/3) r_s^(−1) (in Rydberg units),
-        where r_s = (3/(4πn))^(1/3) a₀ is the Wigner-Seitz radius.
+        energy per electron <InlineMath latex="E_X/N = -\frac{3}{2\pi}\left(\frac{9\pi}{4}\right)^{1/3} r_s^{-1} \approx -0.916/r_s" /> (in Rydberg units),
+        where <InlineMath latex="r_s = (3/(4\pi n))^{1/3}/a_0" /> is the Wigner-Seitz radius in units of the Bohr radius.
       </p>
 
       <Definition number="MB.1" title="Hubbard Model">
@@ -80,19 +80,19 @@ export default function ManyBodyPage() {
         The single-particle Green&apos;s function encodes excitation properties:
       </p>
 
-      <EqNumbered number="MB.3">G(k, ω) = 1/(ω − ε_k − Σ(k,ω) + iη) &nbsp;&nbsp;&nbsp; (Dyson equation: G = G₀ + G₀ Σ G)</EqNumbered>
+      <EqNumbered number="MB.3" latex="G(k, \omega) = \frac{1}{\omega - \varepsilon_k - \Sigma(k,\omega) + i\eta} \qquad \text{(Dyson equation: } G = G_0 + G_0 \Sigma G\text{)}" />
 
       <p>
         The <strong>self-energy</strong> Σ(k, ω) encodes all interaction effects.
-        The spectral function A(k, ω) = −(1/π) Im G(k, ω+iη) gives the probability of
+        The spectral function <InlineMath latex="A(k, \omega) = -\frac{1}{\pi}\,\text{Im}\, G(k, \omega + i\eta)" /> gives the probability of
         creating an excitation with momentum k and energy ω. For a Fermi liquid:
-        A(k, ω) = Z_k δ(ω − ε_k*) + incoherent background, where Z_k is the quasiparticle weight.
+        <InlineMath latex="A(k, \omega) = Z_k\, \delta(\omega - \varepsilon_k^*)" /> + incoherent background, where <InlineMath latex="Z_k" /> is the quasiparticle weight.
       </p>
 
       <p>
         <strong>Fermi liquid theory</strong> (Landau): despite interactions, the low-energy
         excitations of a metallic system are quasiparticles — dressed electrons with
-        renormalized mass m* and finite lifetime τ ∝ (ε − ε_F)^(−2). This justifies
+        renormalized mass m* and finite lifetime <InlineMath latex="\tau \propto (\varepsilon - \varepsilon_F)^{-2}" />. This justifies
         band theory for metals. Fails when: Mott insulator (strong U), non-Fermi liquids
         (1D Luttinger liquid, strange metal in cuprates, heavy fermions).
       </p>
@@ -102,18 +102,18 @@ export default function ManyBodyPage() {
           In the random phase approximation (RPA), compute the dielectric function ε(q, ω)
           for the electron gas. Find the plasmon dispersion.
         </p>
-        <Step label="Bare polarization:">Lindhard function: Π₀(q, ω) = 2Σ_k (f_(k+q) − f_k)/(ω − ε_(k+q) + ε_k + iη). At q→0, ω→0: Π₀ → −N(0) (density of states at E_F). At q→0, finite ω: Π₀ → −n_e q²/(mω²) (Thomas-Fermi limit).</Step>
+        <Step label="Bare polarization:">Lindhard function: Π₀(q, ω) = 2Σ_k (f_k − f_(k+q))/(ω − ε_(k+q) + ε_k + iη). At q→0, ω→0: Π₀ → −N(0) (density of states at E_F). At q→0, finite ω: Π₀ → +n_e q²/(mω²) (dynamical limit).</Step>
         <Step label="RPA dielectric function:">ε(q,ω) = 1 − V_q Π₀(q,ω) where V_q = e²/(ε₀ q²). ε(q,ω) = 1 + (e²/(ε₀ q²)) N(0) at static long-wavelength → Thomas-Fermi screening: ε = 1 + q_TF²/q² where q_TF² = e² N(0)/ε₀.</Step>
         <Step label="Plasmon:">Poles of G_screened at ε(q,ω) = 0. At q→0: ε(q,ω) = 1 − ω_p²/ω² where ω_p² = n_e e²/(ε₀ m). Plasmon frequency: ω = ω_p (independent of q at long wavelength). For metals: ω_p ~ 10 eV (UV plasma edge — why metals reflect below ω_p and transmit above for ω &gt; ω_p). Dispersion at small q: ω = ω_p + (3v_F²/(10ω_p))q² + O(q⁴). The plasmon is a gapped collective mode (Goldstone if long-range forces were absent).</Step>
-        <Step label="Screening length:">Screened potential: V_scr = V_q/ε(q) → V(r) = (e²/r) e^(−q_TF r) (Yukawa). Thomas-Fermi screening length: λ_TF = 1/q_TF. For Cu: n_e = 8.4×10²⁸ m⁻³, N(0) = (3/2)n/E_F ≈ 1.51×10⁴⁷ J⁻¹m⁻³. λ_TF ≈ 0.55 Å — very short screening in metals.</Step>
+        <Step label="Screening length:">Screened potential: V_scr = V_q/ε(q) → V(r) = (e²/r) e^(−q_TF r) (Yukawa). Thomas-Fermi screening length: λ_TF = 1/q_TF. For Cu: n_e = 8.4×10²⁸ m⁻³, N(0) = (3/2)n/E_F ≈ 1.13×10⁴⁷ J⁻¹m⁻³. λ_TF ≈ 0.55 Å — very short screening in metals.</Step>
       </WorkedExample>
 
       <h2>MB.4 Diagrammatic Perturbation Theory</h2>
 
       <p>
         The self-energy and correlation functions can be expanded in Feynman diagrams.
-        At the Hartree-Fock level: Σ_HF = Σ_direct + Σ_exchange.
-        Beyond HF: the GW approximation Σ = iG W (W = screened Coulomb interaction from RPA)
+        At the Hartree-Fock level: <InlineMath latex="\Sigma_{\text{HF}} = \Sigma_{\text{direct}} + \Sigma_{\text{exchange}}" />.
+        Beyond HF: the GW approximation <InlineMath latex="\Sigma = iGW" /> (W = screened Coulomb interaction from RPA)
         is the standard first-principles method for band gaps in semiconductors.
       </p>
 
@@ -127,7 +127,7 @@ export default function ManyBodyPage() {
       <p>
         <strong>Quantum Monte Carlo</strong> (QMC): stochastic evaluation of the many-body
         path integral. Variational MC (VMC): optimize a trial wavefunction (Jastrow factor
-        × Slater determinant). Diffusion MC (DMC): project to ground state via e^(−τH).
+        × Slater determinant). Diffusion MC (DMC): project to ground state via <InlineMath latex="e^{-\tau H}" />.
         Sign problem for fermions (cancellations between ± signs) is the fundamental bottleneck.
         Fixed-node approximation: constrain to same nodal surface as trial function.
       </p>
@@ -136,22 +136,22 @@ export default function ManyBodyPage() {
 
       <p>
         <strong>Mott insulator → superfluid transition</strong> (Bose-Hubbard model in optical lattice):
-        at integer filling, for U/t &gt; z×5.83: Mott lobes in the phase diagram.
+        at integer filling, for <InlineMath latex="U/t > 5.83z" />: Mott lobes in the phase diagram.
         Jaksch et al. (1998) predicted; Greiner et al. (2002) observed with ultracold bosons
         in an optical lattice — quantum phase transition at T = 0.
       </p>
 
       <p>
         <strong>Fractional quantum Hall effect</strong> (FQHE): at ν = 1/3 (and other fractions),
-        the ground state is the Laughlin wavefunction Ψ = Π_(i&lt;j) (z_i − z_j)^m e^(−Σ|z_k|²/4ℓ²)
+        the ground state is the Laughlin wavefunction <InlineMath latex="\Psi = \prod_{i<j} (z_i - z_j)^m e^{-\sum_k |z_k|^2/4\ell^2}" />
         (m = 3 for ν=1/3). Excitations carry fractional charge e/3 and obey fractional statistics
         (anyons). Topological order — no local order parameter.
       </p>
 
       <p>
-        <strong>High-T_c superconductors</strong>: cuprates (La₂CuO₄ doped with Sr) have T_c up to 138 K.
+        <strong>High-<InlineMath latex="T_c" /> superconductors</strong>: cuprates (La₂CuO₄ doped with Sr) have <InlineMath latex="T_c" /> up to 138 K.
         Undoped: Mott insulator (half-filled Cu 3d band, strong U). Doped: d-wave superconductivity
-        (gap Δ_k = Δ₀(cos k_x − cos k_y)), pseudogap phase, strange metal. Not fully explained.
+        (gap <InlineMath latex="\Delta_k = \Delta_0(\cos k_x - \cos k_y)" />), pseudogap phase, strange metal. Not fully explained.
       </p>
 
       <Definition number="MB.2" title="Common Traps">
@@ -187,21 +187,21 @@ export default function ManyBodyPage() {
         </InteractiveProblem>
 
         <Problem n={3} difficulty="medium"
-          solution={<>Quasiparticle weight Z_k in Fermi liquid theory: G(k,ω) = Z_k/(ω - ε_k* - iΓ_k) + G_incoh. Spectral function: A(k,ω) = Z_k Γ_k/π/(ω-ε_k*)² + Γ_k²) (Lorentzian) + incoherent part. Z_k = (1 - ∂ReΣ/∂ω|_(ω=ε_k*))⁻¹. Fermi liquid: Z_k is finite at ε_F (0 &lt; Z &lt; 1). Lifetime: Γ_k = Z_k ImΣ(k,ε_k*) ∝ (ε_k* - ε_F)². Scattering rate ~ (kT)² + (ε-μ)² — quadratic in temperature and energy. In a non-Fermi liquid (e.g., cuprate strange metal): resistivity ρ ~ T (linear in T, not T²). Z→0 as T→0 in 1D → Luttinger liquid (no quasiparticles, only collective modes: holon + spinon). ARPES measurement: A(k,ω) directly measured. For cuprates at (π/2,π/2) (nodal direction): sharp quasiparticle peak at E_F with Z ≈ 0.3. Near (π,0) (antinodal): broad incoherent feature, large ImΣ — strongly correlated.</>}>
+          solution={<>Quasiparticle weight Z_k in Fermi liquid theory: G(k,ω) = Z_k/(ω - ε_k* - iΓ_k) + G_incoh. Spectral function: A(k,ω) = (Z_k/π) Γ_k/((ω − ε_k*)² + Γ_k²) (Lorentzian) + incoherent part. Z_k = (1 - ∂ReΣ/∂ω|_(ω=ε_k*))⁻¹. Fermi liquid: Z_k is finite at ε_F (0 &lt; Z &lt; 1). Lifetime: Γ_k = Z_k ImΣ(k,ε_k*) ∝ (ε_k* - ε_F)². Scattering rate ~ (kT)² + (ε-μ)² — quadratic in temperature and energy. In a non-Fermi liquid (e.g., cuprate strange metal): resistivity ρ ~ T (linear in T, not T²). Z→0 as T→0 in 1D → Luttinger liquid (no quasiparticles, only collective modes: holon + spinon). ARPES measurement: A(k,ω) directly measured. For cuprates at (π/2,π/2) (nodal direction): sharp quasiparticle peak at E_F with Z ≈ 0.3. Near (π,0) (antinodal): broad incoherent feature, large ImΣ — strongly correlated.</>}>
           Explain quasiparticle weight Z_k and the Fermi liquid lifetime τ ∝ (ε−ε_F)^(−2). How does ARPES measure the spectral function, and what signals a non-Fermi liquid?
         </Problem>
 
         <Problem n={4} difficulty="hard"
-          solution={<>Laughlin wavefunction: Ψ_m = Π_(i&lt;j) (z_i-z_j)^m exp(-Σ_k |z_k|²/(4ℓ²)) where z = x+iy, ℓ = √(ℏ/(eB)) is the magnetic length. For ν=1/m (m odd). Properties: (1) Analytical in z_i → all in lowest Landau level. (2) Antisymmetric for odd m (fermions). (3) Has zeros of order m when z_i → z_j (Pauli+correlations). (4) Normalization: ∫|Ψ|²d²r₁...d²r_N = 1 defines filling ν = 1/m. Quasihole at w: Ψ_qh = Π_i(z_i-w) Ψ_m. This inserts a flux quantum and has charge e* = e/m (fractional!). Proof: Aharonov-Bohm phase when quasihole circles another: γ = 2π(1/m) — fractional statistics (anyons, neither bosons nor fermions). Plasma analogy: |Ψ|² = exp(-β H_plasma) where H_plasma = -2m Σ_(i&lt;j) ln|z_i-z_j| + Σ_i |z_i|²/2ℓ² corresponds to a 2D one-component plasma at temperature β=1/m with a uniform background. In the plasma, correlations are known — used to extract structure factor and ground state energy. Energy gap above Laughlin state: Δ ≈ 0.1 e²/(ε ℓ) from numerical exact diagonalization.</>}>
+          solution={<>Laughlin wavefunction: Ψ_m = Π_(i&lt;j) (z_i-z_j)^m exp(-Σ_k |z_k|²/(4ℓ²)) where z = x+iy, ℓ = √(ℏ/(eB)) is the magnetic length. For ν=1/m (m odd). Properties: (1) Analytical in z_i → all in lowest Landau level. (2) Antisymmetric for odd m (fermions). (3) Has zeros of order m when z_i → z_j (Pauli+correlations). (4) Normalization: ∫|Ψ|²d²r₁...d²r_N = 1 defines filling ν = 1/m. Quasihole at w: Ψ_qh = Π_i(z_i-w) Ψ_m. This inserts a flux quantum and has charge e* = e/m (fractional!). Proof: Aharonov-Bohm phase when quasihole circles another: γ = 2π(1/m) — fractional statistics (anyons, neither bosons nor fermions). Plasma analogy: |Ψ|² = exp(−β H_plasma) where H_plasma = −m² Σ_(i&lt;j) ln|z_i−z_j| + (m/4ℓ²) Σ_i |z_i|² corresponds to a 2D one-component plasma at β = 2/m with a uniform background. In the plasma, correlations are known — used to extract structure factor and ground state energy. Energy gap above Laughlin state: Δ ≈ 0.1 e²/(ε ℓ) from numerical exact diagonalization.</>}>
           Write down the Laughlin wavefunction for filling ν = 1/m. Show it describes fractional charge e/m quasiparticles using the plasma analogy. What is the energy gap?
         </Problem>
       </PracticeProblems>
 
       <Takeaways items={[
-        'Fermion operators: {c_k, c†_(k\')} = δ_{kk\'} (anticommutators). (c†)² = 0 encodes Pauli exclusion.',
+        'Fermion operators: c_k c†_(k\') + c†_(k\') c_k = δ_(kk\') (anticommutators). (c†)² = 0 encodes Pauli exclusion.',
         'HF theory: Slater determinant ansatz. Hartree (direct Coulomb) + Fock (exchange). Misses correlations.',
         'Hubbard model: kinetic t vs on-site U. U/t ≫ 1 → Mott insulator. Half-filling + large U → antiferromagnetism.',
-        'Self-energy Σ(k,ω): Dyson eq G = G₀ + G₀ Σ G. Fermi liquid: sharp quasiparticle, lifetime ~ (ε-ε_F)².',
+        'Self-energy Σ(k,ω): Dyson eq G = G₀ + G₀ Σ G. Fermi liquid: sharp quasiparticle, lifetime ~ (ε−ε_F)⁻².',
         'RPA plasmon: collective oscillation at ω_p = √(ne²/(ε₀m)). Thomas-Fermi screening λ_TF = 1/q_TF.',
         'FQHE Laughlin state ν = 1/m: fractional charge e/m, anyonic statistics. Topological — no local order parameter.',
       ]} />

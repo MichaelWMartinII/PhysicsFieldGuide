@@ -1,6 +1,6 @@
 import {
   Definition, Theorem, WorkedExample, Step,
-  PracticeProblems, Problem, InteractiveProblem, EqNumbered, Prerequisites, Takeaways, LearningGoals, HistoryNote
+  PracticeProblems, Problem, InteractiveProblem, EqNumbered, InlineMath, Prerequisites, Takeaways, LearningGoals, HistoryNote
 } from '@/components/textbook';
 
 export default function CalculusPage() {
@@ -43,7 +43,7 @@ export default function CalculusPage() {
         </HistoryNote>
       </p>
 
-      <EqNumbered number="25.1">f&apos;(x) = df/dx = lim_(h→0) [f(x+h) − f(x)] / h</EqNumbered>
+      <EqNumbered number="25.1" latex="f'(x) = \frac{df}{dx} = \lim_{h \to 0} \frac{f(x+h) - f(x)}{h}" />
 
       <p>
         In physics, the most common derivative is with respect to time. If x(t) is position,
@@ -86,11 +86,11 @@ export default function CalculusPage() {
 
       <p>
         The <strong>integral</strong> is the inverse of the derivative and measures accumulation.
-        The definite integral ∫_a^b f(x) dx gives the area under f(x) from a to b, and by the
+        The definite integral <InlineMath latex="\int_a^b f(x)\,dx" /> gives the area under f(x) from a to b, and by the
         <strong>Fundamental Theorem of Calculus</strong>:
       </p>
 
-      <EqNumbered number="25.2">∫_a^b f(x) dx = F(b) − F(a) &nbsp;&nbsp;&nbsp; where F&apos;(x) = f(x)</EqNumbered>
+      <EqNumbered number="25.2" latex="\int_a^b f(x)\,dx = F(b) - F(a) \qquad \text{where } F'(x) = f(x)" />
 
       <p>
         F is the <strong>antiderivative</strong>. The indefinite integral ∫f(x)dx = F(x) + C
@@ -123,8 +123,8 @@ export default function CalculusPage() {
           A spring exerts force F(x) = −kx (Hooke&apos;s law). Find the work done compressing it
           from x = 0 to x = A (amplitude).
         </p>
-        <Step label="Work integral:">W = ∫₀^A F dx = ∫₀^A kx dx &nbsp; (we push with +kx against the spring)</Step>
-        <Step label="Integrate:">W = k [x²/2]₀^A = kA²/2</Step>
+        <Step label="Work integral:"><InlineMath latex="W = \int_0^A F\,dx = \int_0^A kx\,dx" /> &nbsp; (we push with +kx against the spring)</Step>
+        <Step label="Integrate:"><InlineMath latex="W = k\left[\frac{x^2}{2}\right]_0^A = \frac{kA^2}{2}" /></Step>
         <Step label="Result:">W = ½kA² — this is exactly the elastic potential energy stored in the spring. ✓</Step>
       </WorkedExample>
 
@@ -148,7 +148,7 @@ export default function CalculusPage() {
           ∫ u dv = uv − ∫ v du
         </span>
         Choose u to be the factor that simplifies when differentiated; dv = the remainder.
-        Example: ∫ t·eᵃᵗ dt — let u = t, dv = eᵃᵗ dt → te^(at)/a − ∫ eᵃᵗ/a dt = (t/a − 1/a²)eᵃᵗ + C
+        Example: ∫ t·eᵃᵗ dt — let u = t, dv = eᵃᵗ dt → teᵃᵗ/a − ∫ eᵃᵗ/a dt = (t/a − 1/a²)eᵃᵗ + C
       </Definition>
 
       <WorkedExample number="25.3" title="Moment of Inertia by Integration">
@@ -217,7 +217,7 @@ export default function CalculusPage() {
         </Problem>
 
         <Problem n={5} difficulty="hard"
-          solution={<>The gravitational field of a uniform sphere of mass M at exterior point r {'>'} R: by the shell theorem (proved by Newton, derivable by Gauss&apos;s law analogue), all shells contribute as if their mass is at the center: g = −GM/r² r̂. For r {'<'} R (interior): only the mass enclosed M_enc = M(r/R)³ contributes → g = −GMr/R³ r̂ (linear in r — like a harmonic oscillator!). At the center: g = 0 by symmetry. Proof uses ∫₀^R 4πr²ρ dr = M for uniform density ρ = 3M/(4πR³).</>}>
+          solution={<>The gravitational field of a uniform sphere of mass M at exterior point r {'>'} R: by the shell theorem (proved by Newton, derivable by Gauss&apos;s law analogue), all shells contribute as if their mass is at the center: g = −GM/r² r̂. For r {'<'} R (interior): only the mass enclosed <InlineMath latex="M_{\text{enc}} = M(r/R)^3" /> contributes → g = −GMr/R³ r̂ (linear in r — like a harmonic oscillator!). At the center: g = 0 by symmetry. So |g| rises linearly to its maximum GM/R² at the surface r = R, then falls as 1/r². Proof uses ∫₀^R 4πr²ρ dr = M for uniform density ρ = 3M/(4πR³).</>}>
           Derive the gravitational field g(r) both inside and outside a uniform solid sphere of mass M and radius R. At what radius is g maximum?
         </Problem>
       </PracticeProblems>

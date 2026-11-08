@@ -142,7 +142,7 @@ export default function CircuitsPage() {
           R₃ = 3 Ω). ε₁ and R₁ in the left branch, ε₂ and R₂ in the right, R₃ in the middle.
           Find I₁, I₂, I₃.
         </p>
-        <Step label="Assign currents:"><InlineMath latex="I_1" /> (left, upward), <InlineMath latex="I_2" /> (right, upward), <InlineMath latex="I_3" /> (middle, upward)</Step>
+        <Step label="Assign currents:"><InlineMath latex="I_1" /> (left, upward), <InlineMath latex="I_2" /> (right, upward), <InlineMath latex="I_3" /> (middle, downward)</Step>
         <Step label="Junction rule (top):"><InlineMath latex="I_1 + I_2 = I_3" /> → <InlineMath latex="I_3 = I_1 + I_2" /></Step>
         <Step label="Left loop (KVL):"><InlineMath latex="+\varepsilon_1 - I_1R_1 - I_3R_3 = 0" /> → <InlineMath latex="12 - 2I_1 - 3(I_1+I_2) = 0" /> → <InlineMath latex="5I_1 + 3I_2 = 12" /></Step>
         <Step label="Right loop (KVL):"><InlineMath latex="+\varepsilon_2 - I_2R_2 - I_3R_3 = 0" /> → <InlineMath latex="6 - 4I_2 - 3(I_1+I_2) = 0" /> → <InlineMath latex="3I_1 + 7I_2 = 6" /></Step>
@@ -201,7 +201,7 @@ export default function CircuitsPage() {
         </InteractiveProblem>
 
         <Problem n={4} difficulty="medium"
-          solution={<>Assign I₁ (left branch, down through R₁), I₂ (right branch, down through R₂), I₃ (middle, down). Junction: I₁ = I₂ + I₃. Left loop: 10 − 2I₁ − 5I₃ = 0. Right loop: 8 − 3I₂ + 5I₃ = 0... (applying KVL systematically yields I₁ ≈ 1.96 A, I₂ ≈ 0.48 A, I₃ ≈ 1.48 A).</>}>
+          solution={<>Use the same layout as Example 16.2 (both batteries with their + terminals toward the top junction). Assign <InlineMath latex="I_1" /> (left branch, upward through <InlineMath latex="R_1" />), <InlineMath latex="I_2" /> (right branch, upward through <InlineMath latex="R_2" />), <InlineMath latex="I_3" /> (middle, downward). Junction: <InlineMath latex="I_3 = I_1 + I_2" />. Left loop: <InlineMath latex="10 - 2I_1 - 5I_3 = 0 \;\Rightarrow\; 7I_1 + 5I_2 = 10" />. Right loop: <InlineMath latex="8 - 3I_2 - 5I_3 = 0 \;\Rightarrow\; 5I_1 + 8I_2 = 8" />. Solving: <InlineMath latex="I_1 = 40/31 \approx 1.29\,\mathrm{A}" />, <InlineMath latex="I_2 = 6/31 \approx 0.19\,\mathrm{A}" />, <InlineMath latex="I_3 = 46/31 \approx 1.48\,\mathrm{A}" />.</>}>
           Apply Kirchhoff&apos;s rules: ε₁ = 10 V, R₁ = 2 Ω (left branch); ε₂ = 8 V, R₂ = 3 Ω (right branch); R₃ = 5 Ω (connecting middle). Find all three branch currents.
         </Problem>
 

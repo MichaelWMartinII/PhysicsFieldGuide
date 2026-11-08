@@ -1,6 +1,6 @@
 import {
   Definition, Theorem, WorkedExample, Step,
-  PracticeProblems, Problem, InteractiveProblem, EqNumbered, Prerequisites, Takeaways, LearningGoals
+  PracticeProblems, Problem, InteractiveProblem, EqNumbered, Prerequisites, Takeaways, LearningGoals, InlineMath
 } from '@/components/textbook';
 
 export default function TopologicalPage() {
@@ -29,22 +29,22 @@ export default function TopologicalPage() {
 
       <p>
         In band theory, the electronic states at each crystal momentum k form a Hilbert space.
-        As k traverses the Brillouin zone (a torus T^d in d dimensions), the occupied bands
+        As k traverses the Brillouin zone (a torus <InlineMath latex="T^d" /> in d dimensions), the occupied bands
         define a <strong>vector bundle</strong> — and vector bundles are classified by
         topological invariants.
       </p>
 
       <p>
         The key invariant: the <strong>Berry phase</strong>. As k evolves slowly around a loop
-        in the Brillouin zone, the eigenstate |u_k⟩ acquires a geometric phase:
+        in the Brillouin zone, the eigenstate <InlineMath latex="|u_k\rangle" /> acquires a geometric phase:
       </p>
 
-      <EqNumbered number="TP.1">γ = i ∮ ⟨u_k|∇_k|u_k⟩ · dk &nbsp;&nbsp;&nbsp; (Berry phase around a loop in k-space)</EqNumbered>
+      <EqNumbered number="TP.1" latex="\gamma = i \oint \langle u_k|\nabla_k|u_k\rangle \cdot d\mathbf{k} \qquad \text{(Berry phase around a loop in } k\text{-space)}" />
 
       <p>
-        The integrand A_k = i⟨u_k|∇_k|u_k⟩ is the <strong>Berry connection</strong> (analogous
+        The integrand <InlineMath latex="\mathbf{A}_k = i\langle u_k|\nabla_k|u_k\rangle" /> is the <strong>Berry connection</strong> (analogous
         to the vector potential A in electromagnetism). The associated curvature is the
-        <strong>Berry curvature</strong>: Ω_k = ∇_k × A_k (analogous to the magnetic field B).
+        <strong>Berry curvature</strong>: <InlineMath latex="\boldsymbol{\Omega}_k = \nabla_k \times \mathbf{A}_k" /> (analogous to the magnetic field B).
       </p>
 
       <h2>TP.2 The Quantum Hall Effect and Chern Numbers</h2>
@@ -54,7 +54,7 @@ export default function TopologicalPage() {
         is quantized with extraordinary precision:
       </p>
 
-      <EqNumbered number="TP.2">σ_xy = ν × e²/h &nbsp;&nbsp;&nbsp; (integer quantum Hall effect, IQHE)</EqNumbered>
+      <EqNumbered number="TP.2" latex="\sigma_{xy} = \nu\,\frac{e^2}{h} \qquad \text{(integer quantum Hall effect, IQHE)}" />
 
       <p>
         where ν = 1, 2, 3, ... is an integer. The quantization is exact — better than 1 part in
@@ -66,7 +66,7 @@ export default function TopologicalPage() {
         Thouless, Kohmoto, Nightingale, den Nijs (1982): the Hall conductance of a filled band
         is given by the first Chern number C₁:
         <span style={{ display: 'block', textAlign: 'center', marginTop: '0.5rem', fontStyle: 'italic' }}>
-          σ_xy = C₁ × e²/h &nbsp;&nbsp;&nbsp; C₁ = (1/2π) ∫_BZ Ω_k d²k ∈ ℤ
+          <InlineMath latex="\sigma_{xy} = C_1 \frac{e^2}{h} \qquad C_1 = \frac{1}{2\pi} \int_{\text{BZ}} \Omega_k \, d^2k \in \mathbb{Z}" />
         </span>
         The Chern number C₁ is a topological invariant — it cannot change without closing
         the band gap. A sample with C₁ = 1 and a vacuum with C₁ = 0 must have a topological
@@ -104,7 +104,7 @@ export default function TopologicalPage() {
 
       <p>
         First 2D TI: HgTe quantum wells (König et al., 2007, Science). First 3D TI:
-        Bi₂Se₃ (Chen et al., 2009) — metallic Dirac cone on the surface, insulating bulk.
+        Bi₁₋ₓSbₓ (Hsieh et al., 2008); the simplest is Bi₂Se₃ (Xia et al., 2009) — metallic Dirac cone on the surface, insulating bulk.
         ARPES directly images the Dirac cone surface state.
       </p>
 
@@ -115,8 +115,8 @@ export default function TopologicalPage() {
         </p>
         <Step label="Bloch Hamiltonian:">H(k) = (t₁ + t₂ cos k)σ_x + t₂ sin k σ_y (2×2 matrix, two sites per unit cell). Eigenvalues: E = ±√((t₁+t₂cos k)² + t₂²sin²k).</Step>
         <Step label="Gap condition:">Gap closes at k = 0: t₁ + t₂ = 0 → |t₁| = t₂. Gap closes at k = π: t₁ − t₂ = 0 → t₁ = t₂. Phase transition at |t₁| = |t₂|.</Step>
-        <Step label="Winding number:">The Hamiltonian H(k) = d(k)·σ. As k: 0 → 2π, d(k) = (t₁+t₂cos k, t₂sin k) traces an ellipse. Winding number W = number of times it winds around origin. W = 0 for t₁ &gt; t₂ (trivial); W = 1 for t₁ &lt; t₂ (topological).</Step>
-        <Step label="Edge states:">Topological phase (t₂ &gt; t₁): semi-infinite chain has zero-energy edge state localized at the boundary, with wavefunction decaying as (t₁/t₂)^n. Two edge states at opposite ends — robust to perturbations that preserve chiral symmetry.</Step>
+        <Step label="Winding number:">The Hamiltonian H(k) = d(k)·σ. As k: 0 → 2π, d(k) = (t₁+t₂cos k, t₂sin k) traces a circle. Winding number W = number of times it winds around origin. W = 0 for t₁ &gt; t₂ (trivial); W = 1 for t₁ &lt; t₂ (topological).</Step>
+        <Step label="Edge states:">Topological phase (t₂ &gt; t₁): semi-infinite chain has zero-energy edge state localized at the boundary, with wavefunction decaying as (t₁/t₂)ⁿ. Two edge states at opposite ends — robust to perturbations that preserve chiral symmetry.</Step>
         <Step label="Physical realization:">Polyacetylene (CH)_n in dimerized (Peierls) phase — the SSH model. Soliton defects carry charge e/2 (fractionalization). Modern realizations: photonic lattices, ultracold atoms, acoustic metamaterials.</Step>
       </WorkedExample>
 
@@ -131,7 +131,7 @@ export default function TopologicalPage() {
       <p>
         The <strong>Kitaev chain</strong> model: 1D chain of spinless fermions with p-wave
         pairing Δ. Topological phase for |μ| &lt; 2t. Majorana modes at each end:
-        γ₁ = c₁ + c₁†, γ₂ = i(c_N − c_N†). The two Majoranas form a zero-energy
+        γ₁ = c₁ + c₁†, <InlineMath latex="\gamma_2 = i(c_N - c_N^\dagger)" />. The two Majoranas form a zero-energy
         non-local fermion c = (γ₁ + iγ₂)/2 — the ground state is degenerate (two-fold:
         c|0⟩ and |0⟩).
       </p>
@@ -158,7 +158,7 @@ export default function TopologicalPage() {
         in the bulk. Near each crossing, the Hamiltonian:
       </p>
 
-      <EqNumbered number="TP.3">H(k) = ±v_F (k · σ) &nbsp;&nbsp;&nbsp; (Weyl Hamiltonian, ± = chirality)</EqNumbered>
+      <EqNumbered number="TP.3" latex="H(\mathbf{k}) = \pm v_F\, (\mathbf{k} \cdot \boldsymbol{\sigma}) \qquad \text{(Weyl Hamiltonian, } \pm = \text{chirality)}" />
 
       <p>
         Weyl points act as monopoles of Berry curvature in k-space — they come in pairs of
@@ -193,7 +193,7 @@ export default function TopologicalPage() {
         </InteractiveProblem>
 
         <Problem n={2} difficulty="medium"
-          solution={<>Chern number for 2-band model H(k) = d(k)·σ where d = (d_x, d_y, d_z). Chern number: C₁ = (1/4π)∫_BZ d̂·(∂d̂/∂k_x × ∂d̂/∂k_y) dk_x dk_y — the solid angle swept by d̂(k) over the BZ. Dirac Hamiltonian: H = v_F(k_x σ_x + k_y σ_y) + m σ_z (massive 2D Dirac fermion). d = (v_F k_x, v_F k_y, m). At k=0: d = mẑ (north/south pole depending on sign of m). As k → ∞: d → (v_F k_x, v_F k_y, m) → mostly in-plane. Topological transition at m=0: gap closes. For m &lt; 0: C₁ = +½ (half-integer → need to regularize at UV). Lattice version gives integer C₁. Physical: the sign change of the mass at a domain wall gives a chiral edge mode. This is the Jackiw-Rebbi mechanism — a bound state at each sign change of the mass.</>}>
+          solution={<>Chern number for 2-band model H(k) = d(k)·σ where d = (d_x, d_y, d_z). Chern number: C₁ = (1/4π)∫_BZ d̂·(∂d̂/∂k_x × ∂d̂/∂k_y) dk_x dk_y — the solid angle swept by d̂(k) over the BZ. Dirac Hamiltonian: H = v_F(k_x σ_x + k_y σ_y) + m σ_z (massive 2D Dirac fermion). d = (v_F k_x, v_F k_y, m). At k=0: d = mẑ (north/south pole depending on sign of m). As k → ∞: d → (v_F k_x, v_F k_y, m) → mostly in-plane. Topological transition at m=0: gap closes. For m &gt; 0: C₁ = +½, for m &lt; 0: C₁ = −½ (half-integer → need to regularize at UV). Lattice version gives integer C₁. Physical: the sign change of the mass at a domain wall gives a chiral edge mode. This is the Jackiw-Rebbi mechanism — a bound state at each sign change of the mass.</>}>
           Compute the Chern number for the 2D massive Dirac Hamiltonian H = v_F(k_x σ_x + k_y σ_y) + m σ_z. Show it changes at m = 0.
         </Problem>
 

@@ -1,6 +1,6 @@
 import {
   Definition, Theorem, WorkedExample, Step,
-  PracticeProblems, Problem, InteractiveProblem, EqNumbered, Takeaways, LearningGoals, HistoryNote
+  PracticeProblems, Problem, InteractiveProblem, EqNumbered, InlineMath, Takeaways, LearningGoals, HistoryNote
 } from '@/components/textbook';
 
 export default function VectorsPage() {
@@ -60,7 +60,7 @@ export default function VectorsPage() {
       <p>
         Vector addition follows the <strong>parallelogram rule</strong> (graphically) or
         component-wise (algebraically): if <strong>C</strong> = <strong>A</strong> + <strong>B</strong>,
-        then C_x = A_x + B_x, C_y = A_y + B_y, C_z = A_z + B_z. Subtraction reverses the direction
+        then <InlineMath latex="C_x = A_x + B_x,\ C_y = A_y + B_y,\ C_z = A_z + B_z" />. Subtraction reverses the direction
         of the second vector before adding.
       </p>
 
@@ -69,10 +69,10 @@ export default function VectorsPage() {
           Force <strong>F₁</strong> = 30 N at 40° above the +x axis. Force <strong>F₂</strong> = 50 N
           at 120° above the +x axis. Find the resultant.
         </p>
-        <Step label="Components of F₁:">F₁ₓ = 30 cos 40° = 22.98 N &nbsp; F₁ᵧ = 30 sin 40° = 19.28 N</Step>
-        <Step label="Components of F₂:">F₂ₓ = 50 cos 120° = −25.00 N &nbsp; F₂ᵧ = 50 sin 120° = 43.30 N</Step>
-        <Step label="Resultant:">Fₓ = 22.98 − 25.00 = −2.02 N &nbsp; Fᵧ = 19.28 + 43.30 = 62.58 N</Step>
-        <Step label="Magnitude:">|F| = √(2.02² + 62.58²) = √3907.3 = 62.5 N</Step>
+        <Step label="Components of F₁:"><InlineMath latex="F_{1x} = 30 \cos 40^\circ = 22.98\ \text{N}" /> &nbsp; <InlineMath latex="F_{1y} = 30 \sin 40^\circ = 19.28\ \text{N}" /></Step>
+        <Step label="Components of F₂:"><InlineMath latex="F_{2x} = 50 \cos 120^\circ = -25.00\ \text{N}" /> &nbsp; <InlineMath latex="F_{2y} = 50 \sin 120^\circ = 43.30\ \text{N}" /></Step>
+        <Step label="Resultant:"><InlineMath latex="F_x = 22.98 - 25.00 = -2.02\ \text{N}" /> &nbsp; <InlineMath latex="F_y = 19.28 + 43.30 = 62.58\ \text{N}" /></Step>
+        <Step label="Magnitude:">|F| = √(2.02² + 62.58²) = √3920.3 = 62.6 N</Step>
         <Step label="Direction:">θ = arctan(62.58/−2.02) = 180° − 88.1° = 91.8° above +x axis</Step>
       </WorkedExample>
 
@@ -94,7 +94,7 @@ export default function VectorsPage() {
       <p>
         Physical uses of the dot product: work W = <strong>F</strong>·Δ<strong>r</strong> = FΔr cos θ
         (only the force component along displacement does work); electric flux Φ = <strong>E</strong>·<strong>A</strong>;
-        magnetic flux Φ_B = <strong>B</strong>·<strong>A</strong>.
+        magnetic flux <InlineMath latex="\Phi_B = \mathbf{B} \cdot \mathbf{A}" />.
       </p>
 
       <Definition number="24.2" title="Finding the Angle Between Vectors">
@@ -150,9 +150,9 @@ export default function VectorsPage() {
           <strong>r</strong> = (î − 2ĵ + 3k̂) m from the pivot. Find the torque.
         </p>
         <Step label="Cross product:">τ = r × F</Step>
-        <Step label="τ_x:">= r_y F_z − r_z F_y = (−2)(−1) − (3)(3) = 2 − 9 = −7 N·m</Step>
-        <Step label="τ_y:">= r_z F_x − r_x F_z = (3)(2) − (1)(−1) = 6 + 1 = 7 N·m</Step>
-        <Step label="τ_z:">= r_x F_y − r_y F_x = (1)(3) − (−2)(2) = 3 + 4 = 7 N·m</Step>
+        <Step label="x-component:">= r_y F_z − r_z F_y = (−2)(−1) − (3)(3) = 2 − 9 = −7 N·m</Step>
+        <Step label="y-component:">= r_z F_x − r_x F_z = (3)(2) − (1)(−1) = 6 + 1 = 7 N·m</Step>
+        <Step label="z-component:">= r_x F_y − r_y F_x = (1)(3) − (−2)(2) = 3 + 4 = 7 N·m</Step>
         <Step label="Result:"><strong>τ</strong> = (−7î + 7ĵ + 7k̂) N·m &nbsp; |τ| = 7√3 ≈ 12.1 N·m</Step>
       </WorkedExample>
 
@@ -183,16 +183,16 @@ export default function VectorsPage() {
 
       <PracticeProblems section="24.1–24.4 Vectors">
         <InteractiveProblem n={1} difficulty="easy"
-          answer={62.5} unit="N" tolerance={0.02}
+          answer={62.6} unit="N" tolerance={0.02}
           hints={['Break into components, add components, find magnitude.']}
           problemText="F₁=30N at 40°, F₂=50N at 120°. Find resultant magnitude (N)."
-          solution={<>Fₓ=−2.02N, Fᵧ=62.58N. |F|=√(4.08+3916.3)≈<strong>62.5 N</strong></>}>
+          solution={<><InlineMath latex="F_x = -2.02\ \text{N},\ F_y = 62.58\ \text{N}" />. |F|=√(4.08+3916.3)≈<strong>62.6 N</strong></>}>
           F₁ = 30 N at 40° and F₂ = 50 N at 120° (both above +x axis). Find the magnitude of the resultant.
         </InteractiveProblem>
 
         <InteractiveProblem n={2} difficulty="easy"
           answer={7} unit="J" tolerance={0.01}
-          hints={['W = F·Δr = Fₓ Δx + Fᵧ Δy']}
+          hints={['W = F·Δr = F_x Δx + F_y Δy']}
           problemText="F=(3î+4ĵ)N, displacement=(5î−2ĵ)m. Find work W (J)."
           solution={<>W = 3×5 + 4×(−2) = 15 − 8 = <strong>7 J</strong></>}>
           Force <strong>F</strong> = (3î + 4ĵ) N acts over displacement (5î − 2ĵ) m. Find the work done.

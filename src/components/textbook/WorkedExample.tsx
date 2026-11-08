@@ -1,3 +1,4 @@
+import { autoMath } from './AutoMath';
 import { AutoMath } from './AutoMath';
 
 export function WorkedExample({ number, title, children }: {
@@ -18,7 +19,7 @@ export function WorkedExample({ number, title, children }: {
 export function Step({ label, children }: { label?: string; children: React.ReactNode }) {
   return (
     <div className="tb-example-step">
-      {label && <span style={{ color: 'var(--ex-accent)', fontWeight: 600, marginRight: '0.5rem', fontFamily: 'system-ui, sans-serif', fontSize: '0.88rem' }}>{label}</span>}
+      {label && <span style={{ color: 'var(--ex-accent)', fontWeight: 600, marginRight: '0.5rem', fontFamily: 'system-ui, sans-serif', fontSize: '0.88rem' }}>{autoMath(label)}</span>}
       <AutoMath>{children}</AutoMath>
     </div>
   );

@@ -1,6 +1,6 @@
 import {
   Definition, Theorem, WorkedExample, Step,
-  PracticeProblems, Problem, InteractiveProblem, EqNumbered, Prerequisites, Takeaways, LearningGoals
+  PracticeProblems, Problem, InteractiveProblem, EqNumbered, Prerequisites, Takeaways, LearningGoals, InlineMath
 } from '@/components/textbook';
 
 export default function SolidStatePage() {
@@ -30,10 +30,10 @@ export default function SolidStatePage() {
         A crystal is a periodic arrangement of atoms. The <strong>Bravais lattice</strong> is
         the set of all translation vectors R = n₁a₁ + n₂a₂ + n₃a₃ (integers nᵢ, primitive
         vectors aᵢ). The <strong>reciprocal lattice</strong> is defined by vectors G satisfying
-        e^(iG·R) = 1 for all lattice vectors R:
+        <InlineMath latex="e^{i\mathbf{G}\cdot\mathbf{R}} = 1" /> for all lattice vectors R:
       </p>
 
-      <EqNumbered number="SS.1">G = m₁ b₁ + m₂ b₂ + m₃ b₃ &nbsp;&nbsp;&nbsp; where &nbsp; bᵢ · aⱼ = 2π δᵢⱼ</EqNumbered>
+      <EqNumbered number="SS.1" latex="\mathbf{G} = m_1 \mathbf{b}_1 + m_2 \mathbf{b}_2 + m_3 \mathbf{b}_3 \qquad \text{where} \quad \mathbf{b}_i \cdot \mathbf{a}_j = 2\pi\, \delta_{ij}" />
 
       <p>
         X-ray diffraction from a crystal: constructive interference when the scattering vector
@@ -46,15 +46,15 @@ export default function SolidStatePage() {
       <Theorem number="SS.1" title="Bloch's Theorem">
         For an electron in a periodic potential V(r) = V(r+R), the eigenstates have the form:
         <span style={{ display: 'block', textAlign: 'center', marginTop: '0.5rem', fontStyle: 'italic' }}>
-          ψ_nk(r) = e^(ik·r) u_nk(r) &nbsp;&nbsp;&nbsp;&nbsp; (Bloch wavefunction)
+          <InlineMath latex="\psi_{n\mathbf{k}}(\mathbf{r}) = e^{i\mathbf{k}\cdot\mathbf{r}}\, u_{n\mathbf{k}}(\mathbf{r}) \qquad \text{(Bloch wavefunction)}" />
         </span>
-        where u_nk has the periodicity of the lattice: u_nk(r+R) = u_nk(r). The quantum number
+        where <InlineMath latex="u_{n\mathbf{k}}" /> has the periodicity of the lattice: <InlineMath latex="u_{n\mathbf{k}}(\mathbf{r}+\mathbf{R}) = u_{n\mathbf{k}}(\mathbf{r})" />. The quantum number
         k (crystal momentum) lives in the first Brillouin zone; n is the band index.
         The energy spectrum E_n(k) is periodic in k-space with the reciprocal lattice.
       </Theorem>
 
       <p>
-        The band structure E_n(k) determines all electronic properties. Near the zone boundary
+        The band structure <InlineMath latex="E_n(\mathbf{k})" /> determines all electronic properties. Near the zone boundary
         k = π/a, plane waves |k⟩ and |k−G⟩ become degenerate and hybridize — this opens a
         <strong> band gap</strong>. Materials are classified by their band structure:
       </p>
@@ -79,7 +79,7 @@ export default function SolidStatePage() {
         </p>
         <Step label="Degenerate states:">At k = π/a, the states e^(iπx/a) and e^(−iπx/a) are degenerate (energy ℏ²(π/a)²/2m).</Step>
         <Step label="Matrix element:">V₁₂ = ⟨k|V|k−G⟩ = V₁ (first Fourier component of potential).</Step>
-        <Step label="Diagonalize:">H = [[E₀, V₁],[V₁, E₀]]. Eigenvalues: E₀ ± |V₁|.</Step>
+        <Step label="Diagonalize:"><InlineMath latex="H = \begin{pmatrix} E_0 & V_1 \\ V_1 & E_0 \end{pmatrix}" />. Eigenvalues: E₀ ± |V₁|.</Step>
         <Step label="Band gap:">E_gap = 2|V₁|. The gap equals twice the first Fourier component of the periodic potential. Larger potential → wider gap.</Step>
         <Step label="Bonding/antibonding:">Lower state: ψ = cos(πx/a) (peaks at ion cores → lower energy). Upper: sin(πx/a) (peaks between ions → higher energy).</Step>
       </WorkedExample>
@@ -92,7 +92,7 @@ export default function SolidStatePage() {
         The carrier densities satisfy the law of mass action:
       </p>
 
-      <EqNumbered number="SS.2">np = nᵢ² &nbsp;&nbsp;&nbsp;&nbsp; nᵢ² = 4(k_BT)³(m_e m_h)^(3/2)/(2πℏ²)³ × e^(−Eg/k_BT)</EqNumbered>
+      <EqNumbered number="SS.2" latex="np = n_i^2 \qquad n_i^2 = \frac{4 (k_B T)^3 (m_e m_h)^{3/2}}{(2\pi\hbar^2)^3}\, e^{-E_g/k_B T}" />
 
       <p>
         A <strong>p-n junction</strong> forms when p and n regions contact. Electrons diffuse
@@ -102,7 +102,7 @@ export default function SolidStatePage() {
         (Shockley diode equation):
       </p>
 
-      <EqNumbered number="SS.3">I = I₀ (e^(eV/k_BT) − 1) &nbsp;&nbsp;&nbsp; (Shockley equation)</EqNumbered>
+      <EqNumbered number="SS.3" latex="I = I_0 \left(e^{eV/k_B T} - 1\right) \qquad \text{(Shockley equation)}" />
 
       <p>
         This exponential behavior is the basis of diodes, transistors (BJT, MOSFET),
@@ -113,7 +113,7 @@ export default function SolidStatePage() {
       <h2>SS.4 Superconductivity</h2>
 
       <p>
-        Below a critical temperature T_c, some metals lose all electrical resistance
+        Below a critical temperature <InlineMath latex="T_c" />, some metals lose all electrical resistance
         (superconductivity, discovered by Kamerlingh Onnes, 1911) and expel magnetic fields
         (<strong>Meissner effect</strong>). The BCS theory (Bardeen, Cooper, Schrieffer, 1957)
         explains this via <strong>Cooper pairs</strong>: electrons near the Fermi surface pair
@@ -121,13 +121,13 @@ export default function SolidStatePage() {
         quantum state described by a single wavefunction:
       </p>
 
-      <EqNumbered number="SS.4">|BCS⟩ = Π_k (uₖ + vₖ c†_(k↑) c†_(−k↓)) |0⟩ &nbsp;&nbsp;&nbsp; (BCS ground state)</EqNumbered>
+      <EqNumbered number="SS.4" latex="|\text{BCS}\rangle = \prod_k \left(u_k + v_k\, c^\dagger_{k\uparrow} c^\dagger_{-k\downarrow}\right) |0\rangle \qquad \text{(BCS ground state)}" />
 
       <p>
-        Key signatures: energy gap Δ(T) at the Fermi surface (2Δ ≈ 3.52 k_BT_c), quantized
+        Key signatures: energy gap Δ(T) at the Fermi surface (<InlineMath latex="2\Delta \approx 3.52\, k_B T_c" />), quantized
         magnetic flux Φ = n × Φ₀ (Φ₀ = h/2e = 2.07×10⁻¹⁵ Wb), and the Josephson effect
-        (supercurrent across a tunneling barrier). High-T_c superconductors (cuprates,
-        T_c up to 135 K; hydrogen sulfide under pressure: 203 K) are not fully explained by BCS.
+        (supercurrent across a tunneling barrier). High-<InlineMath latex="T_c" /> superconductors (cuprates,
+        <InlineMath latex="T_c" /> up to 135 K; hydrogen sulfide under pressure: 203 K) are not fully explained by BCS.
       </p>
 
       <Definition number="SS.1" title="Common Traps">
@@ -157,7 +157,7 @@ export default function SolidStatePage() {
         </InteractiveProblem>
 
         <Problem n={3} difficulty="easy"
-          solution={<>FCC lattice primitive vectors: a₁ = a/2(0,1,1), a₂ = a/2(1,0,1), a₃ = a/2(1,1,0). Reciprocal lattice: b₁ = 2π/a(−1,1,1), b₂ = 2π/a(1,−1,1), b₃ = 2π/a(1,1,−1) — this is the BCC lattice with lattice constant 4π/a. BCC primitive vectors give reciprocal FCC. FCC real space ↔ BCC reciprocal lattice. Brillouin zone of FCC: truncated octahedron. High-symmetry points: Γ(0,0,0), X(2π/a,0,0), L(π/a,π/a,π/a), K(3π/2a,3π/2a,0). Bragg planes at zone boundaries: d_{111} = a/√3 (for FCC, forbidden unless h+k+l all odd → Bragg condition 2×(a/√3)sinθ = λ).</>}>
+          solution={<>FCC lattice primitive vectors: a₁ = a/2(0,1,1), a₂ = a/2(1,0,1), a₃ = a/2(1,1,0). Reciprocal lattice: b₁ = 2π/a(−1,1,1), b₂ = 2π/a(1,−1,1), b₃ = 2π/a(1,1,−1) — this is the BCC lattice with lattice constant 4π/a. BCC primitive vectors give reciprocal FCC. FCC real space ↔ BCC reciprocal lattice. Brillouin zone of FCC: truncated octahedron. High-symmetry points: Γ(0,0,0), X(2π/a,0,0), L(π/a,π/a,π/a), K(3π/2a,3π/2a,0). Bragg planes at zone boundaries: d_{111} = a/√3 (for FCC, forbidden unless h, k, l are all odd or all even → Bragg condition 2×(a/√3)sinθ = λ).</>}>
           For an FCC crystal (lattice constant a), find the reciprocal lattice vectors and identify the first Brillouin zone shape. Which high-symmetry points are conventionally labeled?
         </Problem>
 
@@ -167,7 +167,7 @@ export default function SolidStatePage() {
         </Problem>
 
         <Problem n={5} difficulty="medium"
-          solution={<>Phonon dispersion for monatomic chain: mass m, spring constant K, lattice constant a. Equation of motion: m ü_n = K(u_(n+1) − 2u_n + u_(n-1)). Ansatz: u_n = u₀ e^(i(kna−ωt)). Dispersion: ω(k) = 2√(K/m)|sin(ka/2)|. Properties: (1) linear at small k: ω = k×a√(K/m) — sound waves. (2) Maximum at k=π/a: ω_max = 2√(K/m) — zone boundary, standing wave. (3) Periodicity: ω(k+2π/a) = ω(k) — only first BZ matters. Group velocity v_g = dω/dk = a√(K/m)cos(ka/2) → 0 at zone boundary (standing wave). For diatomic chain with masses M,m: optical and acoustic branches. Gap at zone boundary: ω² = 2K/m and 2K/M → gap = 2K√(1/m − 1/M)/... related to mass difference. Optical mode: masses oscillate against each other (infrared active). Acoustic mode: masses move together (Raman and infrared selection rules differ).</>}>
+          solution={<>Phonon dispersion for monatomic chain: mass m, spring constant K, lattice constant a. Equation of motion: m ü_n = K(u_(n+1) − 2u_n + u_(n-1)). Ansatz: <InlineMath latex="u_n = u_0 e^{i(kna - \omega t)}" />. Dispersion: <InlineMath latex="\omega(k) = 2\sqrt{K/m}\,|\sin(ka/2)|" />. Properties: (1) linear at small k: ω = k×a√(K/m) — sound waves. (2) Maximum at k=π/a: ω_max = 2√(K/m) — zone boundary, standing wave. (3) Periodicity: ω(k+2π/a) = ω(k) — only first BZ matters. Group velocity v_g = dω/dk = a√(K/m)cos(ka/2) → 0 at zone boundary (standing wave). For diatomic chain with masses M,m: optical and acoustic branches. Gap at zone boundary: ω² = 2K/m and 2K/M → gap = 2K√(1/m − 1/M)/... related to mass difference. Optical mode: masses oscillate against each other (infrared active). Acoustic mode: masses move together (Raman and infrared selection rules differ).</>}>
           Derive the phonon dispersion relation for a monatomic linear chain. What happens at the zone boundary? How does a diatomic chain differ?
         </Problem>
 
@@ -181,7 +181,7 @@ export default function SolidStatePage() {
         'Bloch theorem: ψ_nk = e^(ik·r) u_nk. Crystal momentum k in Brillouin zone; bands E_n(k).',
         'Band gap at zone boundary: 2|V_G| (Fourier component of potential). Metal vs. insulator vs. semiconductor.',
         'Law of mass action: np = nᵢ². Shockley diode: I = I₀(e^(eV/kT) − 1).',
-        'BCS: Cooper pairs (phonon-mediated). Energy gap 2Δ ≈ 3.52 k_BT_c. Meissner effect; flux quantization.',
+        'BCS: Cooper pairs (phonon-mediated). Energy gap 2Δ ≈ 3.52 k_B T_c. Meissner effect; flux quantization.',
         'Phonon dispersion: ω = 2√(K/m)|sin(ka/2)|. Sound at small k; flat at zone boundary.',
         'QHE: σ_xy = νe²/h exactly (Chern number). Resistance standard. Fractional QHE: composite fermions.',
       ]} />

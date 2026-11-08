@@ -1,6 +1,6 @@
 import {
   Definition, WorkedExample, Step,
-  PracticeProblems, Problem, InteractiveProblem, EqNumbered, Prerequisites, Takeaways, LearningGoals
+  PracticeProblems, Problem, InteractiveProblem, EqNumbered, InlineMath, Prerequisites, Takeaways, LearningGoals
 } from '@/components/textbook';
 
 export default function GreensFunctionsPage() {
@@ -31,13 +31,13 @@ export default function GreensFunctionsPage() {
         The <strong>Green&apos;s function</strong> G(r, r&apos;) is defined by:
       </p>
 
-      <EqNumbered number="GF.1">L G(r, r') = δ(r − r') &nbsp;&nbsp;&nbsp; (defining equation for the Green's function)</EqNumbered>
+      <EqNumbered number="GF.1" latex="L\, G(\mathbf{r}, \mathbf{r}') = \delta(\mathbf{r} - \mathbf{r}') \qquad \text{(defining equation for the Green's function)}" />
 
       <p>
         Once G is known, the solution to L u = f(r) with appropriate boundary conditions is:
       </p>
 
-      <EqNumbered number="GF.2">u(r) = ∫ G(r, r') f(r') d³r' &nbsp;&nbsp;&nbsp; (superposition principle)</EqNumbered>
+      <EqNumbered number="GF.2" latex="u(\mathbf{r}) = \int G(\mathbf{r}, \mathbf{r}')\, f(\mathbf{r}')\, d^3r' \qquad \text{(superposition principle)}" />
 
       <p>
         Physical interpretation: f(r) is a source distribution. G(r, r&apos;) is the response at r
@@ -57,13 +57,13 @@ export default function GreensFunctionsPage() {
         Laplacian in 3D free space (L = −∇²):
       </p>
 
-      <EqNumbered number="GF.3">G(r, r') = 1/(4π|r − r'|) &nbsp;&nbsp;&nbsp; (free-space Green's function, 3D)</EqNumbered>
+      <EqNumbered number="GF.3" latex="G(\mathbf{r}, \mathbf{r}') = \frac{1}{4\pi |\mathbf{r} - \mathbf{r}'|} \qquad \text{(free-space Green's function, 3D)}" />
 
       <p>
         This is just Coulomb&apos;s law in disguise. The potential from an arbitrary charge distribution:
       </p>
 
-      <EqNumbered number="GF.4">φ(r) = (1/4πε₀) ∫ ρ(r')/(|r − r'|) d³r' &nbsp;&nbsp;&nbsp; (Coulomb integral)</EqNumbered>
+      <EqNumbered number="GF.4" latex="\varphi(\mathbf{r}) = \frac{1}{4\pi\varepsilon_0} \int \frac{\rho(\mathbf{r}')}{|\mathbf{r} - \mathbf{r}'|}\, d^3r' \qquad \text{(Coulomb integral)}" />
 
       <p>
         For problems with boundaries, G must satisfy the boundary conditions.
@@ -85,18 +85,18 @@ export default function GreensFunctionsPage() {
         the Sommerfeld radiation condition — waves going out, not in):
       </p>
 
-      <EqNumbered number="GF.5">G+(r, r') = e^(ik|r−r'|)/(4π|r−r'|) &nbsp;&nbsp;&nbsp; (retarded/outgoing Helmholtz Green's function)</EqNumbered>
+      <EqNumbered number="GF.5" latex="G^+(\mathbf{r}, \mathbf{r}') = \frac{e^{ik|\mathbf{r} - \mathbf{r}'|}}{4\pi |\mathbf{r} - \mathbf{r}'|} \qquad \text{(retarded/outgoing Helmholtz Green's function)}" />
 
       <p>
-        At large distance r ≫ r&apos;: G+ ≈ (e^(ikr)/4πr) e^(−ik̂·r&apos;). This factor e^(−ik̂·r&apos;)
+        At large distance r ≫ r&apos;: <InlineMath latex="G^+ \approx \dfrac{e^{ikr}}{4\pi r}\, e^{-ik\hat{\mathbf{r}}\cdot\mathbf{r}'}" />. This factor <InlineMath latex="e^{-ik\hat{\mathbf{r}}\cdot\mathbf{r}'}" />
         is precisely the far-field factor in the <strong>Born approximation</strong> for quantum
         scattering:
       </p>
 
-      <EqNumbered number="GF.6">f(k, k') = −(m/2πℏ²) ∫ e^(−ik'·r') V(r') ψ(r') d³r' &nbsp;&nbsp;&nbsp; (Born scattering amplitude)</EqNumbered>
+      <EqNumbered number="GF.6" latex="f(\mathbf{k}, \mathbf{k}') = -\frac{m}{2\pi\hbar^2} \int e^{-i\mathbf{k}'\cdot\mathbf{r}'}\, V(\mathbf{r}')\, \psi(\mathbf{r}')\, d^3r' \qquad \text{(Born scattering amplitude)}" />
 
       <p>
-        For weak potentials (Born approx): ψ ≈ e^(ik·r), giving f ∝ Ṽ(q) (the Fourier
+        For weak potentials (Born approx): <InlineMath latex="\psi \approx e^{i\mathbf{k}\cdot\mathbf{r}}" />, giving f ∝ Ṽ(q) (the Fourier
         transform of V at momentum transfer q = k − k&apos;). The Rutherford cross section follows
         from V = Ze²/r and its Fourier transform ∝ 1/q² → dσ/dΩ ∝ 1/sin⁴(θ/2).
       </p>
@@ -106,11 +106,11 @@ export default function GreensFunctionsPage() {
           Find the Green&apos;s function for ẍ + ω₀² x = f(t)/m (driven harmonic oscillator)
           satisfying G = 0 for t &lt; t&apos; (causality).
         </p>
-        <Step label="Define:">G(t, t') satisfies Ġ̈ + ω₀² G = δ(t−t')/m. For t &gt; t': G obeys the homogeneous equation → G = A sin(ω₀(t−t')) + B cos(ω₀(t−t')).</Step>
+        <Step label="Define:">G(t, t') satisfies <InlineMath latex="\ddot{G} + \omega_0^2 G = \delta(t - t')/m" />. For t &gt; t': G obeys the homogeneous equation → G = A sin(ω₀(t−t')) + B cos(ω₀(t−t')).</Step>
         <Step label="Boundary conditions:">Causality (G = 0, t &lt; t'): G must vanish for t &lt; t'. Jump conditions: at t = t'+, integrate once → Ġ jumps by 1/m. So G(t'+,t') = 0 and Ġ(t'+,t') = 1/m.</Step>
         <Step label="Solve:">G(t'+) = A sin(0) + B cos(0) = B = 0. Ġ(t'+) = Aω₀ cos(0) = Aω₀ = 1/m → A = 1/(mω₀).</Step>
         <Step label="Result:">G(t,t') = θ(t−t')/(mω₀) × sin(ω₀(t−t')) where θ is the Heaviside step function.</Step>
-        <Step label="Solution:">x(t) = ∫G(t,t') f(t') dt' = ∫(−∞ to t) f(t')/(mω₀) sin(ω₀(t−t')) dt'. This is the convolution formula — F times the impulse response sin(ω₀t)/(mω₀).</Step>
+        <Step label="Solution:">x(t) = ∫G(t,t') f(t') dt' = <InlineMath latex="\displaystyle\int_{-\infty}^{t} \frac{f(t')}{m\omega_0} \sin\bigl(\omega_0 (t - t')\bigr)\, dt'" />. This is the convolution formula — F times the impulse response sin(ω₀t)/(mω₀).</Step>
       </WorkedExample>
 
       <h2>GF.4 Diffusion — Heat Equation Green&apos;s Function</h2>
@@ -120,13 +120,13 @@ export default function GreensFunctionsPage() {
         Gaussian spreading kernel (already seen in diffusion):
       </p>
 
-      <EqNumbered number="GF.7">G(r, t; r', t') = θ(t−t')/(4πD(t−t'))^(3/2) × exp(−|r−r'|²/(4D(t−t')))</EqNumbered>
+      <EqNumbered number="GF.7" latex="G(\mathbf{r}, t; \mathbf{r}', t') = \frac{\theta(t - t')}{\bigl[4\pi D (t - t')\bigr]^{3/2}} \exp\!\left(-\frac{|\mathbf{r} - \mathbf{r}'|^2}{4D(t - t')}\right)" />
 
       <p>
         For an initial condition u(r, 0) = u₀(r) with no source f = 0:
       </p>
 
-      <EqNumbered number="GF.8">u(r, t) = ∫ G(r, t; r', 0) u₀(r') d³r' &nbsp;&nbsp;&nbsp; (propagate initial data)</EqNumbered>
+      <EqNumbered number="GF.8" latex="u(\mathbf{r}, t) = \int G(\mathbf{r}, t; \mathbf{r}', 0)\, u_0(\mathbf{r}')\, d^3r' \qquad \text{(propagate initial data)}" />
 
       <p>
         This is the complete solution to the heat equation from any initial condition.
@@ -134,7 +134,7 @@ export default function GreensFunctionsPage() {
         (imaginary time τ = it, D = ℏ/(2m)):
       </p>
 
-      <EqNumbered number="GF.9">K(r, t; r', 0) = (m/(2πiℏt))^(3/2) × exp(im|r−r'|²/(2ℏt)) &nbsp;&nbsp;&nbsp; (free-particle propagator)</EqNumbered>
+      <EqNumbered number="GF.9" latex="K(\mathbf{r}, t; \mathbf{r}', 0) = \left(\frac{m}{2\pi i\hbar t}\right)^{3/2} \exp\!\left(\frac{im|\mathbf{r} - \mathbf{r}'|^2}{2\hbar t}\right) \qquad \text{(free-particle propagator)}" />
 
       <h2>GF.5 Spectral Representation</h2>
 
@@ -142,7 +142,7 @@ export default function GreensFunctionsPage() {
         For a self-adjoint operator L with eigenfunctions φₙ and eigenvalues λₙ (L φₙ = λₙ φₙ):
       </p>
 
-      <EqNumbered number="GF.10">G(r, r') = Σₙ φₙ(r) φₙ*(r') / (λₙ − λ) &nbsp;&nbsp;&nbsp; (spectral/Lehmann representation)</EqNumbered>
+      <EqNumbered number="GF.10" latex="G(\mathbf{r}, \mathbf{r}') = \sum_n \frac{\varphi_n(\mathbf{r})\, \varphi_n^*(\mathbf{r}')}{\lambda_n - \lambda} \qquad \text{(spectral/Lehmann representation)}" />
 
       <p>
         where λ is the eigenvalue of the source equation (Lu = λu + f, i.e., (L−λ)G = δ).
@@ -150,11 +150,11 @@ export default function GreensFunctionsPage() {
         Green&apos;s function of the Schrödinger equation is:
       </p>
 
-      <EqNumbered number="GF.11">G+(E) = Σₙ |n⟩⟨n| / (E − Eₙ + iε) &nbsp;&nbsp;&nbsp; (quantum retarded propagator)</EqNumbered>
+      <EqNumbered number="GF.11" latex="G^+(E) = \sum_n \frac{|n\rangle\langle n|}{E - E_n + i\varepsilon} \qquad \text{(quantum retarded propagator)}" />
 
       <p>
-        Poles of G+(E) at E = Eₙ − iε give the energy levels. The imaginary part (spectral
-        function) −(1/π) Im G+(E) = Σₙ |n⟩⟨n| δ(E − Eₙ) — the density of states.
+        Poles of G⁺(E) at E = Eₙ − iε give the energy levels. The imaginary part (spectral
+        function) −(1/π) Im G⁺(E) = Σₙ |n⟩⟨n| δ(E − Eₙ) — the density of states.
         In condensed matter, the interacting Green&apos;s function&apos;s poles give quasiparticle energies;
         its spectral function is measured by ARPES (angle-resolved photoemission spectroscopy).
       </p>
@@ -178,17 +178,17 @@ export default function GreensFunctionsPage() {
         </InteractiveProblem>
 
         <Problem n={2} difficulty="medium"
-          solution={<>Retarded Green's function for wave equation: (∂²/∂t² − c²∇²)G = δ(r)δ(t). Fourier transform in space and time: (−ω² + c²k²)G = 1/(2π)⁴. G(k,ω) = −1/((2π)⁴(ω²−c²k²)). Retarded: add iε to denominator: G_R(k,ω) = −1/((2π)⁴(ω+iε)²−c²k²). Inverse Fourier: G_R(r,t) = θ(t)/(4πcr) × δ(t − r/c) + θ(t)/(4πcr) × δ(t + r/c)... The retarded part: G_R(r,t) = θ(t)δ(t−r/c)/(4πr). Physical interpretation: impulse at origin at t=0 produces a spherical shell of disturbance expanding at speed c, arriving at radius r at time t = r/c. The δ(t−r/c) ensures signal travels at exactly c. In 1D wave equation: G has contributions for both t = |x|/c (forward and backward). For sound, light, gravitational waves — the Green's function shows wave propagation at finite speed.</>}>
+          solution={<>Retarded Green's function for wave equation: (∂²/∂t² − c²∇²)G = δ(r)δ(t). Fourier transform in space and time: (−ω² + c²k²)G = 1/(2π)⁴. G(k,ω) = −1/((2π)⁴(ω²−c²k²)). Retarded: add iε to denominator: G_R(k,ω) = −1/((2π)⁴((ω+iε)²−c²k²)). Inverse Fourier: G_R(r,t) = θ(t)/(4πcr) × [δ(r − ct) − δ(r + ct)]; for t &gt; 0 only the first term survives. The retarded part: G_R(r,t) = θ(t)δ(t−r/c)/(4πc²r). Physical interpretation: impulse at origin at t=0 produces a spherical shell of disturbance expanding at speed c, arriving at radius r at time t = r/c. The δ(t−r/c) ensures signal travels at exactly c. In 1D wave equation: G has contributions for both t = |x|/c (forward and backward). For sound, light, gravitational waves — the Green's function shows wave propagation at finite speed.</>}>
           Find the retarded Green's function for the 3D wave equation (∂²/∂t² − c²∇²)G = δ³(r)δ(t). Interpret the result physically.
         </Problem>
 
         <Problem n={3} difficulty="medium"
-          solution={<>Born approximation for Yukawa potential V(r) = V₀ e^(−μr)/r. Fourier transform: Ṽ(q) = ∫V(r)e^(−iq·r)d³r. In spherical coordinates: Ṽ(q) = 4π V₀/(q²+μ²) (standard result, Yukawa FT). Born amplitude: f(q) = −(m/2πℏ²) Ṽ(q) = −(2mV₀/ℏ²)/(q²+μ²). Differential cross section: dσ/dΩ = |f|² = (2mV₀/ℏ²)²/(q²+μ²)². Momentum transfer: q = 2k sin(θ/2) where k = mv/ℏ. q² = 4k² sin²(θ/2). At μ → 0 (Coulomb, V₀ → e₁e₂/4πε₀): dσ/dΩ ∝ 1/(4k² sin²(θ/2))² = (e₁e₂/4mv²)²/sin⁴(θ/2) — Rutherford formula! The Yukawa form is used for pion exchange in nuclear physics (μ = m_π c/ℏ, range ℏ/m_π c ≈ 1.4 fm). W/Z boson exchange similarly, with μ = M_W c/ℏ giving range ∼10⁻³ fm (explains weakness of weak force).</>}>
+          solution={<>Born approximation for Yukawa potential V(r) = V₀ e^(−μr)/r. Fourier transform: Ṽ(q) = ∫V(r)e^(−iq·r)d³r. In spherical coordinates: Ṽ(q) = 4π V₀/(q²+μ²) (standard result, Yukawa FT). Born amplitude: f(q) = −(m/2πℏ²) Ṽ(q) = −(2mV₀/ℏ²)/(q²+μ²). Differential cross section: dσ/dΩ = |f|² = (2mV₀/ℏ²)²/(q²+μ²)². Momentum transfer: q = 2k sin(θ/2) where k = mv/ℏ. q² = 4k² sin²(θ/2). At μ → 0 (Coulomb, V₀ → e₁e₂/4πε₀): dσ/dΩ ∝ 1/(4k² sin²(θ/2))² = (e₁e₂/(4πε₀ · 2mv²))²/sin⁴(θ/2) — Rutherford formula! The Yukawa form is used for pion exchange in nuclear physics (μ = m_π c/ℏ, range ℏ/m_π c ≈ 1.4 fm). W/Z boson exchange similarly, with μ = M_W c/ℏ giving range ∼10⁻³ fm (explains weakness of weak force).</>}>
           Use the Born approximation to find dσ/dΩ for scattering from a Yukawa potential V(r) = V₀ e^(−μr)/r. Show that Rutherford scattering is the μ → 0 limit.
         </Problem>
 
         <Problem n={4} difficulty="hard"
-          solution={<>Quantum propagator for harmonic oscillator: K(x,t;x',0) = √(mω/(2πiℏ sinωt)) × exp(imω[(x²+x'²)cosωt − 2xx']/(2ℏ sinωt)). Derivation via path integral: S_cl = mω[(x²+x'²)cosωt − 2xx']/(2sinωt). K = (prefactor) × e^(iS_cl/ℏ). Verification: at t → 0, K → δ(x−x') ✓ (using sin(ωt)→ωt). Period t = 2π/ω: K(x,2π/ω;x',0) = δ(x−x') × e^(−iπ/2) (up to Maslov index). This means the SHO wavefunction returns to itself after one period (with phase). Spectral form: K(x,t;x',0) = Σₙ ψₙ(x)ψₙ*(x') e^(−iEₙt/ℏ). At t = −iβℏ (Euclidean time): K = partition function Z = Σₙ e^(−βEₙ). Euclidean propagator: K_E(x,τ;x',0) for β=τ gives Z(β) = Tr e^(−βH). Path integral formulation naturally produces quantum statistics.</>}>
+          solution={<>Quantum propagator for harmonic oscillator: K(x,t;x',0) = √(mω/(2πiℏ sinωt)) × exp(imω[(x²+x'²)cosωt − 2xx']/(2ℏ sinωt)). Derivation via path integral: S_cl = mω[(x²+x'²)cosωt − 2xx']/(2sinωt). K = (prefactor) × e^(iS_cl/ℏ). Verification: at t → 0, K → δ(x−x') ✓ (using sin(ωt)→ωt). Period t = 2π/ω: K(x,2π/ω;x',0) = δ(x−x') × e^(−iπ) = −δ(x−x') (Maslov phase e^(−iπ/2) from each of the two caustics, at t = π/ω and 2π/ω). This means the SHO wavefunction returns to itself after one period (with phase). Spectral form: K(x,t;x',0) = Σₙ ψₙ(x)ψₙ*(x') e^(−iEₙt/ℏ). At t = −iβℏ (Euclidean time): Tr K = ∫K(x,−iβℏ;x,0)dx = partition function Z = Σₙ e^(−βEₙ). Euclidean propagator: K_E(x,τ;x',0) for β=τ gives Z(β) = Tr e^(−βH). Path integral formulation naturally produces quantum statistics.</>}>
           Write down the exact propagator K(x,t; x', 0) for the harmonic oscillator. Show it encodes both the energy spectrum (as poles) and the partition function (Euclidean rotation).
         </Problem>
       </PracticeProblems>
@@ -196,10 +196,10 @@ export default function GreensFunctionsPage() {
       <Takeaways items={[
         'G defined by LG = δ(r−r\'). Solution to Lu = f is u(r) = ∫G(r,r\')f(r\')dr\' (superposition).',
         '3D Laplacian: G = 1/(4π|r−r\'|) — Coulomb\'s law. Method of images = boundary-corrected G.',
-        'Helmholtz: G+ = e^(ik|r−r\'|)/(4π|r−r\'|). Born approx follows from far-field expansion.',
+        'Helmholtz: G⁺ = e^(ik|r−r\'|)/(4π|r−r\'|). Born approx follows from far-field expansion.',
         'Harmonic oscillator: G_R = θ(t−t\') sin(ω₀(t−t\'))/(mω₀). Convolution gives driven response.',
         'Heat/Schrödinger: same Gaussian kernel, real vs imaginary time. Euclidean → partition function.',
-        'Spectral form: G+(E) = Σ|n⟩⟨n|/(E−Eₙ+iε). Poles = energies; Im G = density of states.',
+        'Spectral form: G⁺(E) = Σ|n⟩⟨n|/(E−Eₙ+iε). Poles = energies; Im G = density of states.',
       ]} />
     </div>
   );

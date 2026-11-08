@@ -1,6 +1,6 @@
 import {
   Definition, Theorem, WorkedExample, Step,
-  PracticeProblems, Problem, InteractiveProblem, EqNumbered, Prerequisites, Takeaways, LearningGoals
+  PracticeProblems, Problem, InteractiveProblem, EqNumbered, InlineMath, Prerequisites, Takeaways, LearningGoals
 } from '@/components/textbook';
 
 export default function GroupTheoryPage() {
@@ -58,7 +58,7 @@ export default function GroupTheoryPage() {
 
       <p>
         <strong>Irreducible representations (irreps)</strong> are representations with no
-        invariant subspace. The dimension of an irrep equals the multiplicity of its character.
+        invariant subspace. The dimension of an irrep equals its character at the identity, χ(E).
       </p>
 
       <Theorem number="GT.1" title="Schur's Lemma">
@@ -75,13 +75,13 @@ export default function GroupTheoryPage() {
         under basis change and conjugation. The great orthogonality theorem:
       </p>
 
-      <EqNumbered number="GT.1">Σ_g D^α_(mn)(g)* D^β_(m&apos;n&apos;)(g) = (|G|/d_α) δ_αβ δ_mm&apos; δ_nn&apos;</EqNumbered>
+      <EqNumbered number="GT.1" latex="\sum_g D^{\alpha}_{mn}(g)^*\, D^{\beta}_{m'n'}(g) = \frac{|G|}{d_\alpha}\, \delta_{\alpha\beta}\, \delta_{mm'}\, \delta_{nn'}" />
 
       <p>
-        where d_α is the dimension of irrep α. Characters satisfy:
+        where <InlineMath latex="d_\alpha" /> is the dimension of irrep α. Characters satisfy:
       </p>
 
-      <EqNumbered number="GT.2">Σ_g χ^α(g)* χ^β(g) = |G| δ_αβ &nbsp;&nbsp;&nbsp; (orthogonality of characters)</EqNumbered>
+      <EqNumbered number="GT.2" latex="\sum_g \chi^{\alpha}(g)^*\, \chi^{\beta}(g) = |G|\, \delta_{\alpha\beta} \qquad \text{(orthogonality of characters)}" />
 
       <WorkedExample number="GT.1" title="Representations of C₃ᵥ (Ammonia)">
         <p>
@@ -126,12 +126,12 @@ export default function GroupTheoryPage() {
         by the highest weight vector — the quantum numbers that maximize all commuting generators.
       </p>
 
-      <EqNumbered number="GT.3">[Jᵢ, Jⱼ] = iεᵢⱼₖ Jₖ &nbsp;&nbsp;&nbsp; (su(2) algebra → all angular momentum physics)</EqNumbered>
+      <EqNumbered number="GT.3" latex="[J_i, J_j] = i\varepsilon_{ijk} J_k \qquad (\mathfrak{su}(2)\ \text{algebra} \to \text{all angular momentum physics})" />
 
       <h2>GT.4 Applications: Selection Rules and Degeneracy</h2>
 
       <p>
-        <strong>Selection rules:</strong> A matrix element ⟨ψ_f | O | ψ_i⟩ is zero unless the
+        <strong>Selection rules:</strong> A matrix element <InlineMath latex="\langle \psi_f | O | \psi_i \rangle" /> is zero unless the
         direct product of representations of ψ_f, O, and ψ_i contains the trivial (totally
         symmetric) representation. For electric dipole transitions (O transforms as vector):
         Δl = ±1, Δm = 0, ±1 — directly from the group theory of SO(3) irreps.
@@ -176,17 +176,17 @@ export default function GroupTheoryPage() {
         </Problem>
 
         <Problem n={4} difficulty="medium"
-          solution={<>SU(2) irreps labeled by j = 0, 1/2, 1, 3/2, .... Dimension 2j+1. j=0: trivial (singlet). j=1/2: spinor (doublet = spin-1/2). j=1: vector (triplet). Tensor product rule: j₁ ⊗ j₂ = |j₁−j₂| ⊕ ... ⊕ (j₁+j₂). For two spin-1/2: 1/2 ⊗ 1/2 = 0 ⊕ 1 (singlet + triplet). For spin-1/2 ⊗ spin-1: 1/2 ⊗ 1 = 1/2 ⊕ 3/2. Character: χ^j(θ) = sin((2j+1)θ/2)/sin(θ/2) for rotation by θ. Orthogonality: ∫χ^j(θ) χ^j&apos;(θ) (1−cosθ)/π dθ = δ_jj&apos;. The Clebsch-Gordan coefficients are just the change-of-basis matrices between product basis and coupled basis — the same coefficients appearing in angular momentum addition (Ch. SP).</>}>
+          solution={<>SU(2) irreps labeled by j = 0, 1/2, 1, 3/2, .... Dimension 2j+1. j=0: trivial (singlet). j=1/2: spinor (doublet = spin-1/2). j=1: vector (triplet). Tensor product rule: j₁ ⊗ j₂ = |j₁−j₂| ⊕ ... ⊕ (j₁+j₂). For two spin-1/2: 1/2 ⊗ 1/2 = 0 ⊕ 1 (singlet + triplet). For spin-1/2 ⊗ spin-1: 1/2 ⊗ 1 = 1/2 ⊕ 3/2. Character: χ^j(θ) = sin((2j+1)θ/2)/sin(θ/2) for rotation by θ. Orthogonality: <InlineMath latex="\int_0^{2\pi} \chi^{j}(\theta)\, \chi^{j'}(\theta)\, \frac{1 - \cos\theta}{2\pi}\, d\theta = \delta_{jj'}" />. The Clebsch-Gordan coefficients are just the change-of-basis matrices between product basis and coupled basis — the same coefficients appearing in angular momentum addition (Ch. SP).</>}>
           Find all irreps of SU(2). What is the tensor product 1/2 ⊗ 1? How do Clebsch-Gordan coefficients arise from the representation theory?
         </Problem>
 
         <Problem n={5} difficulty="medium"
-          solution={<>Eightfold Way: hadrons classified by SU(3) flavor (u,d,s quarks). The 3 quarks transform as 3 (fundamental); antiquarks as 3̄. Mesons: 3 ⊗ 3̄ = 1 ⊕ 8 (octet + singlet). The η₁ is the SU(3) singlet; π⁰, π±, K⁰, K̄⁰, K±, η₈ form the octet (JP=0⁻ pseudoscalar meson octet). Baryons: 3 ⊗ 3 ⊗ 3 = 1 ⊕ 8 ⊕ 8 ⊕ 10. The decuplet contains 10 states — the Ω⁻ (sss) was predicted by this and discovered in 1964. SU(3) flavor is approximate (m_s ≠ m_u,m_d) — broken by strange quark mass difference ~150 MeV. The symmetry breaking lifts degeneracy within multiplets (mass formulas: Gell-Mann-Okubo). QCD color SU(3) is exact (confinement enforces colorless hadrons).</>}>
+          solution={<>Eightfold Way: hadrons classified by SU(3) flavor (u,d,s quarks). The 3 quarks transform as 3 (fundamental); antiquarks as 3̄. Mesons: 3 ⊗ 3̄ = 1 ⊕ 8 (octet + singlet). The η₁ is the SU(3) singlet; π⁰, π±, K⁰, K̄⁰, K±, η₈ form the octet (<InlineMath latex="J^P = 0^-" /> pseudoscalar meson octet). Baryons: 3 ⊗ 3 ⊗ 3 = 1 ⊕ 8 ⊕ 8 ⊕ 10. The decuplet contains 10 states — the Ω⁻ (sss) was predicted by this and discovered in 1964. SU(3) flavor is approximate (m_s ≠ m_u,m_d) — broken by strange quark mass difference ~150 MeV. The symmetry breaking lifts degeneracy within multiplets (mass formulas: Gell-Mann-Okubo). QCD color SU(3) is exact (confinement enforces colorless hadrons).</>}>
           Explain how SU(3) flavor symmetry classifies the meson and baryon multiplets (the Eightfold Way). What is the significance of the Ω⁻ baryon?
         </Problem>
 
         <Problem n={6} difficulty="hard"
-          solution={<>SO(4) symmetry of hydrogen: H = p²/2m − e²/r. In addition to L (angular momentum, SO(3)), the Laplace-Runge-Lenz vector A = p×L/m − e²r̂ is conserved: dA/dt = 0. Together L and A form 6 conserved quantities — generators of SO(4). Algebra: [L_i, L_j] = iεᵢⱼₖ L_k, [L_i, A_j] = iεᵢⱼₖ A_k, [A_i, A_j] = −iℏ(2H/m)εᵢⱼₖ L_k. For bound states (H→negative): define K = A/√(−2mH). Then L and K satisfy two commuting SU(2) algebras: M = (L+K)/2, N = (L−K)/2. [M_i,M_j]=iεᵢⱼₖ M_k, [N_i,N_j]=iεᵢⱼₖ N_k, [M,N]=0. Irreps: m=n=j → E_n = −me⁴/(2ℏ²n²), n=2j+1=1,2,3... and l=0,1,...,n−1. The SO(4) symmetry explains why all levels with same n are degenerate (4-fold higher than SO(3) would predict).</>}>
+          solution={<>SO(4) symmetry of hydrogen: H = p²/2m − e²/r. In addition to L (angular momentum, SO(3)), the Laplace-Runge-Lenz vector A = p×L/m − e²r̂ is conserved: dA/dt = 0. Together L and A form 6 conserved quantities — generators of SO(4). Algebra: [L_i, L_j] = iεᵢⱼₖ L_k, [L_i, A_j] = iεᵢⱼₖ A_k, [A_i, A_j] = −iℏ(2H/m)εᵢⱼₖ L_k. For bound states (H→negative): define K = A/√(−2H/m). Then L and K satisfy two commuting SU(2) algebras: M = (L+K)/2, N = (L−K)/2. [M_i,M_j]=iεᵢⱼₖ M_k, [N_i,N_j]=iεᵢⱼₖ N_k, [M,N]=0. Irreps: m=n=j → E_n = −me⁴/(2ℏ²n²), n=2j+1=1,2,3... and l=0,1,...,n−1. The SO(4) symmetry explains why all levels with same n are degenerate (n² states, versus the 2l+1 that SO(3) alone would predict).</>}>
           Show that hydrogen has a hidden SO(4) symmetry by constructing the Laplace-Runge-Lenz vector. How does this explain the n² degeneracy?
         </Problem>
       </PracticeProblems>

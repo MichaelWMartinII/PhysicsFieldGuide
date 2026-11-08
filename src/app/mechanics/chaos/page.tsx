@@ -1,3 +1,4 @@
+import { InlineMath } from '@/components/textbook/Equation';
 import {
   Definition, Theorem, WorkedExample, Step,
   PracticeProblems, Problem, InteractiveProblem, EqNumbered, Prerequisites, Takeaways, LearningGoals
@@ -122,9 +123,9 @@ export default function ChaosPage() {
           differential equation. Trace the onset of chaos.
         </p>
         <Step label="r = 1 to 3:">Single stable fixed point x* = (r−1)/r. All initial conditions → x*.</Step>
-        <Step label="r = 3:">Hopf-like bifurcation: fixed point becomes unstable. Period-2 cycle emerges.</Step>
+        <Step label="r = 3:">Period-doubling (flip) bifurcation: fixed point becomes unstable. Period-2 cycle emerges.</Step>
         <Step label="r ≈ 3.449:">Period-2 → Period-4. Period-doubling cascade begins.</Step>
-        <Step label="r_∞ ≈ 3.5699:">Period-doubling accumulation point. Beyond this: chaos.</Step>
+        <Step label="r∞ ≈ 3.5699:">Period-doubling accumulation point. Beyond this: chaos.</Step>
         <Step label="Feigenbaum constant:">Ratio of successive bifurcation intervals → δ = 4.669... (Feigenbaum constant). Universal for all period-doubling routes to chaos.</Step>
         <Step label="Chaos but structure:">Within chaos, windows of periodicity exist (e.g., period-3 at r≈3.83). Period-3 implies chaos by Li-Yorke (1975).</Step>
       </WorkedExample>
@@ -133,10 +134,10 @@ export default function ChaosPage() {
         <p>
           Compute the Lyapunov exponent λ for the logistic map at r = 4 (fully chaotic).
         </p>
-        <Step label="Definition:">λ = lim(N→∞) (1/N) Σ ln|f&apos;(xₙ)| &nbsp;&nbsp; where f&apos;(x) = r(1−2x)</Step>
-        <Step label="At r=4:">f&apos;(x) = 4(1−2x). The invariant measure for r=4 is ρ(x) = 1/(π√(x(1−x))).</Step>
-        <Step label="Integral:">λ = ∫₀¹ ln|4(1−2x)| · ρ(x) dx = ln 2 ≈ 0.693 &gt; 0 ✓</Step>
-        <Step label="Meaning:">Adjacent trajectories separate by factor e^(0.693) ≈ 2 per iteration. After n steps, errors amplify by 2ⁿ. For 1% error in initial condition, precision is lost after n ≈ 7/log₁₀(2) ≈ 23 steps.</Step>
+        <Step label="Definition:"><InlineMath latex="\lambda = \lim_{N\to\infty} \frac{1}{N} \sum_{n} \ln|f'(x_n)|" /> &nbsp;&nbsp; where <InlineMath latex="f'(x) = r(1-2x)" /></Step>
+        <Step label="At r=4:">f&apos;(x) = 4(1−2x). The invariant measure for r=4 is <InlineMath latex="\rho(x) = \dfrac{1}{\pi\sqrt{x(1-x)}}" />.</Step>
+        <Step label="Integral:"><InlineMath latex="\lambda = \int_0^1 \ln|4(1-2x)|\,\rho(x)\,dx = \ln 2 \approx 0.693 > 0" /> ✓</Step>
+        <Step label="Meaning:">Adjacent trajectories separate by factor <InlineMath latex="e^{0.693} \approx 2" /> per iteration. After n steps, errors amplify by 2ⁿ. For 1% error in initial condition, precision is lost after <InlineMath latex="n \approx 2/\log_{10} 2 \approx 7" /> steps.</Step>
       </WorkedExample>
 
       <Definition number="C.2" title="Common Traps">
@@ -172,17 +173,17 @@ export default function ChaosPage() {
         </Problem>
 
         <Problem n={4} difficulty="medium"
-          solution={<>Pendulum ẍ = −sin θ. Fixed points: θ̈=θ̇=0 → sin θ* = 0 → θ* = nπ. Jacobian near θ*=0: J = [[0,1],[-cos θ*,0]] = [[0,1],[-1,0]]. Eigenvalues: λ² = −1 → λ = ±i. Center — stable orbits (small oscillations). Near θ*=π: J = [[0,1],[1,0]]. Eigenvalues: λ = ±1. Saddle — unstable. The separatrix is the orbit with energy equal to the top (H=1): p² = 2(1+cos θ), a homoclinic orbit (starts and ends at (π,0) in infinite time). Inside: libration (oscillations). Outside: rotation (full revolutions). The separatrix energy is E=2 (potential energy of upright pendulum with length l=g=1).</>}>
-          Find the fixed points of the nonlinear pendulum ẍ = −sin θ and classify them. Describe the separatrix geometrically.
+          solution={<>Pendulum θ̈ = −sin θ. Fixed points: θ̈=θ̇=0 → sin θ* = 0 → θ* = nπ. Jacobian near θ*=0: <InlineMath latex="J = \begin{pmatrix} 0 & 1 \\ -\cos\theta^* & 0 \end{pmatrix} = \begin{pmatrix} 0 & 1 \\ -1 & 0 \end{pmatrix}" />. Eigenvalues: λ² = −1 → λ = ±i. Center — stable orbits (small oscillations). Near θ*=π: <InlineMath latex="J = \begin{pmatrix} 0 & 1 \\ 1 & 0 \end{pmatrix}" />. Eigenvalues: λ = ±1. Saddle — unstable. The separatrix is the orbit with energy equal to the top (H=1): p² = 2(1+cos θ), a homoclinic orbit (starts and ends at (π,0) in infinite time). Inside: libration (oscillations). Outside: rotation (full revolutions). The separatrix energy is E=2 (potential energy of upright pendulum with length l=g=1).</>}>
+          Find the fixed points of the nonlinear pendulum θ̈ = −sin θ and classify them. Describe the separatrix geometrically.
         </Problem>
 
         <Problem n={5} difficulty="medium"
-          solution={<>Lorenz system fixed points: ẋ=ẏ=ż=0. From ẋ: y=x. From ż: xy=βz → z=x²/β. From ẏ: x(ρ−z)−x=0 → x(ρ−1−z)=0. Either x=0 (origin) or z=ρ−1 → x²/β=ρ−1 → x=±√(β(ρ−1)). For ρ=28: x=±√(8/3×27) = ±√72 = ±6√2 ≈ ±8.485. The two non-trivial fixed points are C± = (±8.485, ±8.485, 27). Stability requires Jacobian analysis: for ρ&gt;ρ_H ≈ 24.74, C± become unstable (subcritical Hopf). The system then wanders on the strange attractor, visiting neighborhoods of both C+ and C− erratically.</>}>
+          solution={<>Lorenz system fixed points: ẋ=ẏ=ż=0. From ẋ: y=x. From ż: xy=βz → z=x²/β. From ẏ: x(ρ−z)−x=0 → x(ρ−1−z)=0. Either x=0 (origin) or z=ρ−1 → x²/β=ρ−1 → <InlineMath latex="x = \pm\sqrt{\beta(\rho-1)}" />. For ρ=28: <InlineMath latex="x = \pm\sqrt{\tfrac{8}{3}\times 27} = \pm\sqrt{72} = \pm 6\sqrt{2} \approx \pm 8.485" />. The two non-trivial fixed points are C± = (±8.485, ±8.485, 27). Stability requires Jacobian analysis: for ρ&gt;ρ_H ≈ 24.74, C± become unstable (subcritical Hopf). The system then wanders on the strange attractor, visiting neighborhoods of both C+ and C− erratically.</>}>
           Find all fixed points of the Lorenz system for ρ=28, σ=10, β=8/3. Which are stable?
         </Problem>
 
         <Problem n={6} difficulty="hard"
-          solution={<>Hénon map: xₙ₊₁ = 1 − axₙ² + yₙ, yₙ₊₁ = bxₙ (a=1.4, b=0.3). Jacobian J = [[-2axₙ, 1],[b, 0]], det J = −b = −0.3. |det J| = 0.3 &lt; 1 → area-contracting (dissipative). The attractor has Hausdorff dimension ≈ 1.26 (fractal). Fixed points: x*(1+2ax*) = 1+b x* → 2ax*² + (1−b)x* − 1 = 0. x* = [−(1−b) ± √((1−b)² + 8a)]/(4a). For a=1.4, b=0.3: x* ≈ 0.631 or −1.131. The stable fixed point (0.631) loses stability at a critical a value via period-doubling. The Lyapunov exponents sum to ln|det J| = ln 0.3 ≈ −1.20 (one positive, one negative — strange attractor).</>}>
+          solution={<>Hénon map: xₙ₊₁ = 1 − axₙ² + yₙ, yₙ₊₁ = bxₙ (a=1.4, b=0.3). Jacobian <InlineMath latex="J = \begin{pmatrix} -2ax_n & 1 \\ b & 0 \end{pmatrix}" />, det J = −b = −0.3. |det J| = 0.3 &lt; 1 → area-contracting (dissipative). The attractor has Hausdorff dimension ≈ 1.26 (fractal). Fixed points: x* = 1 − ax*² + bx* → ax*² + (1−b)x* − 1 = 0, so <InlineMath latex="x^* = \dfrac{-(1-b) \pm \sqrt{(1-b)^2 + 4a}}{2a}" />. For a=1.4, b=0.3: x* ≈ 0.631 or −1.131. The fixed point at 0.631 is stable only for small a; it loses stability via period-doubling at a = 3(1−b)²/4 ≈ 0.37, so at a = 1.4 both fixed points are unstable. The Lyapunov exponents sum to ln|det J| = ln 0.3 ≈ −1.20 (one positive, one negative — strange attractor).</>}>
           For the Hénon map (a=1.4, b=0.3): find fixed points, compute the Jacobian determinant, and explain why the map produces a fractal attractor.
         </Problem>
       </PracticeProblems>
@@ -191,7 +192,7 @@ export default function ChaosPage() {
         'Fixed points classified by Jacobian eigenvalues: node, spiral, saddle, center.',
         'Limit cycles are isolated periodic orbits; stable ones attract neighboring trajectories.',
         'Bifurcations: saddle-node (fixed points created/destroyed), Hopf (limit cycle born), period-doubling (cascade to chaos).',
-        'Chaos requires λ &gt; 0 (positive Lyapunov exponent) — exponential error growth.',
+        'Chaos requires λ > 0 (positive Lyapunov exponent) — exponential error growth.',
         'Lorenz attractor: strange (fractal), bounded but not periodic — sensitivity to IC prevents long-term prediction.',
         'Poincaré-Bendixson: chaos impossible in 2D autonomous systems — need ≥ 3 dimensions.',
       ]} />

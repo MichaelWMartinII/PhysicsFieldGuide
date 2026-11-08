@@ -1,6 +1,6 @@
 import {
   Definition, Theorem, WorkedExample, Step,
-  PracticeProblems, Problem, InteractiveProblem, EqNumbered, Prerequisites, Takeaways, LearningGoals
+  PracticeProblems, Problem, InteractiveProblem, EqNumbered, Prerequisites, Takeaways, LearningGoals, InlineMath
 } from '@/components/textbook';
 
 export default function SpinPage() {
@@ -31,14 +31,14 @@ export default function SpinPage() {
         L̂x, L̂y, L̂z. Their fundamental commutation relation is:
       </p>
 
-      <EqNumbered number="SP.1">[L̂x, L̂y] = iℏL̂z &nbsp;&nbsp;&nbsp; (and cyclic permutations)</EqNumbered>
+      <EqNumbered number="SP.1" latex="[\hat{L}_x, \hat{L}_y] = i\hbar \hat{L}_z \qquad \text{(and cyclic permutations)}" />
 
       <p>
         This algebraic structure determines everything: you cannot simultaneously specify
         two components of angular momentum. The commuting observables are L̂² and L̂z:
       </p>
 
-      <EqNumbered number="SP.2">L̂² |l, m⟩ = ℏ² l(l+1) |l, m⟩ &nbsp;&nbsp;&nbsp;&nbsp; L̂z |l, m⟩ = ℏm |l, m⟩</EqNumbered>
+      <EqNumbered number="SP.2" latex="\hat{L}^2 |l, m\rangle = \hbar^2 l(l+1) |l, m\rangle \qquad \hat{L}_z |l, m\rangle = \hbar m |l, m\rangle" />
 
       <p>
         Here l = 0, 1, 2, ... (orbital quantum number) and m = −l, −l+1, ..., +l (magnetic
@@ -54,21 +54,21 @@ export default function SpinPage() {
         the same algebra as orbital angular momentum, but with s = ½:
       </p>
 
-      <EqNumbered number="SP.3">Ŝ² |s, mₛ⟩ = ℏ² s(s+1) |s, mₛ⟩ = (3/4)ℏ² |s, mₛ⟩ &nbsp;&nbsp;&nbsp;&nbsp; Ŝz = ±ℏ/2</EqNumbered>
+      <EqNumbered number="SP.3" latex="\hat{S}^2 |s, m_s\rangle = \hbar^2 s(s+1) |s, m_s\rangle = \tfrac{3}{4}\hbar^2 |s, m_s\rangle \qquad \hat{S}_z = \pm\hbar/2" />
 
       <p>
         The two spin-½ states are |↑⟩ (mₛ = +½) and |↓⟩ (mₛ = −½). The spin operators in
         this two-dimensional Hilbert space are:
       </p>
 
-      <EqNumbered number="SP.4">Ŝ = (ℏ/2) σ &nbsp;&nbsp;&nbsp; where &nbsp;&nbsp; σx = [[0,1],[1,0]], &nbsp; σy = [[0,−i],[i,0]], &nbsp; σz = [[1,0],[0,−1]]</EqNumbered>
+      <EqNumbered number="SP.4" latex="\hat{\mathbf{S}} = \frac{\hbar}{2}\boldsymbol{\sigma} \qquad \text{where} \quad \sigma_x = \begin{pmatrix} 0 & 1 \\ 1 & 0 \end{pmatrix},\ \sigma_y = \begin{pmatrix} 0 & -i \\ i & 0 \end{pmatrix},\ \sigma_z = \begin{pmatrix} 1 & 0 \\ 0 & -1 \end{pmatrix}" />
 
       <p>
         These are the <strong>Pauli matrices</strong>. They satisfy σᵢσⱼ = δᵢⱼI + iεᵢⱼₖσₖ.
         An arbitrary spin-½ state is a two-component spinor:
       </p>
 
-      <EqNumbered number="SP.5">|χ⟩ = α|↑⟩ + β|↓⟩ = (α, β)ᵀ &nbsp;&nbsp;&nbsp;&nbsp; |α|² + |β|² = 1</EqNumbered>
+      <EqNumbered number="SP.5" latex="|\chi\rangle = \alpha|{\uparrow}\rangle + \beta|{\downarrow}\rangle = \begin{pmatrix} \alpha \\ \beta \end{pmatrix} \qquad |\alpha|^2 + |\beta|^2 = 1" />
 
       <WorkedExample number="SP.1" title="Spin Measurement in the x-direction">
         <p>
@@ -78,7 +78,7 @@ export default function SpinPage() {
         <Step label="Eigenstates of Sx:">|+x⟩ = (1/√2)(|↑⟩ + |↓⟩) &nbsp;&nbsp; |−x⟩ = (1/√2)(|↑⟩ − |↓⟩)</Step>
         <Step label="Express state:">|↑⟩ = (1/√2)|+x⟩ + (1/√2)|−x⟩</Step>
         <Step label="Probability:">P(+x) = |⟨+x|↑⟩|² = |1/√2|² = ½</Step>
-        <Step label="Expectation value:">⟨Sx⟩ = ⟨↑|Sx|↑⟩ = (ℏ/2)⟨↑|σx|↑⟩ = (ℏ/2)(1,0)[[0,1],[1,0]](1,0)ᵀ = 0</Step>
+        <Step label="Expectation value:">⟨Sx⟩ = ⟨↑|Sx|↑⟩ = (ℏ/2)⟨↑|σx|↑⟩ = <InlineMath latex="\frac{\hbar}{2}\begin{pmatrix} 1 & 0 \end{pmatrix}\begin{pmatrix} 0 & 1 \\ 1 & 0 \end{pmatrix}\begin{pmatrix} 1 \\ 0 \end{pmatrix} = 0" /></Step>
         <Step label="Interpretation:">50/50 chance of ±ℏ/2 along x, with zero average — x-spin is completely undetermined when z-spin is definite. This is the Heisenberg uncertainty principle for non-commuting spin components.</Step>
       </WorkedExample>
 
@@ -90,14 +90,14 @@ export default function SpinPage() {
         The combined states are expressed in the <strong>Clebsch-Gordan basis</strong>:
       </p>
 
-      <EqNumbered number="SP.6">|j, m⟩ = Σ(m₁, m₂) ⟨j₁ m₁ j₂ m₂ | j m⟩ |j₁ m₁⟩ |j₂ m₂⟩</EqNumbered>
+      <EqNumbered number="SP.6" latex="|j, m\rangle = \sum_{m_1, m_2} \langle j_1 m_1\, j_2 m_2 | j\, m\rangle\, |j_1 m_1\rangle |j_2 m_2\rangle" />
 
       <p>
         The coefficients ⟨j₁m₁j₂m₂|jm⟩ are <strong>Clebsch-Gordan coefficients</strong>,
         tabulated for small j. For two spin-½ particles:
       </p>
 
-      <EqNumbered number="SP.7">|1,1⟩ = |↑↑⟩ &nbsp;&nbsp; |1,0⟩ = (|↑↓⟩ + |↓↑⟩)/√2 &nbsp;&nbsp; |1,−1⟩ = |↓↓⟩ &nbsp;&nbsp; |0,0⟩ = (|↑↓⟩ − |↓↑⟩)/√2</EqNumbered>
+      <EqNumbered number="SP.7" latex="|1,1\rangle = |{\uparrow\uparrow}\rangle \quad |1,0\rangle = \frac{|{\uparrow\downarrow}\rangle + |{\downarrow\uparrow}\rangle}{\sqrt{2}} \quad |1,-1\rangle = |{\downarrow\downarrow}\rangle \quad |0,0\rangle = \frac{|{\uparrow\downarrow}\rangle - |{\downarrow\uparrow}\rangle}{\sqrt{2}}" />
 
       <p>
         The j=1 triplet is symmetric under particle exchange; the j=0 singlet is antisymmetric.
@@ -112,21 +112,21 @@ export default function SpinPage() {
         moving nucleus). This couples orbital and spin angular momentum:
       </p>
 
-      <EqNumbered number="SP.8">H_SO = (1/2m²c²) (1/r)(dV/dr) L·S &nbsp;&nbsp;&nbsp; (spin-orbit Hamiltonian)</EqNumbered>
+      <EqNumbered number="SP.8" latex="H_{SO} = \frac{1}{2m^2c^2}\, \frac{1}{r}\frac{dV}{dr}\, \mathbf{L}\cdot\mathbf{S} \qquad \text{(spin-orbit Hamiltonian)}" />
 
       <p>
         Using J = L + S → L·S = (J²−L²−S²)/2 = ℏ²(j(j+1) − l(l+1) − s(s+1))/2. The
         energy splitting between j = l+½ and j = l−½ states is the
-        <strong> fine-structure splitting</strong>, of order α⁴m_ec² (α = 1/137 is the fine
+        <strong> fine-structure splitting</strong>, of order <InlineMath latex="\alpha^4 m_e c^2" /> (α = 1/137 is the fine
         structure constant). This lifts the degeneracy of the 2p₁/₂ and 2p₃/₂ levels of
-        hydrogen by 0.365 cm⁻¹ (observed as the sodium D-line doublet).
+        hydrogen by 0.365 cm⁻¹ (the much larger 3p splitting in sodium is the D-line doublet).
       </p>
 
       <Theorem number="SP.1" title="Wigner-Eckart Theorem (Conceptual Statement)">
         Matrix elements of tensor operators between angular momentum eigenstates factor into
         a geometric part (Clebsch-Gordan coefficient) and a reduced matrix element:
         <span style={{ display: 'block', textAlign: 'center', marginTop: '0.5rem', fontStyle: 'italic' }}>
-          ⟨j&apos; m&apos; | T^(k)_q | j m⟩ = ⟨j m k q | j&apos; m&apos;⟩ ⟨j&apos; || T^(k) || j⟩
+          <InlineMath latex="\langle j' m' | T^{(k)}_q | j\, m\rangle = \langle j\, m\, k\, q | j' m'\rangle\, \langle j' \| T^{(k)} \| j\rangle" />
         </span>
         This theorem states that selection rules and relative intensities of spectral lines are
         determined entirely by angular momentum algebra, independent of the detailed dynamics.
@@ -160,17 +160,17 @@ export default function SpinPage() {
         </InteractiveProblem>
 
         <Problem n={3} difficulty="easy"
-          solution={<>Larmor precession: spin in magnetic field B = Bẑ. H = −γL·B = −γBSz where γ = eμB/(ℏ) = ge/(2m). Time evolution: |χ(t)⟩ = e^(−iHt/ℏ)|χ(0)⟩. For |χ(0)⟩ = |+x⟩ = (|↑⟩+|↓⟩)/√2: |χ(t)⟩ = (e^(iω₀t/2)|↑⟩ + e^(−iω₀t/2)|↓⟩)/√2, where ω₀ = γB. ⟨Sx(t)⟩ = (ℏ/2)cos(ω₀t), ⟨Sy(t)⟩ = (ℏ/2)sin(ω₀t), ⟨Sz⟩ = 0. The expectation value precesses around z at the Larmor frequency ω₀ = eB/m (for electron). This is the classical Larmor precession — Ehrenfest theorem. MRI uses this precession: radio pulses flip spins; relaxation back gives the MRI signal.</>}>
+          solution={<>Larmor precession: spin in magnetic field B = Bẑ. H = −γS·B = −γBS_z where γ = gμ_B/ℏ = ge/(2m). Time evolution: <InlineMath latex="|\chi(t)\rangle = e^{-iHt/\hbar}|\chi(0)\rangle" />. For |χ(0)⟩ = |+x⟩ = (|↑⟩+|↓⟩)/√2: <InlineMath latex="|\chi(t)\rangle = \left(e^{i\omega_0 t/2}|{\uparrow}\rangle + e^{-i\omega_0 t/2}|{\downarrow}\rangle\right)/\sqrt{2}" />, where ω₀ = γB. ⟨Sx(t)⟩ = (ℏ/2)cos(ω₀t), ⟨Sy(t)⟩ = −(ℏ/2)sin(ω₀t), ⟨Sz⟩ = 0. The expectation value precesses around z at the Larmor frequency ω₀ = eB/m (for electron). This is the classical Larmor precession — Ehrenfest theorem. MRI uses this precession: radio pulses flip spins; relaxation back gives the MRI signal.</>}>
           An electron spin initially in the +x direction is placed in magnetic field B = Bẑ. Find how the expectation values ⟨Sx⟩, ⟨Sy⟩, ⟨Sz⟩ evolve in time.
         </Problem>
 
         <Problem n={4} difficulty="medium"
-          solution={<>Bell&apos;s inequality experiment: particles in singlet state |Ψ⟩ = (|↑↓⟩−|↓↑⟩)/√2. Measure A at angle a, B at angle b. QM correlation: ⟨A·B⟩ = −cos(a−b). CHSH inequality: for local hidden variables, |E(a,b) − E(a,b&apos;) + E(a&apos;,b) + E(a&apos;,b&apos;)| ≤ 2. QM prediction with a=0°, a&apos;=45°, b=22.5°, b&apos;=67.5°: S = −cos(22.5°)+cos(67.5°)−cos(22.5°)−cos(22.5°) = −2√2 ≈ −2.83. |S| = 2√2 &gt; 2. QM violates Bell&apos;s inequality. Experiments (Aspect 1982, Hensen 2015) confirm QM — no local hidden variable theory can reproduce QM correlations. Entanglement is physically real.</>}>
+          solution={<>Bell&apos;s inequality experiment: particles in singlet state |Ψ⟩ = (|↑↓⟩−|↓↑⟩)/√2. Measure A at angle a, B at angle b. QM correlation: ⟨A·B⟩ = −cos(a−b). CHSH inequality: for local hidden variables, |E(a,b) − E(a,b&apos;) + E(a&apos;,b) + E(a&apos;,b&apos;)| ≤ 2. QM prediction with a=0°, a&apos;=90°, b=45°, b&apos;=135°: S = −cos(45°)+cos(135°)−cos(45°)−cos(45°) = −2√2 ≈ −2.83. |S| = 2√2 &gt; 2. QM violates Bell&apos;s inequality. Experiments (Aspect 1982, Hensen 2015) confirm QM — no local hidden variable theory can reproduce QM correlations. Entanglement is physically real.</>}>
           Two electrons are in the singlet state. Compute the CHSH parameter S for the optimal angles. Does quantum mechanics violate Bell&apos;s inequality?
         </Problem>
 
         <Problem n={5} difficulty="medium"
-          solution={<>Spin-orbit fine structure for hydrogen 2p: l=1, s=1/2. j = l+s = 3/2 or j = l−s = 1/2. E_SO = ℏ²α/(2) × [j(j+1) − l(l+1) − s(s+1)] where α = ⟨1/r³⟩ × (1/2m²c²)(dV/dr). For hydrogen: ⟨1/r³⟩_(nl) = Z³/(n³ l(l+1/2)(l+1) a₀³). j=3/2 state: L·S = ℏ²(15/4−2−3/4)/2 = ℏ²/2. j=1/2 state: L·S = ℏ²(3/4−2−3/4)/2 = −ℏ². Splitting ΔE = (3/2)ℏ²α ≈ 4.5×10⁻⁵ eV. This is the 0.365 cm⁻¹ 2P₃/₂−2P₁/₂ splitting (sodium D-line: 589.0 and 589.6 nm).</>}>
+          solution={<>Spin-orbit fine structure for hydrogen 2p: l=1, s=1/2. j = l+s = 3/2 or j = l−s = 1/2. E_SO = ℏ²α/(2) × [j(j+1) − l(l+1) − s(s+1)] where α = ⟨1/r³⟩ × (1/2m²c²)(dV/dr). For hydrogen: ⟨1/r³⟩_(nl) = Z³/(n³ l(l+1/2)(l+1) a₀³). j=3/2 state: L·S = ℏ²(15/4−2−3/4)/2 = ℏ²/2. j=1/2 state: L·S = ℏ²(3/4−2−3/4)/2 = −ℏ². Splitting ΔE = (3/2)ℏ²α ≈ 4.5×10⁻⁵ eV. This is the 0.365 cm⁻¹ 2P₃/₂−2P₁/₂ splitting (cf. sodium D-line: 589.0 and 589.6 nm).</>}>
           Calculate the spin-orbit fine structure splitting for the n=2 hydrogen levels. Which levels are split, and by how much?
         </Problem>
 

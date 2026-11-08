@@ -3,11 +3,21 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import { constants, CATEGORY_LABELS, CATEGORY_COLORS, type ConstantCategory } from '@/lib/constants';
+import { InlineMath, plainTextToLatex } from '@/components/textbook/Equation';
 
 const ALL = 'all';
 type Filter = ConstantCategory | typeof ALL;
 
 const CATEGORY_ORDER: ConstantCategory[] = ['mechanics', 'em', 'quantum', 'atomic', 'thermo', 'cosmology'];
+
+// Symbols whose subscripts are written inline in the data (kB, NA, R∞) or that
+// are unit names rather than variables (eV) need explicit LaTeX.
+const SYMBOL_LATEX: Record<string, string> = {
+  kB: 'k_{\\mathrm{B}}',
+  NA: 'N_{\\mathrm{A}}',
+  'R∞': 'R_\\infty',
+  eV: '\\mathrm{eV}',
+};
 
 export default function ConstantsPage() {
   const [filter, setFilter] = useState<Filter>(ALL);
@@ -97,7 +107,7 @@ function ConstantCard({ constant: c }: { constant: (typeof constants)[0] }) {
       {/* Symbol + name */}
       <div style={{ display: 'flex', alignItems: 'baseline', gap: '0.65rem', marginBottom: '0.2rem' }}>
         <span style={{ fontFamily: 'Georgia, serif', fontSize: '1.9rem', fontWeight: 700, color, lineHeight: 1 }}>
-          {c.symbol}
+          <InlineMath latex={SYMBOL_LATEX[c.symbol] ?? plainTextToLatex(c.symbol)} />
         </span>
         <span style={{ fontFamily: 'Georgia, serif', fontSize: '0.95rem', color: 'var(--text-heading)', lineHeight: 1.3 }}>
           {c.name}

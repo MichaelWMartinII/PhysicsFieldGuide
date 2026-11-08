@@ -1,6 +1,6 @@
 import {
   Definition, Theorem, WorkedExample, Step,
-  PracticeProblems, Problem, InteractiveProblem, EqNumbered, Prerequisites, Takeaways, LearningGoals
+  PracticeProblems, Problem, InteractiveProblem, EqNumbered, Prerequisites, Takeaways, LearningGoals, InlineMath
 } from '@/components/textbook';
 
 export default function GravitationalWavesPage() {
@@ -27,25 +27,25 @@ export default function GravitationalWavesPage() {
       <h2>GW.1 Linearized General Relativity</h2>
 
       <p>
-        In the weak-field limit, write g_μν = η_μν + h_μν with |h_μν| ≪ 1.
-        The Einstein equations linearize. In Lorenz (harmonic) gauge ∂^μ h̄_μν = 0
-        (where h̄_μν = h_μν − ½η_μν h is the trace-reversed perturbation):
+        In the weak-field limit, write <InlineMath latex="g_{\mu\nu} = \eta_{\mu\nu} + h_{\mu\nu}" /> with <InlineMath latex="|h_{\mu\nu}| \ll 1" />.
+        The Einstein equations linearize. In Lorenz (harmonic) gauge <InlineMath latex="\partial^\mu \bar h_{\mu\nu} = 0" />
+        (where <InlineMath latex="\bar h_{\mu\nu} = h_{\mu\nu} - \tfrac{1}{2}\eta_{\mu\nu} h" /> is the trace-reversed perturbation):
       </p>
 
-      <EqNumbered number="GW.1">□ h̄_μν = −16πG/c⁴ T_μν &nbsp;&nbsp;&nbsp; (linearized Einstein equations)</EqNumbered>
+      <EqNumbered number="GW.1" latex="\Box \bar h_{\mu\nu} = -\frac{16\pi G}{c^4} T_{\mu\nu} \qquad \text{(linearized Einstein equations)}" />
 
       <p>
-        In vacuum (T_μν = 0), this is a wave equation: □ h̄_μν = 0, giving waves propagating
+        In vacuum (<InlineMath latex="T_{\mu\nu} = 0" />), this is a wave equation: <InlineMath latex="\Box \bar h_{\mu\nu} = 0" />, giving waves propagating
         at speed c. Residual gauge freedom → transverse-traceless (TT) gauge:
-        h̄_TT has only spatial components, h_ii = 0 (traceless), and h_μi ∝ k^i = 0 (transverse).
+        <InlineMath latex="h^{\text{TT}}" /> has only spatial components, <InlineMath latex="h_{ii} = 0" /> (traceless), and <InlineMath latex="k^i h_{ij} = 0" /> (transverse).
         Two independent polarizations: plus (+) and cross (×).
       </p>
 
       <Definition number="GW.1" title="GW Polarizations">
         A GW propagating in the z-direction in TT gauge:
-        h_μν = h_+ e_+^(μν) cos(kz − ωt) + h_× e_×^(μν) cos(kz − ωt + φ)
-        where e_+ = diag(0, 1, −1, 0)/2 and e_× has off-diagonal ±1/2 in xy.
-        The plus polarization stretches x while compressing y (and vice versa), oscillating at 2f_GW.
+        <InlineMath latex="h_{\mu\nu} = h_+ e^+_{\mu\nu}\cos(kz - \omega t) + h_\times e^\times_{\mu\nu}\cos(kz - \omega t + \phi)" />
+        where <InlineMath latex="e^+ = \text{diag}(0, 1, -1, 0)/2" /> and <InlineMath latex="e^\times" /> has off-diagonal ±1/2 in xy.
+        The plus polarization stretches x while compressing y (and vice versa), oscillating at <InlineMath latex="f_{\text{GW}}" /> (twice the orbital frequency).
         The cross polarization does the same but rotated by 45°.
       </Definition>
 
@@ -56,22 +56,22 @@ export default function GravitationalWavesPage() {
         are conserved by mass/momentum conservation). The leading-order emission:
       </p>
 
-      <EqNumbered number="GW.2">h_+, h_× ~ (2G)/(r c⁴) × d²I_ij/dt² &nbsp;&nbsp;&nbsp; (quadrupole formula, I_ij = reduced quadrupole moment)</EqNumbered>
+      <EqNumbered number="GW.2" latex="h_+, h_\times \sim \frac{2G}{rc^4}\,\ddot I_{ij} \qquad \text{(quadrupole formula, } I_{ij} = \text{reduced quadrupole moment)}" />
 
-      <EqNumbered number="GW.3">P_GW = G/(5c⁵) × ⟨...I_ij ...I_ij⟩ &nbsp;&nbsp;&nbsp; (radiated power, ... = third time derivative)</EqNumbered>
+      <EqNumbered number="GW.3" latex="P_{\text{GW}} = \frac{G}{5c^5}\left\langle \dddot I_{ij}\, \dddot I_{ij} \right\rangle \qquad \text{(radiated power, three dots = third time derivative)}" />
 
       <p>
-        The factor G/c⁵ = 3.6×10⁻⁵³ W⁻¹ makes GW emission extremely weak for
+        The factor <InlineMath latex="G/c^5 = 2.8\times 10^{-53}\ \text{W}^{-1}" /> makes GW emission extremely weak for
         laboratory sources. Only compact astrophysical objects (NS, BH) emit detectable GWs.
       </p>
 
       <Theorem number="GW.1" title="Inspiral and Merger">
-        A binary system of masses m₁, m₂ (chirp mass M_c = (m₁m₂)^(3/5)/(m₁+m₂)^(1/5))
+        A binary system of masses m₁, m₂ (chirp mass <InlineMath latex="\mathcal{M}_c = (m_1 m_2)^{3/5}/(m_1+m_2)^{1/5}" />)
         loses energy to GWs and spirals inward. The frequency evolves as:
-        df/dt = (96/5)π^(8/3)(GM_c/c³)^(5/3) f^(11/3)
+        <InlineMath latex="\frac{df}{dt} = \frac{96}{5}\pi^{8/3}\left(\frac{G\mathcal{M}_c}{c^3}\right)^{5/3} f^{11/3}" />
         The strain amplitude:
-        h ~ (4/r)(GM_c/c²)^(5/3)(πf/c)^(2/3)
-        At merger (Schwarzschild radius contact): f_ISCO ≈ c³/(6^(3/2) π G M_total) ≈ 4400 Hz × (M_☉/M_total).
+        <InlineMath latex="h \sim \frac{4}{r}\left(\frac{G\mathcal{M}_c}{c^2}\right)^{5/3}\left(\frac{\pi f}{c}\right)^{2/3}" />
+        At merger (Schwarzschild radius contact): <InlineMath latex="f_{\text{ISCO}} \approx \frac{c^3}{6^{3/2}\pi G M_{\text{total}}} \approx 4400\ \text{Hz} \times \frac{M_\odot}{M_{\text{total}}}" />.
       </Theorem>
 
       <WorkedExample number="GW.1" title="GW150914 — First Direct Detection">
@@ -80,10 +80,10 @@ export default function GravitationalWavesPage() {
           from the observed signal: f sweeps 35 → 150 Hz in ~0.2 s, peak strain h ≈ 10⁻²¹,
           estimated distance ~410 Mpc.
         </p>
-        <Step label="Chirp mass from df/dt:">At f ≈ 100 Hz, df/dt ≈ (150−35)/0.2 Hz/s ≈ 575 Hz/s. M = (c³/(G π^(8/3))) × (5/96) × (df/dt)^(3/5) × f^(-11/5) ≈ 28.3 M_☉. This is the best-measured parameter from the inspiral phase (fractional uncertainty ~1%).</Step>
+        <Step label="Chirp mass from df/dt:">At f ≈ 100 Hz the measured local slope is df/dt ≈ 3300 Hz/s (the sweep accelerates, so the average (150−35)/0.2 ≈ 575 Hz/s badly underestimates it). M_c = (c³/G) × [(5/96) π^(−8/3) f^(−11/3) (df/dt)]^(3/5) ≈ 28.3 M_☉. This is the best-measured parameter from the inspiral phase (fractional uncertainty ~1%).</Step>
         <Step label="Mass scale from high-frequency cutoff:">The observed high-frequency merger/ringdown near 150 Hz is not a clean Schwarzschild ISCO frequency, but it sets the compact-object mass scale. Detailed waveform matching gives initial black-hole masses ≈ 36 M_☉ and 29 M_☉, with final mass ~62 M_☉. About 3 M_☉c² ≈ 5×10⁴⁷ J was radiated in GWs over ~0.2 s. Power: ~3×10⁴⁸ W — briefly outshining all stars in the observable universe combined.</Step>
-        <Step label="Distance from strain:">h ~ (4 G^(5/3) (πfM)^(2/3))/(c⁴ r). At f = 100 Hz, M = 28 M_☉: h ≈ 10⁻²¹ → r ≈ 410 Mpc. LIGO arm length L = 4 km; length change ΔL = h L/2 ≈ 10⁻²¹ × 4000m/2 = 2×10⁻¹⁸ m = 2 am (attometers). 1/500 of a proton radius.</Step>
-        <Step label="Significance:">Signal-to-noise ratio SNR ≈ 24. Detection significance: 5.3σ (false alarm rate &lt; 1 per 200,000 yr). Confirmed as two black holes — first direct observation of a binary black hole merger, and first observation of black holes with masses M &gt; 20 M_☉. Nobel Prize in Physics 2017 to Weiss, Barish, Thorne.</Step>
+        <Step label="Distance from strain:">h ~ 4(GM)^(5/3)(πf)^(2/3)/(c⁴ r). At f = 100 Hz, M = 28 M_☉: h ≈ 10⁻²¹ → r ≈ 410 Mpc. LIGO arm length L = 4 km; length change ΔL = h L/2 ≈ 10⁻²¹ × 4000m/2 = 2×10⁻¹⁸ m = 2 am (attometers). 1/500 of a proton radius.</Step>
+        <Step label="Significance:">Signal-to-noise ratio SNR ≈ 24. Detection significance: &gt; 5.1σ (false alarm rate &lt; 1 per 200,000 yr). Confirmed as two black holes — first direct observation of a binary black hole merger, and first observation of black holes with masses M &gt; 20 M_☉. Nobel Prize in Physics 2017 to Weiss, Barish, Thorne.</Step>
       </WorkedExample>
 
       <h2>GW.3 LIGO Interferometer</h2>
@@ -99,8 +99,8 @@ export default function GravitationalWavesPage() {
         2. <strong>Thermal noise</strong> (10–200 Hz): Brownian motion of mirror coatings and suspensions.
            Fused silica fibers, low-loss coatings (SiO₂/Ta₂O₅), low temperature prototypes.
         3. <strong>Quantum noise</strong> (above ~100 Hz): photon shot noise. Standard quantum limit:
-           h_SQL = (1/L)√(8ℏ/(mω²)) — trades off shot noise against radiation pressure noise.
-           Overcome by squeezed light injection (LIGO O3: 15 dB squeezing applied).
+           <InlineMath latex="h_{\text{SQL}} = \frac{1}{L}\sqrt{\frac{8\hbar}{m\omega^2}}" /> — trades off shot noise against radiation pressure noise.
+           Overcome by squeezed light injection (LIGO O3: ~3 dB of squeezing).
       </p>
 
       <p>
@@ -123,14 +123,14 @@ export default function GravitationalWavesPage() {
 
       <p>
         <strong>Hubble constant from GW</strong>: "standard siren" — GW gives absolute distance (no
-        distance ladder), EM gives redshift. GW170817: H₀ = 70⁺¹²_(-8) km/s/Mpc.
+        distance ladder), EM gives redshift. GW170817: <InlineMath latex="H_0 = 70^{+12}_{-8}" /> km/s/Mpc.
         With more events: will resolve Hubble tension model-independently.
       </p>
 
       <p>
         <strong>Pulsar timing arrays</strong> (PTAs): millisecond pulsars as a GW detector.
         Nanohertz GW background (f ~ 1–100 nHz) from supermassive black hole binaries.
-        First evidence (NANOGrav 2023, ~5σ) for GW background — new frequency window.
+        First evidence (NANOGrav 2023, ~3–4σ) for GW background — new frequency window.
         <strong>LISA</strong> (2030s): space-based, 2.5 Mkm arms, millihertz band —
         targets SMBH mergers, extreme mass-ratio inspirals, stochastic GW background from inflation.
       </p>
@@ -146,18 +146,18 @@ export default function GravitationalWavesPage() {
 
       <PracticeProblems section="GW.1–GW.4 Gravitational Waves">
         <Problem n={1} difficulty="easy"
-          solution={<>Effect of plus-polarization GW on a ring of test masses: A GW h_+ propagating in z-direction: g_ij = diag(1+h_+cos(ωt), 1−h_+cos(ωt), 1) (TT gauge). Physical distance between two particles at (±L/2, 0, 0): Δx = ∫√g_xx dx ≈ L(1 + h_+ cos(ωt)/2). Change: δL_x = h_+ L cos(ωt)/2. Simultaneously, particles at (0, ±L/2, 0): δL_y = -h_+ L cos(ωt)/2. A ring of particles deforms elliptically: x-axis and y-axis stretch/compress alternately at frequency ω_GW (twice orbital frequency). Cross polarization (h_×): same but ring rotated 45°. The two polarizations are independent. This is the geodesic deviation equation: d²ξ^i/dτ² = R^i(0j0) ξ^j → linear in ξ, hence linear detector (LIGO) measures h directly. The pattern function F_+ = ½(1+cos²θ)cos(2φ), F_× = cosθ sin(2φ) gives the antenna response for source direction (θ,φ). LIGO+Virgo triangulation: timing difference at 3 detectors (max ~10 ms for Earth baseline) localizes source to sky patch.</>}>
+          solution={<>Effect of plus-polarization GW on a ring of test masses: A GW h_+ propagating in z-direction: g_ij = diag(1+h_+cos(ωt), 1−h_+cos(ωt), 1) (TT gauge). Physical distance between two particles at (±L/2, 0, 0): Δx = ∫√g_xx dx ≈ L(1 + h_+ cos(ωt)/2). Change: δL_x = h_+ L cos(ωt)/2. Simultaneously, particles at (0, ±L/2, 0): δL_y = -h_+ L cos(ωt)/2. A ring of particles deforms elliptically: x-axis and y-axis stretch/compress alternately at frequency ω_GW (twice orbital frequency). Cross polarization (h_×): same but ring rotated 45°. The two polarizations are independent. This is the geodesic deviation equation: d²ξ^i/dτ² = −R^i_(0j0) ξ^j → linear in ξ, hence linear detector (LIGO) measures h directly. The pattern function F_+ = ½(1+cos²θ)cos(2φ), F_× = cosθ sin(2φ) gives the antenna response for source direction (θ,φ). LIGO+Virgo triangulation: timing difference at 3 detectors (max ~10 ms for Earth baseline) localizes source to sky patch.</>}>
           Describe how the plus polarization of a gravitational wave deforms a ring of test masses. What is the antenna pattern F_+ for a Michelson interferometer?
         </Problem>
 
         <InteractiveProblem n={2} difficulty="medium"
           answer={300} unit="Myr" tolerance={0.10}
           hints={[
-            'Use the Peters formula: t_merger = 5a₀⁴c⁵/(256 G³ M²μ). For the Hulse-Taylor pulsar, m₁ = 1.44 M☉, m₂ = 1.39 M☉, initial separation a₀ ≈ 1.95×10⁹ m.',
-            'Compute M = m₁+m₂ and μ = m₁m₂/M. M☉ = 2×10³⁰ kg. The result should be in the range of hundreds of Myr.',
+            'Use the Peters formula: t_merger = 5a₀⁴c⁵/(256 G³ M²μ) for a circular orbit. For the Hulse-Taylor pulsar, m₁ = 1.44 M☉, m₂ = 1.39 M☉, semi-major axis a₀ ≈ 1.95×10⁹ m.',
+            'Compute M = m₁+m₂ and μ = m₁m₂/M (circular result ≈ 1.6 Gyr), then multiply by (1 − e²)^(7/2) ≈ 0.19 for the orbital eccentricity e = 0.617.',
           ]}
-          problemText="Derive the gravitational wave luminosity (Peters formula) for an equal-mass circular binary. Compute the merger timescale in Myr for the Hulse-Taylor pulsar (m₁ = 1.44 M☉, m₂ = 1.39 M☉, a₀ = 1.95×10⁹ m)."
-          solution={<>Quadrupole radiation from a binary: masses m₁ = m₂ = M/2 in circular orbit of separation a. Orbital frequency Ω² = G M/a³ (Kepler). Reduced mass μ = M/4. Quadrupole moment tensor I_ij: using center-of-mass frame, I_xx = μa²cos²(Ωt)/2, I_yy = μa²sin²(Ωt)/2, I_xy = μa²sin(Ωt)cos(Ωt)/2. ...I_ij (third derivative) has amplitude ~ μa²Ω³. Power: P = (32/5)(G⁴/c⁵)(M³μ²/a⁵) (Peters formula). For equal masses m₁=m₂=m: M=2m, μ=m/2. P = (32/5)(G/c⁵)(m/2)²(2m)³/a⁵ × G³ = ... P = (32/5)(G⁴m⁵/(4a⁵c⁵)). Energy E = -GMμ/(2a) = -G m²/(2a). ȧ = -P/(dE/da) → ȧ = -(64/5)(G³M²μ)/(c⁵a³). Integration: a⁴ decreases → merger time t_merger = 5a₀⁴c⁵/(256 G³ M²μ). For Hulse-Taylor pulsar (m₁=1.44 M_☉, m₂=1.39 M_☉, a₀ = 1.95×10⁹ m): t_merger ≈ 300 Myr. Measured orbital decay rate ȧ agrees with GR to 0.13% — indirect Nobel (1993) for Hulse and Taylor.</>}>
+          problemText="Derive the gravitational wave luminosity (Peters formula) for an equal-mass circular binary. Compute the merger timescale in Myr for the Hulse-Taylor pulsar (m₁ = 1.44 M☉, m₂ = 1.39 M☉, a₀ = 1.95×10⁹ m, eccentricity e = 0.617, using the approximate factor (1 − e²)^(7/2))."
+          solution={<>Quadrupole radiation from a binary: masses m₁ = m₂ = M/2 in circular orbit of separation a. Orbital frequency Ω² = G M/a³ (Kepler). Reduced mass μ = M/4. Quadrupole moment tensor I_ij: using center-of-mass frame, I_xx = μa²cos²(Ωt), I_yy = μa²sin²(Ωt), I_xy = μa²sin(Ωt)cos(Ωt). ...I_ij (third derivative) has amplitude ~ μa²Ω³. Power: P = (32/5)(G⁴/c⁵)(M³μ²/a⁵) (Peters formula). For equal masses m₁=m₂=m: M=2m, μ=m/2. P = (32/5)(G⁴/c⁵)(m/2)²(2m)³/a⁵ = (64/5)(G⁴m⁵/(a⁵c⁵)). Energy E = -GMμ/(2a) = -G m²/(2a). ȧ = -P/(dE/da) → ȧ = -(64/5)(G³M²μ)/(c⁵a³). Integration: a⁴ decreases → merger time t_merger = 5a₀⁴c⁵/(256 G³ M²μ). For Hulse-Taylor pulsar (m₁=1.44 M_☉, m₂=1.39 M_☉, a₀ = 1.95×10⁹ m): circular-orbit formula gives ≈ 1.6 Gyr; its high eccentricity (e = 0.617) speeds the decay by ≈ (1 − e²)^(7/2) ≈ 0.19, so t_merger ≈ 300 Myr. Measured orbital decay rate ȧ agrees with GR to 0.13% — indirect Nobel (1993) for Hulse and Taylor.</>}>
           Derive the gravitational wave luminosity (Peters formula) for an equal-mass circular binary. Compute the merger timescale for the Hulse-Taylor pulsar.
         </InteractiveProblem>
 
@@ -173,7 +173,7 @@ export default function GravitationalWavesPage() {
         </InteractiveProblem>
 
         <Problem n={4} difficulty="hard"
-          solution={<>LIGO quantum noise and the SQL: Shot noise (photon counting): fluctuation in photon number δN ~ √N where N = P_circ T/ℏω. Phase error: δφ = 1/√N. Strain noise: h_shot = δφ × (λ/(4πL)) = c/(4πL) × √(ℏω/P_circ). Radiation pressure (back-action): force fluctuation δF ~ √(P/c) × (2ℏω/(c λ)) per photon... F_rad = 2P/c on mirror, δF_rad = √(2ℏωP/c²). Position noise: δx_rad = δF/(m ω²) for a free mirror at frequency ω_signal. Strain: h_rad = 2δx_rad/L = (2/(Lω²))√(2ℏωP/(mc²)). SQL: minimize h_total = √(h_shot² + h_rad²) over P: dh_total/dP = 0 → P_SQL = mω²Lc²/(4). h_SQL = √(8ℏ/(mω²L²)). For LIGO (m = 40 kg, L = 4 km, f = 100 Hz): h_SQL = √(8×1.055×10⁻³⁴/(40×(2π×100)²×(4000)²)) = √(8.44×10⁻³⁴/6.32×10¹²) = √(1.34×10⁻⁴⁶) ≈ 3.7×10⁻²³ — achieved in current LIGO. To go below SQL: use frequency-dependent squeezing (different squeeze angle at different frequencies): inject phase-squeezed at low f (beat RA noise), amplitude-squeezed at high f (beat shot noise). Achieved via filter cavity (300 m in LIGO). O4 squeezing: ~6 dB in current band.</>}>
+          solution={<>LIGO quantum noise and the SQL: Shot noise (photon counting): fluctuation in photon number δN ~ √N where N = P_circ T/ℏω. Phase error: δφ = 1/√N. Strain noise: h_shot = δφ × (λ/(4πL)) = c/(4πL) × √(ℏω/P_circ). Radiation pressure (back-action): force fluctuation δF ~ √(P/c) × (2ℏω/(c λ)) per photon... F_rad = 2P/c on mirror, δF_rad = √(2ℏωP/c²). Position noise: δx_rad = δF/(m ω²) for a free mirror at frequency ω_signal. Strain: h_rad = 2δx_rad/L = (2/(Lω²))√(2ℏωP/(mc²)). SQL: minimize h_total = √(h_shot² + h_rad²) over P: dh_total/dP = 0 → P_SQL = mω²Lc²/(4). h_SQL = √(8ℏ/(mω²L²)). For LIGO (m = 40 kg, L = 4 km, f = 100 Hz): h_SQL = √(8×1.055×10⁻³⁴/(40×(2π×100)²×(4000)²)) = √(8.44×10⁻³⁴/2.53×10¹⁴) = √(3.34×10⁻⁴⁸) ≈ 1.8×10⁻²⁴ /√Hz — within a factor of ~2 of current LIGO sensitivity at 100 Hz. To go below SQL: use frequency-dependent squeezing (different squeeze angle at different frequencies): inject phase-squeezed at low f (beat RA noise), amplitude-squeezed at high f (beat shot noise). Achieved via filter cavity (300 m in LIGO). O4 squeezing: ~6 dB in current band.</>}>
           Derive the standard quantum limit (SQL) for a gravitational wave detector by balancing shot noise and radiation pressure noise. How does squeezed light injection help LIGO surpass the SQL?
         </Problem>
       </PracticeProblems>
@@ -182,8 +182,8 @@ export default function GravitationalWavesPage() {
         'Linearized GR: □h̄_μν = -16πG/c⁴ T_μν. TT gauge: two polarizations h_+, h_× propagating at c.',
         'Quadrupole formula: h ~ (2G/rc⁴) × d²I/dt². Power P ~ (G/5c⁵)(...I)² — extremely weak for lab sources.',
         'Inspiral: chirp mass M from df/dt. Strain h ~ (GM)^(5/3)/(c⁴ r). Merger at f_ISCO ≈ 4400 Hz × M_☉/M_total.',
-        'GW150914: BBH merger, 3 M_☉c² radiated, ΔL ~ 2 am (2×10⁻¹⁸ m). 5.3σ. Nobel 2017.',
-        'LIGO noise: seismic (&lt;10 Hz), thermal (10-200 Hz), quantum (shot + radiation pressure). SQL ~ 3.7×10⁻²³.',
+        'GW150914: BBH merger, 3 M_☉c² radiated, ΔL ~ 2 am (2×10⁻¹⁸ m). > 5.1σ. Nobel 2017.',
+        'LIGO noise: seismic (<10 Hz), thermal (10-200 Hz), quantum (shot + radiation pressure). SQL ~ 1.8×10⁻²⁴ /√Hz at 100 Hz.',
         'GW170817 (BNS): confirmed NS mergers = short GRBs + kilonovae. H₀ = 70 km/s/Mpc as "standard siren".',
       ]} />
     </div>

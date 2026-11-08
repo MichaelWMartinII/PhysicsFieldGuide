@@ -1,6 +1,6 @@
 import {
   Definition, WorkedExample, Step,
-  PracticeProblems, Problem, InteractiveProblem, EqNumbered, Prerequisites, Takeaways, LearningGoals
+  PracticeProblems, Problem, InteractiveProblem, EqNumbered, Prerequisites, Takeaways, LearningGoals, InlineMath
 } from '@/components/textbook';
 
 export default function ScatteringPage() {
@@ -32,21 +32,21 @@ export default function ScatteringPage() {
         Far from the target, the wavefunction is:
       </p>
 
-      <EqNumbered number="SC.1">ψ(r) → e^(ik·r) + f(k, k') × e^(ikr)/r &nbsp;&nbsp;&nbsp; (asymptotic scattered wave)</EqNumbered>
+      <EqNumbered number="SC.1" latex="\psi(\mathbf{r}) \to e^{i\mathbf{k}\cdot\mathbf{r}} + f(\mathbf{k}, \mathbf{k}')\, \frac{e^{ikr}}{r} \qquad \text{(asymptotic scattered wave)}" />
 
       <p>
         where f(k, k&apos;) is the <strong>scattering amplitude</strong> (k&apos; = k r̂). The differential
         cross section is:
       </p>
 
-      <EqNumbered number="SC.2">dσ/dΩ = |f(θ, φ)|² &nbsp;&nbsp;&nbsp; (differential cross section)</EqNumbered>
+      <EqNumbered number="SC.2" latex="\frac{d\sigma}{d\Omega} = |f(\theta, \phi)|^2 \qquad \text{(differential cross section)}" />
 
       <p>
-        Total cross section: σ_total = ∫|f|² dΩ. The optical theorem relates σ_total to the
+        Total cross section: <InlineMath latex="\sigma_{\text{total}} = \int |f|^2\, d\Omega" />. The optical theorem relates <InlineMath latex="\sigma_{\text{total}}" /> to the
         forward scattering amplitude:
       </p>
 
-      <EqNumbered number="SC.3">σ_total = (4π/k) Im f(θ=0) &nbsp;&nbsp;&nbsp; (optical theorem)</EqNumbered>
+      <EqNumbered number="SC.3" latex="\sigma_{\text{total}} = \frac{4\pi}{k}\, \operatorname{Im} f(\theta = 0) \qquad \text{(optical theorem)}" />
 
       <p>
         This is exact — it follows from unitarity of the S-matrix: probability is conserved.
@@ -60,7 +60,7 @@ export default function ScatteringPage() {
         For a weak potential V ≪ typical kinetic energies, the Born approximation gives:
       </p>
 
-      <EqNumbered number="SC.4">f(q) = −m/(2πℏ²) ∫ e^(−iq·r) V(r) d³r = −m/(2πℏ²) Ṽ(q)</EqNumbered>
+      <EqNumbered number="SC.4" latex="f(\mathbf{q}) = -\frac{m}{2\pi\hbar^2} \int e^{-i\mathbf{q}\cdot\mathbf{r}}\, V(\mathbf{r})\, d^3r = -\frac{m}{2\pi\hbar^2}\, \tilde{V}(\mathbf{q})" />
 
       <p>
         where q = k − k&apos; is the momentum transfer (|q| = 2k sin(θ/2)).
@@ -68,8 +68,8 @@ export default function ScatteringPage() {
       </p>
 
       <p>
-        For Coulomb potential V = Ze²/(4πε₀r): Ṽ(q) = Ze²/(ε₀q²).
-        Born cross section: dσ/dΩ = (2mZe²/(4πε₀ℏ²))² / (2k sin(θ/2))⁴ = (Ze²/(4E))² / sin⁴(θ/2).
+        For Coulomb potential <InlineMath latex="V = Ze^2/(4\pi\varepsilon_0 r)" />: <InlineMath latex="\tilde{V}(q) = Ze^2/(\varepsilon_0 q^2)" />.
+        Born cross section: <InlineMath latex="\dfrac{d\sigma}{d\Omega} = \dfrac{\left(\frac{2mZe^2}{4\pi\varepsilon_0\hbar^2}\right)^2}{(2k\sin(\theta/2))^4} = \left(\dfrac{Ze^2}{16\pi\varepsilon_0 E}\right)^2 \dfrac{1}{\sin^4(\theta/2)}" />.
         This is the <strong>Rutherford formula</strong> — and it is exact for Coulomb scattering
         (higher-order Born terms are zero due to the long range of Coulomb).
       </p>
@@ -81,22 +81,22 @@ export default function ScatteringPage() {
         The scattering amplitude:
       </p>
 
-      <EqNumbered number="SC.5">f(θ) = (1/k) Σₗ (2l+1) e^(iδₗ) sin δₗ × Pₗ(cosθ) &nbsp;&nbsp;&nbsp; (partial wave expansion)</EqNumbered>
+      <EqNumbered number="SC.5" latex="f(\theta) = \frac{1}{k} \sum_l (2l+1)\, e^{i\delta_l} \sin\delta_l\, P_l(\cos\theta) \qquad \text{(partial wave expansion)}" />
 
       <p>
         where δₗ is the <strong>phase shift</strong> of the l-th partial wave — the phase
         acquired relative to free propagation. The partial wave cross section:
       </p>
 
-      <EqNumbered number="SC.6">σₗ = (4π/k²)(2l+1) sin² δₗ ≤ (4π/k²)(2l+1) &nbsp;&nbsp;&nbsp; (unitarity bound)</EqNumbered>
+      <EqNumbered number="SC.6" latex="\sigma_l = \frac{4\pi}{k^2}(2l+1) \sin^2\delta_l \le \frac{4\pi}{k^2}(2l+1) \qquad \text{(unitarity bound)}" />
 
       <p>
         <strong>Resonances</strong>: when δₗ passes through π/2, the partial wave cross section
-        reaches its maximum (unitarity limit). A Breit-Wigner resonance at energy E_r with
+        reaches its maximum (unitarity limit). A Breit-Wigner resonance at energy <InlineMath latex="E_r" /> with
         width Γ:
       </p>
 
-      <EqNumbered number="SC.7">σₗ(E) ≈ (4π/k²)(2l+1) × (Γ²/4)/((E−E_r)² + Γ²/4) &nbsp;&nbsp;&nbsp; (Breit-Wigner resonance)</EqNumbered>
+      <EqNumbered number="SC.7" latex="\sigma_l(E) \approx \frac{4\pi}{k^2}(2l+1)\, \frac{\Gamma^2/4}{(E - E_r)^2 + \Gamma^2/4} \qquad \text{(Breit-Wigner resonance)}" />
 
       <WorkedExample number="SC.1" title="S-wave Scattering from a Hard Sphere">
         <p>
@@ -104,7 +104,7 @@ export default function ScatteringPage() {
           (V = ∞ for r &lt; a, 0 for r &gt; a) at low energy ka ≪ 1.
         </p>
         <Step label="Radial equation:">For l=0, the radial equation gives u(r) = r ψ_0(r). Outside: u = A sin(kr + δ₀). At r=a: u(a) = 0 → ka + δ₀ = nπ → δ₀ = −ka (for small ka).</Step>
-        <Step label="Scattering length:">Define the scattering length a_s = −lim(k→0) δ₀/k = a (positive for hard sphere). Low-energy limit: f ≈ −a_s = −a. σ_total = 4πa² (at low energy, four times the geometric cross section!).</Step>
+        <Step label="Scattering length:">Define the scattering length <InlineMath latex="a_s = -\lim_{k\to 0} \delta_0/k = a" /> (positive for hard sphere). Low-energy limit: f ≈ −a_s = −a. σ_total = 4πa² (at low energy, four times the geometric cross section!).</Step>
         <Step label="Physical:">The factor of 4 arises because quantum diffraction occurs in all directions, not just the shadow. At ka ≫ 1 (high energy): σ → 2πa² (geometric πa² from shadow + πa² from diffraction ring).</Step>
         <Step label="Universality:">All short-range potentials with the same scattering length a_s have the same low-energy cross section σ → 4πa_s². The scattering length fully characterizes low-energy scattering — this is why ultracold atoms can be described by just a_s regardless of the microscopic potential details.</Step>
       </WorkedExample>
@@ -114,15 +114,15 @@ export default function ScatteringPage() {
       <p>
         The <strong>S-matrix</strong> (scattering matrix) maps incoming asymptotic states to
         outgoing asymptotic states: |out⟩ = S|in⟩. For elastic scattering:
-        S_l = e^(2iδₗ) — a pure phase (unitarity: S†S = 1 → |S_l| = 1).
+        <InlineMath latex="S_l = e^{2i\delta_l}" /> — a pure phase (unitarity: <InlineMath latex="S^\dagger S = 1 \to |S_l| = 1" />).
       </p>
 
       <p>
-        The T-matrix: S = 1 + 2iT. The cross section: dσ/dΩ = |⟨k&apos;|T|k⟩|². Lippmann-Schwinger
+        The T-matrix: S = 1 + 2iT. The cross section: <InlineMath latex="d\sigma/d\Omega = |\langle k'|T|k\rangle|^2" />. Lippmann-Schwinger
         equation:
       </p>
 
-      <EqNumbered number="SC.8">T = V + V G₀(E+iε) T &nbsp;&nbsp;&nbsp; (Lippmann-Schwinger for the T-matrix)</EqNumbered>
+      <EqNumbered number="SC.8" latex="T = V + V\, G_0(E + i\varepsilon)\, T \qquad \text{(Lippmann-Schwinger for the } T\text{-matrix)}" />
 
       <p>
         where G₀ = 1/(E − H₀ + iε) is the free-particle Green&apos;s function. Iterating:
@@ -137,13 +137,13 @@ export default function ScatteringPage() {
         the <strong>form factor</strong> F(q) — the Fourier transform of the charge distribution:
       </p>
 
-      <EqNumbered number="SC.9">dσ/dΩ = (dσ/dΩ)_point × |F(q)|² &nbsp;&nbsp;&nbsp; (form factor)</EqNumbered>
+      <EqNumbered number="SC.9" latex="\frac{d\sigma}{d\Omega} = \left(\frac{d\sigma}{d\Omega}\right)_{\text{point}} |F(q)|^2 \qquad \text{(form factor)}" />
 
       <p>
         At small q: F(q) ≈ 1 − q²⟨r²⟩/6 + ... where ⟨r²⟩ is the mean-square radius.
         The proton charge radius was measured by electron-proton scattering (Hofstadter, 1961):
-        r_p ≈ 0.84 fm. This became the <strong>proton radius puzzle</strong> when muonic hydrogen
-        measurements gave r_p = 0.84087 fm vs ordinary hydrogen spectroscopy giving 0.8775 fm —
+        <InlineMath latex="r_p \approx 0.84" /> fm. This became the <strong>proton radius puzzle</strong> when muonic hydrogen
+        measurements gave <InlineMath latex="r_p = 0.84087" /> fm vs ordinary hydrogen spectroscopy giving 0.8775 fm —
         a 7σ discrepancy (since resolved to ~0.84 fm by 2019 CODATA).
       </p>
 
@@ -169,17 +169,17 @@ export default function ScatteringPage() {
           answer={1.4} unit="fm" tolerance={0.05}
           hints={['The Yukawa range is R = 1/μ where μ = m_π c/ℏ', 'Use m_π c² = 140 MeV and ℏc = 197.3 MeV·fm to get μ = 140/197.3 fm⁻¹']}
           problemText="The nuclear force is modeled by a Yukawa potential V = V₀ e^(−μr)/r with μ = m_π c/ℏ. Calculate the range R = 1/μ in fm using m_π c² = 140 MeV and ℏc = 197.3 MeV·fm."
-          solution={<>Yukawa scattering: V(r) = V₀ e^(−μr)/r. Fourier transform: Ṽ(q) = 4πV₀/(q²+μ²). Born approximation: f = −m/(2πℏ²) × 4πV₀/(q²+μ²) = −2mV₀/(ℏ²(q²+μ²)). q² = 4k²sin²(θ/2). dσ/dΩ = |f|² = (2mV₀/ℏ²)² / (4k²sin²(θ/2)+μ²)². Total cross section: σ = ∫dσ/dΩ dΩ = 2π∫|f|²sinθdθ = 16π(2mV₀/ℏ²)²/(μ²(4k²+μ²)). Low energy (k→0): σ → 16π(2mV₀)²/(ℏ²μ²)² = (4πa_s)² where a_s = −mV₀/(π ℏ²μ²) is the Born scattering length. High energy (k≫μ): σ → 4π(2mV₀)²/(ℏ⁴μ²×4k²) ∝ 1/k² → σ → 0 (decreasing). For nuclear physics: Yukawa with μ = m_π c/ℏ ≈ 0.7 fm⁻¹, range R = 1/μ ≈ 1.4 fm. This gives the correct scale for nuclear forces from pion exchange.</>}>
+          solution={<>Yukawa scattering: V(r) = V₀ e^(−μr)/r. Fourier transform: Ṽ(q) = 4πV₀/(q²+μ²). Born approximation: f = −m/(2πℏ²) × 4πV₀/(q²+μ²) = −2mV₀/(ℏ²(q²+μ²)). q² = 4k²sin²(θ/2). dσ/dΩ = |f|² = (2mV₀/ℏ²)² / (4k²sin²(θ/2)+μ²)². Total cross section: σ = ∫dσ/dΩ dΩ = 2π∫|f|²sinθdθ = 4π(2mV₀/ℏ²)²/(μ²(4k²+μ²)). Low energy (k→0): σ → 4π(2mV₀)²/(ℏ²μ²)² = 4πa_s² where a_s = 2mV₀/(ℏ²μ²) is the Born scattering length. High energy (k≫μ): σ → 4π(2mV₀)²/(ℏ⁴μ²×4k²) ∝ 1/k² → σ → 0 (decreasing). For nuclear physics: Yukawa with μ = m_π c/ℏ ≈ 0.7 fm⁻¹, range R = 1/μ ≈ 1.4 fm. This gives the correct scale for nuclear forces from pion exchange.</>}>
           Find the differential and total cross section for Born scattering from a Yukawa potential V = V₀ e^(−μr)/r. How does σ behave at low and high energies?
         </InteractiveProblem>
 
         <Problem n={3} difficulty="medium"
-          solution={<>Resonance scattering: s-wave, V = attractive square well of depth V₀ and radius a. Phase shift: δ₀ = ka − arctan[k/κ × tan(κa)] where κ = √(2m(E+V₀)/ℏ²). Resonances at E_n where δ₀ = (n+½)π → κa = (n+½)π (approximate). Near resonance E ≈ E_r: expand δ₀ in Taylor series → Breit-Wigner form δ₀ = π/2 + (E−E_r)/Γ × 2. σ_0 = 4π/k² × sin²δ₀ = 4π/k² × (Γ²/4)/((E−E_r)²+Γ²/4). Maximum σ_0 = 4π/k_r² at resonance (unitarity bound). Width Γ = 2/|dδ₀/dE|(E_r). Physical example: thermal neutron scattering on ¹¹³Cd has resonance at E_r = 0.178 eV with Γ_n = 0.113 eV (partial wave l=0) → σ_max = 6.5×10⁴ barns (vs σ_geom ≈ 2.5 barns). This huge cross section makes cadmium control rods effective in nuclear reactors.</>}>
+          solution={<>Resonance scattering: s-wave, V = attractive square well of depth V₀ and radius a. Phase shift: δ₀ = −ka + arctan[k/κ × tan(κa)] where κ = √(2m(E+V₀)/ℏ²). Resonances at E_n where δ₀ = (n+½)π → κa = (n+½)π (approximate). Near resonance E ≈ E_r: expand δ₀ in Taylor series → Breit-Wigner form δ₀ = π/2 + (E−E_r)/Γ × 2. σ_0 = 4π/k² × sin²δ₀ = 4π/k² × (Γ²/4)/((E−E_r)²+Γ²/4). Maximum σ_0 = 4π/k_r² at resonance (unitarity bound). Width Γ = 2/|dδ₀/dE|(E_r). Physical example: thermal neutron scattering on ¹¹³Cd has resonance at E_r = 0.178 eV with Γ_n = 0.113 eV (partial wave l=0) → σ_max = 6.5×10⁴ barns (vs σ_geom ≈ 2.5 barns). This huge cross section makes cadmium control rods effective in nuclear reactors.</>}>
           Describe s-wave resonance scattering from an attractive square well. Derive the Breit-Wigner form for the cross section and explain why nuclear resonances can have σ ≫ πR².
         </Problem>
 
         <Problem n={4} difficulty="hard"
-          solution={<>Eikonal approximation: valid for high energy (ka ≫ 1) and forward scattering (small θ). For a potential localized in the transverse plane b (impact parameter): χ(b) = −1/ℏv ∫(−∞ to ∞) V(b,z) dz (eikonal phase). Scattering amplitude: f(q) = ik∫d²b e^(−iq·b)(1 − e^(iχ(b))). Born limit: e^(iχ) ≈ 1+iχ → f = ik∫d²b e^(−iq·b)(−iχ) = k/ℏv ∫d²b e^(−iq·b)∫dz V(b,z) = m/(2πiℏ²k) × (Fourier transform of V in 3D) → agrees with Born. For Coulomb: χ(b) = (2Ze²/ℏv) ln(1/bμ). f(θ) → Rutherford exactly (all orders) for Coulomb. For nuclear (sharp edge): absorption → |e^(iχ)| &lt; 1 → diffractive peak at θ = 1.22λ/(2R). Eikonal = geometric optics of quantum scattering. Valid when dV/dr ≪ ℏv/a (weak scattering per de Broglie wavelength).</>}>
+          solution={<>Eikonal approximation: valid for high energy (ka ≫ 1) and forward scattering (small θ). For a potential localized in the transverse plane b (impact parameter): <InlineMath latex="\chi(b) = -\frac{1}{\hbar v}\int_{-\infty}^{\infty} V(b,z)\, dz" /> (eikonal phase). Scattering amplitude: <InlineMath latex="f(q) = \frac{ik}{2\pi}\int d^2b\, e^{-i\mathbf{q}\cdot\mathbf{b}}\left(1 - e^{i\chi(b)}\right)" />. Born limit: <InlineMath latex="e^{i\chi} \approx 1 + i\chi \to f = \frac{ik}{2\pi}\int d^2b\, e^{-i\mathbf{q}\cdot\mathbf{b}}(-i\chi) = -\frac{k}{2\pi\hbar v}\int d^2b\, e^{-i\mathbf{q}\cdot\mathbf{b}}\int dz\, V(b,z) = -\frac{m}{2\pi\hbar^2}" /> × (Fourier transform of V in 3D) → agrees with Born. For Coulomb: χ(b) = (2Ze²/ℏv) ln(1/bμ). f(θ) → Rutherford exactly (all orders) for Coulomb. For nuclear (sharp edge): absorption → |e^(iχ)| &lt; 1 → diffractive peak at θ = 1.22λ/(2R). Eikonal = geometric optics of quantum scattering. Valid when dV/dr ≪ ℏv/a (weak scattering per de Broglie wavelength).</>}>
           Derive the eikonal approximation for scattering at high energy (ka ≫ 1). Show how it reduces to the Born approximation for weak potentials, and to Rutherford for Coulomb.
         </Problem>
       </PracticeProblems>

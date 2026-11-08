@@ -122,7 +122,7 @@ export default function MagnetismPage() {
         <Step label="Field from wire 1:"><InlineMath latex="B_1 = \frac{\mu_0I_1}{2\pi d} = \frac{(4\pi\times10^{-7})(10)}{2\pi(0.5)} = 4\times10^{-6}\,\mathrm{T}" /></Step>
         <Step label="Force on wire 2:"><InlineMath latex="F/L = I_2B_1 = 20(4\times10^{-6}) = 8\times10^{-5}\,\mathrm{N/m}" /></Step>
         <Step label="Direction:">Same-direction currents attract (opposite-direction repel).</Step>
-        <Step label="Note:">This experiment defines the ampere: 2×10⁻⁷ N/m force per meter between wires 1 m apart carrying 1 A each.</Step>
+        <Step label="Note:">This experiment defined the ampere until the 2019 SI redefinition: 2×10⁻⁷ N/m force per meter between wires 1 m apart carrying 1 A each.</Step>
       </WorkedExample>
 
       <WorkedExample number="17.2" title="Cyclotron Radius of a Proton">
@@ -168,7 +168,7 @@ export default function MagnetismPage() {
           answer={0.209} unit="m" tolerance={0.02}
           hints={['r = mv/|q|B. Plug in m = 1.67×10⁻²⁷ kg, v = 2×10⁶ m/s, q = 1.6×10⁻¹⁹ C, B = 0.1 T.']}
           problemText="Proton at v=2×10⁶ m/s in B=0.1 T field. Find cyclotron radius in meters."
-          solution={<>r = mv/qB = (1.67e-27 × 2e6)/(1.6e-19 × 0.1) = <strong>0.209 m</strong></>}>
+          solution={<><InlineMath latex="r = \frac{mv}{qB} = \frac{(1.67\times10^{-27})(2\times10^6)}{(1.6\times10^{-19})(0.1)}" /> = <strong>0.209 m</strong></>}>
           A proton moves at 2×10⁶ m/s perpendicular to a 0.1 T field. Find the cyclotron radius.
         </InteractiveProblem>
 
@@ -194,7 +194,7 @@ export default function MagnetismPage() {
         </Problem>
 
         <Problem n={5} difficulty="hard"
-          solution={<>A mass spectrometer uses a velocity selector (E×B drift: only particles with v = E/B pass) followed by a uniform magnetic field. In the field, the radius r = mv/qB. Two ions of the same charge but masses m₁ and m₂ have radii r₁ and r₂ with r₁/r₂ = m₁/m₂. The separation on the detector is Δx = 2(r₁−r₂) = 2v(m₁−m₂)/(qB). For ¹²C and ¹³C: Δm/m ≈ 1/12, so Δx ≈ 2× ⁱ⁶m_u/(qB) for typical parameters gives mm-scale separation.</>}>
+          solution={<>A mass spectrometer uses a velocity selector (E×B drift: only particles with v = E/B pass) followed by a uniform magnetic field. In the field, the radius r = mv/qB. Two ions of the same charge but masses m₁ and m₂ have radii r₁ and r₂ with r₁/r₂ = m₁/m₂. The separation on the detector is Δx = 2(r₁−r₂) = 2v(m₁−m₂)/(qB). For ¹²C and ¹³C: Δm/m ≈ 1/12, i.e. Δm = 1 u, so <InlineMath latex="\Delta x = 2v\,m_{\text{u}}/(qB)" />, which for typical parameters gives mm-scale separation.</>}>
           Describe how a mass spectrometer separates ions by mass-to-charge ratio. Derive the detector separation Δx for two ions of the same charge differing in mass by Δm.
         </Problem>
       </PracticeProblems>

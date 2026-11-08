@@ -1,6 +1,6 @@
 import {
   Definition, Theorem, WorkedExample, Step,
-  PracticeProblems, Problem, InteractiveProblem, EqNumbered, Prerequisites, Takeaways, LearningGoals
+  PracticeProblems, Problem, InteractiveProblem, EqNumbered, InlineMath, Prerequisites, Takeaways, LearningGoals
 } from '@/components/textbook';
 
 export default function LinearAlgebraPage() {
@@ -71,7 +71,7 @@ export default function LinearAlgebraPage() {
           Two masses m connected by springs (k to walls, κ between them). Find normal frequencies.
         </p>
         <Step label="Equations of motion:">mẍ₁ = −kx₁ − κ(x₁−x₂) &nbsp;&nbsp; mẍ₂ = −kx₂ − κ(x₂−x₁)</Step>
-        <Step label="Matrix form:">ẍ = −(1/m)Kx &nbsp;&nbsp; K = [[k+κ, −κ],[−κ, k+κ]]</Step>
+        <Step label="Matrix form:">ẍ = −(1/m)Kx &nbsp;&nbsp; <InlineMath latex="K = \begin{pmatrix} k+\kappa & -\kappa \\ -\kappa & k+\kappa \end{pmatrix}" /></Step>
         <Step label="Eigenvalues of K:">det(K − μI) = 0 → (k+κ−μ)² − κ² = 0 → μ = k or k+2κ</Step>
         <Step label="Normal frequencies:">ω₁ = √(k/m) (in-phase mode), ω₂ = √((k+2κ)/m) (out-of-phase mode)</Step>
         <Step label="Eigenvectors:">v₁ = (1,1)/√2 (both masses move together), v₂ = (1,−1)/√2 (masses move oppositely)</Step>
@@ -96,7 +96,7 @@ export default function LinearAlgebraPage() {
 
       <p>
         Analogously, <strong>unitary</strong> operators U satisfy U†U = I (preserve inner products).
-        All eigenvalues lie on the unit circle (|λ| = 1). Time evolution e^(−iHt/ℏ) is unitary
+        All eigenvalues lie on the unit circle (|λ| = 1). Time evolution <InlineMath latex="e^{-iHt/\hbar}" /> is unitary
         when H is Hermitian — unitarity is quantum mechanical probability conservation.
       </p>
 
@@ -120,7 +120,7 @@ export default function LinearAlgebraPage() {
       </p>
 
       <p>
-        <strong>Low-rank approximation:</strong> A ≈ U_kΣ_kV_k† (keep only k largest singular
+        <strong>Low-rank approximation:</strong> <InlineMath latex="A \approx U_k \Sigma_k V_k^\dagger" /> (keep only k largest singular
         values) — used in image compression, recommendation systems, quantum state compression.
       </p>
 
@@ -135,7 +135,7 @@ export default function LinearAlgebraPage() {
 
         Physical consequence: two quantum observables can be simultaneously measured (sharp values)
         only if they commute. Position and momentum don&apos;t commute ([x̂, p̂] = iℏ) — they cannot
-        both be sharp. L² and Lz commute — both can be simultaneously specified.
+        both be sharp. L² and <InlineMath latex="L_z" /> commute — both can be simultaneously specified.
       </Theorem>
 
       <WorkedExample number="LA.2" title="Diagonalizing the Inertia Tensor">
@@ -163,7 +163,7 @@ export default function LinearAlgebraPage() {
           hints={['det(A−λI) = 0. For 2×2: λ² − Tr(A)λ + det(A) = 0.']}
           problemText="Matrix A = [[4,1],[2,3]]. Find the larger eigenvalue."
           solution={<>Tr=7, det=10. λ²−7λ+10=0 → λ=(7±3)/2 → λ=5 or 2. Larger = <strong>5</strong></>}>
-          Find the larger eigenvalue of the matrix A = [[4,1],[2,3]].
+          Find the larger eigenvalue of the matrix <InlineMath latex="A = \begin{pmatrix} 4 & 1 \\ 2 & 3 \end{pmatrix}" />.
         </InteractiveProblem>
 
         <InteractiveProblem n={2} difficulty="easy"
@@ -171,7 +171,7 @@ export default function LinearAlgebraPage() {
           hints={['The rank equals the number of linearly independent rows (or columns).']}
           problemText="Matrix A = [[1,2,3],[2,4,6]]. What is the rank of A?"
           solution={<>Row 2 = 2 × Row 1 → rows are linearly dependent. Rank = <strong>1</strong></>}>
-          Find the rank of the matrix A = [[1,2,3],[2,4,6]].
+          Find the rank of the matrix <InlineMath latex="A = \begin{pmatrix} 1 & 2 & 3 \\ 2 & 4 & 6 \end{pmatrix}" />.
         </InteractiveProblem>
 
         <Problem n={3} difficulty="easy"
@@ -185,8 +185,8 @@ export default function LinearAlgebraPage() {
         </Problem>
 
         <Problem n={5} difficulty="medium"
-          solution={<>Cayley-Hamilton: every matrix satisfies its own characteristic polynomial. For 2×2 A with char poly p(λ) = λ² − (tr A)λ + det A: p(A) = A² − (tr A)A + (det A)I = 0. So A² = (tr A)A − (det A)I. This lets us compute Aⁿ for any n by repeatedly reducing powers. For A = [[1,1],[1,0]] (Fibonacci matrix): tr=1, det=−1. A² = A + I. A³ = A²+A = 2A+I. Aⁿ encodes Fibonacci numbers: [[F(n+1), Fₙ],[Fₙ, F(n-1)]]. Eigenvalues of A: λ = (1±√5)/2 (golden ratio φ and 1−φ). Fibonacci number: Fₙ = (φⁿ − (1−φ)ⁿ)/√5 (Binet&apos;s formula — from diagonalizing A).</>}>
-          Use the Cayley-Hamilton theorem to find a recursion for Aⁿ where A = [[1,1],[1,0]]. How does this relate to Fibonacci numbers?
+          solution={<>Cayley-Hamilton: every matrix satisfies its own characteristic polynomial. For 2×2 A with char poly p(λ) = λ² − (tr A)λ + det A: p(A) = A² − (tr A)A + (det A)I = 0. So A² = (tr A)A − (det A)I. This lets us compute Aⁿ for any n by repeatedly reducing powers. For <InlineMath latex="A = \begin{pmatrix} 1 & 1 \\ 1 & 0 \end{pmatrix}" /> (Fibonacci matrix): tr=1, det=−1. A² = A + I. A³ = A²+A = 2A+I. Aⁿ encodes Fibonacci numbers: <InlineMath latex="A^n = \begin{pmatrix} F_{n+1} & F_n \\ F_n & F_{n-1} \end{pmatrix}" />. Eigenvalues of A: λ = (1±√5)/2 (golden ratio φ and 1−φ). Fibonacci number: Fₙ = (φⁿ − (1−φ)ⁿ)/√5 (Binet&apos;s formula — from diagonalizing A).</>}>
+          Use the Cayley-Hamilton theorem to find a recursion for Aⁿ where <InlineMath latex="A = \begin{pmatrix} 1 & 1 \\ 1 & 0 \end{pmatrix}" />. How does this relate to Fibonacci numbers?
         </Problem>
 
         <Problem n={6} difficulty="hard"

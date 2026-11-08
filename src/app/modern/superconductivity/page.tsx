@@ -1,6 +1,6 @@
 import {
   Definition, Theorem, WorkedExample, Step,
-  PracticeProblems, Problem, InteractiveProblem, EqNumbered, Prerequisites, Takeaways, LearningGoals
+  PracticeProblems, Problem, InteractiveProblem, EqNumbered, Prerequisites, Takeaways, LearningGoals, InlineMath
 } from '@/components/textbook';
 
 export default function SuperconductivityPage() {
@@ -27,16 +27,16 @@ export default function SuperconductivityPage() {
       <h2>SC.1 Phenomenology</h2>
 
       <p>
-        <strong>Perfect conductivity</strong>: resistivity ρ → 0 below T_c. Record high-T_c:
+        <strong>Perfect conductivity</strong>: resistivity ρ → 0 below <InlineMath latex="T_c" />. Record high-<InlineMath latex="T_c" />:
         HgBa₂Ca₂Cu₃O₈ at 138 K (at ambient pressure), HₓS at 203 K (at 150 GPa),
         LaH₁₀ at 250 K (under pressure). Room-temperature superconductivity remains elusive.
       </p>
 
       <p>
-        <strong>Meissner effect</strong>: below T_c, B = 0 inside a superconductor regardless
+        <strong>Meissner effect</strong>: below <InlineMath latex="T_c" />, B = 0 inside a superconductor regardless
         of whether it was cooled in a field or not. Not merely perfect diamagnetism —
-        it is an active expulsion of flux. The London penetration depth λ_L characterizes
-        the exponential decay of B from the surface: B(x) = B₀ e^(−x/λ_L).
+        it is an active expulsion of flux. The London penetration depth <InlineMath latex="\lambda_L" /> characterizes
+        the exponential decay of B from the surface: <InlineMath latex="B(x) = B_0 e^{-x/\lambda_L}" />.
       </p>
 
       <Definition number="SC.1" title="London Equations">
@@ -46,8 +46,8 @@ export default function SuperconductivityPage() {
       </Definition>
 
       <p>
-        <strong>Type I vs Type II</strong>: Type I (Hg, Al, Pb) have a single critical field H_c.
-        Type II (Nb, YBCO, MgB₂) have H(c1) and H(c2) — between them, magnetic flux enters in
+        <strong>Type I vs Type II</strong>: Type I (Hg, Al, Pb) have a single critical field <InlineMath latex="H_c" />.
+        Type II (Nb, YBCO, MgB₂) have <InlineMath latex="H_{c1}" /> and <InlineMath latex="H_{c2}" /> — between them, magnetic flux enters in
         quantized vortices (Abrikosov lattice). Flux quantum: Φ₀ = h/(2e) ≈ 2.07×10⁻¹⁵ Wb.
         The factor of 2e is direct evidence for Cooper pairs.
       </p>
@@ -60,25 +60,25 @@ export default function SuperconductivityPage() {
         no matter how weak. This is special to 2D Fermi surface; no bound state in 3D free space for weak attraction.
       </p>
 
-      <EqNumbered number="SC.1">E_binding = −2ℏω_D e^(−2/N(0)V) &nbsp;&nbsp;&nbsp; (Cooper pair binding energy, N(0) = density of states at E_F)</EqNumbered>
+      <EqNumbered number="SC.1" latex="E_{\text{binding}} = -2\hbar\omega_D\, e^{-2/N(0)V} \qquad \text{(Cooper pair binding energy, } N(0) = \text{density of states at } E_F\text{)}" />
 
       <p>
         The BCS ground state (Bardeen-Cooper-Schrieffer, 1957):
       </p>
 
-      <EqNumbered number="SC.2">|BCS⟩ = Π_k (u_k + v_k c†_(k↑) c†_(−k↓)) |0⟩ &nbsp;&nbsp;&nbsp; (BCS wavefunction)</EqNumbered>
+      <EqNumbered number="SC.2" latex="|\text{BCS}\rangle = \prod_k \left(u_k + v_k\, c^\dagger_{k\uparrow} c^\dagger_{-k\downarrow}\right) |0\rangle \qquad \text{(BCS wavefunction)}" />
 
       <p>
-        where |u_k|² + |v_k|² = 1, and v_k² = ½(1 − ξ_k/E_k) with E_k = √(ξ_k² + Δ²).
-        The order parameter (gap) Δ = V Σ_k ⟨c_(−k↓) c_(k↑)⟩ satisfies the BCS gap equation.
+        where <InlineMath latex="|u_k|^2 + |v_k|^2 = 1" />, and <InlineMath latex="v_k^2 = \tfrac{1}{2}(1 - \xi_k/E_k)" /> with <InlineMath latex="E_k = \sqrt{\xi_k^2 + \Delta^2}" />.
+        The order parameter (gap) <InlineMath latex="\Delta = V \sum_k \langle c_{-k\downarrow} c_{k\uparrow}\rangle" /> satisfies the BCS gap equation.
       </p>
 
       <Theorem number="SC.1" title="BCS Gap Equation">
         The superconducting gap Δ satisfies:
-        1/(N(0)V) = ∫(0 to ℏω_D) dξ/√(ξ² + Δ²)
-        &rarr; Δ(0) ≈ 2ℏω_D e^(−1/(N(0)V)) (weak coupling).
+        <InlineMath latex="\dfrac{1}{N(0)V} = \int_0^{\hbar\omega_D} \frac{d\xi}{\sqrt{\xi^2 + \Delta^2}}" />
+        &rarr; <InlineMath latex="\Delta(0) \approx 2\hbar\omega_D\, e^{-1/(N(0)V)}" /> (weak coupling).
         Temperature dependence: Δ(T) → 0 as T → T_c where
-        k_B T_c = 1.13 ℏω_D e^(−1/(N(0)V)) = Δ(0)/(1.76).
+        <InlineMath latex="k_B T_c = 1.13\, \hbar\omega_D\, e^{-1/(N(0)V)} = \Delta(0)/1.76" />.
         The ratio 2Δ(0)/(k_B T_c) = 3.52 is a universal BCS prediction.
       </Theorem>
 
@@ -87,23 +87,23 @@ export default function SuperconductivityPage() {
           Al has T_c = 1.2 K, Debye temperature Θ_D = 428 K (ℏω_D = k_B × 428 K).
           Estimate Δ(0), N(0)V, and the Fermi velocity from the coherence length.
         </p>
-        <Step label="Gap from T_c:">Δ(0) = 1.76 k_B T_c = 1.76 × (8.617×10⁻⁵ eV/K)(1.2 K) = 1.76 × 1.03×10⁻⁴ eV = 1.82×10⁻⁴ eV = 0.18 meV. This matches tunneling spectroscopy measurements on Al junctions.</Step>
-        <Step label="Coupling constant N(0)V:">From T_c = 1.13 Θ_D e^(−1/(N(0)V)): N(0)V = 1/ln(1.13 Θ_D/T_c) = 1/ln(1.13 × 428/1.2) = 1/ln(402.8) = 1/5.999 ≈ 0.167. This is weak coupling (N(0)V ≪ 1) — BCS applies well.</Step>
+        <Step label="Gap from Tc:">Δ(0) = 1.76 k_B T_c = 1.76 × (8.617×10⁻⁵ eV/K)(1.2 K) = 1.76 × 1.03×10⁻⁴ eV = 1.82×10⁻⁴ eV = 0.18 meV. This matches tunneling spectroscopy measurements on Al junctions.</Step>
+        <Step label="Coupling constant N(0)V:">From T_c = 1.13 Θ_D exp(−1/(N(0)V)): N(0)V = 1/ln(1.13 Θ_D/T_c) = 1/ln(1.13 × 428/1.2) = 1/ln(402.8) = 1/5.999 ≈ 0.167. This is weak coupling (N(0)V ≪ 1) — BCS applies well.</Step>
         <Step label="Coherence length:">ξ₀ = ℏv_F/(πΔ) — the characteristic size of a Cooper pair. For Al: v_F = 2.03×10⁶ m/s. ξ₀ = (1.055×10⁻³⁴ × 2.03×10⁶)/(π × 1.82×10⁻⁴ × 1.6×10⁻¹⁹) = 2.14×10⁻²⁸/9.15×10⁻²³ ≈ 2.3×10⁻⁶ m = 2300 nm. This is much larger than the lattice spacing — Cooper pairs are highly overlapping, not tightly bound molecules.</Step>
-        <Step label="GL ratio:">λ_L/ξ₀ ≈ 50nm/2300nm ≈ 0.022 ≪ 1/√2 ≈ 0.707. Al is a Type I superconductor (Ginzburg-Landau parameter κ = λ/ξ &lt; 1/√2). For κ &gt; 1/√2 (Type II): Abrikosov vortex lattice forms above H(c1).</Step>
+        <Step label="GL ratio:">λ_L/ξ₀ ≈ 50nm/2300nm ≈ 0.022 ≪ 1/√2 ≈ 0.707. Al is a Type I superconductor (Ginzburg-Landau parameter κ = λ/ξ &lt; 1/√2). For κ &gt; 1/√2 (Type II): Abrikosov vortex lattice forms above H_c1.</Step>
       </WorkedExample>
 
       <h2>SC.3 Josephson Effect</h2>
 
       <p>
         Two superconductors separated by a thin insulator (tunnel junction).
-        The macroscopic wavefunction is Ψ = √(n_s) e^(iθ). The phase difference δ = θ₁ − θ₂ drives:
+        The macroscopic wavefunction is <InlineMath latex="\Psi = \sqrt{n_s}\, e^{i\theta}" />. The phase difference δ = θ₁ − θ₂ drives:
       </p>
 
-      <EqNumbered number="SC.3">I = I_c sin(δ) &nbsp;&nbsp;&nbsp; (DC Josephson effect) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; dδ/dt = 2eV/ℏ &nbsp;&nbsp;&nbsp; (AC Josephson effect)</EqNumbered>
+      <EqNumbered number="SC.3" latex="I = I_c \sin\delta \quad \text{(DC Josephson effect)} \qquad \frac{d\delta}{dt} = \frac{2eV}{\hbar} \quad \text{(AC Josephson effect)}" />
 
       <p>
-        <strong>DC Josephson</strong>: supercurrent flows with no voltage (V = 0). Critical current I_c ∝ Δ.
+        <strong>DC Josephson</strong>: supercurrent flows with no voltage (V = 0). Critical current <InlineMath latex="I_c \propto \Delta" />.
         <strong>AC Josephson</strong>: with DC voltage V, the phase oscillates at 2eV/ℏ — microwave
         radiation at f = 2eV/h ≈ 484 GHz/mV. The Josephson relation defines the
         voltage-frequency ratio 2e/h — used in metrology (voltage standard).
@@ -111,7 +111,7 @@ export default function SuperconductivityPage() {
 
       <p>
         <strong>SQUID</strong> (Superconducting Quantum Interference Device): two junctions in parallel.
-        Total current I = 2I_c cos(πΦ/Φ₀) sin(δ_avg) — periodic in the enclosed flux Φ.
+        Total current <InlineMath latex="I = 2I_c \cos(\pi\Phi/\Phi_0)\, \sin\delta_{\text{avg}}" /> — periodic in the enclosed flux Φ.
         Sensitivity: δΦ ~ 10⁻⁶ Φ₀ — the most sensitive magnetometer ever built.
         Applications: brain imaging (MEG), gravitational wave detection, dark matter searches.
       </p>
@@ -119,15 +119,15 @@ export default function SuperconductivityPage() {
       <h2>SC.4 Ginzburg-Landau Theory</h2>
 
       <p>
-        Near T_c, expand the free energy in the order parameter Ψ (complex):
+        Near <InlineMath latex="T_c" />, expand the free energy in the order parameter Ψ (complex):
       </p>
 
-      <EqNumbered number="SC.4">F = F_n + α|Ψ|² + β/2 |Ψ|⁴ + 1/(2m*)|(-iℏ∇ − 2eA)Ψ|² + B²/(2μ₀)</EqNumbered>
+      <EqNumbered number="SC.4" latex="F = F_n + \alpha|\Psi|^2 + \frac{\beta}{2}|\Psi|^4 + \frac{1}{2m^*}\left|(-i\hbar\nabla - 2e\mathbf{A})\Psi\right|^2 + \frac{B^2}{2\mu_0}" />
 
       <p>
-        where α = α₀(T − T_c) changes sign at T_c. Minimizing δF/δΨ* = 0 gives the
+        where <InlineMath latex="\alpha = \alpha_0(T - T_c)" /> changes sign at <InlineMath latex="T_c" />. Minimizing <InlineMath latex="\delta F/\delta\Psi^* = 0" /> gives the
         Ginzburg-Landau (GL) equation. Two characteristic lengths emerge:
-        penetration depth λ(T) = λ_L/√(1−T/T_c) and coherence length ξ(T) = ξ₀/√(1−T/T_c).
+        penetration depth <InlineMath latex="\lambda(T) = \lambda_L/\sqrt{1 - T/T_c}" /> and coherence length <InlineMath latex="\xi(T) = \xi_0/\sqrt{1 - T/T_c}" />.
         GL parameter κ = λ/ξ: κ &lt; 1/√2 → Type I; κ &gt; 1/√2 → Type II.
       </p>
 
@@ -135,8 +135,8 @@ export default function SuperconductivityPage() {
         <strong>Vortex structure</strong> (Abrikosov, 1957): in Type II, each vortex carries
         one flux quantum Φ₀ = h/(2e). Order parameter |Ψ| → 0 at vortex core (radius ξ).
         Magnetic field decays over λ from the core. The upper critical field
-        H(c2) = Φ₀/(2πξ²) — at H(c2) vortex cores overlap and superconductivity is destroyed.
-        For YBCO: H(c2) ~ 100 T, enabling high-field magnet applications (MRI, LHC).
+        <InlineMath latex="H_{c2} = \Phi_0/(2\pi\xi^2)" /> — at <InlineMath latex="H_{c2}" /> vortex cores overlap and superconductivity is destroyed.
+        For YBCO: <InlineMath latex="H_{c2} \sim 100" /> T, enabling high-field magnet applications (MRI, LHC).
       </p>
 
       <Definition number="SC.2" title="Common Traps">
@@ -153,22 +153,22 @@ export default function SuperconductivityPage() {
           answer={24} unit="nm" tolerance={0.05}
           hints={[
             'Start from J_s = -(n_s e²/m)A (London equation) and take the curl of ∇×B = μ₀J_s to get ∇²B = B/λ_L².',
-            'λ_L = √(m/(μ₀ n_s e²)). Plug in n_s = 5×10²⁸ m⁻³, m = 9.11×10⁻³¹ kg, μ₀ = 4π×10⁻⁷ H/m.',
+            'λ_L = √(m/(μ₀n_s e²)). Plug in n_s = 5×10²⁸ m⁻³, m = 9.11×10⁻³¹ kg, μ₀ = 4π×10⁻⁷ H/m.',
           ]}
           problemText="Derive the London penetration depth λ_L from the London equations. Estimate λ_L in nm for niobium with superfluid density n_s ≈ 5×10²⁸ m⁻³."
-          solution={<>London equation: J_s = -(n_s e²/m)A. Maxwell: ∇×B = μ₀J_s. Taking curl: ∇×(∇×B) = μ₀∇×J_s = -μ₀(n_s e²/m) B. Using ∇×(∇×B) = ∇(∇·B) - ∇²B = -∇²B (since ∇·B=0): ∇²B = B/λ_L² where λ_L = √(m/(μ₀ n_s e²)). For a semi-infinite superconductor x&gt;0 with field B₀ at surface: B(x) = B₀ e^(-x/λ_L). For Nb: n_s ≈ 5×10²⁸ m⁻³, m = m_e = 9.11×10⁻³¹ kg: λ_L = √(9.11×10⁻³¹/(4π×10⁻⁷ × 5×10²⁸ × (1.6×10⁻¹⁹)²)) = √(9.11×10⁻³¹/1.61×10⁻¹⁵) = √(5.66×10⁻¹⁶) ≈ 24 nm. Nb measured λ_L ≈ 32 nm — same order (London model uses free-electron mass; effective mass and partial superfluid density affect the exact value).</>}>
+          solution={<>London equation: J_s = -(n_s e²/m)A. Maxwell: ∇×B = μ₀J_s. Taking curl: ∇×(∇×B) = μ₀∇×J_s = -μ₀(n_s e²/m) B. Using ∇×(∇×B) = ∇(∇·B) - ∇²B = -∇²B (since ∇·B=0): ∇²B = B/λ_L² where λ_L = √(m/(μ₀n_s e²)). For a semi-infinite superconductor x&gt;0 with field B₀ at surface: B(x) = B₀ e^(-x/λ_L). For Nb: n_s ≈ 5×10²⁸ m⁻³, m = m_e = 9.11×10⁻³¹ kg: <InlineMath latex="\lambda_L = \sqrt{9.11\times 10^{-31}/[4\pi\times 10^{-7} \times 5\times 10^{28} \times (1.6\times 10^{-19})^2]} = \sqrt{9.11\times 10^{-31}/1.61\times 10^{-15}} = \sqrt{5.66\times 10^{-16}}\ \text{m} \approx 24\ \text{nm}" />. Nb measured λ_L ≈ 32 nm — same order (London model uses free-electron mass; effective mass and partial superfluid density affect the exact value).</>}>
           Derive the London penetration depth λ_L from the London equations. Estimate λ_L for niobium (density n_s ≈ 5×10²⁸ m⁻³).
         </InteractiveProblem>
 
         <InteractiveProblem n={2} difficulty="medium"
           answer={1.1} unit="meV" tolerance={0.15}
           hints={[
-            'Use Δ(0) = 2ℏω_D e^(-1/(N(0)V)). First find N(0)V = 1/ln(1.13 Θ_D/T_c) for Pb with T_c = 7.2 K, Θ_D = 96 K.',
-            'ℏω_D = k_B Θ_D. Compute k_B Θ_D in eV, then multiply by 2 e^(-1/(N(0)V)). The BCS ratio 2Δ(0)/(k_B T_c) = 3.52 gives a quick check.',
+            'Use Δ(0) = 2ℏω_D exp(−1/(N(0)V)). First find N(0)V = 1/ln(1.13 Θ_D/T_c) for Pb with T_c = 7.2 K, Θ_D = 96 K.',
+            'ℏω_D = k_B Θ_D. Compute k_B Θ_D in eV, then multiply by 2 exp(−1/(N(0)V)). The BCS ratio 2Δ(0)/(k_B T_c) = 3.52 gives a quick check.',
           ]}
           problemText="Apply the BCS gap equation at T = 0 to lead (Pb, T_c = 7.2 K, Debye temperature Θ_D = 96 K). Calculate the zero-temperature gap Δ(0) in meV."
-          solution={<>BCS gap equation at T=0: 1/(N(0)V) = ∫(0 to ℏω_D) dξ/√(ξ²+Δ²) = sinh⁻¹(ℏω_D/Δ) ≈ ln(2ℏω_D/Δ) (weak coupling). So Δ = 2ℏω_D e^(-1/(N(0)V)). At T: gap equation becomes 1/(N(0)V) = ∫dξ tanh(E/(2k_BT))/(2E) where E=√(ξ²+Δ(T)²). At T→T_c, Δ→0: 1/(N(0)V) = ∫(0 to ℏω_D) dξ tanh(ξ/(2k_BT_c))/(2ξ) ≈ ln(1.13ℏω_D/(k_BT_c)). After careful expansion near T_c: Δ(T) ≈ 1.74 Δ(0) √(1 - T/T_c) for T near T_c — mean-field order parameter behavior (critical exponent β=1/2). For Pb: T_c = 7.2 K, Θ_D = 96 K. N(0)V = 1/ln(1.13×96/7.2) = 1/ln(15.1) = 0.369. Δ(0) = 2k_B×96×e^(-1/0.369) = 2×8.617×10⁻⁵×96×e^(-2.71) = 0.01655×0.0668 = 1.1 meV. Measured: 1.35 meV — Pb is intermediate coupling, BCS slightly underestimates.</>}>
-          Derive the BCS gap equation at T = 0 and show Δ(0) = 2ℏω_D e^(-1/(N(0)V)). Find the ratio 2Δ(0)/(k_B T_c) = 3.52. Apply to lead (Pb, T_c = 7.2 K, Θ_D = 96 K).
+          solution={<>BCS gap equation at T=0: 1/(N(0)V) = <InlineMath latex="\int_0^{\hbar\omega_D} d\xi/\sqrt{\xi^2+\Delta^2}" /> = sinh⁻¹(ℏω_D/Δ) ≈ ln(2ℏω_D/Δ) (weak coupling). So Δ = 2ℏω_D exp(−1/(N(0)V)). At T: gap equation becomes <InlineMath latex="1/(N(0)V) = \int d\xi\, \tanh(E/(2k_B T))/(2E)" /> where <InlineMath latex="E = \sqrt{\xi^2 + \Delta(T)^2}" />. At T → T_c, Δ → 0: <InlineMath latex="1/(N(0)V) = \int_0^{\hbar\omega_D} d\xi\, \tanh(\xi/(2k_B T_c))/(2\xi) \approx \ln(1.13\,\hbar\omega_D/k_B T_c)" />. After careful expansion near T_c: Δ(T) ≈ 1.74 Δ(0) √(1 - T/T_c) for T near T_c — mean-field order parameter behavior (critical exponent β=1/2). For Pb: T_c = 7.2 K, Θ_D = 96 K. N(0)V = 1/ln(1.13×96/7.2) = 1/ln(15.1) = 0.369. Δ(0) = 2k_B×96×e^(−1/0.369) = 2×8.617×10⁻⁵×96×e^(-2.71) = 0.01655×0.0668 = 1.1 meV. Measured: 1.35 meV — Pb is intermediate coupling, BCS slightly underestimates.</>}>
+          Derive the BCS gap equation at T = 0 and show Δ(0) = 2ℏω_D exp(−1/(N(0)V)). Find the ratio 2Δ(0)/(k_B T_c) = 3.52. Apply to lead (Pb, T_c = 7.2 K, Θ_D = 96 K).
         </InteractiveProblem>
 
         <Problem n={3} difficulty="medium"
@@ -185,7 +185,7 @@ export default function SuperconductivityPage() {
       <Takeaways items={[
         'London equations: J_s = -(n_s e²/m)A → Meissner effect, field decays over λ_L = √(m/(μ₀n_s e²)).',
         'Cooper pairs: phonon attraction binds electrons near E_F; any V>0 gives a bound state (special to Fermi surface).',
-        'BCS gap: Δ(0) = 2ℏω_D e^(-1/(N(0)V)), ratio 2Δ(0)/(k_B T_c) = 3.52 universal.',
+        'BCS gap: Δ(0) = 2ℏω_D exp(−1/(N(0)V)), ratio 2Δ(0)/(k_B T_c) = 3.52 universal.',
         'DC Josephson: I = I_c sin(δ), supercurrent with no voltage. AC Josephson: f = 2eV/h (voltage standard).',
         'Type II: flux enters as Abrikosov vortices above H_c1. Each carries Φ₀ = h/(2e). H_c2 = Φ₀/(2πξ²).',
         'GL theory: two lengths λ(T) and ξ(T), parameter κ = λ/ξ. κ < 1/√2: Type I; κ > 1/√2: Type II.',

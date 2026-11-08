@@ -174,7 +174,7 @@ export default function MeasurementPage() {
 
       <WorkedExample number="1.2" title="Deriving the Pendulum Period by Dimensional Analysis">
         <p>A pendulum&apos;s period T might depend on length L, mass m, and gravitational acceleration g. Find T.</p>
-        <Step label="Write the ansatz:">T = Cᵢ Lᵃ mᵇ gᶜ for some powers a, b, c and constant C.</Step>
+        <Step label="Write the ansatz:">T = C Lᵃ mᵇ gᶜ for some powers a, b, c and constant C.</Step>
         <Step label="Dimension equation:">[T] = Lᵃ Mᵇ (LT⁻²)ᶜ → T¹ = L^(a+c) M^b T^(-2c)</Step>
         <Step label="Match powers:">T: 1 = −2c → c = −½ &nbsp;&nbsp; M: 0 = b → b = 0 &nbsp;&nbsp; L: 0 = a+c → a = ½</Step>
         <Step label="Result:">T = C √(L/g). The mass drops out entirely. Experiment gives C = 2π.</Step>
@@ -211,7 +211,7 @@ export default function MeasurementPage() {
       </p>
 
       <HistoryNote year="1945" title="Fermi's paper scraps" furtherReading={[{ label: "Enrico Fermi", url: "https://en.wikipedia.org/wiki/Enrico_Fermi" }, { label: "Trinity test", url: "https://en.wikipedia.org/wiki/Trinity_(nuclear_test)" }]}>
-        Enrico Fermi stood two miles from the Trinity explosion and tore up a sheet of paper before the shock wave arrived. When the wave hit, he let the pieces fall and watched where they landed.
+        Enrico Fermi stood about ten miles from the Trinity explosion and tore up a sheet of paper before the shock wave arrived. When the wave hit, he let the pieces fall and watched where they landed.
         Then he paced off the distance and reached into his memory for the physics of blast waves. His estimate: ten kilotons. The actual yield was eighteen. He was off by less than a factor
         of two with a handful of paper and forty years of physical intuition. Precision is a virtue; order-of-magnitude judgment is a superpower.
       </HistoryNote>
@@ -265,7 +265,7 @@ export default function MeasurementPage() {
         </InteractiveProblem>
 
         <Problem n={4} difficulty="medium"
-          solution={<>Estimate: ~7 billion people. ~1.8 m tall average. Laid end to end: 7×10⁹ × 1.8 m = 1.26×10¹⁰ m. Earth–Moon distance ≈ 3.84×10⁸ m. Ratio = 1.26×10¹⁰ / 3.84×10⁸ ≈ 33. So humanity could reach the Moon about 33 times over, or span the Earth–Moon distance more than 16 round trips.</>}>
+          solution={<>Estimate: ~8 billion people. ~1.8 m tall average. Laid end to end: 8×10⁹ × 1.8 m = 1.44×10¹⁰ m. Earth–Moon distance ≈ 3.84×10⁸ m. Ratio = 1.44×10¹⁰ / 3.84×10⁸ ≈ 37.5. So humanity could reach the Moon about 37 times over, or span the Earth–Moon distance more than 18 round trips.</>}>
           Fermi estimate: If all 8 billion humans were laid end to end, how many times would they stretch from Earth to the Moon? (Earth–Moon distance ≈ 3.84×10⁸ m, average human height ≈ 1.8 m)
         </Problem>
 

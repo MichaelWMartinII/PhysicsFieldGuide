@@ -1,6 +1,6 @@
 import {
   Definition, Theorem, WorkedExample, Step,
-  PracticeProblems, Problem, InteractiveProblem, EqNumbered, Prerequisites, Takeaways, LearningGoals
+  PracticeProblems, Problem, InteractiveProblem, EqNumbered, Prerequisites, Takeaways, LearningGoals, InlineMath
 } from '@/components/textbook';
 
 export default function QFTPage() {
@@ -39,10 +39,10 @@ export default function QFTPage() {
         the field φ(x,t) by imposing canonical commutation relations:
       </p>
 
-      <EqNumbered number="QF.1">[φ̂(x,t), π̂(y,t)] = iℏ δ³(x−y) &nbsp;&nbsp;&nbsp; (canonical commutation relations for fields)</EqNumbered>
+      <EqNumbered number="QF.1" latex="[\hat\phi(\mathbf{x},t), \hat\pi(\mathbf{y},t)] = i\hbar\, \delta^3(\mathbf{x} - \mathbf{y}) \qquad \text{(canonical commutation relations for fields)}" />
 
       <p>
-        where π(x,t) = ∂L/∂(∂φ/∂t) is the conjugate momentum density. This promotes the
+        where <InlineMath latex="\pi(x,t) = \partial\mathcal{L}/\partial(\partial\phi/\partial t)" /> is the conjugate momentum density. This promotes the
         classical field to an operator-valued distribution.
       </p>
 
@@ -52,13 +52,13 @@ export default function QFTPage() {
         The simplest relativistic field: a real scalar field φ(x,t) with Lagrangian density:
       </p>
 
-      <EqNumbered number="QF.2">L = ½(∂_μ φ)(∂^μ φ) − ½m²φ² &nbsp;&nbsp;&nbsp; (Klein-Gordon Lagrangian density)</EqNumbered>
+      <EqNumbered number="QF.2" latex="\mathcal{L} = \tfrac{1}{2}(\partial_\mu \phi)(\partial^\mu \phi) - \tfrac{1}{2}m^2\phi^2 \qquad \text{(Klein-Gordon Lagrangian density)}" />
 
       <p>
         The Euler-Lagrange equations give the <strong>Klein-Gordon equation</strong>:
       </p>
 
-      <EqNumbered number="QF.3">(□ + m²)φ = 0 &nbsp;&nbsp;&nbsp; where □ = ∂²/∂t² − ∇² (d'Alembertian)</EqNumbered>
+      <EqNumbered number="QF.3" latex="(\Box + m^2)\phi = 0 \qquad \text{where } \Box = \partial^2/\partial t^2 - \nabla^2 \ \text{(d'Alembertian)}" />
 
       <p>
         This is the relativistic wave equation for a spin-0 particle of mass m (in natural units
@@ -69,12 +69,12 @@ export default function QFTPage() {
         Expanding in Fourier modes — each mode is a harmonic oscillator:
       </p>
 
-      <EqNumbered number="QF.4">φ̂(x) = ∫ d³p/(2π)³ × 1/√(2E_p) × [â_p e^(ip·x) + â†_p e^(−ip·x)]</EqNumbered>
+      <EqNumbered number="QF.4" latex="\hat\phi(x) = \int \frac{d^3p}{(2\pi)^3} \frac{1}{\sqrt{2E_p}} \left[\hat a_p\, e^{ip\cdot x} + \hat a^\dagger_p\, e^{-ip\cdot x}\right]" />
 
       <p>
-        where â_p and â†_p are annihilation and creation operators satisfying
-        [â_p, â†_q] = (2π)³ δ³(p−q). The vacuum |0⟩ is the state with â_p|0⟩ = 0 for all p.
-        A single particle of momentum p is: |p⟩ = √(2E_p) â†_p |0⟩.
+        where <InlineMath latex="\hat a_p" /> and <InlineMath latex="\hat a^\dagger_p" /> are annihilation and creation operators satisfying
+        <InlineMath latex="[\hat a_p, \hat a^\dagger_q] = (2\pi)^3 \delta^3(\mathbf{p} - \mathbf{q})" />. The vacuum |0⟩ is the state with <InlineMath latex="\hat a_p|0\rangle = 0" /> for all p.
+        A single particle of momentum p is: <InlineMath latex="|p\rangle = \sqrt{2E_p}\, \hat a^\dagger_p |0\rangle" />.
       </p>
 
       <Definition number="QF.1" title="Normal Ordering and Vacuum Energy">
@@ -96,11 +96,11 @@ export default function QFTPage() {
         first-order (in time) relativistic wave equation:
       </p>
 
-      <EqNumbered number="QF.5">(iγ^μ ∂_μ − m)ψ = 0 &nbsp;&nbsp;&nbsp; (Dirac equation)</EqNumbered>
+      <EqNumbered number="QF.5" latex="(i\gamma^\mu \partial_\mu - m)\psi = 0 \qquad \text{(Dirac equation)}" />
 
       <p>
-        where γ^μ are 4×4 gamma matrices satisfying the Clifford algebra
-        {'{'}γ^μ, γ^ν{'}'} = 2g^(μν)I. The Dirac spinor ψ has 4 components —
+        where <InlineMath latex="\gamma^\mu" /> are 4×4 gamma matrices satisfying the Clifford algebra
+        <InlineMath latex="\{\gamma^\mu, \gamma^\nu\} = 2g^{\mu\nu} I" />. The Dirac spinor ψ has 4 components —
         two spin states each for particle and antiparticle.
       </p>
 
@@ -120,7 +120,7 @@ export default function QFTPage() {
 
       <p>
         3. <strong>Spin-statistics theorem</strong>: Dirac fields must be quantized with
-        anticommutators {'{'}ψ, ψ†{'}'} = δ³(x−y), giving the Pauli exclusion principle.
+        anticommutators <InlineMath latex="\{\psi, \psi^\dagger\} = \delta^3(\mathbf{x} - \mathbf{y})" />, giving the Pauli exclusion principle.
         Scalar fields use commutators (Bose-Einstein statistics).
       </p>
 
@@ -130,12 +130,12 @@ export default function QFTPage() {
         Interacting field theories add terms to the Lagrangian. For QED (quantum electrodynamics):
       </p>
 
-      <EqNumbered number="QF.6">L_QED = ψ̄(iγ^μ D_μ − m)ψ − ¼F_μν F^μν &nbsp;&nbsp;&nbsp; where D_μ = ∂_μ + ieA_μ</EqNumbered>
+      <EqNumbered number="QF.6" latex="\mathcal{L}_{\text{QED}} = \bar\psi(i\gamma^\mu D_\mu - m)\psi - \tfrac{1}{4}F_{\mu\nu} F^{\mu\nu} \qquad \text{where } D_\mu = \partial_\mu + ieA_\mu" />
 
       <p>
-        The covariant derivative D_μ introduces the interaction: the electron (ψ) couples
-        to the photon field (A_μ) with coupling constant e. This is the minimal coupling
-        principle — replacing ∂_μ with D_μ is gauge invariance in action.
+        The covariant derivative <InlineMath latex="D_\mu" /> introduces the interaction: the electron (ψ) couples
+        to the photon field (<InlineMath latex="A_\mu" />) with coupling constant e. This is the minimal coupling
+        principle — replacing <InlineMath latex="\partial_\mu" /> with <InlineMath latex="D_\mu" /> is gauge invariance in action.
       </p>
 
       <p>
@@ -145,13 +145,13 @@ export default function QFTPage() {
       </p>
 
       <p>
-        — Electron propagator: iS_F(p) = i(p̸ + m)/(p² − m² + iε) (Feynman propagator)
+        — Electron propagator: <InlineMath latex="iS_F(p) = \dfrac{i(\not{p} + m)}{p^2 - m^2 + i\varepsilon}" /> (Feynman propagator)
       </p>
       <p>
-        — Photon propagator: iD_F^μν = −ig^μν/(k² + iε) (in Feynman gauge)
+        — Photon propagator: <InlineMath latex="iD_F^{\mu\nu} = \dfrac{-ig^{\mu\nu}}{k^2 + i\varepsilon}" /> (in Feynman gauge)
       </p>
       <p>
-        — Vertex: ieγ^μ (from L_int = −eψ̄γ^μ ψ A_μ)
+        — Vertex: <InlineMath latex="-ie\gamma^\mu" /> (from <InlineMath latex="\mathcal{L}_{\text{int}} = -e\bar\psi\gamma^\mu \psi A_\mu" />)
       </p>
 
       <WorkedExample number="QF.1" title="Electron-Muon Scattering (Tree Level)">
@@ -159,9 +159,9 @@ export default function QFTPage() {
           Compute the leading-order amplitude for e⁻μ⁻ → e⁻μ⁻ scattering via photon exchange.
         </p>
         <Step label="Diagram:">One photon exchanged (t-channel): one vertex on electron line, one on muon line, connected by photon propagator. This is O(α) — one power of the coupling e² = 4πα.</Step>
-        <Step label="Amplitude:">M = (ū(p₃)(-ie γ^μ) u(p₁)) × (-ig_μν/(q²)) × (ū(p₄)(-ie γ^ν) u(p₂)) where q = p₁ - p₃ is the momentum transfer.</Step>
-        <Step label="Simplify:">M = ie²(ū(p₃)γ^μ u(p₁))(ū(p₄)γ_μ u(p₂))/q²</Step>
-        <Step label="Cross section:">|M|² averaged/summed over spins using trace techniques: Tr[(p̸₁+m)γ^μ(p̸₃+m)γ^ν] × ... The result gives the Mott scattering cross section, reducing to Rutherford at low energy.</Step>
+        <Step label="Amplitude:"><InlineMath latex="\mathcal{M} = \left(\bar u(p_3)(-ie\gamma^\mu) u(p_1)\right) \frac{-ig_{\mu\nu}}{q^2} \left(\bar u(p_4)(-ie\gamma^\nu) u(p_2)\right)" /> where q = p₁ - p₃ is the momentum transfer.</Step>
+        <Step label="Simplify:"><InlineMath latex="\mathcal{M} = ie^2\, \frac{(\bar u(p_3)\gamma^\mu u(p_1))(\bar u(p_4)\gamma_\mu u(p_2))}{q^2}" /></Step>
+        <Step label="Cross section:">|M|² averaged/summed over spins using trace techniques: <InlineMath latex="\operatorname{Tr}[(\not{p}_1 + m)\gamma^\mu(\not{p}_3 + m)\gamma^\nu] \times \cdots" /> The result gives the Mott scattering cross section, reducing to Rutherford at low energy.</Step>
         <Step label="QED precision:">Higher-order corrections (loops) give α/π ≈ 0.23% corrections. QED predictions tested to 10 significant figures — no other theory matches this precision.</Step>
       </WorkedExample>
 
@@ -176,7 +176,7 @@ export default function QFTPage() {
 
       <p>
         <strong>Renormalization procedure:</strong>
-        (1) Regularize: dim-reg replaces d⁴k with d^(4−ε)k, turning ∞ into 1/ε poles.
+        (1) Regularize: dim-reg replaces <InlineMath latex="d^4k" /> with <InlineMath latex="d^{4-\varepsilon}k" />, turning ∞ into 1/ε poles.
         (2) Absorb divergences into counterterms: δm, δZ, δe.
         (3) Fix counterterms by renormalization conditions (measured mass, charge at some scale μ).
         (4) Predict everything else — finite, unambiguous.
@@ -192,11 +192,11 @@ export default function QFTPage() {
         Renormalization introduces a scale μ; physical predictions must be μ-independent. This
         gives the <strong>renormalization group equation</strong>:
         <span style={{ display: 'block', textAlign: 'center', marginTop: '0.5rem', fontStyle: 'italic' }}>
-          μ dα/dμ = β(α) &nbsp;&nbsp;&nbsp; (beta function)
+          <InlineMath latex="\mu \frac{d\alpha}{d\mu} = \beta(\alpha) \qquad \text{(beta function)}" />
         </span>
         <span style={{ display: 'block', marginTop: '0.5rem' }}>
           In QED: β(α) = +2α²/(3π) + ... &gt; 0 — coupling grows at high energy (Landau pole at
-          unreachably high scale). In QCD: β(g) = −(11−2n_f/3)g³/(16π²) &lt; 0 for n_f &lt; 16 —
+          unreachably high scale). In QCD: β(g) = −(11−2n_f/3)g³/(16π²) &lt; 0 for n_f ≤ 16 —
           coupling shrinks at high energy (<strong>asymptotic freedom</strong>, Nobel 2004).
           Unification: α₁, α₂, α₃ all meet at ~10¹⁶ GeV in supersymmetric extensions — hint
           of grand unification.
@@ -210,18 +210,17 @@ export default function QFTPage() {
         amplitude (generating functional):
       </p>
 
-      <EqNumbered number="QF.7">Z[J] = ∫ Dφ exp(i ∫d⁴x (L + Jφ)) &nbsp;&nbsp;&nbsp; (path integral / generating functional)</EqNumbered>
+      <EqNumbered number="QF.7" latex="Z[J] = \int \mathcal{D}\phi\, \exp\!\left(i \int d^4x\, (\mathcal{L} + J\phi)\right) \qquad \text{(path integral / generating functional)}" />
 
       <p>
-        All correlation functions follow by functional differentiation: ⟨φ(x₁)...φ(xₙ)⟩ =
-        (−i)^n δ^n Z/δJ(x₁)...δJ(xₙ)|_(J=0). For a free field, Z is a Gaussian integral —
-        exactly computable. Interactions are treated perturbatively by expanding e^(iL_int)
+        All correlation functions follow by functional differentiation: <InlineMath latex="\langle\phi(x_1)\cdots\phi(x_n)\rangle = (-i)^n \left.\dfrac{\delta^n Z}{\delta J(x_1)\cdots\delta J(x_n)}\right|_{J=0}" />. For a free field, Z is a Gaussian integral —
+        exactly computable. Interactions are treated perturbatively by expanding <InlineMath latex="e^{i\int \mathcal{L}_{\text{int}}}" />
         and applying Wick&apos;s theorem to evaluate the Gaussian integrals — reproducing Feynman diagrams.
       </p>
 
       <p>
-        In Euclidean space (t → −iτ), the path integral Z = ∫Dφ e^(−S_E) resembles a
-        partition function in statistical mechanics with S_E playing the role of βH.
+        In Euclidean space (t → −iτ), the path integral <InlineMath latex="Z = \int \mathcal{D}\phi\, e^{-S_E}" /> resembles a
+        partition function in statistical mechanics with <InlineMath latex="S_E" /> playing the role of βH.
         This <strong>QFT ↔ stat mech correspondence</strong> is deep: phase transitions
         and critical phenomena are described by the same renormalization group as QFT.
       </p>
@@ -248,7 +247,7 @@ export default function QFTPage() {
             'For a = 1 μm = 10⁻⁶ m: F/A = (1.055×10⁻³⁴ × 3×10⁸ × π²) / (240 × (10⁻⁶)⁴). Compute numerator and denominator.',
           ]}
           problemText="Derive the Casimir force between two parallel conducting plates separated by a = 1 μm. Calculate the force per unit area in Pa. How does this follow from zero-point energy of the electromagnetic field?"
-          solution={<>Casimir effect: two parallel conducting plates separated by distance a. Boundary conditions quantize the allowed modes between the plates: k_n = nπ/a (n=1,2,3,...). Energy per unit area: E/A = (ℏc/2)Σ_n √(k_n² + k_⊥²). Regulated sum (subtract free-space zero-point energy): ΔE/A = −ℏcπ²/(720a³). Force per unit area: F/A = −dE/(Ada) = −ℏcπ²/(240a⁴). For a = 1 μm: F/A = (1.055×10⁻³⁴)(3×10⁸)π²/(240(10⁻⁶)⁴) = 1.3×10⁻³ Pa ≈ 10 mPa. First measured 1958 (Sparnaay); precisely confirmed 1997 (Lamoreaux) to 1% accuracy. Physical interpretation: fewer field modes between the plates than outside → the zero-point fluctuations of the EM field outside push the plates together. This is a real, measurable consequence of vacuum energy.</>}>
+          solution={<>Casimir effect: two parallel conducting plates separated by distance a. Boundary conditions quantize the allowed modes between the plates: k_n = nπ/a (n=1,2,3,...). Energy per unit area: E/A = (ℏc/2)Σ_n √(k_n² + k_⊥²). Regulated sum (subtract free-space zero-point energy): ΔE/A = −ℏcπ²/(720a³). Force per unit area: F/A = −dE/(Ada) = −ℏcπ²/(240a⁴). For a = 1 μm: F/A = (1.055×10⁻³⁴)(3×10⁸)π²/(240(10⁻⁶)⁴) = 1.3×10⁻³ Pa ≈ 1.3 mPa. First measured 1958 (Sparnaay); precisely confirmed 1997 (Lamoreaux) to ~5% accuracy. Physical interpretation: fewer field modes between the plates than outside → the zero-point fluctuations of the EM field outside push the plates together. This is a real, measurable consequence of vacuum energy.</>}>
           Derive the Casimir force between two parallel plates separated by distance a = 1 μm. What is the force per unit area? How is this related to zero-point energy?
         </InteractiveProblem>
 
@@ -264,7 +263,7 @@ export default function QFTPage() {
             'α/(2π) = (1/137)/(2π) = 1/(137 × 6.283) ≈ 1.16×10⁻³.',
           ]}
           problemText="Explain why the electron g-factor differs from 2 in QED and identify the one-loop diagram. Calculate the Schwinger correction Δ(g/2) = α/(2π) numerically using α = 1/137.036."
-          solution={<>Anomalous magnetic moment: g-factor of the electron. Tree-level (Dirac): g = 2. First loop correction (one-loop QED): Δg = α/(2π) (Schwinger, 1948). This is the most famous result in QFT — computed from the one-loop vertex correction diagram. Numerically: Δg/2 = α/(2π) ≈ 1.16×10⁻³. Full QED series through 5 loops: g/2 = 1 + α/(2π) − 0.328α²/π² + 1.181α³/π³ − ... = 1.001159652181643(764) (theoretical). Experimental: g/2 = 1.00115965218059(13) (Harvard 2023). Agreement to 10 significant figures — the most precise test of any physical theory. The key diagram: fermion emits a virtual photon, propagates, reabsorbs. The photon loop gives log divergence regulated by dim-reg, with the finite part yielding α/2π after renormalization. Higher-order terms involve hundreds of Feynman diagrams (5-loop: 10,518 diagrams computed numerically).</>}>
+          solution={<>Anomalous magnetic moment: g-factor of the electron. Tree-level (Dirac): g = 2. First loop correction (one-loop QED): Δ(g/2) = α/(2π) (Schwinger, 1948). This is the most famous result in QFT — computed from the one-loop vertex correction diagram. Numerically: Δg/2 = α/(2π) ≈ 1.16×10⁻³. Full QED series through 5 loops: g/2 = 1 + α/(2π) − 0.328α²/π² + 1.181α³/π³ − ... = 1.001159652181643(764) (theoretical). Experimental: g/2 = 1.00115965218059(13) (Harvard 2023). Agreement to 10 significant figures — the most precise test of any physical theory. The key diagram: fermion emits a virtual photon, propagates, reabsorbs. The photon loop gives log divergence regulated by dim-reg, with the finite part yielding α/2π after renormalization. Higher-order terms involve hundreds of Feynman diagrams (5-loop: 12,672 diagrams computed numerically).</>}>
           Explain why the electron&apos;s g-factor differs from 2 in QED. What diagram contributes at lowest order? Why is the result g/2 = 1 + α/(2π) + ... considered the greatest triumph of theoretical physics?
         </InteractiveProblem>
       </PracticeProblems>

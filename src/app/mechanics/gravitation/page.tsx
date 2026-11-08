@@ -1,4 +1,5 @@
 import Orbit3D from '@/components/sims/Orbit3DClient';
+import { InlineMath } from '@/components/textbook/Equation';
 import {
   Definition, Theorem, WorkedExample, Step,
   PracticeProblems, Problem, InteractiveProblem, EqNumbered, Figure, Prerequisites, Takeaways, LearningGoals, HistoryNote
@@ -45,8 +46,8 @@ export default function GravitationPage() {
       <EqNumbered number="7.1" latex="F = G\frac{m_1m_2}{r^2} \qquad G = 6.674\times10^{-11}\,\mathrm{N\,m^2/kg^2}" />
 
       <p>
-        Near Earth&apos;s surface (r ≈ R_E), this reduces to F = mg where g = GM_E/R_E² = 9.81 m/s².
-        At the Moon&apos;s distance (r = 60 R_E), g drops by a factor of 3600.
+        Near Earth&apos;s surface (<InlineMath latex="r \approx R_E" />), this reduces to F = mg where <InlineMath latex="g = GM_E/R_E^2 = 9.81\ \text{m/s}^2" />.
+        At the Moon&apos;s distance (<InlineMath latex="r = 60\,R_E" />), g drops by a factor of 3600.
       </p>
 
       <Definition number="7.1" title="Gravitational Potential Energy">
@@ -62,7 +63,7 @@ export default function GravitationPage() {
         <p>Find Earth&apos;s escape velocity. (M_E = 5.97 × 10²⁴ kg, R_E = 6.37 × 10⁶ m)</p>
         <Step label="Set KE = |PE|:">½mv² = GMm/R → v = √(2GM/R)</Step>
         <Step label="Calculate:">v = √(2 × 6.674×10⁻¹¹ × 5.97×10²⁴ / 6.37×10⁶) = √(125.1×10⁶)</Step>
-        <Step label="Result:">v_esc = <strong style={{color:'#93c5fd'}}>11.2 km/s</strong> ≈ 40,000 km/h</Step>
+        <Step label="Result:"><InlineMath latex="v_{\text{esc}} =" /> <strong style={{color:'#93c5fd'}}>11.2 km/s</strong> ≈ 40,000 km/h</Step>
       </WorkedExample>
 
       <h2>7.2 Kepler&apos;s Three Laws</h2>
@@ -146,19 +147,19 @@ export default function GravitationPage() {
 
         <InteractiveProblem n={2} difficulty="easy"
           answer={1.87} unit="years" tolerance={0.02}
-          hints={['T² ∝ a³. T_Mars = T_Earth × (a_Mars/a_Earth)^(3/2). a_Mars = 1.52 AU.']}
+          hints={['T² ∝ a³. T_M = T_E × (a_M/a_E)^(3/2). a_M = 1.52 AU.']}
           problemText="Mars semi-major axis a=1.52 AU. Find orbital period T (Earth years)."
           solution={<>T = 1 × (1.52)^(3/2) = 1 × 1.874 = <strong>1.87 years</strong></>}>
           Using Kepler's third law, find Mars's orbital period given its semi-major axis of 1.52 AU.
         </InteractiveProblem>
 
         <Problem n={3} difficulty="easy"
-          solution={<>At altitude h, g = GM_E/(R_E+h)². At h = R_E: g = GM_E/(2R_E)² = GM_E/(4R_E²) = g_surface/4 = 9.81/4 = <strong>2.45 m/s²</strong>.</>}>
+          solution={<>At altitude h, g = GM_E/(R_E+h)². At h = R_E: g = GM_E/(2R_E)² = GM_E/(4R_E²) = <InlineMath latex="g_{\text{surface}}/4 = 9.81/4" /> = <strong>2.45 m/s²</strong>.</>}>
           At what altitude above Earth (in terms of R_E) does gravitational acceleration equal g/4? What is the actual g there?
         </Problem>
 
         <Problem n={4} difficulty="medium"
-          solution={<>T² ∝ a³ → (T_M/T_E)² = (a_M/a_E)³ → T_M = T_E (a_M/a_E)^(3/2) = 1 year × (1.52)^(3/2) = 1 × 1.874 = <strong>1.87 years</strong> ≈ 687 Earth days.</>}>
+          solution={<><InlineMath latex="T^2 \propto a^3 \Rightarrow (T_M/T_E)^2 = (a_M/a_E)^3 \Rightarrow T_M = T_E\,(a_M/a_E)^{3/2} = 1\ \text{year} \times (1.52)^{3/2} = 1 \times 1.874" /> = <strong>1.87 years</strong> ≈ 687 Earth days.</>}>
           Mars&apos;s orbital semi-major axis is 1.52 AU. Using Kepler&apos;s Third Law, find Mars&apos;s orbital period in Earth years.
         </Problem>
 
@@ -168,7 +169,7 @@ export default function GravitationPage() {
         </Problem>
 
         <Problem n={6} difficulty="hard"
-          solution={<>v_circ = √(GM/r). Orbital KE = ½mv² = GMm/(2r). PE = −GMm/r. Total E = KE + PE = −GMm/(2r). The total energy is negative (bound orbit) and equals exactly −KE. To escape, need ΔE = GMm/(2r) — this is half the absolute PE, or equivalently KE_escape = 2 × KE_orbital.</>}>
+          solution={<><InlineMath latex="v_{\text{circ}} = \sqrt{GM/r}" />. Orbital KE = ½mv² = GMm/(2r). PE = −GMm/r. Total E = KE + PE = −GMm/(2r). The total energy is negative (bound orbit) and equals exactly −KE. To escape, need ΔE = GMm/(2r) — this is half the absolute PE, or equivalently <InlineMath latex="KE_{\text{escape}} = 2 \times KE_{\text{orbital}}" />.</>}>
           Show that for a circular orbit, the total mechanical energy is E = −GMm/(2r). What is the minimum additional kinetic energy needed to escape from that orbit?
         </Problem>
       </PracticeProblems>

@@ -37,7 +37,7 @@ export default function ElectricFieldsPage() {
         </span>
         The force is along the line connecting the charges: repulsive if same sign, attractive if opposite.
         It obeys a <InlineMath latex="1/r^2" /> inverse-square law — the same mathematical form as gravity, but
-        enormously stronger (about <InlineMath latex="10^{36}" /> times for electrons vs. gravity).
+        enormously stronger (about <InlineMath latex="10^{36}" /> times for protons vs. gravity).
       </Definition>
 
       <p>

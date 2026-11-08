@@ -27,7 +27,7 @@ export default function ForcesPage() {
       <HistoryNote year="1687" title="Why Newton's laws felt so radical" furtherReading={[{ label: "Isaac Newton", url: "https://en.wikipedia.org/wiki/Isaac_Newton" }, { label: "Principia Mathematica", url: "https://en.wikipedia.org/wiki/Philosophi%C3%A6_Naturalis_Principia_Mathematica" }]}>
         Isaac Newton wrote most of the Principia in roughly eighteen months, spurred by Halley's visit in 1684 and a question about what force law would produce elliptical orbits.
         The deeper audacity of the book was its universality: the same force governing a falling apple also governed the Moon and Jupiter's moons. Before Newton, earthly and celestial
-        physics were philosophically separate worlds. He later said he had seen further by standing on the shoulders of giants — Kepler, Galileo, Huygens. The synthesis was his own,
+        physics were philosophically separate worlds. He had written (to Hooke, in 1676) that he had seen further by standing on the shoulders of giants — Kepler, Galileo, Huygens. The synthesis was his own,
         and it held for two and a quarter centuries before Einstein revised it.
       </HistoryNote>
 
@@ -125,7 +125,7 @@ export default function ForcesPage() {
         <ul style={{ marginTop: '0.4rem' }}>
           <li><strong>Third-law pairs do not cancel:</strong> they act on different objects.</li>
           <li><strong>Normal force is not always mg:</strong> inclines, elevators, and added vertical forces change it.</li>
-          <li><strong>Static friction is an inequality:</strong> use f_s ≤ μ_sN until sliding begins.</li>
+          <li><strong>Static friction is an inequality:</strong> use f_s ≤ μ_s N until sliding begins.</li>
           <li><strong>Choose axes intelligently:</strong> for inclines, align one axis along the slope.</li>
           <li><strong>Tension is shared only under assumptions:</strong> massless rope and frictionless pulley make the tension uniform.</li>
         </ul>
@@ -134,9 +134,9 @@ export default function ForcesPage() {
       <PracticeProblems section="3.1–3.3 Newton's Laws">
         <InteractiveProblem n={1} difficulty="easy"
           answer={3835} unit="N" tolerance={0.02}
-          hints={['F_engine = ma + f_friction. Rolling friction f = μmg.']}
+          hints={['Engine force = ma + f, where rolling friction f = μmg.']}
           problemText="A 1200 kg car accelerates at 3 m/s². Rolling friction μ = 0.02. What engine force (N) is required?"
-          solution={<>F_net = ma = 1200×3 = 3600 N. Friction: f = μmg = 0.02×1200×9.81 = 235 N. F_engine = 3600 + 235 = <strong>3,835 N</strong>.</>}>
+          solution={<>F_net = ma = 1200×3 = 3600 N. Friction: f = μmg = 0.02×1200×9.81 = 235 N. <InlineMath latex="F_{\text{engine}} = 3600 + 235" /> = <strong>3,835 N</strong>.</>}>
           A 1,200 kg car accelerates at 3 m/s². Rolling friction coefficient is 0.02. What force must the engine provide?
         </InteractiveProblem>
 

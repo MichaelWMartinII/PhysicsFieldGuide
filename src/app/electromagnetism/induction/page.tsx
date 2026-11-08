@@ -130,7 +130,7 @@ export default function InductionPage() {
         back-EMF is:
       </p>
 
-      <EqNumbered number="18.3">ε = −L dI/dt &nbsp;&nbsp;&nbsp; (self-inductance)</EqNumbered>
+      <EqNumbered number="18.3" latex="\varepsilon = -L\frac{dI}{dt} \qquad \text{(self-inductance)}" />
 
       <p>
         The inductance <InlineMath latex="L" /> (in henries, <InlineMath latex="\mathrm{H} = \mathrm{V\,s/A}" />) depends only on the coil geometry. For a
@@ -205,7 +205,7 @@ export default function InductionPage() {
         </Problem>
 
         <Problem n={5} difficulty="hard"
-          solution={<>AC generator: a coil rotates with angular frequency ω in uniform B field. Φ = NBAcos(ωt). By Faraday: ε = NBAω sin(ωt) = ε_max sin(ωt). This is sinusoidal EMF with amplitude ε_max = NBAω. Peak voltage increases with N (turns), B (field strength), A (coil area), and ω (rotation rate). A motor is the reverse: a current-carrying coil experiences torque τ = NIAB sin θ. The back-EMF of the motor opposes the supply voltage — this is why motors draw huge current at startup (no back-EMF) and less at full speed.</>}>
+          solution={<>AC generator: a coil rotates with angular frequency ω in uniform B field. Φ = NBAcos(ωt). By Faraday: <InlineMath latex="\varepsilon = NBA\omega\sin(\omega t) = \varepsilon_{\text{max}}\sin(\omega t)" />. This is sinusoidal EMF with amplitude <InlineMath latex="\varepsilon_{\text{max}} = NBA\omega" />. Peak voltage increases with N (turns), B (field strength), A (coil area), and ω (rotation rate). A motor is the reverse: a current-carrying coil experiences torque τ = NIAB sin θ. The back-EMF of the motor opposes the supply voltage — this is why motors draw huge current at startup (no back-EMF) and less at full speed.</>}>
           Derive the sinusoidal EMF output of an AC generator from first principles using Faraday&apos;s law. What determines the peak voltage? How does the motor differ from the generator in principle?
         </Problem>
       </PracticeProblems>

@@ -2,7 +2,7 @@ import WaveInterference from '@/components/sims/WaveInterference';
 import WaveSurface3D from '@/components/sims/WaveSurface3DClient';
 import {
   Definition, Theorem, WorkedExample, Step,
-  PracticeProblems, Problem, InteractiveProblem, EqNumbered, Figure, Prerequisites, Takeaways, LearningGoals, HistoryNote
+  PracticeProblems, Problem, InteractiveProblem, EqNumbered, InlineMath, Figure, Prerequisites, Takeaways, LearningGoals, HistoryNote
 } from '@/components/textbook';
 
 export default function WavePropertiesPage() {
@@ -78,7 +78,7 @@ export default function WavePropertiesPage() {
       <EqNumbered number="9.2" latex="v_\mathrm{string}=\sqrt{\frac{F_T}{\mu}} \qquad v_\mathrm{sound}=\sqrt{\frac{B}{\rho}} \qquad v_\mathrm{light}=c=3.00\times10^8\,\mathrm{m/s}" />
 
       <p>
-        where F_T is string tension, μ is linear mass density, B is bulk modulus, and ρ is density.
+        where <InlineMath latex="F_T" /> is string tension, μ is linear mass density, B is bulk modulus, and ρ is density.
         Note: wave speed in a medium is a property of that medium, not of frequency.
       </p>
 
@@ -117,8 +117,8 @@ export default function WavePropertiesPage() {
 
       <WorkedExample number="9.1" title="Guitar String Harmonics">
         <p>A guitar string is 65 cm long. The wave speed on this string is 400 m/s. Find the first three harmonic frequencies.</p>
-        <Step label="Fundamental (n=1):">f₁ = v/(2L) = 400/(2 × 0.65) = <strong>307.7 Hz</strong> ≈ E₄ note</Step>
-        <Step label="Second harmonic (n=2):">f₂ = 2f₁ = <strong>615 Hz</strong> ≈ E₅</Step>
+        <Step label="Fundamental (n=1):">f₁ = v/(2L) = 400/(2 × 0.65) = <strong>307.7 Hz</strong> ≈ E♭₄ note</Step>
+        <Step label="Second harmonic (n=2):">f₂ = 2f₁ = <strong>615 Hz</strong> ≈ E♭₅</Step>
         <Step label="Third harmonic (n=3):">f₃ = 3f₁ = <strong>923 Hz</strong></Step>
         <Step label="Note:">The harmonics are integer multiples of the fundamental — this is what gives musical instruments their timbre.</Step>
       </WorkedExample>

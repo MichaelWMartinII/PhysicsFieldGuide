@@ -1,4 +1,5 @@
 import RotatingBodyClient from '@/components/sims/RotatingBodyClient';
+import { InlineMath } from '@/components/textbook/Equation';
 import {
   Definition, Theorem, WorkedExample, Step,
   PracticeProblems, Problem, InteractiveProblem, EqNumbered, Figure, Prerequisites, Takeaways, LearningGoals, HistoryNote
@@ -34,7 +35,7 @@ export default function RotationPage() {
           source="Leonhard Euler, Theoria Motus Corporum Solidorum seu Rigidorum."
           furtherReading={[{ label: "Leonhard Euler", url: "https://en.wikipedia.org/wiki/Leonhard_Euler" }]}
         >
-          Leonhard Euler was blind in one eye by his late twenties and completely blind by his mid-fifties. He produced more mathematics after losing his sight than most mathematicians
+          Leonhard Euler was blind in one eye by his late twenties and almost completely blind by his late fifties. He produced more mathematics after losing his sight than most mathematicians
           produce in a full career, dictating to assistants and performing enormous calculations in his head. His work on rigid-body rotation — the Euler angles, the equations of motion,
           the concept of principal axes — gave physicists and engineers the language to analyze any spinning object. The fluency with which we now describe gyroscopes, spacecraft attitude,
           and spinning tops is largely his.
@@ -50,8 +51,8 @@ export default function RotationPage() {
       </Definition>
 
       <p>
-        A point at radius r from the rotation axis has linear speed v = rω, tangential acceleration aₜ = rα,
-        and centripetal acceleration aᶜ = rω² directed toward the axis. The two accelerations are perpendicular.
+        A point at radius r from the rotation axis has linear speed v = rω, tangential acceleration <InlineMath latex="a_t = r\alpha" />,
+        and centripetal acceleration <InlineMath latex="a_c = r\omega^2" /> directed toward the axis. The two accelerations are perpendicular.
       </p>
 
       <h2>6.2 Moment of Inertia</h2>
@@ -75,9 +76,9 @@ export default function RotationPage() {
         <ul style={{ marginTop: '0.4rem' }}>
           <li><strong>Solid disk or cylinder</strong>: I = ½MR²</li>
           <li><strong>Ring or thin hoop</strong>: I = MR²</li>
-          <li><strong>Solid sphere</strong>: I = ²⁄₅MR²</li>
-          <li><strong>Rod about center</strong>: I = ¹⁄₁₂ML²</li>
-          <li><strong>Rod about end</strong>: I = ¹⁄₃ML²</li>
+          <li><strong>Solid sphere</strong>: I = (2/5)MR²</li>
+          <li><strong>Rod about center</strong>: I = (1/12)ML²</li>
+          <li><strong>Rod about end</strong>: I = (1/3)ML²</li>
         </ul>
         <span style={{ display: 'block', marginTop: '0.5rem' }}>
           The <strong>parallel axis theorem</strong> shifts any axis: I = I<sub>cm</sub> + Md²,
@@ -149,8 +150,8 @@ export default function RotationPage() {
       </p>
 
       <WorkedExample number="6.2" title="Rolling Down a Ramp">
-        <p>A solid sphere (I = ²⁄₅mR²) rolls from rest down a ramp of height h = 2 m. Find the speed at the bottom.</p>
-        <Step label="Energy conservation:">mgh = ½mv² + ½Iω² = ½mv² + ½(²⁄₅mR²)(v/R)² = ½mv²(1 + 2/5) = ⁷⁄₁₀mv²</Step>
+        <p>A solid sphere (I = (2/5)mR²) rolls from rest down a ramp of height h = 2 m. Find the speed at the bottom.</p>
+        <Step label="Energy conservation:">mgh = ½mv² + ½Iω² = ½mv² + ½((2/5)mR²)(v/R)² = ½mv²(1 + 2/5) = (7/10)mv²</Step>
         <Step label="Solve for v:">v = √(10gh/7) = √(10 × 9.81 × 2/7) = <strong>5.29 m/s</strong></Step>
         <Step label="Compare:">A sliding block (no rotation): v = √(2gh) = 6.26 m/s — 18% faster.</Step>
       </WorkedExample>
@@ -186,7 +187,7 @@ export default function RotationPage() {
           answer={5.0} unit="rad/s" tolerance={0.03}
           hints={[
             'Angular momentum is conserved: I₁ω₁ = I₂ω₂.',
-            'I changes when arms are pulled in. If arms-out I = 4 kg·m², arms-in I = 2 kg·m², what is ω₂?',
+            'I changes when arms are pulled in. If arms-out I = 2.0 kg·m², arms-in I = 1.0 kg·m², what is ω₂?',
           ]}
           problemText="A skater spins at 2.5 rad/s with arms out (I = 2.0 kg·m²). She pulls her arms in, reducing I to 1.0 kg·m². Find the new angular velocity."
           solution={<>I₁ω₁ = I₂ω₂ → ω₂ = I₁ω₁/I₂ = (2.0)(2.5)/(1.0) = <strong>5.0 rad/s</strong></>}>

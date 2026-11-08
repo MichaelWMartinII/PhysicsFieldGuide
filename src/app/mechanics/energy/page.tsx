@@ -1,4 +1,5 @@
 import Pendulum from '@/components/sims/Pendulum';
+import { InlineMath } from '@/components/textbook/Equation';
 import {
   Definition, Theorem, WorkedExample, Step,
   PracticeProblems, Problem, InteractiveProblem, EqNumbered, Figure, Prerequisites, Takeaways, LearningGoals, HistoryNote,
@@ -77,7 +78,7 @@ export default function EnergyPage() {
         A force F is conservative if the work it does around any closed path is zero. For such forces,
         we define potential energy U such that:
         <span style={{ display: 'block', margin: '0.5rem 0 0.25rem 1rem', fontStyle: 'italic' }}>
-          W_conservative = −ΔU &nbsp;&nbsp;&nbsp; or equivalently &nbsp;&nbsp;&nbsp; F = −dU/dx
+          <InlineMath latex="W_{\text{conservative}} = -\Delta U" /> &nbsp;&nbsp;&nbsp; or equivalently &nbsp;&nbsp;&nbsp; <InlineMath latex="F = -dU/dx" />
         </span>
         Gravitational PE near Earth&apos;s surface: U_g = mgh. Spring PE: U_s = ½kx².
       </Definition>

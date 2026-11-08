@@ -1,6 +1,6 @@
 import {
   Definition, Theorem, WorkedExample, Step,
-  PracticeProblems, Problem, InteractiveProblem, EqNumbered, Prerequisites, Takeaways, LearningGoals
+  PracticeProblems, Problem, InteractiveProblem, EqNumbered, InlineMath, Prerequisites, Takeaways, LearningGoals
 } from '@/components/textbook';
 
 export default function ProbabilityPage() {
@@ -28,13 +28,13 @@ export default function ProbabilityPage() {
 
       <Definition number="PR.1" title="Key Distributions in Physics">
         <span style={{ display: 'block', marginBottom: '0.5rem' }}>
-          <strong>Gaussian (Normal):</strong> P(x) = (1/√(2πσ²)) e^(−(x−μ)²/(2σ²)). Appears whenever many independent random contributions add (CLT). Quantum measurement uncertainties, thermal fluctuations, noise.
+          <strong>Gaussian (Normal):</strong> <InlineMath latex="P(x) = \dfrac{1}{\sqrt{2\pi\sigma^2}}\, e^{-(x-\mu)^2/(2\sigma^2)}" />. Appears whenever many independent random contributions add (CLT). Quantum measurement uncertainties, thermal fluctuations, noise.
         </span>
         <span style={{ display: 'block', marginBottom: '0.5rem' }}>
-          <strong>Poisson:</strong> P(k) = e^(−λ) λᵏ/k! — probability of k events when mean is λ. Radioactive decay counting, photon shot noise, rare events.
+          <strong>Poisson:</strong> <InlineMath latex="P(k) = e^{-\lambda} \lambda^k / k!" /> — probability of k events when mean is λ. Radioactive decay counting, photon shot noise, rare events.
         </span>
         <span style={{ display: 'block', marginBottom: '0.5rem' }}>
-          <strong>Maxwell-Boltzmann:</strong> f(v) = 4π n(m/(2πk_BT))^(3/2) v² e^(−mv²/(2k_BT)). Speed distribution of ideal gas molecules.
+          <strong>Maxwell-Boltzmann:</strong> <InlineMath latex="f(v) = 4\pi n \left(\dfrac{m}{2\pi k_B T}\right)^{3/2} v^2\, e^{-mv^2/(2k_B T)}" />. Speed distribution of ideal gas molecules.
         </span>
         <span style={{ display: 'block' }}>
           <strong>Cauchy (Lorentzian):</strong> P(x) = (Γ/π)/(x²+Γ²). Heavy tails; resonance line shapes, random walk in 2D. No finite mean or variance!
@@ -56,14 +56,14 @@ export default function ProbabilityPage() {
 
       <p>
         <strong>Error propagation:</strong> if a quantity z = f(x, y, ...) depends on measured
-        quantities with uncertainties σ_x, σ_y:
+        quantities with uncertainties <InlineMath latex="\sigma_x, \sigma_y" />:
       </p>
 
-      <EqNumbered number="PR.1">σ_z² = (∂f/∂x)² σ_x² + (∂f/∂y)² σ_y² + 2(∂f/∂x)(∂f/∂y) σ_xy &nbsp;&nbsp;&nbsp; (error propagation)</EqNumbered>
+      <EqNumbered number="PR.1" latex="\sigma_z^2 = \left(\frac{\partial f}{\partial x}\right)^2 \sigma_x^2 + \left(\frac{\partial f}{\partial y}\right)^2 \sigma_y^2 + 2\,\frac{\partial f}{\partial x}\frac{\partial f}{\partial y}\, \sigma_{xy} \qquad \text{(error propagation)}" />
 
       <p>
-        For independent measurements (σ_xy = 0): σ_z² = Σᵢ (∂f/∂xᵢ)² σᵢ². For z = x·y:
-        (σ_z/z)² = (σ_x/x)² + (σ_y/y)² (relative errors add in quadrature).
+        For independent measurements (<InlineMath latex="\sigma_{xy} = 0" />): <InlineMath latex="\sigma_z^2 = \sum_i (\partial f/\partial x_i)^2 \sigma_i^2" />. For z = x·y:
+        <InlineMath latex="(\sigma_z/z)^2 = (\sigma_x/x)^2 + (\sigma_y/y)^2" /> (relative errors add in quadrature).
       </p>
 
       <WorkedExample number="PR.1" title="Radioactive Decay Counting Statistics">
@@ -85,7 +85,7 @@ export default function ProbabilityPage() {
         Bayesian statistics provides a framework for updating beliefs with data:
       </p>
 
-      <EqNumbered number="PR.2">P(θ|data) ∝ P(data|θ) × P(θ) &nbsp;&nbsp;&nbsp; (Bayes&apos; theorem)</EqNumbered>
+      <EqNumbered number="PR.2" latex="P(\theta \mid \text{data}) \propto P(\text{data} \mid \theta) \times P(\theta) \qquad \text{(Bayes' theorem)}" />
 
       <p>
         Here P(θ) is the <strong>prior</strong> (belief before seeing data), P(data|θ) is the
@@ -106,7 +106,7 @@ export default function ProbabilityPage() {
         <strong>chi-squared statistic</strong> is:
       </p>
 
-      <EqNumbered number="PR.3">χ² = Σᵢ (y_i − f(x_i))² / σ_i² &nbsp;&nbsp;&nbsp; (chi-squared)</EqNumbered>
+      <EqNumbered number="PR.3" latex="\chi^2 = \sum_i \frac{\bigl(y_i - f(x_i)\bigr)^2}{\sigma_i^2} \qquad \text{(chi-squared)}" />
 
       <p>
         Under the null hypothesis (model is correct), χ²/(n−k) should be approximately 1
@@ -159,17 +159,17 @@ export default function ProbabilityPage() {
         </InteractiveProblem>
 
         <Problem n={3} difficulty="easy"
-          solution={<>Maxwell-Boltzmann speed distribution: f(v) = 4πn(m/2πk_BT)^(3/2) v² e^(−mv²/2k_BT). Mean speed: ⟨v⟩ = √(8k_BT/πm) = √(8×1.38×10⁻²³×300/π×4.65×10⁻²⁶) = √(2.26×10⁴) = 476 m/s (for N₂, m=28u). RMS: v_rms = √(3k_BT/m) = √(3×1.38×10⁻²³×300/4.65×10⁻²⁶) = √(2.67×10⁴) = 517 m/s. Most probable: v_mp = √(2k_BT/m) = 422 m/s. Ratio v_mp : ⟨v⟩ : v_rms = √2 : √(8/π) : √3 = 1 : 1.128 : 1.225. Sound speed in N₂: c_s = √(γk_BT/m) = √(1.4×k_BT/m) = 353 m/s ≈ 0.683 v_rms (= √(γ/3) × v_rms = √(1.4/3)). The distribution tail (high-v) matters for escaping Earth&apos;s atmosphere — hydrogen escapes, N₂ does not.</>}>
+          solution={<>Maxwell-Boltzmann speed distribution: f(v) = 4πn(m/2πk_B T)^(3/2) v² e^(−mv²/2k_B T). Mean speed: ⟨v⟩ = √(8k_B T/πm) = √(8×1.38×10⁻²³×300/π×4.65×10⁻²⁶) = √(2.27×10⁵) = 476 m/s (for N₂, m=28u). RMS: v_rms = √(3k_B T/m) = √(3×1.38×10⁻²³×300/4.65×10⁻²⁶) = √(2.67×10⁵) = 517 m/s. Most probable: v_mp = √(2k_B T/m) = 422 m/s. Ratio v_mp : ⟨v⟩ : v_rms = √2 : √(8/π) : √3 = 1 : 1.128 : 1.225. Sound speed in N₂: c_s = √(γk_B T/m) = √(1.4×k_B T/m) = 353 m/s ≈ 0.683 v_rms (= √(γ/3) × v_rms = √(1.4/3)). The distribution tail (high-v) matters for escaping Earth&apos;s atmosphere — hydrogen escapes, N₂ does not.</>}>
           For nitrogen molecules (M = 28 g/mol) at T = 300 K, find the mean, rms, and most probable speeds. Compare to the speed of sound.
         </Problem>
 
         <Problem n={4} difficulty="medium"
-          solution={<>Student&apos;s t-test: two independent samples x₁,...,xₙ and y₁,...,yₘ. Test H₀: μ_x = μ_y. t = (x̄ − ȳ)/√(s_p²(1/n+1/m)) where pooled variance s_p² = ((n−1)s_x²+(m−1)s_y²)/(n+m−2). For n=m=10: ν = 18 degrees of freedom. At 95% confidence: t_crit = 2.10 (from t-table). If |t| &gt; 2.10: reject H₀. Alternative: Welch&apos;s t-test (unequal variances). In particle physics: similar logic but need 5σ (t≈5) because of look-elsewhere effect (many mass hypotheses tested). Frequentist p-value: P(|t|&gt;t_obs|H₀). Not the same as P(H₀ true|data)! Bayesian inference naturally handles posterior probability of hypotheses.</>}>
+          solution={<>Student&apos;s t-test: two independent samples x₁,...,xₙ and y₁,...,yₘ. Test H₀: μ_x = μ_y. t = (x̄ − ȳ)/√(s_p²(1/n+1/m)) where pooled variance s_p² = ((n−1)s_x²+(m−1)s_y²)/(n+m−2). For n=m=10: ν = 18 degrees of freedom. At 95% confidence: <InlineMath latex="t_{\text{crit}} = 2.10" /> (from t-table). If |t| &gt; 2.10: reject H₀. Alternative: Welch&apos;s t-test (unequal variances). In particle physics: similar logic but need 5σ (t≈5) because of look-elsewhere effect (many mass hypotheses tested). Frequentist p-value: P(|t|&gt;t_obs|H₀). Not the same as P(H₀ true|data)! Bayesian inference naturally handles posterior probability of hypotheses.</>}>
           Explain the t-test for comparing two experimental means. When is 2σ sufficient and when is 5σ required? What is the look-elsewhere effect?
         </Problem>
 
         <Problem n={5} difficulty="medium"
-          solution={<>Gaussian error propagation for g = 4π²L/T²: σ_g² = (∂g/∂L)² σ_L² + (∂g/∂T)² σ_T². Since ∂g/∂L = g/L and ∂g/∂T = −2g/T, (σ_g/g)² = (σ_L/L)² + (2σ_T/T)². For L=1.000 m, T=2.007 s: g = 4π²×1.000/2.007² = 9.807 m/s². Relative uncertainty = √[(0.001/1.000)² + (2×0.002/2.007)²] = 0.00223, so σ_g = 0.0219 m/s². Final: g = 9.807 ± 0.022 m/s², before systematic corrections such as finite amplitude and air resistance.</>}>
+          solution={<>Gaussian error propagation for g = 4π²L/T²: σ_g² = (∂g/∂L)² σ_L² + (∂g/∂T)² σ_T². Since ∂g/∂L = g/L and ∂g/∂T = −2g/T, (σ_g/g)² = (σ_L/L)² + (2σ_T/T)². For L=1.000 m, T=2.007 s: g = 4π²×1.000/2.007² = 9.801 m/s². Relative uncertainty = √[(0.001/1.000)² + (2×0.002/2.007)²] = 0.00223, so σ_g = 0.0219 m/s². Final: g = 9.801 ± 0.022 m/s², before systematic corrections such as finite amplitude and air resistance.</>}>
           Propagate errors for the pendulum measurement g = 4π²L/T²: length L = 1.000 ± 0.001 m, period T = 2.007 ± 0.002 s. What is σ_g?
         </Problem>
 

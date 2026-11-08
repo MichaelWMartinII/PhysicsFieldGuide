@@ -1,6 +1,6 @@
 import {
   Definition, Theorem, WorkedExample, Step,
-  PracticeProblems, Problem, InteractiveProblem, EqNumbered, Prerequisites, Takeaways, LearningGoals
+  PracticeProblems, Problem, InteractiveProblem, EqNumbered, Prerequisites, Takeaways, LearningGoals, InlineMath
 } from '@/components/textbook';
 
 export default function QuantumInfoPage() {
@@ -31,10 +31,10 @@ export default function QuantumInfoPage() {
         |0⟩ and |1⟩. A general single-qubit state:
       </p>
 
-      <EqNumbered number="QI.1">|ψ⟩ = α|0⟩ + β|1⟩ &nbsp;&nbsp;&nbsp; with |α|² + |β|² = 1</EqNumbered>
+      <EqNumbered number="QI.1" latex="|\psi\rangle = \alpha|0\rangle + \beta|1\rangle \qquad \text{with} \quad |\alpha|^2 + |\beta|^2 = 1" />
 
       <p>
-        The state lives on the <strong>Bloch sphere</strong>: |ψ⟩ = cos(θ/2)|0⟩ + e^(iφ) sin(θ/2)|1⟩.
+        The state lives on the <strong>Bloch sphere</strong>: <InlineMath latex="|\psi\rangle = \cos(\theta/2)|0\rangle + e^{i\phi} \sin(\theta/2)|1\rangle" />.
         The north pole is |0⟩, south pole |1⟩, equator is superpositions.
         Physical implementations: spin-½ (nuclear or electron), photon polarization,
         transmon circuit (superconducting qubit), trapped ion internal states, nitrogen-vacancy
@@ -42,9 +42,9 @@ export default function QuantumInfoPage() {
       </p>
 
       <p>
-        An n-qubit system lives in a 2^n-dimensional Hilbert space. The general state:
-        |ψ⟩ = Σ c_x |x⟩ for x ∈ {'{'}0,1{'}'}^n — requires 2^n complex amplitudes.
-        A 300-qubit state cannot be stored classically (2^300 &gt; atoms in observable universe).
+        An n-qubit system lives in a <InlineMath latex="2^n" />-dimensional Hilbert space. The general state:
+        <InlineMath latex="|\psi\rangle = \sum_x c_x |x\rangle" /> for <InlineMath latex="x \in \{0,1\}^n" /> — requires <InlineMath latex="2^n" /> complex amplitudes.
+        A 300-qubit state cannot be stored classically (<InlineMath latex="2^{300}" /> &gt; atoms in observable universe).
       </p>
 
       <Definition number="QI.1" title="Entanglement">
@@ -61,25 +61,25 @@ export default function QuantumInfoPage() {
       <h2>QI.2 Quantum Gates and Circuits</h2>
 
       <p>
-        Quantum operations on n qubits are <strong>unitary matrices</strong> U ∈ U(2^n).
+        Quantum operations on n qubits are <strong>unitary matrices</strong> <InlineMath latex="U \in U(2^n)" />.
         Single-qubit gates correspond to rotations of the Bloch sphere:
       </p>
 
       <p>
-        <strong>Pauli gates:</strong> X = [[0,1],[1,0]] (bit flip), Y = [[0,−i],[i,0]], Z = [[1,0],[0,−1]] (phase flip).
+        <strong>Pauli gates:</strong> <InlineMath latex="X = \begin{pmatrix} 0 & 1 \\ 1 & 0 \end{pmatrix}" /> (bit flip), <InlineMath latex="Y = \begin{pmatrix} 0 & -i \\ i & 0 \end{pmatrix}" />, <InlineMath latex="Z = \begin{pmatrix} 1 & 0 \\ 0 & -1 \end{pmatrix}" /> (phase flip).
       </p>
       <p>
-        <strong>Hadamard:</strong> H = (1/√2)[[1,1],[1,−1]]. Maps |0⟩ → (|0⟩+|1⟩)/√2, creates superposition.
+        <strong>Hadamard:</strong> <InlineMath latex="H = \frac{1}{\sqrt{2}}\begin{pmatrix} 1 & 1 \\ 1 & -1 \end{pmatrix}" />. Maps |0⟩ → (|0⟩+|1⟩)/√2, creates superposition.
       </p>
       <p>
-        <strong>Phase gate:</strong> S = [[1,0],[0,i]], T = [[1,0],[0,e^(iπ/4)]].
+        <strong>Phase gate:</strong> <InlineMath latex="S = \begin{pmatrix} 1 & 0 \\ 0 & i \end{pmatrix}" />, <InlineMath latex="T = \begin{pmatrix} 1 & 0 \\ 0 & e^{i\pi/4} \end{pmatrix}" />.
       </p>
 
       <p>
         <strong>Two-qubit gates:</strong> CNOT (controlled-NOT): flips target if control = |1⟩.
-        Matrix: [[1,0,0,0],[0,1,0,0],[0,0,0,1],[0,0,1,0]] in the |00⟩, |01⟩, |10⟩, |11⟩ basis.
+        Matrix: <InlineMath latex="\begin{pmatrix} 1 & 0 & 0 & 0 \\ 0 & 1 & 0 & 0 \\ 0 & 0 & 0 & 1 \\ 0 & 0 & 1 & 0 \end{pmatrix}" /> in the |00⟩, |01⟩, |10⟩, |11⟩ basis.
         CNOT + single-qubit gates form a <strong>universal gate set</strong> — any unitary can
-        be approximated to arbitrary precision (Solovay-Kitaev theorem, O(log³(1/ε)) gates).
+        be approximated to arbitrary precision (Solovay-Kitaev theorem, <InlineMath latex="O(\log^3(1/\varepsilon))" /> gates).
       </p>
 
       <WorkedExample number="QI.1" title="Creating a Bell State">
@@ -97,23 +97,23 @@ export default function QuantumInfoPage() {
       <h2>QI.3 Quantum Algorithms</h2>
 
       <p>
-        <strong>Deutsch-Jozsa</strong>: determines if f:{'{'}0,1{'}'}^n → {'{'}0,1{'}'} is constant or balanced
-        in ONE query (classically needs 2^(n−1)+1 queries in the worst case). Demonstrates
-        quantum parallelism — all 2^n inputs evaluated simultaneously.
+        <strong>Deutsch-Jozsa</strong>: determines if <InlineMath latex="f: \{0,1\}^n \to \{0,1\}" /> is constant or balanced
+        in ONE query (classically needs <InlineMath latex="2^{n-1} + 1" /> queries in the worst case). Demonstrates
+        quantum parallelism — all <InlineMath latex="2^n" /> inputs evaluated simultaneously.
       </p>
 
       <p>
         <strong>Grover&apos;s algorithm</strong>: searches an unsorted database of N items for a
-        marked item in O(√N) queries (classical: O(N)). The quantum speedup is quadratic:
+        marked item in <InlineMath latex="O(\sqrt{N})" /> queries (classical: <InlineMath latex="O(N)" />). The quantum speedup is quadratic:
         for N = 10⁶, classical needs ~500,000 queries; Grover needs ~785.
       </p>
 
       <p>
-        <strong>Shor&apos;s algorithm</strong> (1994): factors an n-bit number N in O(n³) time
-        (polynomial). Best classical: O(e^(cn^(1/3) (log n)^(2/3))) (sub-exponential).
+        <strong>Shor&apos;s algorithm</strong> (1994): factors an n-bit number N in <InlineMath latex="O(n^3)" /> time
+        (polynomial). Best classical: <InlineMath latex="O\!\left(e^{c\, n^{1/3} (\log n)^{2/3}}\right)" /> (sub-exponential).
         A 2048-bit RSA key would require ∼4×10⁹ quantum gates on a fault-tolerant quantum
         computer — breaking public-key cryptography. Shor uses the quantum Fourier transform
-        (QFT) to find the period of f(x) = a^x mod N, which determines the factors.
+        (QFT) to find the period of <InlineMath latex="f(x) = a^x \bmod N" />, which determines the factors.
       </p>
 
       <Theorem number="QI.1" title="No-Cloning Theorem">
@@ -139,8 +139,8 @@ export default function QuantumInfoPage() {
 
       <p>
         The key insight: encode one <strong>logical qubit</strong> in many <strong>physical qubits</strong>.
-        The <strong>3-qubit repetition code</strong>: |0⟩_L = |000⟩, |1⟩_L = |111⟩. Detects
-        (but doesn&apos;t correct) a single bit flip. Full correction needs more qubits.
+        The <strong>3-qubit repetition code</strong>: <InlineMath latex="|0\rangle_L = |000\rangle" />, <InlineMath latex="|1\rangle_L = |111\rangle" />. Corrects
+        a single bit flip (but not a phase flip). Full correction needs more qubits.
       </p>
 
       <p>
@@ -179,12 +179,12 @@ export default function QuantumInfoPage() {
 
       <PracticeProblems section="QI.1–QI.5 Quantum Information">
         <Problem n={1} difficulty="easy"
-          solution={<>Deutsch algorithm: one query determines if f:{'{'}0,1{'}'} → {'{'}0,1{'}'} is constant (f(0)=f(1)) or balanced (f(0)≠f(1)). Circuit: start |0⟩|1⟩. Apply H⊗H: (|0⟩+|1⟩)/√2 × (|0⟩−|1⟩)/√2. Apply U_f: U_f|x⟩|y⟩ = |x⟩|y⊕f(x)⟩. (|0⟩+|1⟩)/√2 × (|0⟩−|1⟩)/√2 → (−1)^f(0)|0⟩(|0⟩−|1⟩)/√2 and (−1)^f(1)|1⟩(|0⟩−|1⟩)/√2 → [(−1)^f(0)|0⟩+(−1)^f(1)|1⟩]/√2 × (|0⟩−|1⟩)/√2. If constant: (−1)^f(0)(|0⟩+|1⟩)/√2 → after H: |0⟩. If balanced: (|0⟩−|1⟩)/√2 (up to global phase) → after H: |1⟩. Measure first qubit: 0 = constant, 1 = balanced. One query vs. classical 2 queries. This problem is trivial but demonstrates that quantum parallelism can provide exponential speedup in structured problems.</>}>
+          solution={<>Deutsch algorithm: one query determines if f:{'{'}0,1{'}'} → {'{'}0,1{'}'} is constant (f(0)=f(1)) or balanced (f(0)≠f(1)). Circuit: start |0⟩|1⟩. Apply H⊗H: (|0⟩+|1⟩)/√2 × (|0⟩−|1⟩)/√2. Apply U_f: U_f|x⟩|y⟩ = |x⟩|y⊕f(x)⟩. (|0⟩+|1⟩)/√2 × (|0⟩−|1⟩)/√2 → <InlineMath latex="(-1)^{f(0)}" />|0⟩(|0⟩−|1⟩)/√2 and <InlineMath latex="(-1)^{f(1)}" />|1⟩(|0⟩−|1⟩)/√2 → [<InlineMath latex="(-1)^{f(0)}" />|0⟩+<InlineMath latex="(-1)^{f(1)}" />|1⟩]/√2 × (|0⟩−|1⟩)/√2. If constant: <InlineMath latex="(-1)^{f(0)}" />(|0⟩+|1⟩)/√2 → after H: |0⟩. If balanced: (|0⟩−|1⟩)/√2 (up to global phase) → after H: |1⟩. Measure first qubit: 0 = constant, 1 = balanced. One query vs. classical 2 queries. This problem is trivial but demonstrates that quantum parallelism can provide exponential speedup in structured problems.</>}>
           Walk through the Deutsch algorithm for a single-bit function. Why does it determine constant-vs-balanced in one query when classical requires two?
         </Problem>
 
         <Problem n={2} difficulty="medium"
-          solution={<>Quantum teleportation: transfers |ψ⟩ = α|0⟩+β|1⟩ from Alice to Bob using shared Bell pair + 2 classical bits. Protocol: (1) Alice and Bob share |Φ+⟩ = (|00⟩+|11⟩)/√2 (qubits 2 and 3). (2) Full state: |ψ⟩ ⊗ |Φ+⟩ = (α|0⟩+β|1⟩)(|00⟩+|11⟩)/√2. (3) Alice applies CNOT (1→2), then H to qubit 1. Full state expands to: ¼[|00⟩(α|0⟩+β|1⟩) + |01⟩(α|1⟩+β|0⟩) + |10⟩(α|0⟩−β|1⟩) + |11⟩(α|1⟩−β|0⟩)]. (4) Alice measures qubits 1,2 → gets 00, 01, 10, or 11. (5) Alice sends result (2 classical bits) to Bob. (6) Bob applies corrections: 00→I, 01→X, 10→Z, 11→ZX to qubit 3. Result: Bob&apos;s qubit 3 = |ψ⟩. No-cloning not violated: Alice&apos;s qubit 1 is destroyed by measurement. No FTL: Bob must receive 2 classical bits before applying correction.</>}>
+          solution={<>Quantum teleportation: transfers |ψ⟩ = α|0⟩+β|1⟩ from Alice to Bob using shared Bell pair + 2 classical bits. Protocol: (1) Alice and Bob share |Φ+⟩ = (|00⟩+|11⟩)/√2 (qubits 2 and 3). (2) Full state: |ψ⟩ ⊗ |Φ+⟩ = (α|0⟩+β|1⟩)(|00⟩+|11⟩)/√2. (3) Alice applies CNOT (1→2), then H to qubit 1. Full state expands to: ½[|00⟩(α|0⟩+β|1⟩) + |01⟩(α|1⟩+β|0⟩) + |10⟩(α|0⟩−β|1⟩) + |11⟩(α|1⟩−β|0⟩)]. (4) Alice measures qubits 1,2 → gets 00, 01, 10, or 11. (5) Alice sends result (2 classical bits) to Bob. (6) Bob applies corrections: 00→I, 01→X, 10→Z, 11→ZX to qubit 3. Result: Bob&apos;s qubit 3 = |ψ⟩. No-cloning not violated: Alice&apos;s qubit 1 is destroyed by measurement. No FTL: Bob must receive 2 classical bits before applying correction.</>}>
           Describe quantum teleportation. Why doesn't it violate no-cloning or allow faster-than-light communication?
         </Problem>
 
@@ -206,11 +206,11 @@ export default function QuantumInfoPage() {
       </PracticeProblems>
 
       <Takeaways items={[
-        'Qubit: |ψ⟩ = α|0⟩+β|1⟩, Bloch sphere. n qubits span 2^n-dimensional Hilbert space.',
+        'Qubit: |ψ⟩ = α|0⟩+β|1⟩, Bloch sphere. n qubits span 2ⁿ-dimensional Hilbert space.',
         'Bell states: maximally entangled 2-qubit states. Entanglement is a computational/cryptographic resource.',
         'Universal gates: single-qubit rotations + CNOT. Solovay-Kitaev: efficient approximation.',
         'No-cloning: unknown quantum states cannot be copied. Basis of QKD security.',
-        'Shor: factor N in poly(log N) time. Grover: search N items in O(√N). Both exponentially beat classical.',
+        'Shor: factor N in poly(log N) time. Grover: search N items in O(√N). Shor beats classical exponentially, Grover quadratically.',
         'Error correction: surface codes need ~1000 physical qubits per logical, threshold ~1% error rate.',
       ]} />
     </div>

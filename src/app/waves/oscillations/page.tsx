@@ -1,7 +1,7 @@
 import PendulumClient from '@/components/sims/PendulumClient';
 import {
   Definition, Theorem, WorkedExample, Step,
-  PracticeProblems, Problem, InteractiveProblem, EqNumbered, Figure, Prerequisites, Takeaways, LearningGoals, HistoryNote
+  PracticeProblems, Problem, InteractiveProblem, EqNumbered, InlineMath, Figure, Prerequisites, Takeaways, LearningGoals, HistoryNote
 } from '@/components/textbook';
 
 export default function OscillationsPage() {
@@ -118,10 +118,10 @@ export default function OscillationsPage() {
       </Figure>
 
       <Theorem number="8.2" title="Small-Angle Approximation">
-        The pendulum equation is exactly θ¨ = −(g/L) sin θ. It becomes SHM only after the
+        The pendulum equation is exactly <InlineMath latex="\ddot\theta = -(g/L)\sin\theta" />. It becomes SHM only after the
         approximation sin θ ≈ θ:
         <span style={{ display: 'block', margin: '0.6rem 0 0.25rem 1rem', fontStyle: 'italic' }}>
-          θ¨ = −(g/L)θ &nbsp;&nbsp;&nbsp; only when |θ| is small
+          <InlineMath latex="\ddot\theta = -(g/L)\,\theta" /> &nbsp;&nbsp;&nbsp; only when |θ| is small
         </span>
         Mass cancels from the torque equation, so the period does not depend on bob mass.
         Amplitude cancels only in the small-angle limit; large-amplitude pendulums run slow.
@@ -141,19 +141,19 @@ export default function OscillationsPage() {
         force −bẋ (proportional to velocity) is:
       </p>
 
-      <EqNumbered number="8.4">m ẍ + b ẋ + kx = 0 &nbsp;&nbsp;&nbsp; → &nbsp;&nbsp;&nbsp; x(t) = Ae^(−γt) cos(ω′t + φ)</EqNumbered>
+      <EqNumbered number="8.4" latex="m\ddot{x} + b\dot{x} + kx = 0 \qquad \to \qquad x(t) = Ae^{-\gamma t}\cos(\omega' t + \phi)" />
 
       <p>
         where γ = b/2m is the damping coefficient and ω′ = √(ω₀² − γ²) is the damped frequency.
         When a periodic driving force F₀ cos(ωt) is added, the system reaches a steady state with amplitude:
       </p>
 
-      <EqNumbered number="8.5">A(ω) = F₀/m / √((ω₀² − ω²)² + (bω/m)²)</EqNumbered>
+      <EqNumbered number="8.5" latex="A(\omega) = \frac{F_0/m}{\sqrt{(\omega_0^2 - \omega^2)^2 + (b\omega/m)^2}}" />
 
       <p>
         The amplitude peaks near ω = ω₀ — this is <strong>resonance</strong>. At resonance, even a small driving
-        force can build up a very large amplitude if damping is small. This destroyed the Tacoma Narrows
-        Bridge in 1940 and must be engineered around in every building, bridge, and engine.
+        force can build up a very large amplitude if damping is small. A related wind-driven instability (aeroelastic flutter,
+        not simple forced resonance) destroyed the Tacoma Narrows Bridge in 1940; resonance must be engineered around in every building, bridge, and engine.
       </p>
 
       <Definition number="8.2" title="Common Traps">
@@ -194,12 +194,12 @@ export default function OscillationsPage() {
         </InteractiveProblem>
 
         <Problem n={4} difficulty="medium"
-          solution={<>Period T = 2π√(L/g) — independent of mass and amplitude (for small angles). So all three pendulums have the same period. This is isochronism — the defining property of SHM. (For the 30° case, the small-angle approximation gives T ≈ 2.07 s whereas the exact value is ≈ 2.11 s — about 2% longer.)</>}>
+          solution={<>Period T = 2π√(L/g) — independent of mass and amplitude (for small angles). So all three pendulums have the same period. This is isochronism — the defining property of SHM. (For the 30° case, the small-angle approximation gives T ≈ 2.01 s whereas the exact value is ≈ 2.04 s — about 2% longer.)</>}>
           Three pendulums all have length L = 1 m: (a) mass 100 g, amplitude 5°; (b) mass 500 g, amplitude 5°; (c) mass 100 g, amplitude 30°. Which has the longest period, and why?
         </Problem>
 
         <Problem n={5} difficulty="hard"
-          solution={<>The driving frequency ω must equal ω₀ = √(k/m). The amplitude equation A(ω) = (F₀/m)/√((ω₀²−ω²)²+(bω/m)²). At ω=ω₀ this simplifies to A = F₀/(bω₀) = F₀m/(bm√(k/m)) = F₀/(b√(km)). To halve the resonance amplitude: halve F₀, double b, or — noting A ∝ 1/b — increase damping by factor 2. Note: the resonance peak shifts to slightly below ω₀ for damped systems.</>}>
+          solution={<>The driving frequency ω must equal ω₀ = √(k/m). The amplitude equation <InlineMath latex="A(\omega) = \dfrac{F_0/m}{\sqrt{(\omega_0^2-\omega^2)^2+(b\omega/m)^2}}" />. At ω=ω₀ this simplifies to A = F₀/(bω₀) = F₀m/(bm√(k/m)) = F₀/(b√(km)). To halve the resonance amplitude: halve F₀, double b, or — noting A ∝ 1/b — increase damping by factor 2. Note: the resonance peak shifts to slightly below ω₀ for damped systems.</>}>
           A driven oscillator has resonance amplitude 5 cm with damping coefficient b = 0.2 N·s/m. How would you reduce the resonance amplitude to 2.5 cm? Give two independent methods.
         </Problem>
       </PracticeProblems>

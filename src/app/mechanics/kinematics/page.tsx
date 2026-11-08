@@ -1,5 +1,6 @@
 import ProjectileMotion from '@/components/sims/ProjectileMotion';
 import Projectile3DClient from '@/components/sims/Projectile3DClient';
+import { InlineMath } from '@/components/textbook/Equation';
 import {
   Definition, Theorem, WorkedExample, Step,
   PracticeProblems, Problem, InteractiveProblem, EqNumbered, Figure, Prerequisites, Takeaways, LearningGoals, HistoryNote,
@@ -52,7 +53,7 @@ export default function KinematicsPage() {
         >
           Free fall in Galileo's day lasted a fraction of a second — too fast for the water clocks of the era. Galileo understood that tilting a ramp would slow the ball without
           changing the underlying mathematics of accelerated motion. He polished his ramps, timed them with water flowing into a bucket, and weighed the water to measure intervals.
-          His results showed that distance grows as the square of time. He was sixty-nine years old and under house arrest when he published the Discourses — the book where kinematics
+          His results showed that distance grows as the square of time. He was seventy-four years old and under house arrest when he published the Discourses — the book where kinematics
           first appears in something like its modern form.
         </HistoryNote> matter so much: they made motion measurable before force was understood.
       </p>
@@ -101,7 +102,7 @@ export default function KinematicsPage() {
         In projectile motion (neglecting air resistance), the horizontal velocity component remains
         constant throughout the flight, while the vertical component changes at rate −g:
         <span style={{ display: 'block', margin: '0.75rem 0 0.25rem 1rem', fontStyle: 'italic' }}>
-          vₓ(t) = v₀ cos(θ) = const &nbsp;&nbsp;&nbsp; vᵧ(t) = v₀ sin(θ) − gt
+          <InlineMath latex="v_x(t) = v_0\cos\theta = \text{const}" /> &nbsp;&nbsp;&nbsp; <InlineMath latex="v_y(t) = v_0\sin\theta - gt" />
         </span>
         <span style={{ display: 'block', margin: '0.25rem 0 0.25rem 1rem', fontStyle: 'italic' }}>
           x(t) = v₀ cos(θ) · t &nbsp;&nbsp;&nbsp; y(t) = v₀ sin(θ) · t − ½gt²
@@ -143,7 +144,7 @@ export default function KinematicsPage() {
       <EqNumbered number="2.7" latex="x(t) = v_0\cos\theta\,t + \frac{1}{2}a_xt^2 \qquad y(t) = v_0\sin\theta\,t - \frac{1}{2}gt^2 \qquad z(t) = \frac{1}{2}a_\mathrm{wind}t^2" />
 
       <p>
-        With a sideways wind acceleration a_wind, the range projection in the xz-plane is a parabola in both
+        With a sideways wind acceleration <InlineMath latex="a_{\text{wind}}" />, the range projection in the xz-plane is a parabola in both
         the vertical (xy) and horizontal (xz) senses simultaneously — a <em>spatial</em> parabola.
       </p>
 
@@ -155,7 +156,7 @@ export default function KinematicsPage() {
         <p>A ball is thrown horizontally from a cliff 45 m high with speed 15 m/s. Find where it lands.</p>
         <Step label="Vertical (free fall):">y = ½gt² → 45 = ½(9.81)t² → t = √(90/9.81) = <strong>3.03 s</strong></Step>
         <Step label="Horizontal:">x = v₀t = 15 × 3.03 = <strong style={{color:'var(--ex-accent)'}}>45.5 m</strong> from the base of the cliff.</Step>
-        <Step label="Impact speed:">vₓ = 15 m/s, vᵧ = gt = 9.81 × 3.03 = 29.7 m/s → v = √(15² + 29.7²) = 33.2 m/s</Step>
+        <Step label="Impact speed:">vₓ = 15 m/s, v_y = gt = 9.81 × 3.03 = 29.7 m/s → v = √(15² + 29.7²) = 33.3 m/s</Step>
       </WorkedExample>
 
       <Definition number="2.2" title="Common Traps">
@@ -194,7 +195,7 @@ export default function KinematicsPage() {
         <InteractiveProblem n={3} difficulty="medium"
           answer={29.7} unit="m/s" tolerance={0.02}
           hints={[
-            'A horizontal throw has vᵧ₀ = 0. Find the time to fall 80 m first.',
+            'A horizontal throw has v_y0 = 0. Find the time to fall 80 m first.',
             'y = ½gt² → t = √(2h/g). Then vₓ = horizontal distance / t.',
           ]}
           problemText="A stone is thrown horizontally from the top of a building 80 m tall. It must land at least 120 m horizontally from the base. What minimum horizontal speed is needed? (g = 9.81 m/s²)"

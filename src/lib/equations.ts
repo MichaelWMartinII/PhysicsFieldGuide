@@ -2,7 +2,10 @@ export interface PhysicsEquation {
   id: string;
   name: string;
   latex: string;
+  /** Plain text, shown as-is wherever equations are listed (e.g. search). */
   description: string;
+  /** Optional typeset version for the equation sheet: $…$ spans render as inline LaTeX. */
+  descriptionTex?: string;
   sectionId: string;
   section: string;
   color: string;
@@ -90,6 +93,7 @@ export const equations: PhysicsEquation[] = [
     name: 'Kinetic Energy',
     latex: 'K = \\tfrac{1}{2}mv^2',
     description: 'Energy of motion. Scales as the square of speed. Work-energy theorem: W_net = ΔK.',
+    descriptionTex: 'Energy of motion. Scales as the square of speed. Work-energy theorem: $W_{\\text{net}} = \\Delta K$.',
     sectionId: 'mechanics', section: 'Classical Mechanics', color: '#3b82f6', tags: ['energy'],
   },
   {
@@ -97,6 +101,7 @@ export const equations: PhysicsEquation[] = [
     name: 'Gravitational Potential Energy',
     latex: 'U = mgh \\qquad \\left(U = -\\frac{GMm}{r}\\text{ exact}\\right)',
     description: 'Near-surface approximation (U = mgh) valid for h ≪ Re. Conservation: K + U = const.',
+    descriptionTex: 'Near-surface approximation (U = mgh) valid for $h \\ll R_E$. Conservation: K + U = const.',
     sectionId: 'mechanics', section: 'Classical Mechanics', color: '#3b82f6', tags: ['energy'],
   },
   {
@@ -104,6 +109,7 @@ export const equations: PhysicsEquation[] = [
     name: 'Linear Momentum',
     latex: '\\mathbf{p} = m\\mathbf{v}',
     description: 'Conserved in isolated systems. Newton\'s 2nd law: F_net = dp/dt.',
+    descriptionTex: 'Conserved in isolated systems. Newton\'s 2nd law: $\\mathbf{F}_{\\text{net}} = d\\mathbf{p}/dt$.',
     sectionId: 'mechanics', section: 'Classical Mechanics', color: '#3b82f6', tags: ['momentum'],
   },
   {
@@ -168,7 +174,7 @@ export const equations: PhysicsEquation[] = [
     id: 'pendulum-period',
     name: 'Period of a Simple Pendulum',
     latex: 'T = 2\\pi\\sqrt{\\frac{L}{g}}',
-    description: 'Valid for small angles (θ ≤ ≈15°). Independent of mass and amplitude for small oscillations.',
+    description: 'Valid for small angles (θ ≲ 15°). Independent of mass and amplitude for small oscillations.',
     sectionId: 'waves', section: 'Waves & Oscillations', color: '#10b981', tags: ['oscillations'],
   },
   {
@@ -213,6 +219,7 @@ export const equations: PhysicsEquation[] = [
     name: 'Ideal Gas Law',
     latex: 'PV = nRT',
     description: 'P pressure, V volume, n moles, R = 8.314 J/mol·K, T absolute temperature. Equivalently: PV = NkBT.',
+    descriptionTex: 'P pressure, V volume, n moles, R = 8.314 J/mol·K, T absolute temperature. Equivalently: $PV = Nk_BT$.',
     sectionId: 'thermo', section: 'Thermodynamics', color: '#f97316', tags: ['gas laws'],
   },
   {
@@ -241,6 +248,7 @@ export const equations: PhysicsEquation[] = [
     name: 'Carnot Efficiency',
     latex: '\\eta = 1 - \\frac{T_c}{T_h}',
     description: 'Maximum efficiency of any heat engine operating between hot reservoir Th and cold reservoir Tc (in kelvin).',
+    descriptionTex: 'Maximum efficiency of any heat engine operating between hot reservoir $T_h$ and cold reservoir $T_c$ (in kelvin).',
     sectionId: 'thermo', section: 'Thermodynamics', color: '#f97316', tags: ['heat engines'],
   },
   {
@@ -255,6 +263,7 @@ export const equations: PhysicsEquation[] = [
     name: 'Partition Function',
     latex: 'Z = \\sum_n e^{-E_n/k_BT}',
     description: 'Sum over all states weighted by Boltzmann factor. All thermodynamic quantities follow from Z: F = −kBT ln Z.',
+    descriptionTex: 'Sum over all states weighted by Boltzmann factor. All thermodynamic quantities follow from Z: $F = -k_BT\\ln Z$.',
     sectionId: 'thermo', section: 'Thermodynamics', color: '#f97316', tags: ['statistical mechanics'],
   },
 
@@ -336,6 +345,7 @@ export const equations: PhysicsEquation[] = [
     name: 'Thin Lens Equation',
     latex: '\\frac{1}{f} = \\frac{1}{d_o} + \\frac{1}{d_i}',
     description: 'Relates focal length f, object distance do, and image distance di. Works for mirrors with f = R/2.',
+    descriptionTex: 'Relates focal length f, object distance $d_o$, and image distance $d_i$. Works for mirrors with f = R/2.',
     sectionId: 'optics', section: 'Optics', color: '#eab308',
   },
   {

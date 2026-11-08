@@ -1,6 +1,6 @@
 import {
   Definition, WorkedExample, Step,
-  PracticeProblems, Problem, InteractiveProblem, EqNumbered, Prerequisites, Takeaways, LearningGoals
+  PracticeProblems, Problem, InteractiveProblem, EqNumbered, Prerequisites, Takeaways, LearningGoals, InlineMath
 } from '@/components/textbook';
 
 export default function HighEnergyAstrophysicsPage() {
@@ -28,8 +28,8 @@ export default function HighEnergyAstrophysicsPage() {
       <h2>HEA.1 Neutron Stars</h2>
 
       <p>
-        Neutron stars (NS): stellar remnants with M ~ 1.4 M_☉ compressed to R ~ 12 km.
-        Central density ρ ~ 5–10 ρ_nuc (ρ_nuc = 2.7×10¹⁴ g/cm³). Supported by neutron
+        Neutron stars (NS): stellar remnants with <InlineMath latex="M \sim 1.4\,M_\odot" /> compressed to R ~ 12 km.
+        Central density <InlineMath latex="\rho \sim 5\text{–}10\,\rho_{\text{nuc}}" /> (<InlineMath latex="\rho_{\text{nuc}} = 2.7\times 10^{14}\ \text{g/cm}^3" />). Supported by neutron
         degeneracy pressure (Fermi pressure of neutrons + nuclear interactions).
       </p>
 
@@ -37,13 +37,13 @@ export default function HighEnergyAstrophysicsPage() {
         <strong>Tolman-Oppenheimer-Volkoff (TOV) equation</strong>: the GR analog of hydrostatic equilibrium:
       </p>
 
-      <EqNumbered number="HEA.1">dP/dr = −(G/r²)(ρ + P/c²)(M + 4πr³P/c²)/(1 − 2GM/(rc²)) &nbsp;&nbsp;&nbsp; (TOV)</EqNumbered>
+      <EqNumbered number="HEA.1" latex="\frac{dP}{dr} = -\frac{G}{r^2}\,\frac{\left(\rho + P/c^2\right)\left(M + 4\pi r^3 P/c^2\right)}{1 - 2GM/(rc^2)} \qquad \text{(TOV)}" />
 
       <p>
         The factors (ρ + P/c²) and (1 − 2GM/(rc²)) are GR corrections — absent in Newtonian gravity.
-        Maximum NS mass (Oppenheimer-Volkoff limit): M_max depends on the nuclear equation of state (EOS).
-        Observed: J0348+0432, M = 2.01 M_☉; PSR J0952-0607, M ≈ 2.35 M_☉ — constrains EOS.
-        Minimum mass for a black hole (after NS collapse): M &gt; M_max ~ 2.3 M_☉.
+        Maximum NS mass (Oppenheimer-Volkoff limit): <InlineMath latex="M_{\text{max}}" /> depends on the nuclear equation of state (EOS).
+        Observed: J0348+0432, <InlineMath latex="M = 2.01\,M_\odot" />; PSR J0952-0607, <InlineMath latex="M \approx 2.35\,M_\odot" /> — constrains EOS.
+        Minimum mass for a black hole (after NS collapse): <InlineMath latex="M > M_{\text{max}} \sim 2.3\,M_\odot" />.
       </p>
 
       <Definition number="HEA.1" title="Pulsar">
@@ -51,7 +51,7 @@ export default function HighEnergyAstrophysicsPage() {
         Rotation frequency: up to f = 716 Hz (PSR J1748-2446ad). Lighthouse model:
         a misaligned rotating magnetic dipole radiates and sweeps a beam across Earth.
         Pulsar period derivative Ṗ gives the spindown luminosity:
-        L_sd = −4π²IṖ/P³ (I = NS moment of inertia ~ 10⁴⁵ g·cm²).
+        L_sd = 4π²IṖ/P³ (I = NS moment of inertia ~ 10⁴⁵ g·cm²).
         Surface magnetic field: B = 3.2×10¹⁹ √(PṖ) Gauss. Pulsars are the most accurate
         clocks in nature (stability 10⁻¹⁴ — rivaling atomic clocks at long basescales).
       </Definition>
@@ -63,19 +63,19 @@ export default function HighEnergyAstrophysicsPage() {
         Efficiency η = ΔE/Mc²:
       </p>
 
-      <EqNumbered number="HEA.2">L = η Ṁ c² &nbsp;&nbsp;&nbsp; η_NS ≈ GM/(Rc²) ≈ 0.2, &nbsp; η_BH ≈ 0.06–0.42 (depends on spin)</EqNumbered>
+      <EqNumbered number="HEA.2" latex="L = \eta \dot M c^2 \qquad \eta_{\text{NS}} \approx \frac{GM}{Rc^2} \approx 0.2, \quad \eta_{\text{BH}} \approx 0.06\text{–}0.42\ \text{(depends on spin)}" />
 
       <p>
-        For a 1 M_☉ NS (R = 10 km): η ≈ 0.2 — 20% mass-to-energy conversion.
-        Compare: nuclear fusion η_nuc ≈ 0.007 (0.7%). Accretion is the most efficient
+        For a 1.4 M☉ NS (R = 10 km): η ≈ 0.2 — 20% mass-to-energy conversion.
+        Compare: nuclear fusion <InlineMath latex="\eta_{\text{nuc}} \approx 0.007" /> (0.7%). Accretion is the most efficient
         known energy source (after matter-antimatter annihilation η = 1).
       </p>
 
       <p>
         <strong>Eddington luminosity</strong>: maximum luminosity before radiation pressure
         exceeds gravity (for electron scattering opacity):
-        L_Edd = 4πGMm_p c/σ_T = 1.26×10³⁸ erg/s × (M/M_☉). Above L_Edd: super-Eddington
-        accretion (jets, winds). ULX sources (ultra-luminous X-ray): L &gt; L_Edd for M = 1 M_☉ —
+        <InlineMath latex="L_{\text{Edd}} = 4\pi G M m_p c/\sigma_T = 1.26\times 10^{38}\ \text{erg/s} \times (M/M_\odot)" />. Above <InlineMath latex="L_{\text{Edd}}" />: super-Eddington
+        accretion (jets, winds). ULX sources (ultra-luminous X-ray): <InlineMath latex="L > L_{\text{Edd}}" /> for M = 1 M☉ —
         either super-Eddington accretion or intermediate-mass BHs.
       </p>
 
@@ -93,24 +93,24 @@ export default function HighEnergyAstrophysicsPage() {
       <h2>HEA.3 Black Hole Physics</h2>
 
       <p>
-        <strong>Schwarzschild BH</strong>: ds² = −(1−r_s/r)c²dt² + dr²/(1−r_s/r) + r²dΩ².
-        Event horizon at r = r_s = 2GM/c². Last stable circular orbit (ISCO): r_ISCO = 3r_s = 6GM/c²
-        (Schwarzschild). Efficiency of accretion: η = 1 − √(1−2/3) × ... = 1 − √(8/9) ≈ 5.7%.
+        <strong>Schwarzschild BH</strong>: <InlineMath latex="ds^2 = -(1 - r_s/r)c^2dt^2 + dr^2/(1 - r_s/r) + r^2 d\Omega^2" />.
+        Event horizon at <InlineMath latex="r = r_s = 2GM/c^2" />. Last stable circular orbit (ISCO): <InlineMath latex="r_{\text{ISCO}} = 3r_s = 6GM/c^2" />
+        (Schwarzschild). Efficiency of accretion: <InlineMath latex="\eta = 1 - E_{\text{ISCO}}/mc^2 = 1 - \sqrt{8/9} \approx 5.7\%" />.
       </p>
 
       <p>
-        <strong>Kerr BH</strong> (rotating): ergosphere at r = r_s (equator), ISCO shrinks.
+        <strong>Kerr BH</strong> (rotating): ergosphere at <InlineMath latex="r = r_s" /> (equator), ISCO shrinks.
         Penrose process: extract energy from BH by splitting particle in ergosphere —
         one fragment falls in, the other escapes with more energy than the original.
-        Maximum extractable rotational energy: 29% of M_BH c². Blandford-Znajek mechanism:
+        Maximum extractable rotational energy: 29% of <InlineMath latex="M_{\text{BH}} c^2" />. Blandford-Znajek mechanism:
         magnetic field threading a spinning BH drives relativistic jets.
       </p>
 
       <p>
-        <strong>Supermassive BHs</strong>: M = 10⁶–10¹⁰ M_☉ in galactic nuclei (AGN, quasars).
-        M87* image (Event Horizon Telescope, 2019): M = 6.5×10⁹ M_☉, r_s = 19 billion km,
+        <strong>Supermassive BHs</strong>: M = 10⁶–10¹⁰ M☉ in galactic nuclei (AGN, quasars).
+        M87* image (Event Horizon Telescope, 2019): M = 6.5×10⁹ M☉, <InlineMath latex="r_s" /> = 19 billion km,
         shadow diameter ≈ 40 μas — resolved at radio wavelengths.
-        Sgr A* (Milky Way center): M = 4.15×10⁶ M_☉, image released 2022.
+        Sgr A* (Milky Way center): M = 4.15×10⁶ M☉, image released 2022.
       </p>
 
       <h2>HEA.4 Gamma-Ray Bursts and Cosmic Rays</h2>
@@ -128,16 +128,16 @@ export default function HighEnergyAstrophysicsPage() {
       <p>
         <strong>Fireball model</strong>: opacity problem solved if jet is ultra-relativistic (Γ &gt; 100):
         comoving photon energy E' = E/Γ drops below pair-production threshold.
-        Compactness parameter: ℓ = (σ_T L)/(4πR²m_ec³) — requires Γ ≥ 100 to give ℓ &lt; 1 (transparent).
+        Compactness parameter: <InlineMath latex="\ell = \sigma_T L/(4\pi R\, m_e c^3)" /> — requires Γ ≥ 100 to give ℓ &lt; 1 (transparent).
       </p>
 
       <p>
         <strong>Ultra-high-energy cosmic rays</strong> (UHECR): E &gt; 10¹⁸ eV (EeV).
         GZK cutoff (Greisen-Zatsepin-Kuzmin, 1966): protons above 5×10¹⁹ eV interact with CMB
-        photons: p + γ_CMB → Δ⁺ → n + π⁺ — lose energy over ~50 Mpc.
+        photons: <InlineMath latex="p + \gamma_{\text{CMB}} \to \Delta^+ \to n + \pi^+" /> — lose energy over ~50 Mpc.
         Sources: AGN, magnetars, NS mergers (uncertain). Air shower experiments:
         Auger Observatory (Argentina), Telescope Array (Utah).
-        Maximum energy from acceleration: E_max = ZeBR (Hillas criterion, B = field, R = size).
+        Maximum energy from acceleration: <InlineMath latex="E_{\text{max}} = ZeBR" /> (Hillas criterion, B = field, R = size).
       </p>
 
       <Definition number="HEA.2" title="Common Traps">
@@ -162,7 +162,7 @@ export default function HighEnergyAstrophysicsPage() {
         </InteractiveProblem>
 
         <Problem n={2} difficulty="medium"
-          solution={<>TOV equation for neutron star mass limit. At the center (r→0): M(r) ≈ 4πρ_c r³/3. For a uniform-density star (ρ = const, P varying), TOV gives: P(r) = ρc²[(1-2GM r²/(R³c²))^(1/2) - (1-2GM/Rc²)^(1/2)] / [3(1-2GM/Rc²)^(1/2) - (1-2GM r²/(R³c²))^(1/2)]. Central pressure diverges when denominator → 0: (1-2GM/Rc²)^(1/2) = 1/3 → 2GM/Rc² = 8/9 → R = 9GM/(4c²) = 9r_s/8. This is the Buchdahl limit: any self-gravitating star must have R &gt; 9GM/(4c²) = 2.25r_s. For NS: M_max ~ 0.7 M_☉ (simple uniform density) but realistic EOS give 2-3 M_☉. For stiff EOS (high P at high ρ): larger M_max. For soft EOS: smaller M_max. GW170817 neutron star merger: chirp mass + tidal deformability parameter Λ (ratio of induced quadrupole to tidal field) constrain R ≈ 11-13 km and M_max &gt; 2.17 M_☉. This rules out very soft EOS (like free quark matter with no interaction).</>}>
+          solution={<>TOV equation for neutron star mass limit. At the center (r→0): M(r) ≈ 4πρ_c r³/3. For a uniform-density star (ρ = const, P varying), TOV gives: P(r) = ρc²[(1-2GM r²/(R³c²))^(1/2) - (1-2GM/Rc²)^(1/2)] / [3(1-2GM/Rc²)^(1/2) - (1-2GM r²/(R³c²))^(1/2)]. Central pressure diverges when denominator → 0: (1-2GM/Rc²)^(1/2) = 1/3 → 2GM/Rc² = 8/9 → R = 9GM/(4c²) = 9r_s/8. This is the Buchdahl limit: any self-gravitating star must have R &gt; 9GM/(4c²) = 1.125r_s. For NS: M_max ~ 0.7 M_☉ (simple uniform density) but realistic EOS give 2-3 M_☉. For stiff EOS (high P at high ρ): larger M_max. For soft EOS: smaller M_max. GW170817 neutron star merger: chirp mass + tidal deformability parameter Λ (ratio of induced quadrupole to tidal field) constrain R ≈ 11-13 km and M_max ≲ 2.2 M_☉ (the merger remnant collapsed to a black hole). This rules out very soft EOS (like free quark matter with no interaction).</>}>
           Discuss the Tolman-Oppenheimer-Volkoff equation and the neutron star maximum mass. What is the Buchdahl limit and how do GW observations constrain the nuclear equation of state?
         </Problem>
 
@@ -173,12 +173,12 @@ export default function HighEnergyAstrophysicsPage() {
             'CMB photon energy: E_γ ~ 2.7 k_B T_CMB ≈ 6.3×10⁻⁴ eV. Compute (M_Δ²-m_p²)×10¹⁸ eV² and divide by 4E_γ.',
           ]}
           problemText="Derive the GZK cutoff energy for cosmic ray protons interacting with CMB photons via p + γ → Δ⁺(1232). Use M_Δ = 1.232 GeV, m_p = 0.938 GeV, and CMB temperature 2.725 K. Express your answer in eV."
-          solution={<>GZK cutoff calculation: CMB photons at T = 2.725 K have energy E_CMB ~ 2.7k_BT ~ 6.3×10⁻⁴ eV. Pion production threshold: p + γ → Δ⁺(1232) → p + π⁰ or n + π⁺. Delta resonance mass M_Δ = 1.232 GeV. Threshold condition in CM frame: s = (M_Δc²)² = (E_p + E_γ)² - (p_p + p_γ)²c² ≈ 2E_p E_γ(1-cosθ) + m_p²c⁴. Head-on collision (cosθ=-1): 2E_p E_γ × 2 = M_Δ²c⁴ - m_p²c⁴. E_p^(GZK) = (M_Δ²-m_p²)c⁴/(4E_γ) = ((1.232)²-(0.938)²)×10¹⁸ eV² / (4 × 6.3×10⁻⁴ eV) = (1.518-0.880)×10¹⁸ / (2.52×10⁻³) eV = 6.38×10¹⁷/2.52×10⁻³ eV ≈ 2.5×10²⁰ eV. Above this energy, the proton loses ~20% energy per interaction. Mean free path ~ 1/(n_CMB σ_Δ) ~ 6 Mpc. After ~10 interactions (loss of factor e): E drops to GZK. Sources above 5×10¹⁹ eV must be within ~50 Mpc — the GZK horizon. Auger data (2017): mild suppression near 6×10¹⁹ eV consistent with GZK. Sources correlated with nearby AGN (Centaurus A at 3.8 Mpc is nearest).</>}>
+          solution={<>GZK cutoff calculation: CMB photons at T = 2.725 K have energy E_CMB ~ 2.7k_B T ~ 6.3×10⁻⁴ eV. Pion production threshold: p + γ → Δ⁺(1232) → p + π⁰ or n + π⁺. Delta resonance mass M_Δ = 1.232 GeV. Threshold condition in CM frame: s = (M_Δc²)² = (E_p + E_γ)² - (p_p + p_γ)²c² ≈ 2E_p E_γ(1-cosθ) + m_p²c⁴. Head-on collision (cosθ=-1): 2E_p E_γ × 2 = M_Δ²c⁴ - m_p²c⁴. E_p^(GZK) = (M_Δ²-m_p²)c⁴/(4E_γ) = ((1.232)²-(0.938)²)×10¹⁸ eV² / (4 × 6.3×10⁻⁴ eV) = (1.518-0.880)×10¹⁸ / (2.52×10⁻³) eV = 6.38×10¹⁷/2.52×10⁻³ eV ≈ 2.5×10²⁰ eV. Above this energy, the proton loses ~20% energy per interaction. Mean free path ~ 1/(n_CMB σ_Δ) ~ 6 Mpc. After ~10 interactions (energy down by a factor ~10): E drops to GZK. Sources above 5×10¹⁹ eV must be within ~50 Mpc — the GZK horizon. Auger data (2017): mild suppression near 6×10¹⁹ eV consistent with GZK. Sources correlated with nearby AGN (Centaurus A at 3.8 Mpc is nearest).</>}>
           Derive the GZK cutoff energy for cosmic ray protons interacting with CMB photons. What is the &quot;GZK horizon&quot; — the maximum distance from which UHECR can reach Earth?
         </InteractiveProblem>
 
         <Problem n={4} difficulty="hard"
-          solution={<>Pulsar timing and gravitational wave background: millisecond pulsars (MSP) have P ~ 1-10 ms, Ṗ ~ 10⁻²⁰ s/s (recycled by accretion). Timing residual: deviation of pulse arrival time from the model. A GW background h(t,Ω̂) causes correlated timing residuals between pulsars i,j. Cross-correlation: C(ζ_ij) depends on the angular separation ζ_ij between pulsars — the Hellings-Downs curve: Γ(ζ) = ½ - ¼(1-cos ζ)/2 × [ln((1-cosζ)/2) - 1/6] + δ(ζ)/2. GW background spectrum: h_c(f) (characteristic strain). NANOGrav 15-year dataset (2023): 68 pulsars, baseline 15 yr, cadence ~monthly. Detected GWB: h_c ~ 2.4×10⁻¹⁵ at f = 1/yr, spectral index consistent with SMBH binary background (h_c ~ f^(-2/3)). Significance: Hellings-Downs angular correlation measured at 3σ → 4σ, confirming GW origin. Signal consistent with population of SMBH binaries at z=1-3. Possible contributions: cosmic strings, inflation, phase transitions. Future with SKA (Square Kilometer Array): 10× more pulsars, 100× better sensitivity → identify individual SMBH binaries below the confusion noise.</>}>
+          solution={<>Pulsar timing and gravitational wave background: millisecond pulsars (MSP) have P ~ 1-10 ms, Ṗ ~ 10⁻²⁰ s/s (recycled by accretion). Timing residual: deviation of pulse arrival time from the model. A GW background h(t,Ω̂) causes correlated timing residuals between pulsars i,j. Cross-correlation: C(ζ_ij) depends on the angular separation ζ_ij between pulsars — the Hellings-Downs curve: Γ(ζ) = ½ + (3/2)x[ln x − 1/6] + δ(ζ)/2, with x = (1 − cos ζ)/2. GW background spectrum: h_c(f) (characteristic strain). NANOGrav 15-year dataset (2023): 68 pulsars, baseline 15 yr, cadence ~monthly. Detected GWB: h_c ~ 2.4×10⁻¹⁵ at f = 1/yr, spectral index consistent with SMBH binary background (h_c ~ f^(-2/3)). Significance: Hellings-Downs angular correlation measured at 3σ → 4σ, confirming GW origin. Signal consistent with population of SMBH binaries at z=1-3. Possible contributions: cosmic strings, inflation, phase transitions. Future with SKA (Square Kilometer Array): 10× more pulsars, 100× better sensitivity → identify individual SMBH binaries below the confusion noise.</>}>
           Explain pulsar timing arrays as gravitational wave detectors. What is the Hellings-Downs correlation? Describe the NANOGrav 2023 detection of the gravitational wave background.
         </Problem>
       </PracticeProblems>
@@ -189,7 +189,7 @@ export default function HighEnergyAstrophysicsPage() {
         'Accretion efficiency: η ~ 6-42% for BH (vs 0.7% for fusion). L_Edd = 1.26×10³⁸(M/M_☉) erg/s.',
         'Kerr BH: ergosphere, Penrose process (29% rotational energy extractable), Blandford-Znajek jet mechanism.',
         'GRBs: short = NS mergers (GW170817 confirmed). Long = collapsars, Γ ~ 300, E ~ 10⁵² erg. Internal shock model.',
-        'GZK cutoff: E_GZK ~ 5×10¹⁹ eV. UHECR from &gt;10²⁰ eV must originate within ~50 Mpc (GZK horizon).',
+        'GZK cutoff: E_GZK ~ 5×10¹⁹ eV. UHECR from >10²⁰ eV must originate within ~50 Mpc (GZK horizon).',
       ]} />
     </div>
   );

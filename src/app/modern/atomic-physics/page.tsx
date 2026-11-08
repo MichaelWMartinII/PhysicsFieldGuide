@@ -1,6 +1,6 @@
 import {
   Definition, WorkedExample, Step,
-  PracticeProblems, Problem, InteractiveProblem, EqNumbered, Prerequisites, Takeaways, LearningGoals
+  PracticeProblems, Problem, InteractiveProblem, EqNumbered, Prerequisites, Takeaways, LearningGoals, InlineMath
 } from '@/components/textbook';
 
 export default function AtomicPhysicsPage() {
@@ -31,10 +31,10 @@ export default function AtomicPhysicsPage() {
         coordinates. The energy levels:
       </p>
 
-      <EqNumbered number="AT.1">E_n = −13.6 eV / n² &nbsp;&nbsp;&nbsp; (n = 1, 2, 3, ...) &nbsp;&nbsp;&nbsp; (hydrogen energy levels)</EqNumbered>
+      <EqNumbered number="AT.1" latex="E_n = -\frac{13.6\ \text{eV}}{n^2} \qquad (n = 1, 2, 3, \ldots) \qquad \text{(hydrogen energy levels)}" />
 
       <p>
-        The wavefunctions ψ_nlm = R_nl(r) Y_l^m(θ,φ) where:
+        The wavefunctions <InlineMath latex="\psi_{nlm} = R_{nl}(r)\, Y_l^m(\theta,\phi)" /> where:
         n = 1, 2, 3, ... (principal), l = 0, 1, ..., n−1 (angular), m = −l, ..., +l (magnetic).
         Degeneracy: n² (including spin: 2n²).
       </p>
@@ -48,11 +48,11 @@ export default function AtomicPhysicsPage() {
         <strong>Fine structure</strong> splits levels with the same n but different l,j:
       </p>
 
-      <EqNumbered number="AT.2">E_nj = −13.6 eV/n² × [1 + (α²/n²)(n/(j+½) − 3/4)] &nbsp;&nbsp;&nbsp; (Dirac formula)</EqNumbered>
+      <EqNumbered number="AT.2" latex="E_{nj} = -\frac{13.6\ \text{eV}}{n^2}\left[1 + \frac{\alpha^2}{n^2}\left(\frac{n}{j+\frac{1}{2}} - \frac{3}{4}\right)\right] \qquad \text{(Dirac formula)}" />
 
       <p>
         where α = e²/(4πε₀ℏc) ≈ 1/137 is the fine structure constant and j = l ± ½.
-        The 2p_(1/2) and 2s_(1/2) states are predicted to be degenerate by the Dirac equation
+        The <InlineMath latex="2p_{1/2}" /> and <InlineMath latex="2s_{1/2}" /> states are predicted to be degenerate by the Dirac equation
         — but they differ by the <strong>Lamb shift</strong> (1057 MHz, due to QED vacuum fluctuations).
       </p>
 
@@ -60,7 +60,7 @@ export default function AtomicPhysicsPage() {
 
       <p>
         For atoms with Z electrons, the Hamiltonian includes electron-electron repulsion:
-        H = Σᵢ [p_i²/(2m) − Ze²/rᵢ] + Σ_(i&lt;j) e²/rᵢⱼ (atomic units: ℏ=m=e=1).
+        <InlineMath latex="H = \sum_i \left[\frac{p_i^2}{2m} - \frac{Ze^2}{r_i}\right] + \sum_{i<j} \frac{e^2}{r_{ij}}" /> (atomic units: ℏ = m = e = 1).
       </p>
 
       <p>
@@ -80,7 +80,7 @@ export default function AtomicPhysicsPage() {
       </p>
 
       <p>
-        <strong>Term symbols</strong>: ²S+¹L_J. Example: carbon ground state (2p²):
+        <strong>Term symbols</strong>: <InlineMath latex="{}^{2S+1}L_J" />. Example: carbon ground state (2p²):
         S = 1, L = 1, J = 0 → ³P₀. Iron (3d⁶): S = 2, L = 2, J = 4 → ⁵D₄.
       </p>
 
@@ -90,7 +90,7 @@ export default function AtomicPhysicsPage() {
         Electric dipole transitions (strongest, determines most spectroscopy):
       </p>
 
-      <EqNumbered number="AT.3">Δl = ±1 &nbsp;&nbsp;&nbsp; Δm = 0, ±1 &nbsp;&nbsp;&nbsp; Δj = 0, ±1 &nbsp;&nbsp;&nbsp; Δs = 0 &nbsp;&nbsp;&nbsp; (E1 selection rules)</EqNumbered>
+      <EqNumbered number="AT.3" latex="\Delta l = \pm 1 \qquad \Delta m = 0, \pm 1 \qquad \Delta j = 0, \pm 1 \qquad \Delta s = 0 \qquad \text{(E1 selection rules)}" />
 
       <p>
         These follow from parity conservation and angular momentum conservation of the photon.
@@ -114,36 +114,36 @@ export default function AtomicPhysicsPage() {
         <Step label="States:">3s: l=0, j=1/2, mⱼ=±1/2. 3p: l=1, j=3/2 (²P_(3/2)) or j=1/2 (²P_(1/2)).</Step>
         <Step label="Energy shift:">ΔE = g_J μ_B B mⱼ where g_J is the Landé g-factor: g_J = 1 + [J(J+1)+S(S+1)−L(L+1)]/(2J(J+1)).</Step>
         <Step label="g-factors:">For ²S_(1/2) (3s): L=0, S=1/2, J=1/2 → g_J = 2. For ²P_(1/2): L=1, S=1/2, J=1/2 → g_J = 2/3. For ²P_(3/2): L=1, S=1/2, J=3/2 → g_J = 4/3.</Step>
-        <Step label="D₁ line (3s→³P_(1/2)):">Transitions: mⱼ = +1/2 → mⱼ = +1/2, −1/2 (Δmⱼ = 0, −1); mⱼ = −1/2 → mⱼ = +1/2, −1/2. Splitting: Δν = μ_B B(g_J(upper)−g_J(lower)) × mⱼ/(h) — gives 4 lines (anomalous Zeeman).</Step>
+        <Step label="D₁ line (3s → 3p ²P₁/₂):">Transitions: mⱼ = +1/2 → mⱼ = +1/2, −1/2 (Δmⱼ = 0, −1); mⱼ = −1/2 → mⱼ = +1/2, −1/2. Splitting: Δν = μ_B B(g_u m_u − g_l m_l)/h, with g_u = 2/3 (upper ²P_(1/2)) and g_l = 2 (lower ²S_(1/2)) — gives 4 lines (anomalous Zeeman).</Step>
         <Step label="Scale:">μ_B B/h = 1.4×10¹⁰ B Hz. For B = 1 T: splitting ≈ 14 GHz (0.016 nm at 589 nm). With B = 10 mT (lab magnet): 140 MHz → easily resolved by a spectrometer.</Step>
       </WorkedExample>
 
       <h2>AT.4 Laser Cooling and Trapping</h2>
 
       <p>
-        <strong>Doppler cooling</strong>: an atom moving toward a red-detuned laser (ω &lt; ω_0)
-        sees the photon blue-shifted into resonance (ω + kv ≈ ω_0). Each absorbed photon
+        <strong>Doppler cooling</strong>: an atom moving toward a red-detuned laser (ω &lt; ω₀)
+        sees the photon blue-shifted into resonance (ω + kv ≈ ω₀). Each absorbed photon
         transfers momentum −ℏk (opposing motion). Spontaneously emitted photons go in
         random directions — average to zero. Net force: F = −αv (friction, Doppler cooling force).
       </p>
 
       <p>
-        Doppler cooling limit: T_D = ℏΓ/(2k_B) where Γ is the natural linewidth. For Na
-        (Γ/2π = 10 MHz): T_D = 240 μK. Achieved in 1985 (Chu, Cohen-Tannoudji, Phillips;
+        Doppler cooling limit: <InlineMath latex="T_D = \hbar\Gamma/(2k_B)" /> where Γ is the natural linewidth. For Na
+        (Γ/2π = 10 MHz): <InlineMath latex="T_D = 240\ \mu\text{K}" />. Achieved in 1985 (Chu, Cohen-Tannoudji, Phillips;
         Nobel 1997).
       </p>
 
       <p>
         <strong>Sub-Doppler cooling</strong> (polarization gradient, Sisyphus):
-        T_min = ℏΓ/(2k_B) × (Γ/4Ω)² where Ω is the Rabi frequency. Can reach
+        <InlineMath latex="T_{\text{min}} = \frac{\hbar\Gamma}{2k_B}\left(\frac{\Gamma}{4\Omega}\right)^2" /> where Ω is the Rabi frequency. Can reach
         T ~ μK for weak fields.
       </p>
 
       <p>
         <strong>Bose-Einstein condensation</strong> (BEC) of ultracold atoms: achieved
-        when the de Broglie wavelength λ_dB = h/√(2πmk_BT) exceeds the interparticle spacing
-        n^(1/3). Transition temperature T_BEC ≈ (ℏ²/mk_B)(n/ζ(3/2))^(2/3) ≈ 100 nK – 1 μK
-        for typical alkali densities. First achieved in Rb⁸⁷ (Cornell and Wieman) and Na²³
+        when the de Broglie wavelength <InlineMath latex="\lambda_{\text{dB}} = h/\sqrt{2\pi m k_B T}" /> exceeds the interparticle spacing
+        <InlineMath latex="n^{-1/3}" />. Transition temperature <InlineMath latex="T_{\text{BEC}} \approx \frac{2\pi\hbar^2}{m k_B}\left(\frac{n}{\zeta(3/2)}\right)^{2/3}" /> ≈ 100 nK – 1 μK
+        for typical alkali densities. First achieved in ⁸⁷Rb (Cornell and Wieman) and ²³Na
         (Ketterle), 1995 (Nobel 2001).
       </p>
 
@@ -158,7 +158,7 @@ export default function AtomicPhysicsPage() {
         <strong>Optical lattice clocks</strong> (Sr, Yb, Hg): use optical transitions at
         ∼10¹⁵ Hz, achieving 10⁻¹⁸ fractional uncertainty — better than the Cs standard by 100×.
         This is so precise it can measure gravitational redshift due to a 1 cm height difference
-        (ΔGR/c² ≈ 1.1×10⁻¹⁸/cm). Applications: relativistic geodesy, dark matter searches,
+        (<InlineMath latex="g\,\Delta h/c^2 \approx 1.1\times 10^{-18}" /> per cm). Applications: relativistic geodesy, dark matter searches,
         variation of fundamental constants.
       </p>
 
@@ -182,7 +182,7 @@ export default function AtomicPhysicsPage() {
           answer={10.9e9} unit="Hz" tolerance={0.05}
           hints={['The fine structure splitting goes as ΔE_FS ∝ α² × |E_n|; for n=2: ΔE ≈ (α²/4) × 3.4 eV × 1', 'Convert eV to Hz: divide by h = 4.136×10⁻¹⁵ eV·s']}
           problemText="Calculate the fine structure splitting (in Hz) between the 2p_(3/2) and 2p_(1/2) states of hydrogen using the Dirac formula with α = 1/137 and E_2 = −3.4 eV."
-          solution={<>Hydrogen fine structure: E_nj = −13.6/n² × [1 + α²/n²(n/(j+½)−3/4)] eV. For n=2: E_2 = −3.4 eV. Fine structure correction: ΔE_2j = E_2 × α²/4 × (4/(2j+1) − 3) / 4. For 2p_(3/2), j=3/2: ΔE = −3.4 × (1/137)² / 4 × (4/4 − 3) = −3.4 × 5.33×10⁻⁵ × (−2) = 3.6×10⁻⁴ eV. For 2p_(1/2)=2s_(1/2), j=1/2: (4/2 − 3) = −1 → ΔE = 1.8×10⁻⁴ eV. Splitting 2p_(3/2) − 2p_(1/2): ΔE_FS = (α²/4) × E_2 × (4/2−4/4) = (α²/4) × 3.4 × 1 = 4.5×10⁻⁵ eV = 10.9 GHz. But the Lamb shift (QED) separates 2s_(1/2) from 2p_(1/2) by 1057 MHz ≪ 10.9 GHz. The fine structure splitting 2p_(3/2) − 2p_(1/2) = 10.9 GHz is visible in the Na D-line doublet as the 0.6 nm separation. Fine structure constant α = 1/137 sets the scale of all atomic spectra relative to Bohr energies.</>}>
+          solution={<>Hydrogen fine structure: E_nj = −13.6/n² × [1 + α²/n²(n/(j+½)−3/4)] eV. For n=2: E_2 = −3.4 eV. Fine structure correction: ΔE_2j = E_2 × (α²/4) × (4/(2j+1) − 3/4). For 2p_(3/2), j=3/2: ΔE = −3.4 × (1/137)²/4 × (4/4 − 3/4) = −3.4 × 1.33×10⁻⁵ × 0.25 = −1.13×10⁻⁵ eV. For 2p_(1/2)=2s_(1/2), j=1/2: (4/2 − 3/4) = 5/4 → ΔE = −5.66×10⁻⁵ eV. Splitting 2p_(3/2) − 2p_(1/2): ΔE_FS = (α²/4) × E_2 × (4/2−4/4) = (α²/4) × 3.4 × 1 = 4.5×10⁻⁵ eV = 10.9 GHz. But the Lamb shift (QED) separates 2s_(1/2) from 2p_(1/2) by 1057 MHz ≪ 10.9 GHz. The same 3p fine structure in sodium is much larger (≈ 515 GHz) and appears as the 0.6 nm separation of the Na D-line doublet. Fine structure constant α = 1/137 sets the scale of all atomic spectra relative to Bohr energies.</>}>
           Calculate the fine structure splitting between the 2p_(3/2) and 2p_(1/2) states of hydrogen. How does the Lamb shift compare?
         </InteractiveProblem>
 
@@ -195,7 +195,7 @@ export default function AtomicPhysicsPage() {
         </InteractiveProblem>
 
         <Problem n={3} difficulty="medium"
-          solution={<>Doppler cooling: atom of mass m in 1D, laser detuning δ = ω_L − ω_0 &lt; 0 (red-detuned). Scattering rate: Γ_sc(v) = (Γ/2) × (Ω²/2)/((δ+kv)² + Γ²/2 + Ω²/2). Expanding for small v: Γ_sc ≈ Γ_sc(0) + dΓ_sc/dv × v. Cooling force: F = ℏk[Γ_sc(+k) − Γ_sc(−k)] for counter-propagating beams. F = −αv where α = 8ℏk²|δ|Γ(Ω/2)²/((δ²+Γ²/2+Ω²/2)²). Optimal detuning δ = −Γ/2: α_max = ℏk²Γ/2 × I/I_sat/(1+I/I_sat)². Doppler limit from heating (photon recoil): D_p = ℏ²k²Γ/2 (momentum diffusion). Equilibrium: αk_BT_D = D_p → T_D = ℏΓ/(2k_B). For Rb-87 (Γ = 2π×6.07 MHz): T_D = 1.055×10⁻³⁴×2π×6.07×10⁶/(2×1.38×10⁻²³) = 146 μK. For Na (Γ = 2π×9.8 MHz): T_D = 236 μK. Achieved temperatures routinely 2-3× T_D in 3D MOT (magneto-optical trap).</>}>
+          solution={<>Doppler cooling: atom of mass m in 1D, laser detuning δ = ω_L − ω_0 &lt; 0 (red-detuned). Scattering rate: Γ_sc(v) = (Γ/2) × (Ω²/2)/((δ+kv)² + Γ²/2 + Ω²/2). Expanding for small v: Γ_sc ≈ Γ_sc(0) + dΓ_sc/dv × v. Cooling force: F = ℏk[Γ_sc(+k) − Γ_sc(−k)] for counter-propagating beams. F = −αv where α = 8ℏk²|δ|Γ(Ω/2)²/((δ²+Γ²/2+Ω²/2)²). Optimal detuning δ = −Γ/2: α_max = ℏk²Γ/2 × I/I_sat/(1+I/I_sat)². Doppler limit from heating (photon recoil): D_p = ℏ²k²Γ/2 (momentum diffusion). Equilibrium: αk_B T_D = D_p → T_D = ℏΓ/(2k_B). For Rb-87 (Γ = 2π×6.07 MHz): T_D = 1.055×10⁻³⁴×2π×6.07×10⁶/(2×1.38×10⁻²³) = 146 μK. For Na (Γ = 2π×9.8 MHz): T_D = 236 μK. Achieved temperatures routinely 2-3× T_D in 3D MOT (magneto-optical trap).</>}>
           Derive the Doppler cooling force and the Doppler temperature limit T_D = ℏΓ/(2k_B) for rubidium (Γ = 2π × 6.07 MHz). What temperature is achieved in practice?
         </Problem>
 

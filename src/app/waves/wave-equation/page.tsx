@@ -1,6 +1,6 @@
 import {
   Definition, Theorem, WorkedExample, Step,
-  PracticeProblems, Problem, InteractiveProblem, EqNumbered, Prerequisites, Takeaways, LearningGoals
+  PracticeProblems, Problem, InteractiveProblem, EqNumbered, InlineMath, Prerequisites, Takeaways, LearningGoals
 } from '@/components/textbook';
 
 export default function WaveEquationPage() {
@@ -45,7 +45,7 @@ export default function WaveEquationPage() {
         The general solution to the 1D wave equation with initial conditions y(x,0) = f(x)
         and ∂y/∂t(x,0) = g(x) is:
         <span style={{ display: 'block', textAlign: 'center', marginTop: '0.5rem', fontStyle: 'italic' }}>
-          y(x, t) = ½[f(x−vt) + f(x+vt)] + (1/2v) ∫(x−vt to x+vt) g(s) ds
+          <InlineMath latex="y(x, t) = \tfrac{1}{2}\left[f(x-vt) + f(x+vt)\right] + \frac{1}{2v}\int_{x-vt}^{x+vt} g(s)\,ds" />
         </span>
         The first term is the superposition of two copies of the initial shape — one traveling
         right at speed v, one left at speed v. Every solution is a sum of rightward and
@@ -86,7 +86,7 @@ export default function WaveEquationPage() {
 
       <p>
         The coefficients Aₙ and Bₙ are determined by the initial conditions via Fourier
-        sine series — Aₙ = (2/L)∫(0 to L) f(x) sin(nπx/L) dx.
+        sine series — <InlineMath latex="A_n = \frac{2}{L}\int_0^L f(x)\sin(n\pi x/L)\,dx" />.
       </p>
 
       <h2>WE.4 Dispersion Relations</h2>
@@ -123,8 +123,8 @@ export default function WaveEquationPage() {
         <Step label="Superpose:">y = cos(k₁x − ω₁t) + cos(k₂x − ω₂t)</Step>
         <Step label="Sum-to-product:">= 2 cos((k₁−k₂)x/2 − (ω₁−ω₂)t/2) · cos((k₁+k₂)x/2 − (ω₁+ω₂)t/2)</Step>
         <Step label="Result:">= 2 cos(δk · x − δω · t) · cos(kx − ωt)</Step>
-        <Step label="Interpretation:">Fast oscillation at (k, ω) — the carrier wave. Slow envelope at (δk, δω) — the beat. The envelope travels at v_envelope = δω/δk → dω/dk in the limit.</Step>
-        <Step label="Conclusion:">v_group = dω/dk — the group velocity carries the packet and, in QM, the probability density.</Step>
+        <Step label="Interpretation:">Fast oscillation at (k, ω) — the carrier wave. Slow envelope at (δk, δω) — the beat. The envelope travels at <InlineMath latex="v_{\text{envelope}} = \delta\omega/\delta k \to d\omega/dk" /> in the limit.</Step>
+        <Step label="Conclusion:"><InlineMath latex="v_{\text{group}} = d\omega/dk" /> — the group velocity carries the packet and, in QM, the probability density.</Step>
       </WorkedExample>
 
       <h2>WE.5 Energy and Power in Waves</h2>
@@ -137,7 +137,7 @@ export default function WaveEquationPage() {
       <EqNumbered number="WE.8" latex="P=\frac{1}{2}\mu\omega^2A^2v=\frac{1}{2}TkA^2\omega" />
 
       <p>
-        More usefully: P = ½μvω²A². The energy per wavelength is E_λ = P · (λ/v) = ½μωA² · λ.
+        More usefully: P = ½μvω²A². The energy per wavelength is <InlineMath latex="E_\lambda = P\cdot(\lambda/v) = \tfrac{1}{2}\mu\omega^2A^2\lambda" />.
         The energy density (energy per unit length) is u = ½μω²A² — equally divided between
         kinetic (½μẏ²) and potential (½T(∂y/∂x)²) at each instant, averaged over time.
       </p>
@@ -171,7 +171,7 @@ export default function WaveEquationPage() {
         </Problem>
 
         <Problem n={4} difficulty="hard"
-          solution={<>Schrödinger wave equation: iℏ ∂ψ/∂t = −ℏ²/(2m) ∂²ψ/∂x². This is a wave equation but with first derivative in t (not second), and imaginary coefficient → dispersion. Trial solution ψ = e^(ikx−iωt): −ℏω = −ℏ²k²/(2m) → ω = ℏk²/(2m). Group velocity: v_g = dω/dk = ℏk/m = p/m = v_classical ✓. Phase velocity: v_p = ω/k = ℏk/(2m) = v_classical/2 — half the classical speed. The phase velocity is unphysical; only the group velocity carries information. The probability density |ψ|² moves at v_g, consistent with the expectation value ⟨x⟩ = ∫x|ψ|²dx evolving at ⟨p⟩/m (Ehrenfest theorem).</>}>
+          solution={<>Schrödinger wave equation: iℏ ∂ψ/∂t = −ℏ²/(2m) ∂²ψ/∂x². This is a wave equation but with first derivative in t (not second), and imaginary coefficient → dispersion. Trial solution ψ = e^(ikx−iωt): −ℏω = −ℏ²k²/(2m) → ω = ℏk²/(2m). Group velocity: <InlineMath latex="v_g = d\omega/dk = \hbar k/m = p/m = v_{\text{classical}}" /> ✓. Phase velocity: <InlineMath latex="v_p = \omega/k = \hbar k/(2m) = v_{\text{classical}}/2" /> — half the classical speed. The phase velocity is unphysical; only the group velocity carries information. The probability density |ψ|² moves at v_g, consistent with the expectation value ⟨x⟩ = ∫x|ψ|²dx evolving at ⟨p⟩/m (Ehrenfest theorem).</>}>
           Show that the Schrödinger equation iℏ ∂ψ/∂t = (−ℏ²/2m)∂²ψ/∂x² has a plane wave solution. Find the phase and group velocities. Which matches the classical particle velocity?
         </Problem>
       </PracticeProblems>

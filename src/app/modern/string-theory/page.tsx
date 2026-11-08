@@ -1,6 +1,6 @@
 import {
   Definition, WorkedExample, Step,
-  PracticeProblems, Problem, InteractiveProblem, EqNumbered, Prerequisites, Takeaways, LearningGoals
+  PracticeProblems, Problem, InteractiveProblem, EqNumbered, Prerequisites, Takeaways, LearningGoals, InlineMath
 } from '@/components/textbook';
 
 export default function StringTheoryPage() {
@@ -34,7 +34,7 @@ export default function StringTheoryPage() {
       <p>
         1. <strong>Gravity</strong>: SM does not include quantum gravity. Perturbative quantum
         gravity (adding gravitons to QFT) is non-renormalizable. The Planck scale
-        E_Pl = √(ℏc⁵/G) ≈ 1.22×10¹⁹ GeV is where quantum gravity effects become O(1).
+        <InlineMath latex="E_{\text{Pl}} = \sqrt{\hbar c^5/G} \approx 1.22\times 10^{19}\ \text{GeV}" /> is where quantum gravity effects become O(1).
       </p>
 
       <p>
@@ -44,14 +44,14 @@ export default function StringTheoryPage() {
       </p>
 
       <p>
-        3. <strong>Hierarchy problem</strong>: why is M_Higgs = 125 GeV ≪ M_Pl = 10¹⁹ GeV?
-        Quantum corrections to the Higgs mass are quadratically UV-divergent: δm_H² ∝ Λ²_UV.
+        3. <strong>Hierarchy problem</strong>: why is <InlineMath latex="M_{\text{Higgs}} = 125\ \text{GeV} \ll M_{\text{Pl}} = 10^{19}\ \text{GeV}" />?
+        Quantum corrections to the Higgs mass are quadratically UV-divergent: <InlineMath latex="\delta m_H^2 \propto \Lambda_{\text{UV}}^2" />.
         Fine-tuning of 10³⁴ is required unless new physics appears near the TeV scale.
       </p>
 
       <p>
         4. <strong>Gauge coupling unification</strong>: the three gauge couplings (α₁, α₂, α₃)
-        nearly meet at ~10¹⁵ GeV in the MSSM (with supersymmetry) — hinting at grand unification.
+        nearly meet at ~10¹⁶ GeV in the MSSM (with supersymmetry) — hinting at grand unification.
       </p>
 
       <h2>ST.2 Supersymmetry</h2>
@@ -67,21 +67,21 @@ export default function StringTheoryPage() {
       </p>
 
       <p>
-        SUSY algebra: {'{'}Q_α, Q̄_α̇{'}'} = 2σ^μ_(αα̇) P_μ — the supercharges Q relate bosons to fermions.
-        SUSY cancels the quadratic divergences in δm_H² because boson loops (+) and fermion loops (−)
-        cancel exactly if SUSY is exact. If SUSY is broken at scale M_SUSY ~ TeV: δm_H² ~ M_SUSY² — acceptable.
+        SUSY algebra: <InlineMath latex="\{Q_\alpha, \bar{Q}_{\dot\alpha}\} = 2\sigma^\mu_{\alpha\dot\alpha} P_\mu" /> — the supercharges Q relate bosons to fermions.
+        SUSY cancels the quadratic divergences in <InlineMath latex="\delta m_H^2" /> because boson loops (+) and fermion loops (−)
+        cancel exactly if SUSY is exact. If SUSY is broken at scale <InlineMath latex="M_{\text{SUSY}} \sim" /> TeV: <InlineMath latex="\delta m_H^2 \sim M_{\text{SUSY}}^2" /> — acceptable.
       </p>
 
       <p>
         The lightest SUSY particle (LSP) — typically the neutralino — is stable (R-parity conservation)
         and is a natural dark matter candidate (WIMP). LHC searches (2012–2023): no SUSY particles found
-        at energies accessible so far. Naturalness arguments push against M_SUSY &gt; few TeV.
+        at energies accessible so far. Naturalness arguments push against <InlineMath latex="M_{\text{SUSY}} >" /> few TeV.
       </p>
 
       <h2>ST.3 String Theory Basics</h2>
 
       <p>
-        Replace point particles with 1D strings (length ℓ_s = √(α&apos;), with α&apos; ≈ (10⁻³³ cm)²
+        Replace point particles with 1D strings (length <InlineMath latex="\ell_s = \sqrt{\alpha'}" />, with <InlineMath latex="\alpha' \approx (10^{-33}\ \text{cm})^2" />
         for strings near the Planck scale). A string can vibrate in many modes —
         each vibrational mode is a different particle:
       </p>
@@ -92,11 +92,11 @@ export default function StringTheoryPage() {
         include the graviton (spin 2). This is why string theory automatically contains gravity!
       </p>
 
-      <EqNumbered number="ST.1">M² = (N − a)/α' &nbsp;&nbsp;&nbsp; (mass spectrum, N = oscillator excitation, a = normal-ordering constant)</EqNumbered>
+      <EqNumbered number="ST.1" latex="M^2 = \frac{N - a}{\alpha'} \qquad \text{(mass spectrum, } N = \text{oscillator excitation, } a = \text{normal-ordering constant)}" />
 
       <p>
         For bosonic string: a = 1. Massless states (N=1): gauge bosons, graviton. Tachyon (N=0):
-        M² &lt; 0 — unstable vacuum. Superstring theory eliminates the tachyon via worldsheet supersymmetry.
+        <InlineMath latex="M^2 < 0" /> — unstable vacuum. Superstring theory eliminates the tachyon via worldsheet supersymmetry.
       </p>
 
       <p>
@@ -112,15 +112,15 @@ export default function StringTheoryPage() {
         </p>
         <Step label="Rotating string:">Model a meson as two quarks connected by a relativistic string of tension T_s (energy per unit length). A rotating string in the center of mass frame.</Step>
         <Step label="Regge slope:">For a rotating open string: J = E²/(2πT_s) = α&apos; M² where α&apos; = 1/(2πT_s). This gives the Regge trajectory J = α&apos; M² + α&apos;(0) (intercept from vacuum quantum numbers).</Step>
-        <Step label="Data:">For ρ mesons: α&apos; ≈ 0.9 GeV⁻² (experimental). String tension: T_s = 1/(2π × 0.9 GeV⁻²) = 0.18 GeV/fm ≈ 1 GeV/fm (in natural units). This is the QCD string tension from lattice QCD — consistent!</Step>
-        <Step label="Interpretation:">Quark-antiquark pairs connected by a QCD flux tube (color string). At short distances: Coulomb. At long distances: linear confinement V(r) = T_s r. The string tension T_s ≈ 0.2 GeV/fm explains why free quarks are never observed.</Step>
+        <Step label="Data:">For ρ mesons: α&apos; ≈ 0.9 GeV⁻² (experimental). String tension: T_s = 1/(2π × 0.9 GeV⁻²) = 0.18 GeV² ≈ 0.9 GeV/fm (in natural units, ℏc = 0.197 GeV·fm). This is the QCD string tension from lattice QCD — consistent!</Step>
+        <Step label="Interpretation:">Quark-antiquark pairs connected by a QCD flux tube (color string). At short distances: Coulomb. At long distances: linear confinement V(r) = T_s r. The string tension T_s ≈ 0.9 GeV/fm explains why free quarks are never observed.</Step>
       </WorkedExample>
 
       <h2>ST.4 D-Branes and Dualities</h2>
 
       <p>
         <strong>D-branes</strong> (Dirichlet branes): hypersurfaces on which open string endpoints
-        are confined. A D_p-brane is p-dimensional. D0-branes = particles, D1-branes = strings,
+        are confined. A Dp-brane is p-dimensional. D0-branes = particles, D1-branes = strings,
         D3-branes = 4D membranes.
       </p>
 
@@ -138,15 +138,15 @@ export default function StringTheoryPage() {
 
       <p>
         Applications: quark-gluon plasma at the LHC (strong coupling = weakly coupled gravity),
-        condensed matter (strange metals, high-T_c via holography), entanglement entropy
-        (Ryu-Takayanagi formula: S_EE = Area/(4G_N)).
+        condensed matter (strange metals, high-<InlineMath latex="T_c" /> via holography), entanglement entropy
+        (Ryu-Takayanagi formula: <InlineMath latex="S_{\text{EE}} = \text{Area}/(4G_N)" />).
       </p>
 
       <h2>ST.5 Alternatives and the Landscape</h2>
 
       <p>
         <strong>String landscape</strong>: compactifying 6D to 4D with different fluxes gives
-        ~10^500 distinct vacua with different low-energy physics. This is the
+        ~10⁵⁰⁰ distinct vacua with different low-energy physics. This is the
         "landscape" — each vacuum is a possible universe.
         Anthropic argument (Weinberg 1987): we live in a vacuum where Λ allows structure formation.
         Correct order of magnitude for Λ! But this is controversial — is it science or metaphysics?
@@ -155,7 +155,7 @@ export default function StringTheoryPage() {
       <p>
         <strong>Loop quantum gravity (LQG)</strong>: quantize the gravitational field directly.
         Space is made of discrete units — spin networks (Penrose 1971). Area and volume operators
-        have discrete spectra: A = 8πγ ℓ_Pl² √(j(j+1)) (Barbero-Immirzi parameter γ).
+        have discrete spectra: <InlineMath latex="A = 8\pi\gamma\, \ell_{\text{Pl}}^2 \sqrt{j(j+1)}" /> (Barbero-Immirzi parameter γ).
         No extra dimensions, no supersymmetry. Problem: low-energy limit not yet fully derived.
       </p>
 
@@ -190,7 +190,7 @@ export default function StringTheoryPage() {
           answer={77} unit="" tolerance={0.10}
           hints={[
             'Fine-tuning is measured by how much the stop mass squared exceeds the Higgs mass squared: Δ ≈ m_stop²/m_H².',
-            'm_stop &gt; 1.1 TeV = 1100 GeV, m_H = 125 GeV. Compute (1100/125)².',
+            'm_stop > 1.1 TeV = 1100 GeV, m_H = 125 GeV. Compute (1100/125)².',
           ]}
           problemText="Explain why the hierarchy problem motivates SUSY partners near the TeV scale. With current LHC limits of m_stop &gt; 1.1 TeV and m_H = 125 GeV, compute the fine-tuning parameter Δ = m_stop²/m_H²."
           solution={<>SUSY breaking and the hierarchy problem: in unbroken SUSY, m_squark = m_quark exactly. The Higgs mass correction: δm_H² = (3λ²/(8π²)) × [m_t² ln(Λ/m_t) − m_stop² ln(Λ/m_stop)] ≈ (3λ_t²/(8π²)) × Δm² × ln(Λ/m_t). For natural SUSY (δm_H² ~ m_H²): Δm² = m_stop² − m_t² ~ (few m_H)². This gives m_stop ~ 500 GeV - few TeV. LHC current limit: m_stop &gt; 1.1 TeV (direct pair production). At 1.1 TeV: fine-tuning = m_stop²/m_H² ≈ (1100/125)² ≈ 77. 1% tuning — acceptable by many standards, but naturalness is subjective. Alternative: focus point (high m_0, specific relation eliminates tuning), natural SUSY (only stops light, others can be heavy), Twin Higgs (Z₂ symmetry cancels top loop without SUSY partners at collider scale).</>}>
@@ -198,12 +198,12 @@ export default function StringTheoryPage() {
         </InteractiveProblem>
 
         <Problem n={3} difficulty="medium"
-          solution={<>AdS/CFT: Maldacena duality between Type IIB string theory on AdS₅×S⁵ and N=4 SU(N) SYM in 4D. Dictionary: string coupling g_s = g_YM²/(4π). t&apos; Hooft coupling λ = g_YM² N = g_s N (fixed, large N limit). Curvature: R_AdS/ℓ_s = (λ)^(1/4). Strong coupling regime λ≫1 (SYM) ↔ classical supergravity on AdS₅ (calculable). Weak coupling λ≪1 (SYM perturbation theory) ↔ string quantum gravity (hard). Holography: bulk field φ(r,x) with boundary behavior φ ~ r^Δ source + ... maps to operator O of dimension Δ in CFT. Partition functions agree: Z_AdS[φ_0] = ⟨e^(∫φ₀O)⟩_CFT. Application (QGP): RHIC observed sQGP with η/s = 1/(4π) (minimal viscosity from AdS calculation: η/s = ℏ/(4π k_B)) — strong coupling. N=4 SYM at strong coupling predicts this value; perturbative QCD gives η/s ~ 1. The holographic viscosity bound was a triumph of AdS/CFT.</>}>
+          solution={<>AdS/CFT: Maldacena duality between Type IIB string theory on AdS₅×S⁵ and N=4 SU(N) SYM in 4D. Dictionary: string coupling g_s = g_YM²/(4π). &apos;t Hooft coupling λ = g_YM² N = g_s N (fixed, large N limit). Curvature: R_AdS/ℓ_s = (λ)^(1/4). Strong coupling regime λ≫1 (SYM) ↔ classical supergravity on AdS₅ (calculable). Weak coupling λ≪1 (SYM perturbation theory) ↔ string quantum gravity (hard). Holography: bulk field φ(r,x) with boundary behavior φ ~ r^Δ source + ... maps to operator O of dimension Δ in CFT. Partition functions agree: Z_AdS[φ_0] = ⟨e^(∫φ₀O)⟩_CFT. Application (QGP): RHIC observed sQGP with η/s = 1/(4π) (minimal viscosity from AdS calculation: η/s = ℏ/(4π k_B)) — strong coupling. N=4 SYM at strong coupling predicts this value; perturbative QCD gives η/s ~ 1. The holographic viscosity bound was a triumph of AdS/CFT.</>}>
           Describe the AdS/CFT correspondence. What is the holographic dictionary? How was it applied to the quark-gluon plasma at RHIC to predict the shear viscosity?
         </Problem>
 
         <Problem n={4} difficulty="hard"
-          solution={<>Bekenstein-Hawking entropy: S_BH = A/(4ℓ_Pl²) = k_B c³ A/(4Gℏ). For a Schwarzschild black hole: A = 4πr_s² = 16πG²M²/c⁴. S_BH = 4πk_B G M²/(ℏc) = 4πG M²/(ℏc) in natural units. Hawking radiation: a BH radiates as a blackbody at temperature T_H = ℏc³/(8πGMk_B) = ℏ/(4πr_s k_B) (Unruh effect near horizon). For Solar mass BH: T_H = ℏc³/(8πGM_☉k_B) = 1.055×10⁻³⁴×(3×10⁸)³/(8π×6.67×10⁻¹¹×2×10³⁰×1.38×10⁻²³) = 2.88×10⁻³⁰/2.32×10⁻²⁰ = 10⁻¹⁰ K. Unobservably cold. For primordial BH with M=10¹⁵g: T_H = M_☉/M × 10⁻¹⁰ K ≈ 10¹¹ K → evaporates in ~10¹⁰ yr (present age of universe). Information paradox: Hawking radiation is thermal (no info) → but unitary quantum evolution preserves info → Page curve. Resolution candidates: fuzzball (string theory), black hole complementarity (Susskind), ER=EPR (Maldacena-Susskind), island formula for entropy (Penington, Almheiri et al. 2019).</>}>
+          solution={<>Bekenstein-Hawking entropy: S_BH = A/(4ℓ_Pl²) = k_B c³ A/(4Gℏ). For a Schwarzschild black hole: A = 4πr_s² = 16πG²M²/c⁴. S_BH = 4πk_B G M²/(ℏc) = 4πG M²/(ℏc) in natural units. Hawking radiation: a BH radiates as a blackbody at temperature T_H = ℏc³/(8πGMk_B) = ℏc/(4πr_s k_B) (Unruh effect near horizon). For Solar mass BH: T_H = ℏc³/(8πGM_☉k_B) = 1.055×10⁻³⁴×(3×10⁸)³/(8π×6.67×10⁻¹¹×2×10³⁰×1.38×10⁻²³) = 2.85×10⁻⁹/4.63×10⁻² ≈ 6×10⁻⁸ K. Unobservably cold. For primordial BH with M=10¹⁵g: T_H = M_☉/M × 6×10⁻⁸ K ≈ 10¹¹ K → evaporates in ~10¹⁰ yr (present age of universe). Information paradox: Hawking radiation is thermal (no info) → but unitary quantum evolution preserves info → Page curve. Resolution candidates: fuzzball (string theory), black hole complementarity (Susskind), ER=EPR (Maldacena-Susskind), island formula for entropy (Penington, Almheiri et al. 2019).</>}>
           Derive the Bekenstein-Hawking entropy S = A/(4G) and Hawking temperature T_H = ℏc³/(8πGMk_B). What is the information paradox and what are the leading proposed resolutions?
         </Problem>
       </PracticeProblems>

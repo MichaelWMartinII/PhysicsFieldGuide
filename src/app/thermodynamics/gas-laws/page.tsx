@@ -1,7 +1,7 @@
 import KineticGasClient from '@/components/sims/KineticGasClient';
 import {
   Definition, Theorem, WorkedExample, Step,
-  PracticeProblems, Problem, InteractiveProblem, EqNumbered, Figure, Prerequisites, Takeaways, LearningGoals, HistoryNote
+  PracticeProblems, Problem, InteractiveProblem, EqNumbered, InlineMath, Figure, Prerequisites, Takeaways, LearningGoals, HistoryNote
 } from '@/components/textbook';
 
 export default function GasLawsPage() {
@@ -16,7 +16,7 @@ export default function GasLawsPage() {
       <LearningGoals items={[
         'State Boyle\'s, Charles\'s, Gay-Lussac\'s, and Avogadro\'s laws as special cases of PV = nRT.',
         'Apply the ideal gas law to find P, V, n, or T given the other three quantities.',
-        'Derive PV = Nk_BT from Newton\'s laws applied to molecular collisions.',
+        'Derive PV = Nk_B T from Newton\'s laws applied to molecular collisions.',
         'Calculate internal energy and molar heat capacity using the equipartition theorem.',
         'Identify when real gases deviate from ideal behavior and apply the van der Waals correction.',
       ]} />
@@ -45,7 +45,7 @@ export default function GasLawsPage() {
           source="Robert Boyle, New Experiments Physico-Mechanical."
           furtherReading={[{ label: "Robert Boyle", url: "https://en.wikipedia.org/wiki/Robert_Boyle" }]}
         >
-          Robert Boyle's air pump was built by Robert Hooke, then a twenty-year-old instrument maker. Together they could evacuate a glass chamber and carefully vary the pressure on a
+          Robert Boyle's air pump was built by Robert Hooke, then a twenty-three-year-old instrument maker. Together they could evacuate a glass chamber and carefully vary the pressure on a
           trapped gas while measuring the volume. Boyle kept meticulous records, published everything including failed trials, and explicitly invited others to repeat his work. The idea
           that a scientific result must be reproducible by strangers was not obvious in 1662 — Boyle helped make it a norm. The pattern PV = constant was just a regularity in his tables.
           He did not know why it was true, and he said so.
@@ -61,10 +61,10 @@ export default function GasLawsPage() {
       <p>
         Here P is pressure (Pa), V is volume (m³), n is the amount of gas (moles), R = 8.314 J/mol·K is
         the universal gas constant, and T is absolute temperature (Kelvin). An equivalent form uses the
-        number of molecules N and Boltzmann&apos;s constant k_B = R/N_A:
+        number of molecules N and Boltzmann&apos;s constant <InlineMath latex="k_B = R/N_A" />:
       </p>
 
-      <EqNumbered number="13.2" latex="PV=Nk_BT \qquad k_B=1.381\times10^{-23}\,\mathrm{J/K}" />
+      <EqNumbered number="13.2" latex="PV=Nk_B T \qquad k_B=1.381\times10^{-23}\,\mathrm{J/K}" />
 
       <p>
         An <strong>ideal gas</strong> is one in which (1) molecular volume is negligible compared to container volume,
@@ -84,20 +84,20 @@ export default function GasLawsPage() {
       <p>
         The ideal gas law is not just empirical — it can be derived from Newton&apos;s laws applied to
         point-mass molecules. Consider N molecules in a cubic box of side L. Each molecule bouncing
-        off a wall delivers impulse 2mv_x. The average force on one wall:
+        off a wall delivers impulse <InlineMath latex="2mv_x" />. The average force on one wall:
       </p>
 
       <EqNumbered number="13.3" latex="F=\frac{Nm\langle v_x^2\rangle}{L} \qquad P=\frac{F}{L^2}=\frac{Nm\langle v_x^2\rangle}{V}" />
 
       <p>
-        Using isotropy (v²_x = v²_y = v²_z = v²_rms/3) and the definition of temperature
-        (½mv²_rms = (3/2)k_BT), this gives PV = Nk_BT exactly.
+        Using isotropy (<InlineMath latex="\langle v_x^2 \rangle = \langle v_y^2 \rangle = \langle v_z^2 \rangle = v_{\text{rms}}^2/3" />) and the definition of temperature
+        (<InlineMath latex="\tfrac{1}{2} m v_{\text{rms}}^2 = \tfrac{3}{2} k_B T" />), this gives <InlineMath latex="PV = Nk_B T" /> exactly.
       </p>
 
       <Theorem number="13.1" title="Internal Energy of an Ideal Gas">
         The total internal energy of a monatomic ideal gas (3 translational degrees of freedom) is:
         <span style={{ display: 'block', margin: '0.6rem 0 0.25rem 1rem', fontStyle: 'italic' }}>
-          U = (3/2)Nk_BT = (3/2)nRT
+          U = (3/2)Nk_B T = (3/2)nRT
         </span>
         For a diatomic gas (5 degrees of freedom — 3 translational, 2 rotational): U = (5/2)nRT.
         The molar heat capacity at constant volume is C_V = (f/2)R where f is the number of degrees of freedom.
@@ -119,7 +119,7 @@ export default function GasLawsPage() {
       <p>
         The term an²/V² accounts for attractive forces reducing effective pressure; nb accounts for
         the excluded volume of the molecules. The constants a and b are different for every gas.
-        For CO₂: a = 3.64 L²·atm/mol², b = 0.0427 L/mol.
+        For CO₂: a = 3.59 L²·atm/mol², b = 0.0427 L/mol.
       </p>
 
       <WorkedExample number="13.2" title="Volume of One Mole of Gas">
@@ -170,11 +170,11 @@ export default function GasLawsPage() {
         <InteractiveProblem n={4} difficulty="medium"
           answer={2.50e22} unit="molecules" tolerance={0.04}
           hints={[
-            'Use PV = Nk_BT → N = PV/(k_BT)',
+            'Use PV = Nk_B T → N = PV/(k_B T)',
             'Convert: P = 1.0 atm = 101325 Pa, V = 1.0 L = 0.001 m³, T = 293 K',
           ]}
           problemText="How many molecules are in 1.0 L of air at 1.0 atm and 20°C? (k_B = 1.381×10⁻²³ J/K)"
-          solution={<>N = PV/(k_BT) = (101325 × 0.001)/(1.381×10⁻²³ × 293) = 101.3/(4.05×10⁻²¹) = <strong>2.50×10²²</strong> molecules</>}>
+          solution={<>N = PV/(k_B T) = (101325 × 0.001)/(1.381×10⁻²³ × 293) = 101.3/(4.05×10⁻²¹) = <strong>2.50×10²²</strong> molecules</>}>
           How many molecules are in 1.0 L of ideal gas at 1.0 atm and 20°C? (k_B = 1.381×10⁻²³ J/K)
         </InteractiveProblem>
 

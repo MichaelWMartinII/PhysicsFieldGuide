@@ -168,12 +168,12 @@ export default function InterferencePage() {
         </Problem>
 
         <Problem n={4} difficulty="medium"
-          solution={<>Three slits equally spaced by d. At angles where sin θ = mλ/d (m integer), all three slits add constructively → principal maxima with amplitude 3A, intensity 9I. Between principal maxima there are secondary maxima and two minima. The first minimum is where the three phasors sum to zero; this occurs at Δφ = 2π/3 between adjacent slits, giving sin θ = mλ/(3d). The central principal maximum is three times narrower than the two-slit fringe — more slits give sharper, brighter fringes. This is the principle of the diffraction grating.</>}>
+          solution={<>Three slits equally spaced by d. At angles where sin θ = mλ/d (m integer), all three slits add constructively → principal maxima with amplitude 3A, intensity 9I. Between principal maxima there are secondary maxima and two minima. The first minimum is where the three phasors sum to zero; this occurs at Δφ = 2π/3 between adjacent slits, giving sin θ = mλ/(3d). The central principal maximum is 1.5 times narrower than the two-slit fringe (first zeros at sin θ = ±λ/(3d) instead of ±λ/(2d)) — more slits give sharper, brighter fringes. This is the principle of the diffraction grating.</>}>
           Compare the interference pattern from two slits vs. three equally spaced slits (same spacing d). Where are the principal maxima for three slits? How do intensity and fringe width compare?
         </Problem>
 
         <Problem n={5} difficulty="hard"
-          solution={<>Single-slit diffraction: slit of width a, minima at sin θ = mλ/a (m = ±1, ±2, …). Central maximum width = 2λ/a (half-angle). Double-slit with finite width: intensity = I_0 (cos²δ)(sinc²β), where δ = πd sin θ/λ (interference) and β = πa sin θ/λ (diffraction). The missing orders occur when a double-slit maximum coincides with a single-slit minimum: d/a = m_i/m_d (integer ratio). Example: d = 3a → every 3rd order double-slit maximum is missing (suppressed by diffraction envelope). Real slits always show this combined pattern — pure two-source analysis ignores the envelope.</>}>
+          solution={<>Single-slit diffraction: slit of width a, minima at sin θ = mλ/a (m = ±1, ±2, …). Central maximum width = 2λ/a (full angular width, small angles). Double-slit with finite width: intensity = I_0 (cos²δ)(sinc²β), where δ = πd sin θ/λ (interference) and β = πa sin θ/λ (diffraction). The missing orders occur when a double-slit maximum coincides with a single-slit minimum: d/a = m_i/m_d (integer ratio). Example: d = 3a → every 3rd order double-slit maximum is missing (suppressed by diffraction envelope). Real slits always show this combined pattern — pure two-source analysis ignores the envelope.</>}>
           Derive the intensity pattern for a double slit with finite slit width a and separation d. Explain missing orders and when they occur.
         </Problem>
       </PracticeProblems>

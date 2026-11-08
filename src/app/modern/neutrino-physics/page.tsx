@@ -1,6 +1,6 @@
 import {
   Definition, Theorem, WorkedExample, Step,
-  PracticeProblems, Problem, InteractiveProblem, EqNumbered, Prerequisites, Takeaways, LearningGoals
+  PracticeProblems, Problem, InteractiveProblem, EqNumbered, Prerequisites, Takeaways, LearningGoals, InlineMath
 } from '@/components/textbook';
 
 export default function NeutrinoPhysicsPage() {
@@ -28,17 +28,17 @@ export default function NeutrinoPhysicsPage() {
       <h2>NU.1 Neutrinos in the Standard Model (and Beyond)</h2>
 
       <p>
-        The SM has three massless left-handed neutrinos: ν_e, ν_μ, ν_τ (one per lepton family).
+        The SM has three massless left-handed neutrinos: <InlineMath latex="\nu_e, \nu_\mu, \nu_\tau" /> (one per lepton family).
         Neutrinos interact only via the weak force (W±, Z) — cross section
-        σ ~ G_F² s/π ≈ 10⁻⁴⁵ cm² at 1 MeV (10⁷ times smaller than electromagnetic).
-        Mean free path in water: λ = 1/(nσ) ~ 10¹⁸ km — the Earth is transparent to low-energy neutrinos.
+        <InlineMath latex="\sigma \sim G_F^2 s/\pi \approx 10^{-45}\ \text{cm}^2" /> at 1 MeV (10⁷ times smaller than electromagnetic).
+        Mean free path in water: <InlineMath latex="\lambda = 1/(n\sigma) \sim 10^{18}\ \text{km}" /> — the Earth is transparent to low-energy neutrinos.
       </p>
 
       <p>
         <strong>Solar neutrino problem</strong> (1968–2001): the Davis chlorine detector measured
         only 1/3 of the neutrino flux predicted by the Standard Solar Model.
         Resolution: electron neutrinos produced in the Sun oscillate to other flavors
-        on their way to Earth — and the Davis detector was only sensitive to ν_e.
+        on their way to Earth — and the Davis detector was only sensitive to <InlineMath latex="\nu_e" />.
         Confirmed by SNO (2001): total flux of all flavors = predicted solar model flux.
         Nobel Prize 2015 to McDonald (SNO) and Kajita (Super-Kamiokande).
       </p>
@@ -47,27 +47,27 @@ export default function NeutrinoPhysicsPage() {
 
       <p>
         If neutrino mass eigenstates |ν₁⟩, |ν₂⟩, |ν₃⟩ differ from flavor eigenstates
-        |ν_e⟩, |ν_μ⟩, |ν_τ⟩, mixing occurs via the PMNS matrix U:
+        <InlineMath latex="|\nu_e\rangle, |\nu_\mu\rangle, |\nu_\tau\rangle" />, mixing occurs via the PMNS matrix U:
       </p>
 
-      <EqNumbered number="NU.1">|ν_α⟩ = Σ_i U*(α,i) |ν_i⟩ &nbsp;&nbsp;&nbsp; (PMNS mixing, α = e,μ,τ; i = 1,2,3)</EqNumbered>
+      <EqNumbered number="NU.1" latex="|\nu_\alpha\rangle = \sum_i U^*_{\alpha i}\, |\nu_i\rangle \qquad \text{(PMNS mixing, } \alpha = e, \mu, \tau;\ i = 1, 2, 3\text{)}" />
 
       <p>
-        For two-flavor mixing: U = [[cosθ, sinθ],[-sinθ, cosθ]].
-        A ν_α produced at t=0 evolves in time. The probability of finding ν_β at time t:
+        For two-flavor mixing: <InlineMath latex="U = \begin{pmatrix} \cos\theta & \sin\theta \\ -\sin\theta & \cos\theta \end{pmatrix}" />.
+        A <InlineMath latex="\nu_\alpha" /> produced at t=0 evolves in time. The probability of finding <InlineMath latex="\nu_\beta" /> at time t:
       </p>
 
-      <EqNumbered number="NU.2">P(ν_α → ν_β) = sin²(2θ) sin²(Δm²L/(4E)) &nbsp;&nbsp;&nbsp; (oscillation formula, L = distance, E = energy)</EqNumbered>
+      <EqNumbered number="NU.2" latex="P(\nu_\alpha \to \nu_\beta) = \sin^2(2\theta)\, \sin^2\!\left(\frac{\Delta m^2 L}{4E}\right) \qquad \text{(oscillation formula, } L = \text{distance, } E = \text{energy)}" />
 
       <p>
-        where Δm² = m₂² − m₁² in eV². The oscillation length: L_osc = 4πE/(Δm²) = 2.48 km × E[GeV]/(Δm²[eV²]).
+        where Δm² = m₂² − m₁² in eV². The oscillation length: <InlineMath latex="L_{\text{osc}} = 4\pi E/\Delta m^2 = 2.48\ \text{km} \times E[\text{GeV}]/\Delta m^2[\text{eV}^2]" />.
       </p>
 
       <Theorem number="NU.1" title="MSW Effect">
         In matter, the effective potential for ν_e differs from ν_μ,τ due to coherent
         forward scattering: V_CC = √2 G_F n_e (charged current), V_NC = −G_F n_n/√2.
         The effective Hamiltonian in the flavor basis:
-        H_eff = (Δm²/(4E))[[−cos2θ + A, sin2θ],[sin2θ, cos2θ − A]]
+        <InlineMath latex="H_{\text{eff}} = \frac{\Delta m^2}{4E}\begin{pmatrix} -\cos 2\theta + A & \sin 2\theta \\ \sin 2\theta & \cos 2\theta - A \end{pmatrix}" />
         where A = 2√2 G_F n_e E / Δm². Resonance condition A = cos2θ:
         maximal mixing even for small vacuum θ. This MSW (Mikheyev-Smirnov-Wolfenstein) effect
         explains why solar ν_e are converted to ν_μ/ν_τ inside the Sun.
@@ -91,47 +91,47 @@ export default function NeutrinoPhysicsPage() {
       </p>
 
       <p>
-        <strong>Dirac mass</strong>: add right-handed ν_R (sterile). Yukawa coupling y: m_D = yv/√2
-        (v = Higgs VEV = 246 GeV). To get m_ν ~ 0.1 eV: y ~ 4×10⁻¹³ — unnaturally small.
+        <strong>Dirac mass</strong>: add right-handed <InlineMath latex="\nu_R" /> (sterile). Yukawa coupling y: <InlineMath latex="m_D = yv/\sqrt{2}" />
+        (v = Higgs VEV = 246 GeV). To get <InlineMath latex="m_\nu \sim 0.1" /> eV: y ~ 4×10⁻¹³ — unnaturally small.
       </p>
 
       <p>
         <strong>Majorana mass</strong>: if ν = ν̄ (its own antiparticle). Forbidden for charged
         particles (charge conservation). Allowed for neutral neutrinos.
-        Majorana mass term: m_M ν_c ν (Lorentz invariant for neutral fermion).
+        Majorana mass term: <InlineMath latex="m_M\, \nu^c \nu" /> (Lorentz invariant for neutral fermion).
       </p>
 
-      <EqNumbered number="NU.3">m_ν ~ m_D²/M_R &nbsp;&nbsp;&nbsp; (seesaw type I: heavy M_R → naturally light m_ν)</EqNumbered>
+      <EqNumbered number="NU.3" latex="m_\nu \sim \frac{m_D^2}{M_R} \qquad \text{(seesaw type I: heavy } M_R \to \text{naturally light } m_\nu\text{)}" />
 
       <p>
-        The seesaw mechanism: a heavy right-handed Majorana neutrino (mass M_R ~ 10¹⁵ GeV,
+        The seesaw mechanism: a heavy right-handed Majorana neutrino (mass <InlineMath latex="M_R \sim 10^{15}" /> GeV,
         GUT scale) generates naturally light left-handed neutrinos. Baryogenesis via
-        leptogenesis: CP-violating decay of heavy N_R in early universe → lepton asymmetry →
+        leptogenesis: CP-violating decay of heavy <InlineMath latex="N_R" /> in early universe → lepton asymmetry →
         converted to baryon asymmetry via sphaleron processes.
       </p>
 
       <p>
         <strong>Neutrinoless double beta decay</strong> (0νββ): N → N+2 + 2e⁻ (no neutrinos).
-        Only possible if ν is Majorana. Half-life: T_(1/2) ≥ 10²⁶ yr (KamLAND-Zen).
-        Discovery would confirm Majorana nature and measure |m_ββ| = |Σ U^2_(ei) m_i|.
+        Only possible if ν is Majorana. Half-life: <InlineMath latex="T_{1/2} \ge 10^{26}" /> yr (KamLAND-Zen).
+        Discovery would confirm Majorana nature and measure <InlineMath latex="|m_{\beta\beta}| = \left|\sum_i U_{ei}^2 m_i\right|" />.
       </p>
 
       <h2>NU.4 Neutrino Sources and Detectors</h2>
 
       <p>
-        <strong>Solar neutrinos</strong>: pp chain dominates (pp → d + e⁺ + ν_e, E &lt; 0.42 MeV);
+        <strong>Solar neutrinos</strong>: pp chain dominates (<InlineMath latex="pp \to d + e^+ + \nu_e" />, E &lt; 0.42 MeV);
         ⁸B neutrinos (E ~ 14 MeV) detected by SNO. Total flux: ~6×10¹⁰ cm⁻²s⁻¹.
-        <strong>Reactor antineutrinos</strong> (ν̄_e): from β-decay of fission products.
-        KamLAND: 180 km average baseline, measured θ₁₂ and Δm²(12).
+        <strong>Reactor antineutrinos</strong> (<InlineMath latex="\bar\nu_e" />): from β-decay of fission products.
+        KamLAND: 180 km average baseline, measured θ₁₂ and <InlineMath latex="\Delta m^2_{12}" />.
         Daya Bay, RENO: short baseline (1-2 km), measured θ₁₃ = 8.5° (2012).
       </p>
 
       <p>
         <strong>IceCube</strong>: cubic-kilometer detector at South Pole. Cherenkov light from ν interactions.
-        TeV-PeV astrophysical neutrinos detected (2013): diffuse flux consistent with E^(-2.5) spectrum.
+        TeV-PeV astrophysical neutrinos detected (2013): diffuse flux consistent with <InlineMath latex="E^{-2.5}" /> spectrum.
         First sources: Seyfert galaxy NGC 1068 (2022), blazar TXS 0506+056.
         <strong>DUNE</strong>: long-baseline experiment (Fermilab to Homestake, 1300 km).
-        Goals: CP violation in neutrino sector (δ_CP), mass ordering, proton decay.
+        Goals: CP violation in neutrino sector (<InlineMath latex="\delta_{CP}" />), mass ordering, proton decay.
       </p>
 
       <Definition number="NU.1" title="Common Traps">
@@ -167,7 +167,7 @@ export default function NeutrinoPhysicsPage() {
         </InteractiveProblem>
 
         <Problem n={3} difficulty="medium"
-          solution={<>Seesaw mechanism: mass matrix for one generation: M = [[0, m_D],[m_D, M_R]] where m_D ~ yv/√2 (Dirac) and M_R ≫ m_D (heavy Majorana). Eigenvalues are approximately M_R and −m_D²/M_R, so the light neutrino mass is m_ν = m_D²/M_R. For m_ν ~ 0.05 eV and m_D ~ m_τ = 1.78 GeV: M_R = (1.78×10⁹ eV)²/0.05 eV = 6.3×10¹⁹ eV = <strong>6.3×10¹⁰ GeV</strong>. Leptogenesis: CP-violating heavy N_R decays produce a lepton asymmetry Y_L; electroweak sphalerons violate B+L while conserving B−L and convert part of that lepton asymmetry into the observed baryon asymmetry Y_B ≈ 8.7×10⁻¹¹.</>}>
+          solution={<>Seesaw mechanism: mass matrix for one generation: <InlineMath latex="M = \begin{pmatrix} 0 & m_D \\ m_D & M_R \end{pmatrix}" /> where m_D ~ yv/√2 (Dirac) and M_R ≫ m_D (heavy Majorana). Eigenvalues are approximately M_R and −m_D²/M_R, so the light neutrino mass is m_ν = m_D²/M_R. For m_ν ~ 0.05 eV and m_D ~ m_τ = 1.78 GeV: M_R = (1.78×10⁹ eV)²/0.05 eV = 6.3×10¹⁹ eV = <strong>6.3×10¹⁰ GeV</strong>. Leptogenesis: CP-violating heavy N_R decays produce a lepton asymmetry Y_L; electroweak sphalerons violate B+L while conserving B−L and convert part of that lepton asymmetry into the observed baryon asymmetry Y_B ≈ 8.7×10⁻¹¹.</>}>
           Explain the type-I seesaw mechanism. What right-handed neutrino mass M_R is needed to generate m_ν ~ 0.05 eV with Dirac mass m_D ~ m_τ? Outline how leptogenesis generates the baryon asymmetry.
         </Problem>
 
@@ -182,8 +182,8 @@ export default function NeutrinoPhysicsPage() {
         'Atmospheric: Δm²(23) ≈ 2.4×10⁻³ eV², θ₂₃ ≈ 45°. Solar: Δm²(12) = 7.5×10⁻⁵ eV², θ₁₂ = 34°. θ₁₃ = 8.5°.',
         'MSW effect: matter potential for ν_e from W exchange. Resonance A=cos2θ → level crossing → adiabatic conversion.',
         'Seesaw: m_ν = m_D²/M_R. GUT-scale M_R ~ 10¹⁵ GeV gives naturally m_ν ~ 0.1 eV.',
-        'Majorana vs Dirac: neutrinoless double beta decay tests Majorana nature. Current: T½ &gt; 10²⁶ yr → m_ββ &lt; 36-156 meV.',
-        'Absolute masses: cosmological bound Σm_ν &lt; 0.12 eV (Planck). KATRIN direct: m_ν_e &lt; 0.45 eV.',
+        'Majorana vs Dirac: neutrinoless double beta decay tests Majorana nature. Current: T½ > 10²⁶ yr → m_ββ < 36-156 meV.',
+        'Absolute masses: cosmological bound Σm_ν < 0.12 eV (Planck). KATRIN direct: m(ν_e) < 0.45 eV.',
       ]} />
     </div>
   );

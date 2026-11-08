@@ -1,6 +1,6 @@
 import {
   Definition, WorkedExample, Step,
-  PracticeProblems, Problem, InteractiveProblem, EqNumbered, Prerequisites, Takeaways, LearningGoals
+  PracticeProblems, Problem, InteractiveProblem, EqNumbered, Prerequisites, Takeaways, LearningGoals, InlineMath
 } from '@/components/textbook';
 
 export default function NuclearPage() {
@@ -32,20 +32,20 @@ export default function NuclearPage() {
         assembly:
       </p>
 
-      <EqNumbered number="N.1">B = (Z m_p + N m_n − M) c² &nbsp;&nbsp;&nbsp; (binding energy)</EqNumbered>
+      <EqNumbered number="N.1" latex="B = (Z m_p + N m_n - M)\, c^2 \qquad \text{(binding energy)}" />
 
       <p>
         The <strong>semi-empirical mass formula</strong> (Bethe-Weizsäcker, 1935) fits B/A across
         all nuclei:
       </p>
 
-      <EqNumbered number="N.2">B = a_V A − a_S A^(2/3) − a_C Z(Z−1)/A^(1/3) − a_A(A−2Z)²/A ± δ(A)</EqNumbered>
+      <EqNumbered number="N.2" latex="B = a_V A - a_S A^{2/3} - a_C \frac{Z(Z-1)}{A^{1/3}} - a_A \frac{(A-2Z)^2}{A} \pm \delta(A)" />
 
       <p>
         The five terms are: volume (nuclear density uniform), surface (nucleons on surface
         have fewer bonds), Coulomb (proton repulsion), asymmetry (neutron-proton balance from
-        Pauli exclusion), and pairing (even-even nuclei more stable). With a_V ≈ 15.8,
-        a_S ≈ 18.3, a_C ≈ 0.71, a_A ≈ 23.2 MeV, this formula reproduces B/A ≈ 8 MeV for all
+        Pauli exclusion), and pairing (even-even nuclei more stable). With <InlineMath latex="a_V \approx 15.8" />,
+        <InlineMath latex="a_S \approx 18.3" />, <InlineMath latex="a_C \approx 0.71" />, <InlineMath latex="a_A \approx 23.2" /> MeV, this formula reproduces B/A ≈ 8 MeV for all
         stable nuclei to within ~1%.
       </p>
 
@@ -74,11 +74,11 @@ export default function NuclearPage() {
         range of α lifetimes (10⁻⁷ s to 10¹⁰ years) from a single formula:
       </p>
 
-      <EqNumbered number="N.3">λ = f × e^(−2G) &nbsp;&nbsp;&nbsp; G = π Z_α Ze²/(ℏv) &nbsp;&nbsp;&nbsp; (Gamow factor)</EqNumbered>
+      <EqNumbered number="N.3" latex="\lambda = f\, e^{-2G} \qquad G = \frac{\pi Z_\alpha Z e^2}{\hbar v} \qquad \text{(Gamow factor)}" />
 
       <p>
-        <strong>Beta decay (β):</strong> weak interaction transforms n → p + e⁻ + ν̄_e (β⁻)
-        or p → n + e⁺ + νe (β⁺). Fermi&apos;s 1934 theory modeled this as a point interaction —
+        <strong>Beta decay (β):</strong> weak interaction transforms <InlineMath latex="n \to p + e^- + \bar\nu_e" /> (β⁻)
+        or <InlineMath latex="p \to n + e^+ + \nu_e" /> (β⁺). Fermi&apos;s 1934 theory modeled this as a point interaction —
         it predicted the continuous β spectrum and Pauli&apos;s neutrino hypothesis was confirmed.
       </p>
 
@@ -90,7 +90,7 @@ export default function NuclearPage() {
 
       <WorkedExample number="N.1" title="Carbon-14 Dating">
         <p>
-          A wood sample has ¹⁴C activity 7.5 Bq/g vs. fresh wood 15.3 Bq/g. How old is it?
+          A wood sample has ¹⁴C activity 7.5 decays/min per gram of carbon vs. fresh wood 15.3 decays/min per gram. How old is it?
         </p>
         <Step label="¹⁴C half-life:">t₁/₂ = 5730 years → λ = ln2/5730 = 1.21×10⁻⁴ yr⁻¹</Step>
         <Step label="Ratio:">A(t)/A₀ = e^(−λt) = 7.5/15.3 = 0.490</Step>
@@ -113,7 +113,7 @@ export default function NuclearPage() {
         The reaction with lowest Coulomb barrier and highest Q is:
       </p>
 
-      <EqNumbered number="N.4">²H + ³H → ⁴He + n + 17.6 MeV &nbsp;&nbsp;&nbsp; (D-T fusion)</EqNumbered>
+      <EqNumbered number="N.4" latex="{}^2\text{H} + {}^3\text{H} \to {}^4\text{He} + n + 17.6\ \text{MeV} \qquad \text{(D-T fusion)}" />
 
       <p>
         Stars burn protons to helium via the pp chain (our Sun) or the CNO cycle (massive stars).
@@ -121,7 +121,7 @@ export default function NuclearPage() {
         the Maxwell-Boltzmann distribution and the tunnel probability both contribute:
       </p>
 
-      <EqNumbered number="N.5">E_Gamow ≈ (πα Z₁ Z₂ / √2)^(2/3) (k_BT/2)^(2/3) m_r^(1/3) c^(2/3) ℏ^(2/3)</EqNumbered>
+      <EqNumbered number="N.5" latex="E_{\text{Gamow}} \approx \left(\pi\alpha Z_1 Z_2\, k_B T\right)^{2/3} \left(\frac{m_r c^2}{2}\right)^{1/3}" />
 
       <WorkedExample number="N.2" title="Energy from Fission of ²³⁵U">
         <p>
@@ -148,7 +148,7 @@ export default function NuclearPage() {
           answer={8.79} unit="MeV/nucleon" tolerance={0.02}
           hints={['B = (Z m(¹H) + N m_n − M)c² with Z=26, N=30; use m(¹H)=938.783 MeV/c² (hydrogen atom mass), m_n=939.565 MeV/c², M(⁵⁶Fe)=55.934939 u', 'Convert M(⁵⁶Fe) to MeV/c²: multiply by 931.494 MeV/u; then B/A = B/56']}
           problemText="Calculate the binding energy per nucleon (in MeV/nucleon) for ⁵⁶Fe using M(⁵⁶Fe) = 55.934939 u, m(¹H) = 938.783 MeV/c² (hydrogen atomic mass), m_n = 939.565 MeV/c², and 1 u = 931.494 MeV/c²."
-          solution={<>Binding energy of ⁵⁶Fe: Z=26, N=30, A=56. Use hydrogen atomic mass m(¹H) = 938.783 MeV/c² (since M(Fe-56) is an atomic mass, both sides must use the same electron accounting). m_n = 939.565 MeV/c², M(Fe-56) = 55.934939 u × 931.494 MeV/u = 52103.1 MeV/c². B = (26×938.783 + 30×939.565 − 55.934939×931.494) = (24408.4 + 28186.9 − 52103.1) = 492.2 MeV. B/A = 492.2/56 = 8.79 MeV/nucleon. This is near the maximum of the binding energy per nucleon curve. Semi-empirical: a_V×56 − a_S×56^(2/3) − a_C×26×25/56^(1/3) − a_A×4/56 ≈ 885 − 300 − 101 − 1.7 ≈ 482 MeV (close to 479 MeV). Iron is the endpoint of stellar nucleosynthesis — energy cannot be extracted from iron by fusion or fission.</>}>
+          solution={<>Binding energy of ⁵⁶Fe: Z=26, N=30, A=56. Use hydrogen atomic mass m(¹H) = 938.783 MeV/c² (since M(Fe-56) is an atomic mass, both sides must use the same electron accounting). m_n = 939.565 MeV/c², M(Fe-56) = 55.934939 u × 931.494 MeV/u = 52103.1 MeV/c². B = (26×938.783 + 30×939.565 − 55.934939×931.494) = (24408.4 + 28186.9 − 52103.1) = 492.2 MeV. B/A = 492.2/56 = 8.79 MeV/nucleon. This is near the maximum of the binding energy per nucleon curve. Semi-empirical: a_V×56 − a_S×56^(2/3) − a_C×26×25/56^(1/3) − a_A×16/56 ≈ 885 − 268 − 121 − 6.6 ≈ 490 MeV (close to the 492 MeV above). Iron is the endpoint of stellar nucleosynthesis — energy cannot be extracted from iron by fusion or fission.</>}>
           Calculate the total binding energy and binding energy per nucleon for ⁵⁶Fe. Why is iron the endpoint of stellar nucleosynthesis?
         </InteractiveProblem>
 
@@ -161,7 +161,7 @@ export default function NuclearPage() {
         </InteractiveProblem>
 
         <Problem n={3} difficulty="medium"
-          solution={<>Q value for D-T fusion: Q = (m_D + m_T − m_α − m_n)c². m_D = 2.01410u, m_T = 3.01605u, m_α = 4.00260u, m_n = 1.00866u. Q = (5.03015 − 5.01126)×931.5 = 0.01889×931.5 = 17.60 MeV. Energy per kg of fuel: D+T mixture, molar mass ≈ 2.5 g/mol (50/50 D-T). N_reactions/kg = 10³g/2.5 × 6.02×10²³ × 1 = 2.41×10²⁶. E_total = 2.41×10²⁶ × 17.60 MeV = 4.24×10²⁷ MeV = 6.79×10¹⁴ J/kg ≈ 340 MJ/g. Compare: chemical (TNT) ~4kJ/g. Fusion ≈ 85 million times denser energy. Lawson criterion for ignition: nτ_E &gt; 10²⁰ s/m³ (n = plasma density, τ_E = energy confinement time). ITER: n≈10²⁰m⁻³, τ_E≈3.7s → nτ_E≈3.7×10²⁰ — just above ignition threshold.</>}>
+          solution={<>Q value for D-T fusion: Q = (m_D + m_T − m_α − m_n)c². m_D = 2.01410u, m_T = 3.01605u, m_α = 4.00260u, m_n = 1.00866u. Q = (5.03015 − 5.01126)×931.5 = 0.01889×931.5 = 17.60 MeV. Energy per kg of fuel: D+T mixture, molar mass ≈ 2.5 g/mol (50/50 D-T). N_reactions/kg = 10³g/2.5 × 6.02×10²³ × ½ = 1.20×10²⁶ (two nuclei per reaction). E_total = 1.20×10²⁶ × 17.60 MeV = 2.12×10²⁷ MeV = 3.4×10¹⁴ J/kg ≈ 340 GJ/g. Compare: chemical (TNT) ~4kJ/g. Fusion ≈ 85 million times denser energy. Lawson criterion for ignition: nτ_E &gt; 10²⁰ s/m³ (n = plasma density, τ_E = energy confinement time). ITER: n≈10²⁰m⁻³, τ_E≈3.7s → nτ_E≈3.7×10²⁰ — just above ignition threshold.</>}>
           Calculate the energy released per kg of D-T fuel. Compare to chemical fuels and state the Lawson criterion for fusion ignition.
         </Problem>
 

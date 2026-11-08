@@ -1,4 +1,5 @@
 import PhasePlotClient from '@/components/sims/PhasePlotClient';
+import { InlineMath } from '@/components/textbook/Equation';
 import {
   Definition, Theorem, WorkedExample, Step,
   PracticeProblems, Problem, InteractiveProblem, EqNumbered, Figure, Prerequisites, Takeaways, LearningGoals, HistoryNote
@@ -94,7 +95,7 @@ export default function HamiltonianPage() {
         take a region of phase space containing many initial conditions and let the system evolve,
         the volume occupied is constant — even though the shape may distort arbitrarily:
         <span style={{ display: 'block', textAlign: 'center', marginTop: '0.5rem', fontStyle: 'italic' }}>
-          dΓ/dt = 0 &nbsp;&nbsp;&nbsp; where Γ = ∫ d^n q d^n p
+          <InlineMath latex="d\Gamma/dt = 0" /> &nbsp;&nbsp;&nbsp; where <InlineMath latex="\Gamma = \int d^n q\, d^n p" />
         </span>
         This is the foundation of statistical mechanics: a microcanonical ensemble occupies a
         constant volume in phase space. It also implies that phase space trajectories never cross.
@@ -134,12 +135,12 @@ export default function HamiltonianPage() {
 
       <WorkedExample number="H.2" title="Angular Momentum Conservation via Poisson Brackets">
         <p>
-          For a central force H = p²/(2m) + V(r), show that Lz = xpy − ypx is conserved.
+          For a central force H = p²/(2m) + V(r), show that <InlineMath latex="L_z = xp_y - yp_x" /> is conserved.
         </p>
-        <Step label="Compute {Lz, H}:">{'{'}Lz, p²/2m{'}'} + {'{'}Lz, V(r){'}'}</Step>
-        <Step label="First term:">{'{'}xpy, px²/2m{'}'} + {'{'}xpy, py²/2m{'}'} + {'{'}−ypx, ...{'}'}: evaluates to py(-px/m) + (-py)(px/m)... careful algebra gives 0.</Step>
-        <Step label="Second term:">{'{'}xpy − ypx, V(r){'}'} = py ∂V/∂x − px ∂V/∂y. Since ∂V/∂x = (x/r)V&apos;(r) etc., cross terms cancel exactly.</Step>
-        <Step label="Result:">{'{'}Lz, H{'}'} = 0 → Lz conserved for any central V(r). ✓ &nbsp; Angular momentum is conserved because H has no φ dependence — Noether again.</Step>
+        <Step label="Compute {Lz, H}:"><InlineMath latex="\{L_z, p^2/2m\} + \{L_z, V(r)\}" /></Step>
+        <Step label="First term:"><InlineMath latex="\{xp_y, p_x^2/2m\} + \{-yp_x, p_y^2/2m\}" /> (the other terms vanish): evaluates to <InlineMath latex="p_y(p_x/m) - p_x(p_y/m) = 0" />.</Step>
+        <Step label="Second term:"><InlineMath latex="\{xp_y - yp_x, V(r)\} = y\,\partial V/\partial x - x\,\partial V/\partial y" />. Since ∂V/∂x = (x/r)V&apos;(r) etc., cross terms cancel exactly.</Step>
+        <Step label="Result:"><InlineMath latex="\{L_z, H\} = 0" /> → <InlineMath latex="L_z" /> conserved for any central V(r). ✓ &nbsp; Angular momentum is conserved because H has no φ dependence — Noether again.</Step>
       </WorkedExample>
 
       <h2>H.4 Canonical Transformations and Action-Angle Variables</h2>
@@ -202,13 +203,13 @@ export default function HamiltonianPage() {
         </Problem>
 
         <Problem n={5} difficulty="medium"
-          solution={<>Liouville verification for harmonic oscillator: the flow is (x(t), p(t)) = (x₀ cos ωt + (p₀/mω) sin ωt, −mωx₀ sin ωt + p₀ cos ωt). The Jacobian of the transformation (x₀,p₀)→(x,p) is: ∂(x,p)/∂(x₀,p₀) = the 2×2 matrix [[cos ωt, (1/mω) sin ωt], [−mω sin ωt, cos ωt]]. Determinant = cos²ωt + sin²ωt = 1. So phase space volume is exactly preserved. Liouville also follows from ∂(ẋ)/∂x + ∂(ṗ)/∂p = ∂²H/∂p∂x − ∂²H/∂x∂p = 0 (divergence-free flow).</>}>
+          solution={<>Liouville verification for harmonic oscillator: the flow is (x(t), p(t)) = (x₀ cos ωt + (p₀/mω) sin ωt, −mωx₀ sin ωt + p₀ cos ωt). The Jacobian of the transformation (x₀,p₀)→(x,p) is: <InlineMath latex="\dfrac{\partial(x,p)}{\partial(x_0,p_0)} = \begin{pmatrix} \cos\omega t & \frac{1}{m\omega}\sin\omega t \\ -m\omega\sin\omega t & \cos\omega t \end{pmatrix}" />. Determinant = cos²ωt + sin²ωt = 1. So phase space volume is exactly preserved. Liouville also follows from ∂(ẋ)/∂x + ∂(ṗ)/∂p = ∂²H/∂p∂x − ∂²H/∂x∂p = 0 (divergence-free flow).</>}>
           Verify Liouville&apos;s theorem explicitly for the harmonic oscillator by computing the Jacobian of the time-evolution map.
         </Problem>
 
         <Problem n={6} difficulty="hard"
-          solution={<>Poisson bracket {'{'}Lx,Ly{'}'}: Lx = ypz − zpy, Ly = zpx − xpz. {'{'}Lx, Ly{'}'} = {'{'}ypz, zpx{'}'} − {'{'}ypz, xpz{'}'} − {'{'}zpy, zpx{'}'} + {'{'}zpy, xpz{'}'}. Evaluate each: {'{'}ypz, zpx{'}'} = y{'{'}pz, z{'}'}px = −ypx. {'{'}ypz, xpz{'}'} = 0. {'{'}zpy, zpx{'}'} = 0. {'{'}zpy, xpz{'}'} = z{'{'}py, pz{'}'}... = py{'{'}z, pz{'}'}x = xpy. Total: −ypx + xpy = Lz. So {'{'}Lx, Ly{'}'} = Lz. Similarly cyclic: {'{'}Ly, Lz{'}'} = Lx, {'{'}Lz, Lx{'}'} = Ly. In QM: [L̂x, L̂y] = iℏL̂z — the angular momentum commutation relations follow from the classical Poisson bracket algebra.</>}>
-          Compute the Poisson bracket {'{'}Lx, Ly{'}'} for angular momentum components. Show the result equals Lz. How does this relate to quantum mechanics?
+          solution={<>Poisson bracket <InlineMath latex="\{L_x, L_y\}" />: <InlineMath latex="L_x = yp_z - zp_y" />, <InlineMath latex="L_y = zp_x - xp_z" />. <InlineMath latex="\{L_x, L_y\} = \{yp_z, zp_x\} - \{yp_z, xp_z\} - \{zp_y, zp_x\} + \{zp_y, xp_z\}" />. Evaluate each: <InlineMath latex="\{yp_z, zp_x\} = y\{p_z, z\}p_x = -yp_x" />. <InlineMath latex="\{yp_z, xp_z\} = 0" />. <InlineMath latex="\{zp_y, zp_x\} = 0" />. <InlineMath latex="\{zp_y, xp_z\} = xp_y\{z, p_z\} = xp_y" />. Total: <InlineMath latex="-yp_x + xp_y = L_z" />. So <InlineMath latex="\{L_x, L_y\} = L_z" />. Similarly cyclic: <InlineMath latex="\{L_y, L_z\} = L_x" />, <InlineMath latex="\{L_z, L_x\} = L_y" />. In QM: <InlineMath latex="[\hat{L}_x, \hat{L}_y] = i\hbar\hat{L}_z" /> — the angular momentum commutation relations follow from the classical Poisson bracket algebra.</>}>
+          Compute the Poisson bracket <InlineMath latex="\{L_x, L_y\}" /> for angular momentum components. Show the result equals <InlineMath latex="L_z" />. How does this relate to quantum mechanics?
         </Problem>
       </PracticeProblems>
 
@@ -216,8 +217,8 @@ export default function HamiltonianPage() {
         'Hamiltonian H = Σ pᵢq̇ᵢ − L = T + V for natural systems.',
         'Hamilton\'s equations: q̇ = ∂H/∂p, ṗ = −∂H/∂q — symmetric, first-order.',
         'Phase space flow preserves volume (Liouville\'s theorem) — phase space trajectories never cross.',
-        'Poisson bracket {A,H} = 0 ↔ A is conserved. Structure mirrors quantum commutators.',
-        'Canonical transformations preserve {q,p} = 1 — symplectic structure.',
+        'Poisson bracket of A with H vanishes ↔ A is conserved. Structure mirrors quantum commutators.',
+        'Canonical transformations preserve Poisson brackets — symplectic structure.',
         'Action-angle variables: integrable systems → uniform rotation on a torus. J = nℏ gives semiclassical quantization.',
       ]} />
     </div>

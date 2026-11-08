@@ -1,3 +1,4 @@
+import { InlineMath } from '@/components/textbook/Equation';
 import {
   Definition, Theorem, WorkedExample, Step,
   PracticeProblems, Problem, InteractiveProblem, EqNumbered, Prerequisites, Takeaways, LearningGoals, HistoryNote
@@ -66,7 +67,7 @@ export default function LagrangianPage() {
         Emmy Noether was not permitted to enroll at the University of Erlangen as a student — she could only audit lectures. She eventually earned a doctorate and joined the faculty
         at Göttingen, but without pay, listed officially as an assistant to David Hilbert. Her 1918 theorem connecting every symmetry of a physical system to a conserved quantity is one
         of the most beautiful results in all of physics. When Hitler's government dismissed Jewish professors in 1933, she lost her position. She moved to Bryn Mawr and died at fifty-three.
-        Einstein called her the most significant creative mathematical genius yet produced.
+        Einstein called her the most significant creative mathematical genius produced since the higher education of women began.
       </HistoryNote>
 
       <EqNumbered number="L.1" latex="\frac{d}{dt}\left(\frac{\partial L}{\partial \dot q_i}\right) - \frac{\partial L}{\partial q_i} = 0 \qquad \text{(Euler-Lagrange equation, for each }i\text{)}" />
@@ -168,12 +169,12 @@ export default function LagrangianPage() {
         </Problem>
 
         <Problem n={3} difficulty="medium"
-          solution={<>Spherical pendulum: generalized coords (θ, φ). T = ½ml²(θ̇² + sin²θ φ̇²). V = −mgl cos θ. L = ½ml²(θ̇² + sin²θ φ̇²) + mgl cos θ. φ is cyclic: pφ = ml² sin²θ φ̇ = const (angular momentum about vertical axis). θ equation: ml²θ̈ = ml² sin θ cos θ φ̇² − mgl sin θ. Setting θ = const (θ̇=θ̈=0) gives conical pendulum condition: cos θ = g/(l φ̇²).</>}>
+          solution={<>Spherical pendulum: generalized coords (θ, φ). T = ½ml²(θ̇² + sin²θ φ̇²). V = −mgl cos θ. L = ½ml²(θ̇² + sin²θ φ̇²) + mgl cos θ. φ is cyclic: <InlineMath latex="p_\phi = ml^2\sin^2\theta\,\dot\phi = \text{const}" /> (angular momentum about vertical axis). θ equation: ml²θ̈ = ml² sin θ cos θ φ̇² − mgl sin θ. Setting θ = const (θ̇=θ̈=0) gives conical pendulum condition: cos θ = g/(l φ̇²).</>}>
           Find the Lagrangian for a spherical pendulum. Identify the cyclic coordinate and its conserved quantity. What condition gives uniform circular motion (conical pendulum)?
         </Problem>
 
         <Problem n={4} difficulty="hard"
-          solution={<>Noether: for each infinitesimal symmetry transformation qᵢ → qᵢ + ε fᵢ(q,t) that leaves S stationary, the Noether charge Q = Σ(∂L/∂q̇ᵢ)fᵢ − H(∂t/∂ε) is conserved. For spatial translation (x → x+ε): f = 1, Q = ∂L/∂ẋ = mẋ = p (momentum). For rotation about z by dφ: f_x = −y, f_y = x, Q = m(xẏ−yẋ) = Lz (angular momentum). For time translation (t→t+ε in action): Q = −H = −E — energy conservation. This proves conservation laws follow from symmetry structure, not from any additional postulate.</>}>
+          solution={<>Noether: for each infinitesimal symmetry transformation qᵢ → qᵢ + ε fᵢ(q,t) that leaves S stationary, the Noether charge Q = Σ(∂L/∂q̇ᵢ)fᵢ − H(∂t/∂ε) is conserved. For spatial translation (x → x+ε): f = 1, Q = ∂L/∂ẋ = mẋ = p (momentum). For rotation about z by dφ: <InlineMath latex="f_x = -y" />, <InlineMath latex="f_y = x" />, <InlineMath latex="Q = m(x\dot y - y\dot x) = L_z" /> (angular momentum). For time translation (t→t+ε in action): Q = −H = −E — energy conservation. This proves conservation laws follow from symmetry structure, not from any additional postulate.</>}>
           Explicitly derive the conserved quantity associated with rotational symmetry around the z-axis using Noether&apos;s theorem. Show that it equals the z-component of angular momentum.
         </Problem>
       </PracticeProblems>

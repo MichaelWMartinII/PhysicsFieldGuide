@@ -1,6 +1,6 @@
 import {
   Definition, WorkedExample, Step,
-  PracticeProblems, Problem, InteractiveProblem, EqNumbered, Prerequisites, Takeaways, LearningGoals
+  PracticeProblems, Problem, InteractiveProblem, EqNumbered, InlineMath, Prerequisites, Takeaways, LearningGoals
 } from '@/components/textbook';
 
 export default function NonlinearOpticsPage() {
@@ -31,7 +31,7 @@ export default function NonlinearOpticsPage() {
         The polarization of a medium in an electric field E:
       </p>
 
-      <EqNumbered number="NL.1">P = ε₀(χ⁽¹⁾E + χ⁽²⁾E² + χ⁽³⁾E³ + ...) &nbsp;&nbsp;&nbsp; (nonlinear polarization)</EqNumbered>
+      <EqNumbered number="NL.1" latex="P = \varepsilon_0\left(\chi^{(1)}E + \chi^{(2)}E^2 + \chi^{(3)}E^3 + \cdots\right) \qquad \text{(nonlinear polarization)}" />
 
       <p>
         χ⁽¹⁾: linear susceptibility (index n = √(1+χ⁽¹⁾)).
@@ -41,7 +41,7 @@ export default function NonlinearOpticsPage() {
 
       <p>
         At what intensity is χ⁽²⁾ important? When χ⁽²⁾E ~ χ⁽¹⁾: E ~ χ⁽¹⁾/χ⁽²⁾ ~ 10¹⁰ V/m
-        (atomic field scale). For a 1 W laser focused to 1 μm²: I = 10⁹ W/m², E = √(2I/cε₀) ≈ 10⁶ V/m.
+        (atomic field scale). For a 1 W laser focused to 1 μm²: I = 10¹² W/m², E = √(2I/cε₀) ≈ 3×10⁷ V/m.
         Need pulsed lasers (MW–TW) to reach nonlinear regime. Modern OPAs achieve 10¹⁸ W/m².
       </p>
 
@@ -52,20 +52,20 @@ export default function NonlinearOpticsPage() {
         at 2ω. This is <strong>second-harmonic generation (SHG)</strong>. The nonlinear wave equation:
       </p>
 
-      <EqNumbered number="NL.2">∂²E_(2ω)/∂z² − (n_(2ω)²/c²)∂²E_(2ω)/∂t² = (1/c²ε₀) ∂²P_(2ω)/∂t² &nbsp;&nbsp;&nbsp; (NL wave equation)</EqNumbered>
+      <EqNumbered number="NL.2" latex="\frac{\partial^2 E_{2\omega}}{\partial z^2} - \frac{n_{2\omega}^2}{c^2}\frac{\partial^2 E_{2\omega}}{\partial t^2} = \frac{1}{c^2\varepsilon_0}\frac{\partial^2 P_{2\omega}}{\partial t^2} \qquad \text{(NL wave equation)}" />
 
       <p>
         <strong>Phase matching</strong>: efficient SHG requires the fundamental and second-harmonic
-        waves to stay in phase. Phase mismatch: Δk = k_(2ω) − 2k_ω = 2ω(n_(2ω) − n_ω)/c.
-        Without phase matching: I_(2ω) ∝ sinc²(ΔkL/2) — oscillates, maximum at L = π/(2Δk)
-        (coherence length L_c ~ 10 μm in typical crystals).
+        waves to stay in phase. Phase mismatch: <InlineMath latex="\Delta k = k_{2\omega} - 2k_\omega = 2\omega(n_{2\omega} - n_\omega)/c" />.
+        Without phase matching: <InlineMath latex="I_{2\omega} \propto L^2\,\mathrm{sinc}^2(\Delta k L/2)" /> — oscillates, maximum at <InlineMath latex="L = \pi/\Delta k" />
+        (coherence length <InlineMath latex="L_c" /> ~ 10 μm in typical crystals).
       </p>
 
       <p>
         <strong>Birefringent phase matching</strong>: use the ordinary and extraordinary rays
-        of a birefringent crystal. Type I: n_e(2ω) = n_o(ω) by choosing the crystal angle.
+        of a birefringent crystal. Type I: <InlineMath latex="n_e(2\omega) = n_o(\omega)" /> by choosing the crystal angle.
         <strong>Quasi-phase-matching</strong> (QPM): periodically poled crystal (PPLN: Periodically
-        Poled Lithium Niobate) with period Λ = 2L_c reverses χ⁽²⁾ every coherence length.
+        Poled Lithium Niobate) with period <InlineMath latex="\Lambda = 2L_c" /> reverses χ⁽²⁾ every coherence length.
         Allows phase matching at any wavelength by choosing Λ. Conversion efficiencies &gt; 50%.
       </p>
 
@@ -74,7 +74,7 @@ export default function NonlinearOpticsPage() {
           A 1064 nm Nd:YAG laser (P = 1 W, beam area A = 1 mm²) is frequency-doubled
           in a 5 mm KTP crystal (χ⁽²⁾ = 10 pm/V, n = 1.74). Estimate the conversion efficiency.
         </p>
-        <Step label="SHG intensity:">Under undepleted, plane-wave, phase-matched conditions, I_(2ω) scales as |χ⁽²⁾|² I_ω² L². This gives the right dependence, but real efficiency also depends strongly on focusing, walkoff, coatings, absorption, and the effective nonlinear coefficient d_eff.</Step>
+        <Step label="SHG intensity:">Under undepleted, plane-wave, phase-matched conditions, <InlineMath latex="I_{2\omega}" /> scales as <InlineMath latex="|\chi^{(2)}|^2 I_\omega^2 L^2" />. This gives the right dependence, but real efficiency also depends strongly on focusing, walkoff, coatings, absorption, and the effective nonlinear coefficient <InlineMath latex="d_{\text{eff}}" />.</Step>
         <Step label="Calculate:">I_ω = P/A = 1/(10⁻⁶) = 10⁶ W/m². This is modest intensity for nonlinear optics because the beam area is large. A reasonable plane-wave estimate gives conversion on the order of 10⁻⁴ to 10⁻³ for a few-mm crystal at this intensity.</Step>
         <Step label="Total conversion:">So the output is in the sub-milliwatt to milliwatt range for this loose 1 mm² beam. High 40–60% SHG efficiency is possible, but it requires much tighter focusing, a longer optimized crystal, quasi-phase matching, or an enhancement cavity.</Step>
       </WorkedExample>
@@ -82,9 +82,9 @@ export default function NonlinearOpticsPage() {
       <h2>NL.3 Optical Parametric Amplification</h2>
 
       <p>
-        A pump photon at ω_p splits into signal (ω_s) and idler (ω_i) with ω_p = ω_s + ω_i —
+        A pump photon at <InlineMath latex="\omega_p" /> splits into signal (<InlineMath latex="\omega_s" />) and idler (<InlineMath latex="\omega_i" />) with <InlineMath latex="\omega_p = \omega_s + \omega_i" /> —
         <strong>optical parametric amplification (OPA)</strong>. The signal is amplified while the
-        idler is generated. Phase matching: k_p = k_s + k_i.
+        idler is generated. Phase matching: <InlineMath latex="\mathbf{k}_p = \mathbf{k}_s + \mathbf{k}_i" />.
       </p>
 
       <p>
@@ -108,7 +108,7 @@ export default function NonlinearOpticsPage() {
         For silica fiber: n₂ ≈ 2.6×10⁻²⁰ m²/W. An intense pulse modulates its own phase:
       </p>
 
-      <EqNumbered number="NL.3">Δφ = n₂ I(t) ω₀ L/c &nbsp;&nbsp;&nbsp; (self-phase modulation phase shift)</EqNumbered>
+      <EqNumbered number="NL.3" latex="\Delta\phi = n_2\, I(t)\, \omega_0 L/c \qquad \text{(self-phase modulation phase shift)}" />
 
       <p>
         SPM broadens the pulse spectrum (creates new frequencies: chirp). Combined with
@@ -117,26 +117,26 @@ export default function NonlinearOpticsPage() {
         pulses that propagate without changing shape.
       </p>
 
-      <EqNumbered number="NL.4">∂A/∂z + iβ₂/2 × ∂²A/∂t² − iγ|A|²A = 0 &nbsp;&nbsp;&nbsp; (nonlinear Schrödinger equation, fiber)</EqNumbered>
+      <EqNumbered number="NL.4" latex="\frac{\partial A}{\partial z} + \frac{i\beta_2}{2}\frac{\partial^2 A}{\partial t^2} - i\gamma|A|^2 A = 0 \qquad \text{(nonlinear Schrödinger equation, fiber)}" />
 
       <p>
         The NLS equation is exactly solvable (inverse scattering). Soliton solution:
-        A(z,t) = √P_0 sech(t/T₀) e^(iγP₀z/2). Modern submarine fiber-optic cables use
+        <InlineMath latex="A(z,t) = \sqrt{P_0}\,\operatorname{sech}(t/T_0)\,e^{i\gamma P_0 z/2}" />. Modern submarine fiber-optic cables use
         soliton-like pulses and dispersion-managed transmission for Tbit/s data rates.
       </p>
 
       <h2>NL.5 Frequency Combs</h2>
 
       <p>
-        A mode-locked laser emits pulses with repetition rate f_rep. In the frequency domain:
-        a comb of modes equally spaced by f_rep, offset by f_CEO (carrier-envelope offset).
+        A mode-locked laser emits pulses with repetition rate <InlineMath latex="f_{\text{rep}}" />. In the frequency domain:
+        a comb of modes equally spaced by <InlineMath latex="f_{\text{rep}}" />, offset by <InlineMath latex="f_{\text{CEO}}" /> (carrier-envelope offset).
         The <strong>optical frequency comb</strong>:
       </p>
 
-      <EqNumbered number="NL.5">f_n = n × f_rep + f_CEO &nbsp;&nbsp;&nbsp; (optical frequency comb, n = integer)</EqNumbered>
+      <EqNumbered number="NL.5" latex="f_n = n\, f_{\text{rep}} + f_{\text{CEO}} \qquad \text{(optical frequency comb, } n \text{ = integer)}" />
 
       <p>
-        Self-referencing: use f-2f interferometry to measure f_CEO → fully determined comb.
+        Self-referencing: use f-2f interferometry to measure <InlineMath latex="f_{\text{CEO}}" /> → fully determined comb.
         Accuracy: 10⁻¹⁹ fractional (limited by optical clocks). Applications: GPS,
         optical clock comparison, search for dark matter (variation of constants),
         exoplanet spectrograph calibration (radial velocities to cm/s precision).
@@ -148,13 +148,13 @@ export default function NonlinearOpticsPage() {
           <li><strong>Nonlinear effects need high field strengths:</strong> ordinary weak light usually sees only χ⁽¹⁾.</li>
           <li><strong>Energy conservation is not enough:</strong> efficient frequency conversion also needs phase matching.</li>
           <li><strong>Self-phase modulation changes spectrum:</strong> time-dependent intensity creates time-dependent phase and frequency chirp.</li>
-          <li><strong>Comb lines need both spacing and offset:</strong> f_rep alone does not determine absolute optical frequencies.</li>
+          <li><strong>Comb lines need both spacing and offset:</strong> <InlineMath latex="f_{\text{rep}}" /> alone does not determine absolute optical frequencies.</li>
         </ul>
       </Definition>
 
       <PracticeProblems section="NL.1–NL.5 Nonlinear Optics">
         <Problem n={1} difficulty="easy"
-          solution={<>Phase matching condition for SHG: need k_(2ω) = 2k_ω → n(2ω) = n(ω). In a dispersive medium: n increases with frequency (normal dispersion). So n(2ω) &gt; n(ω) always (no phase matching). Birefringent phase matching: in a uniaxial crystal, n_e(θ) = [cos²θ/n_o² + sin²θ/n_e²]^(-1/2) depends on angle θ to the optical axis. For Type I SHG: n_e(2ω, θ_pm) = n_o(ω). Choose θ such that the extra-ordinary wave at 2ω has the same index as the ordinary wave at ω. For KDP (KH₂PO₄): n_o(1064nm) = 1.5065, n_e(532nm) = 1.4669, n_o(532nm) = 1.5126. n_e(532nm, θ) = 1.5065. sin²θ/(1/1.4669² − 1/1.5126²) + cos²θ/1.5126² = 1/1.5065². Solving: θ_pm ≈ 41°. Quasi-phase-matching in PPLN: Λ = 2L_c = 2π/Δk. For SHG of 1064→532 in LiNbO₃ at 25°C: Λ ≈ 19 μm.</>}>
+          solution={<>Phase matching condition for SHG: need <InlineMath latex="k_{2\omega} = 2k_\omega" /> → n(2ω) = n(ω). In a dispersive medium: n increases with frequency (normal dispersion). So n(2ω) &gt; n(ω) always (no phase matching). Birefringent phase matching: in a uniaxial crystal, <InlineMath latex="n_e(\theta) = \left[\cos^2\theta/n_o^2 + \sin^2\theta/n_e^2\right]^{-1/2}" /> depends on angle θ to the optical axis. For Type I SHG: <InlineMath latex="n_e(2\omega, \theta_{\text{pm}}) = n_o(\omega)" />. Choose θ such that the extra-ordinary wave at 2ω has the same index as the ordinary wave at ω. For KDP (KH₂PO₄): <InlineMath latex="n_o(1064\,\mathrm{nm}) = 1.4938,\ n_e(532\,\mathrm{nm}) = 1.4705,\ n_o(532\,\mathrm{nm}) = 1.5123" />. Require <InlineMath latex="n_e(532\,\mathrm{nm}, \theta) = 1.4938" />: <InlineMath latex="\dfrac{\cos^2\theta}{1.5123^2} + \dfrac{\sin^2\theta}{1.4705^2} = \dfrac{1}{1.4938^2}" />. Solving: <InlineMath latex="\theta_{\text{pm}} \approx 41^\circ" />. Quasi-phase-matching in PPLN: <InlineMath latex="\Lambda = 2L_c = 2\pi/\Delta k" />. For SHG of 1064→532 in LiNbO₃ at 25°C: Λ ≈ 7 μm.</>}>
           Explain why perfect phase matching is impossible in an isotropic dispersive medium for SHG. How does birefringent phase matching work, and what is quasi-phase-matching?
         </Problem>
 
@@ -165,21 +165,21 @@ export default function NonlinearOpticsPage() {
 
         <InteractiveProblem n={3} difficulty="medium"
           answer={124} unit="ps" tolerance={0.05}
-          hints={['Soliton condition N = 1: γ P₀ T₀² / |β₂| = 1, so T₀ = √(|β₂| / (γ P₀)).', 'With γ = 1.3×10⁻³ W⁻¹m⁻¹ (= 1.3 W⁻¹km⁻¹), |β₂| = 20×10⁻²⁴ s²/m, P₀ = 1×10⁻³ W.']}
+          hints={['Soliton condition N = 1: γ P₀ T₀² / |β₂| = 1, so T₀ = √(|β₂| / (γ P₀)).', 'With γ = 1.3×10⁻³ W⁻¹m⁻¹ (= 1.3 W⁻¹km⁻¹), |β₂| = 2×10⁻²⁶ s²/m (= 20 ps²/km), P₀ = 1×10⁻³ W.']}
           problemText="Find the fundamental soliton pulse duration T₀ (ps) for P₀ = 1 mW in single-mode fiber with β₂ = −20 ps²/km and γ = 1.3 W⁻¹km⁻¹."
-          solution={<>Optical soliton: balance between SPM (n₂I) and anomalous GVD (β₂ &lt; 0). The NLS equation ∂A/∂z + iβ₂/2 × ∂²A/∂T² = iγ|A|²A (anomalous β₂ &lt; 0: put β₂ → −|β₂|). Soliton condition: N² = γP₀T₀²/|β₂| = 1. Fundamental soliton: N=1. For silica fiber: γ = n₂ω/(cA_eff) ≈ 1.3 W⁻¹km⁻¹, |β₂| = 20 ps²/km at 1550 nm. For P₀ = 1 mW: T₀ = √(γP₀/|β₂|)^(-1/2) = √(1.3×10⁻³/20×10⁻²⁴)^(-1) ≈ 124 ps. FWHM = 2 ln(1+√2) × T₀ ≈ 220 ps. For P₀ = 10 mW: T₀ ≈ 70 ps, FWHM ≈ 123 ps. Higher-order solitons (N=2,3,...): breathe periodically with period z_0 = π T₀²/(2|β₂|). Raman soliton: N=1 soliton in the presence of stimulated Raman shifts red-shifts → soliton self-frequency shift, basis of supercontinuum generation in photonic crystal fiber.</>}>
+          solution={<>Optical soliton: balance between SPM (n₂I) and anomalous GVD (β₂ &lt; 0). The NLS equation ∂A/∂z + iβ₂/2 × ∂²A/∂T² = iγ|A|²A (anomalous β₂ &lt; 0: put β₂ → −|β₂|). Soliton condition: N² = γP₀T₀²/|β₂| = 1. Fundamental soliton: N=1. For silica fiber: <InlineMath latex="\gamma = n_2\omega/(cA_{\text{eff}}) \approx 1.3\ \mathrm{W^{-1}km^{-1}}" />, |β₂| = 20 ps²/km at 1550 nm. For P₀ = 1 mW: <InlineMath latex="T_0 = \sqrt{|\beta_2|/(\gamma P_0)} = \sqrt{2\times10^{-26}/(1.3\times10^{-3}\times10^{-3})} \approx 124\,\mathrm{ps}" />. FWHM = 2 ln(1+√2) × T₀ ≈ 220 ps. For P₀ = 10 mW: T₀ ≈ 39 ps, FWHM ≈ 69 ps. Higher-order solitons (N=2,3,...): breathe periodically with period <InlineMath latex="z_0 = \pi T_0^2/(2|\beta_2|)" /> (≈ 1200 km for the 1 mW, 124 ps soliton). Raman soliton: N=1 soliton in the presence of stimulated Raman shifts red-shifts → soliton self-frequency shift, basis of supercontinuum generation in photonic crystal fiber.</>}>
           Find the pulse duration T₀ (ps) and power P₀ for a fundamental optical soliton in standard single-mode fiber (β₂ = −20 ps²/km, γ = 1.3 W⁻¹km⁻¹) with P₀ = 1 mW. What is the soliton period?
         </InteractiveProblem>
 
         <Problem n={4} difficulty="hard"
-          solution={<>Optical frequency comb from mode-locked laser. Ti:sapphire laser: center λ = 800 nm, f_rep = 100 MHz (cavity length L = c/(2f_rep) = 1.5 m). N modes: spectral width Δλ = 100 nm → Δν = c Δλ/λ² = 3×10⁸×10⁻⁷/(8×10⁻⁷)² = 47 THz. Number of modes: N = Δν/f_rep = 47×10¹²/10⁸ = 470,000. f-2f interferometry: broaden spectrum to octave span with PCF. Take fundamental at ν = n f_rep + f_CEO. Double it: 2ν = 2n f_rep + 2 f_CEO. Take comb mode at 2n: 2n f_rep + f_CEO. Beat: (2n f_rep + 2 f_CEO) − (2n f_rep + f_CEO) = f_CEO. Stabilize f_CEO with AOM feedback. Stabilize f_rep with piezo on cavity mirror, referenced to GPS/Cs clock. Result: each comb tooth f_n = n×f_rep + f_CEO known to 10⁻¹⁸ fractional accuracy. Exoplanet application: 1 cm/s radial velocity → Doppler shift Δν/ν = v/c = 3×10⁻¹¹. At 500 THz: Δν = 15 kHz. Comb spacing 1 GHz → can resolve this. ESPRESSO spectrograph on VLT (2018): uses 15 GHz comb to calibrate to 30 cm/s (limiting factor: detector, not comb).</>}>
-          Describe how a mode-locked laser produces an optical frequency comb. How does f-2f interferometry stabilize f_CEO? What fractional accuracy is achievable, and how is it used in exoplanet detection?
+          solution={<>Optical frequency comb from mode-locked laser. Ti:sapphire laser: center λ = 800 nm, <InlineMath latex="f_{\text{rep}} = 100\,\mathrm{MHz}" /> (cavity length <InlineMath latex="L = c/(2f_{\text{rep}}) = 1.5\,\mathrm{m}" />). N modes: spectral width Δλ = 100 nm → Δν = c Δλ/λ² = 3×10⁸×10⁻⁷/(8×10⁻⁷)² = 47 THz. Number of modes: <InlineMath latex="N = \Delta\nu/f_{\text{rep}} = 47\times10^{12}/10^8 = 470{,}000" />. f-2f interferometry: broaden spectrum to octave span with PCF. Take fundamental at <InlineMath latex="\nu = n f_{\text{rep}} + f_{\text{CEO}}" />. Double it: <InlineMath latex="2\nu = 2n f_{\text{rep}} + 2 f_{\text{CEO}}" />. Take comb mode at 2n: <InlineMath latex="2n f_{\text{rep}} + f_{\text{CEO}}" />. Beat: <InlineMath latex="(2n f_{\text{rep}} + 2 f_{\text{CEO}}) - (2n f_{\text{rep}} + f_{\text{CEO}}) = f_{\text{CEO}}" />. Stabilize <InlineMath latex="f_{\text{CEO}}" /> with AOM feedback. Stabilize <InlineMath latex="f_{\text{rep}}" /> with piezo on cavity mirror, referenced to GPS/Cs clock. Result: each comb tooth <InlineMath latex="f_n = n f_{\text{rep}} + f_{\text{CEO}}" /> known to 10⁻¹⁸ fractional accuracy. Exoplanet application: 1 cm/s radial velocity → Doppler shift Δν/ν = v/c = 3.3×10⁻¹¹. At 500 THz: Δν ≈ 17 kHz. Comb spacing 1 GHz → can resolve this. ESPRESSO spectrograph on VLT (2018): uses 15 GHz comb to calibrate to 30 cm/s (limiting factor: detector, not comb).</>}>
+          Describe how a mode-locked laser produces an optical frequency comb. How does f-2f interferometry stabilize <InlineMath latex="f_{\text{CEO}}" />? What fractional accuracy is achievable, and how is it used in exoplanet detection?
         </Problem>
       </PracticeProblems>
 
       <Takeaways items={[
-        'Nonlinear polarization: P = ε₀(χ¹E + χ²E² + ...). χ² non-zero only in non-centrosymmetric crystals.',
-        'SHG: χ²E² contains 2ω component. Efficient only with phase matching: n(2ω) = n(ω).',
+        'Nonlinear polarization: P = ε₀(χ⁽¹⁾E + χ⁽²⁾E² + ...). χ⁽²⁾ non-zero only in non-centrosymmetric crystals.',
+        'SHG: χ⁽²⁾E² contains 2ω component. Efficient only with phase matching: n(2ω) = n(ω).',
         'OPA: ω_p → ω_s + ω_i. SPDC: vacuum fluctuations generate entangled photon pairs.',
         'Kerr effect: n = n₀ + n₂I. SPM: frequency broadening. With anomalous GVD → solitons.',
         'NLS equation: soliton N=1 balance. A = √P₀ sech(t/T₀) propagates without distortion.',

@@ -1,6 +1,6 @@
 import {
   Definition, WorkedExample, Step,
-  PracticeProblems, Problem, InteractiveProblem, EqNumbered, Prerequisites, Takeaways, LearningGoals
+  PracticeProblems, Problem, InteractiveProblem, EqNumbered, InlineMath, Prerequisites, Takeaways, LearningGoals
 } from '@/components/textbook';
 
 export default function DifferentialEquationsPage() {
@@ -43,7 +43,7 @@ export default function DifferentialEquationsPage() {
 
       <Definition number="26.1" title="First-Order Linear ODE">
         Standard form: dy/dx + P(x)y = Q(x).
-        The general solution uses an <strong>integrating factor</strong> μ(x) = exp(∫P dx):
+        The general solution uses an <strong>integrating factor</strong> <InlineMath latex="\mu(x) = e^{\int P\,dx}" />:
         <span style={{ display: 'block', textAlign: 'center', marginTop: '0.5rem', fontStyle: 'italic' }}>
           d/dx[μ(x) y] = μ(x) Q(x) &nbsp;&nbsp;→&nbsp;&nbsp; y = (1/μ) ∫ μQ dx + C/μ
         </span>
@@ -52,8 +52,8 @@ export default function DifferentialEquationsPage() {
       <p>
         The most important first-order ODE in physics is exponential growth/decay:
         dy/dt = ky. Its solution is y = y₀ eᵏᵗ. For k {'<'} 0 (decay):
-        radioactive decay (N = N₀ e^(−t/τ)), capacitor discharge (q = q₀ e^(−t/RC)),
-        Newton&apos;s law of cooling (ΔT = ΔT₀ e^(−kt)).
+        radioactive decay (<InlineMath latex="N = N_0 e^{-t/\tau}" />), capacitor discharge (<InlineMath latex="q = q_0 e^{-t/RC}" />),
+        Newton&apos;s law of cooling (<InlineMath latex="\Delta T = \Delta T_0 e^{-kt}" />).
       </p>
 
       <WorkedExample number="26.1" title="RC Circuit — Capacitor Charging">
@@ -62,10 +62,10 @@ export default function DifferentialEquationsPage() {
           The loop equation gives ε = IR + q/C, with I = dq/dt. Solve for q(t).
         </p>
         <Step label="Rewrite:">dq/dt + q/(RC) = ε/R &nbsp; (first-order linear ODE)</Step>
-        <Step label="Integrating factor:">μ = e^(t/RC)</Step>
-        <Step label="Multiply through:">d/dt[q e^(t/RC)] = (ε/R) e^(t/RC)</Step>
-        <Step label="Integrate:">q e^(t/RC) = Cε e^(t/RC) + A → q(t) = Cε + A e^(−t/RC)</Step>
-        <Step label="Initial condition:">q(0) = 0 → A = −Cε → q(t) = Cε(1 − e^(−t/RC))</Step>
+        <Step label="Integrating factor:"><InlineMath latex="\mu = e^{t/RC}" /></Step>
+        <Step label="Multiply through:"><InlineMath latex="\frac{d}{dt}\left[q\, e^{t/RC}\right] = \frac{\varepsilon}{R}\, e^{t/RC}" /></Step>
+        <Step label="Integrate:"><InlineMath latex="q\, e^{t/RC} = C\varepsilon\, e^{t/RC} + A \;\to\; q(t) = C\varepsilon + A\, e^{-t/RC}" /></Step>
+        <Step label="Initial condition:"><InlineMath latex="q(0) = 0 \;\to\; A = -C\varepsilon \;\to\; q(t) = C\varepsilon\left(1 - e^{-t/RC}\right)" /></Step>
         <Step label="Result:">q(t) = Cε(1 − e^(−t/τ)) where τ = RC is the time constant. ✓</Step>
       </WorkedExample>
 
@@ -74,11 +74,11 @@ export default function DifferentialEquationsPage() {
       <p>
         The equation m ẍ + b ẋ + kx = F(t) governs every oscillating system in physics:
         springs, LC circuits, pendulums, sound resonators. The general approach:
-        try the ansatz x = e^(rt), substitute, and solve the <strong>characteristic equation</strong>.
+        try the ansatz <InlineMath latex="x = e^{rt}" />, substitute, and solve the <strong>characteristic equation</strong>.
       </p>
 
       <Definition number="26.2" title="Characteristic Equation">
-        For ay'' + by' + cy = 0, substitute y = e^(rt):
+        For ay'' + by' + cy = 0, substitute <InlineMath latex="y = e^{rt}" />:
         <span style={{ display: 'block', textAlign: 'center', marginTop: '0.4rem', fontStyle: 'italic' }}>
           ar² + br + c = 0 &nbsp;&nbsp;&nbsp; (characteristic equation)
         </span>
@@ -122,15 +122,15 @@ export default function DifferentialEquationsPage() {
 
       <p>
         For a driven oscillator mẍ + bẋ + kx = F₀ cos(ωt), the <strong>particular solution</strong>
-        (steady-state response) has the form x_p = X cos(ωt − δ), where the amplitude is:
+        (steady-state response) has the form <InlineMath latex="x_p = X\cos(\omega t - \delta)" />, where the amplitude is:
       </p>
 
-      <EqNumbered number="26.1">X = F₀ / √[(k−mω²)² + (bω)²]</EqNumbered>
+      <EqNumbered number="26.1" latex="X = \frac{F_0}{\sqrt{(k - m\omega^2)^2 + (b\omega)^2}}" />
 
       <p>
         This is maximum when the driving frequency ω equals the natural frequency ω₀ = √(k/m)
         — this is <strong>resonance</strong>. At resonance (weak damping), the amplitude grows
-        enormously: X_res = F₀/(bω₀). The quality factor Q = mω₀/b measures the sharpness
+        enormously: <InlineMath latex="X_{\text{res}} = F_0/(b\omega_0)" />. The quality factor Q = mω₀/b measures the sharpness
         of resonance — high Q means narrow, tall peak; low Q means broad, flat response.
       </p>
 
@@ -162,7 +162,7 @@ export default function DifferentialEquationsPage() {
         </p>
         <Step label="ODE:">dN/dt = −λN, where λ = ln2/t₁/₂ = ln2/5730 yr⁻¹</Step>
         <Step label="Separate:">dN/N = −λ dt → ∫dN/N = −λ∫dt → ln N = −λt + const</Step>
-        <Step label="Solution:">N(t) = N₀ e^(−λt)</Step>
+        <Step label="Solution:"><InlineMath latex="N(t) = N_0\, e^{-\lambda t}" /></Step>
         <Step label="Apply N/N₀ = 0.30:">0.30 = e^(−λt) → −λt = ln(0.30) = −1.204</Step>
         <Step label="Age:">t = 1.204/λ = 1.204 × 5730/ln2 = 1.204 × 8267 = <strong>9,950 years</strong></Step>
       </WorkedExample>

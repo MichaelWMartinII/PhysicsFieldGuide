@@ -1,7 +1,7 @@
 import RayOpticsClient from '@/components/sims/RayOpticsClient';
 import {
   Definition, Theorem, WorkedExample, Step,
-  PracticeProblems, Problem, InteractiveProblem, EqNumbered, Figure, Prerequisites, Takeaways, LearningGoals, HistoryNote
+  PracticeProblems, Problem, InteractiveProblem, EqNumbered, InlineMath, Figure, Prerequisites, Takeaways, LearningGoals, HistoryNote
 } from '@/components/textbook';
 
 export default function GeometricOpticsPage() {
@@ -55,9 +55,9 @@ export default function GeometricOpticsPage() {
       <EqNumbered number="19.2">1/d_o + 1/d_i = 1/f = 2/R</EqNumbered>
 
       <p>
-        where d_o is the object distance, d_i is the image distance, f is the focal length,
+        where <InlineMath latex="d_o" /> is the object distance, <InlineMath latex="d_i" /> is the image distance, f is the focal length,
         and R is the radius of curvature. A concave mirror has f {'>'} 0; convex has f {'<'} 0.
-        The magnification m = −d_i/d_o: negative means inverted.
+        The magnification <InlineMath latex="m = -d_i/d_o" />: negative means inverted.
       </p>
 
       <h2>19.2 Refraction and Snell&apos;s Law</h2>
@@ -80,7 +80,7 @@ export default function GeometricOpticsPage() {
         When light travels from a dense medium (n₁) to a less dense medium (n₂ {'<'} n₁),
         there exists a critical angle θ_c above which all light is reflected and none transmitted:
         <span style={{ display: 'block', textAlign: 'center', marginTop: '0.5rem', fontStyle: 'italic' }}>
-          θ_c = arcsin(n₂/n₁)
+          <InlineMath latex="\theta_c = \arcsin(n_2/n_1)" />
         </span>
         For glass-air (n₁=1.5, n₂=1.0): θ_c = arcsin(1/1.5) = 41.8°. This is the principle
         behind optical fiber communication: light is trapped inside the fiber by total internal
@@ -146,9 +146,9 @@ export default function GeometricOpticsPage() {
           Two converging lenses, f₁ = 30 cm and f₂ = 10 cm, are 20 cm apart. Object is 45 cm
           to the left of lens 1. Find the final image.
         </p>
-        <Step label="Lens 1:">1/di₁ = 1/30 − 1/45 = 3/90 − 2/90 = 1/90 → di₁ = 90 cm</Step>
-        <Step label="Object for lens 2:">do₂ = 20 − 90 = −70 cm (virtual object, behind lens 2)</Step>
-        <Step label="Lens 2:">1/di₂ = 1/10 − 1/(−70) = 7/70 + 1/70 = 8/70 → di₂ = 8.75 cm</Step>
+        <Step label="Lens 1:"><InlineMath latex="1/d_{i,1} = 1/30 - 1/45 = 3/90 - 2/90 = 1/90 \;\Rightarrow\; d_{i,1} = 90\,\mathrm{cm}" /></Step>
+        <Step label="Object for lens 2:"><InlineMath latex="d_{o,2} = 20 - 90 = -70\,\mathrm{cm}" /> (virtual object, behind lens 2)</Step>
+        <Step label="Lens 2:"><InlineMath latex="1/d_{i,2} = 1/10 - 1/(-70) = 7/70 + 1/70 = 8/70 \;\Rightarrow\; d_{i,2} = 8.75\,\mathrm{cm}" /></Step>
         <Step label="Final image:">8.75 cm to the right of lens 2. Real and inverted.</Step>
       </WorkedExample>
 
@@ -172,9 +172,9 @@ export default function GeometricOpticsPage() {
 
         <InteractiveProblem n={2} difficulty="easy"
           answer={30} unit="cm" tolerance={0.02}
-          hints={['1/di = 1/f − 1/do = 1/20 − 1/60. Find a common denominator.']}
+          hints={['1/d_i = 1/f − 1/d_o = 1/20 − 1/60. Find a common denominator.']}
           problemText="Lens f=20 cm, object at 60 cm. Find image distance di (cm)."
-          solution={<>1/di = 1/20 − 1/60 = 2/60. di = <strong>30 cm</strong></>}>
+          solution={<><InlineMath latex="1/d_i = 1/20 - 1/60 = 2/60" />. <InlineMath latex="d_i =" /> <strong>30 cm</strong></>}>
           A converging lens (f = 20 cm) has an object 60 cm away. Find the image distance.
         </InteractiveProblem>
 
@@ -192,8 +192,8 @@ export default function GeometricOpticsPage() {
         </Problem>
 
         <Problem n={5} difficulty="hard"
-          solution={<>A simple telescope uses two converging lenses: objective (long f_obj) and eyepiece (short f_eye). An object at infinity forms an image at f_obj. This image serves as object for the eyepiece, placed at distance f_eye from it. Angular magnification M = −f_obj/f_eye. For f_obj = 100 cm, f_eye = 5 cm: M = −20 (20×, inverted). Total length = f_obj + f_eye = 105 cm.</>}>
-          Derive the angular magnification of a simple two-lens telescope with objective focal length f_obj and eyepiece focal length f_eye. If f_obj = 100 cm and f_eye = 5 cm, what is the magnification and tube length?
+          solution={<>A simple telescope uses two converging lenses: objective (long <InlineMath latex="f_{\text{obj}}" />) and eyepiece (short <InlineMath latex="f_{\text{eye}}" />). An object at infinity forms an image at <InlineMath latex="f_{\text{obj}}" />. This image serves as object for the eyepiece, placed at distance <InlineMath latex="f_{\text{eye}}" /> from it. Angular magnification <InlineMath latex="M = -f_{\text{obj}}/f_{\text{eye}}" />. For <InlineMath latex="f_{\text{obj}} = 100\,\mathrm{cm},\ f_{\text{eye}} = 5\,\mathrm{cm}" />: M = −20 (20×, inverted). Total length = <InlineMath latex="f_{\text{obj}} + f_{\text{eye}} = 105\,\mathrm{cm}" />.</>}>
+          Derive the angular magnification of a simple two-lens telescope with objective focal length <InlineMath latex="f_{\text{obj}}" /> and eyepiece focal length <InlineMath latex="f_{\text{eye}}" />. If <InlineMath latex="f_{\text{obj}}" /> = 100 cm and <InlineMath latex="f_{\text{eye}}" /> = 5 cm, what is the magnification and tube length?
         </Problem>
       </PracticeProblems>
 

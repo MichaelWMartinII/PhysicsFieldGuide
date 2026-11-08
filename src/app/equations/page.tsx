@@ -159,9 +159,18 @@ function EquationCard({ eq }: { eq: PhysicsEquation }) {
         <InlineMath latex={eq.latex} />
       </div>
       <div style={{ fontFamily: 'Georgia, serif', fontSize: '0.79rem', color: 'var(--muted)', lineHeight: 1.6 }}>
-        {eq.description}
+        <Description text={eq.descriptionTex ?? eq.description} />
       </div>
     </div>
+  );
+}
+
+// Descriptions are plain text with optional $…$ spans of inline LaTeX.
+function Description({ text }: { text: string }) {
+  return (
+    <>
+      {text.split('$').map((part, i) => (i % 2 === 1 ? <InlineMath key={i} latex={part} /> : part))}
+    </>
   );
 }
 

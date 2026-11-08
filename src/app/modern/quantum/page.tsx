@@ -2,7 +2,7 @@ import QuantumWellClient from '@/components/sims/QuantumWellClient';
 import {
   Definition, Theorem, WorkedExample, Step,
   PracticeProblems, Problem, InteractiveProblem, EqNumbered, Figure, Prerequisites, Takeaways, LearningGoals, HistoryNote,
-  Misconception
+  Misconception, InlineMath
 } from '@/components/textbook';
 
 export default function QuantumPage() {
@@ -56,7 +56,7 @@ export default function QuantumPage() {
           trigger="Schrödinger"
           year="1926"
           title="Quantization as an eigenvalue problem"
-          source="Erwin Schrodinger, Quantisierung als Eigenwertproblem."
+          source="Erwin Schrödinger, Quantisierung als Eigenwertproblem."
           sourceUrl="https://commons.wikimedia.org/wiki/File:Quantisierung_als_Eigenwertproblem.pdf"
           furtherReading={[{ label: "Erwin Schrödinger", url: "https://en.wikipedia.org/wiki/Erwin_Schr%C3%B6dinger" }]}
         >
@@ -72,7 +72,7 @@ export default function QuantumPage() {
       <Definition number="22.1" title="De Broglie Hypothesis (1924)">
         Every particle with momentum p has an associated wavelength:
         <span style={{ display: 'block', textAlign: 'center', marginTop: '0.5rem', fontStyle: 'italic' }}>
-          λ = h/p = h/(mv) &nbsp;&nbsp;&nbsp; (de Broglie wavelength)
+          <InlineMath latex="\lambda = \frac{h}{p} = \frac{h}{mv} \qquad \text{(de Broglie wavelength)}" />
         </span>
         This applies to electrons, protons, neutrons — and, in principle, baseballs, though
         their wavelengths (~10⁻³⁴ m) are unmeasurably small. For electrons at atomic scales,
@@ -102,7 +102,7 @@ export default function QuantumPage() {
         It is impossible to simultaneously know a particle&apos;s position and momentum with
         arbitrary precision. The product of their uncertainties is bounded:
         <span style={{ display: 'block', textAlign: 'center', marginTop: '0.5rem', fontStyle: 'italic' }}>
-          Δx · Δp ≥ ℏ/2 &nbsp;&nbsp;&nbsp; (ℏ = h/2π = 1.055×10⁻³⁴ J·s)
+          <InlineMath latex="\Delta x \cdot \Delta p \ge \frac{\hbar}{2} \qquad (\hbar = h/2\pi = 1.055\times 10^{-34}\ \text{J·s})" />
         </span>
         Similarly for energy and time: ΔE · Δt ≥ ℏ/2.
       </Definition>
@@ -148,7 +148,7 @@ export default function QuantumPage() {
         the <strong>wavefunction</strong>:
       </p>
 
-      <EqNumbered number="22.1">iℏ ∂ψ/∂t = [−ℏ²/2m · ∂²/∂x² + V(x)] ψ</EqNumbered>
+      <EqNumbered number="22.1" latex="i\hbar \frac{\partial\psi}{\partial t} = \left[-\frac{\hbar^2}{2m}\frac{\partial^2}{\partial x^2} + V(x)\right] \psi" />
 
       <p>
         The wavefunction ψ is complex-valued. Its physical meaning, given by Born (1926):
@@ -160,11 +160,11 @@ export default function QuantumPage() {
         For a particle in a box (infinite square well of width L), the allowed energies are:
       </p>
 
-      <EqNumbered number="22.2">E_n = n² π² ℏ² / (2mL²) &nbsp;&nbsp;&nbsp; n = 1, 2, 3, …</EqNumbered>
+      <EqNumbered number="22.2" latex="E_n = \frac{n^2 \pi^2 \hbar^2}{2mL^2} \qquad n = 1, 2, 3, \ldots" />
 
       <p>
         Energy is quantized — only discrete values are allowed. This is not an assumption;
-        it follows from the boundary conditions on ψ. The wavefunctions are ψ_n(x) = √(2/L) sin(nπx/L),
+        it follows from the boundary conditions on ψ. The wavefunctions are <InlineMath latex="\psi_n(x) = \sqrt{2/L}\, \sin(n\pi x/L)" />,
         standing waves just like a guitar string — but the &quot;string&quot; is a probability amplitude.
       </p>
 
@@ -193,7 +193,7 @@ export default function QuantumPage() {
           answer={1.22} unit="eV" tolerance={0.03}
           hints={['E = hf. First find f = c/λ. Then convert J to eV: 1 eV = 1.602×10⁻¹⁹ J.']}
           problemText="Find the photon energy (eV) for λ = 1020 nm light."
-          solution={<>E = hc/λ = (6.626e-34 × 3e8)/(1020e-9) = 1.95e-19 J = <strong>1.22 eV</strong></>}>
+          solution={<>E = hc/λ = (6.626×10⁻³⁴ × 3×10⁸)/(1020×10⁻⁹) = 1.95×10⁻¹⁹ J = <strong>1.22 eV</strong></>}>
           A photon has wavelength λ = 1020 nm. Find its energy in eV.
         </InteractiveProblem>
 
@@ -201,7 +201,7 @@ export default function QuantumPage() {
           answer={0.1226} unit="nm" tolerance={0.02}
           hints={['λ = h/p. Find p from K = eV = p²/2m.']}
           problemText="Electron accelerated through 100 V. Find de Broglie wavelength (nm)."
-          solution={<>p = √(2 × 9.11e-31 × 1.6e-17) = 5.40e-24. λ = 6.626e-34/5.40e-24 = <strong>0.1226 nm</strong></>}>
+          solution={<>p = √(2 × 9.11×10⁻³¹ × 1.6×10⁻¹⁷) = 5.40×10⁻²⁴ kg·m/s. λ = 6.626×10⁻³⁴/5.40×10⁻²⁴ = <strong>0.1226 nm</strong></>}>
           An electron is accelerated through 100 V. Find its de Broglie wavelength.
         </InteractiveProblem>
 
@@ -209,12 +209,12 @@ export default function QuantumPage() {
           answer={0.96} unit="eV" tolerance={0.05}
           hints={['Δp_min = ℏ/(2Δx). K = Δp²/(2m). Convert to eV.']}
           problemText="Electron confined to Δx=0.1 nm. Find minimum kinetic energy (eV)."
-          solution={<>Δp = 1.055e-34/(2e-10) = 5.28e-25. K = (5.28e-25)²/(2×9.11e-31) = 1.53e-19 J = <strong>0.96 eV</strong></>}>
+          solution={<>Δp = 1.055×10⁻³⁴/(2×10⁻¹⁰) = 5.28×10⁻²⁵ kg·m/s. K = (5.28×10⁻²⁵)²/(2×9.11×10⁻³¹) = 1.53×10⁻¹⁹ J = <strong>0.96 eV</strong></>}>
           An electron is confined to Δx = 0.1 nm. Estimate its minimum kinetic energy from the uncertainty principle.
         </InteractiveProblem>
 
         <Problem n={4} difficulty="medium"
-          solution={<>Particle in box with L = 0.5 nm (5×10⁻¹⁰ m), m = electron mass. E_n = n²π²ℏ²/(2mL²). E₁ = π²(1.055e−34)²/(2×9.11e−31×(5e−10)²) = 2.41e−19 J = 1.51 eV. E₂ = 4E₁ = 6.02 eV. E₃ = 9E₁ = 13.5 eV. Transition 3→2: ΔE = 7.52 eV → λ = hc/ΔE = (4.136e−15 eV·s × 3e8)/7.52 = 165 nm (UV).</>}>
+          solution={<>Particle in box with L = 0.5 nm (5×10⁻¹⁰ m), m = electron mass. E_n = n²π²ℏ²/(2mL²). E₁ = π²(1.055×10⁻³⁴)²/(2×9.11×10⁻³¹×(5×10⁻¹⁰)²) = 2.41×10⁻¹⁹ J = 1.51 eV. E₂ = 4E₁ = 6.02 eV. E₃ = 9E₁ = 13.5 eV. Transition 3→2: ΔE = 7.52 eV → λ = hc/ΔE = (4.136×10⁻¹⁵ eV·s × 3×10⁸ m/s)/7.52 eV = 165 nm (UV).</>}>
           An electron is confined in a 1D box of width L = 0.5 nm. Find the energies of the first three levels and the wavelength of the photon emitted in the 3→2 transition.
         </Problem>
 

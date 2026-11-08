@@ -1,7 +1,7 @@
 import KineticGasClient from '@/components/sims/KineticGasClient';
 import {
   Definition, WorkedExample, Step,
-  PracticeProblems, Problem, InteractiveProblem, EqNumbered, Figure, Prerequisites, Takeaways, LearningGoals, HistoryNote
+  PracticeProblems, Problem, InteractiveProblem, EqNumbered, InlineMath, Figure, Prerequisites, Takeaways, LearningGoals, HistoryNote
 } from '@/components/textbook';
 
 export default function HeatPage() {
@@ -18,7 +18,7 @@ export default function HeatPage() {
         'Apply Q = mcΔT to calculate heat exchange and final equilibrium temperature in mixing problems.',
         'Identify the three mechanisms of heat transfer and apply Fourier\'s and Stefan-Boltzmann\'s laws.',
         'Calculate latent heat for phase changes using Q = mL.',
-        'Compute rms molecular speed from the kinetic theory formula v_rms = √(3k_BT/m).',
+        'Compute rms molecular speed from the kinetic theory formula v_rms = √(3k_B T/m).',
       ]} />
 
       <h2>12.1 Temperature and the Zeroth Law</h2>
@@ -106,8 +106,8 @@ export default function HeatPage() {
       <EqNumbered number="12.4" latex="Q=mL" />
 
       <p>
-        where L is the <strong>latent heat</strong> (J/kg). For water: L_fusion = 334 kJ/kg (melting ice),
-        L_vaporization = 2257 kJ/kg (boiling water). The enormous L_vap is why sweating cools you so
+        where L is the <strong>latent heat</strong> (J/kg). For water: <InlineMath latex="L_{\text{fusion}} = 334\ \text{kJ/kg}" /> (melting ice),
+        <InlineMath latex="L_{\text{vaporization}} = 2257\ \text{kJ/kg}" /> (boiling water). The enormous <InlineMath latex="L_{\text{vap}}" /> is why sweating cools you so
         effectively — evaporating 1 g of sweat removes 2257 J from your skin.
       </p>
 
@@ -115,7 +115,7 @@ export default function HeatPage() {
         When an isolated system reaches thermal equilibrium, all heat exchange has ceased.
         For two objects mixing: the total enthalpy is conserved (no work done, no phase change):
         <span style={{ display: 'block', margin: '0.5rem 0 0.25rem 1rem', fontStyle: 'italic' }}>
-          Σ mᵢcᵢ(Tᶠ − Tᵢ) = 0
+          <InlineMath latex="\sum_i m_i c_i (T_f - T_i) = 0" />
         </span>
         Each term is positive if the object gains heat, negative if it loses heat. The sum is exactly zero
         for a perfectly insulated system.
@@ -128,11 +128,11 @@ export default function HeatPage() {
         For an ideal gas of N molecules, the equipartition theorem gives:
       </p>
 
-      <EqNumbered number="12.5" latex="\frac{1}{2}mv_\mathrm{rms}^2=\frac{3}{2}k_BT \qquad v_\mathrm{rms}=\sqrt{\frac{3k_BT}{m}}" />
+      <EqNumbered number="12.5" latex="\frac{1}{2}mv_\mathrm{rms}^2=\frac{3}{2}k_B T \qquad v_\mathrm{rms}=\sqrt{\frac{3k_B T}{m}}" />
 
       <p>
-        where k_B = 1.38×10⁻²³ J/K is Boltzmann&apos;s constant. At room temperature (T = 293 K),
-        nitrogen molecules move at v_rms ≈ 511 m/s — faster than a rifle bullet. The simulation
+        where <InlineMath latex="k_B = 1.38 \times 10^{-23}\ \text{J/K}" /> is Boltzmann&apos;s constant. At room temperature (T = 293 K),
+        nitrogen molecules move at <InlineMath latex="v_{\text{rms}} \approx 511\ \text{m/s}" /> — faster than the speed of sound in air. The simulation
         below shows this directly: faster particles appear redder.
       </p>
 
@@ -141,9 +141,9 @@ export default function HeatPage() {
       </Figure>
 
       <WorkedExample number="12.2" title="RMS Speed of Oxygen">
-        <p>Find the rms speed of O₂ molecules at T = 300 K. (m_O₂ = 32 u = 5.31×10⁻²⁶ kg)</p>
-        <Step label="Formula:">v_rms = √(3k_BT/m)</Step>
-        <Step label="Calculate:">v_rms = √(3 × 1.38×10⁻²³ × 300 / 5.31×10⁻²⁶) = √(2.34×10⁵) = <strong>484 m/s</strong></Step>
+        <p>Find the rms speed of O₂ molecules at T = 300 K. (<InlineMath latex="m_{\text{O}_2} = 32\ \text{u} = 5.31 \times 10^{-26}\ \text{kg}" />)</p>
+        <Step label="Formula:"><InlineMath latex="v_{\text{rms}} = \sqrt{3k_B T/m}" /></Step>
+        <Step label="Calculate:"><InlineMath latex="v_{\text{rms}} = \sqrt{3 \times 1.38 \times 10^{-23} \times 300 / 5.31 \times 10^{-26}} = \sqrt{2.34 \times 10^5}" /> = <strong>484 m/s</strong></Step>
       </WorkedExample>
 
       <Definition number="12.3" title="Common Traps">
@@ -195,7 +195,7 @@ export default function HeatPage() {
         </InteractiveProblem>
 
         <Problem n={5} difficulty="hard"
-          solution={<>The bullet&apos;s kinetic energy converts to heat: Q = ½mv² = ½(0.010)(300)² = 450 J. If the embedded bullet and wood block reach a common final temperature, they have the same temperature rise: ΔT = Q/(m_bullet c_Pb + m_block c_wood). With c_Pb ≈ 128 J/kg·K and c_wood ≈ 1700 J/kg·K, the total heat capacity is 0.010×128 + 0.5×1700 = 851.28 J/K. Thus ΔT = 450/851.28 = <strong>0.53°C</strong>. In a real impact, local heating near the collision path can be much larger before heat spreads through the whole block.</>}>
+          solution={<>The bullet&apos;s kinetic energy converts to heat: Q = ½mv² = ½(0.010)(300)² = 450 J. If the embedded bullet and wood block reach a common final temperature, they have the same temperature rise: <InlineMath latex="\Delta T = Q/(m_{\text{bullet}} c_{\text{Pb}} + m_{\text{block}} c_{\text{wood}})" />. With <InlineMath latex="c_{\text{Pb}} \approx 128\ \text{J/kg·K}" /> and <InlineMath latex="c_{\text{wood}} \approx 1700\ \text{J/kg·K}" />, the total heat capacity is 0.010×128 + 0.5×1700 = 851.28 J/K. Thus ΔT = 450/851.28 = <strong>0.53°C</strong>. In a real impact, local heating near the collision path can be much larger before heat spreads through the whole block.</>}>
           A 10 g lead bullet (c = 128 J/kg·K) moving at 300 m/s embeds in a 0.5 kg wood block (c = 1700 J/kg·K). Assuming all kinetic energy converts to heat, estimate the temperature rise of the bullet.
         </Problem>
       </PracticeProblems>
@@ -205,7 +205,7 @@ export default function HeatPage() {
         'T(K) = T(°C) + 273.15 — always use Kelvin in thermodynamic formulas.',
         'Q = mcΔT for sensible heat; Q = mL for phase changes at constant temperature.',
         'Three mechanisms: conduction (contact), convection (fluid flow), radiation (EM waves).',
-        'Kinetic theory: v_rms = √(3k_BT/m) — molecules at room temperature move at hundreds of m/s.',
+        'Kinetic theory: v_rms = √(3k_B T/m) — molecules at room temperature move at hundreds of m/s.',
       ]} />
     </div>
   );
